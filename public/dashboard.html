@@ -103,12 +103,7 @@
         
         <div class="row">
             <div class="col-md-4">
-                <div class="stats-card">
-                    <h3>Statistics</h3>
-                    <div id="stats-content">
-                        <p>Loading statistics...</p>
-                    </div>
-                </div>
+                
                 
                 <div class="nav-menu">
                     <h3>Navigation</h3>
@@ -262,21 +257,7 @@
                     typeCounts[type] = (typeCounts[type] || 0) + 1;
                 });
                 
-                statsContainer.innerHTML = `
-                    <p><strong>Total Records:</strong> ${totalRecords}</p>
-                    <p><strong>By Type:</strong></p>
-                    <ul>
-                        ${Object.entries(typeCounts).map(([type, count]) => 
-                            `<li>${type}: ${count}</li>`
-                        ).join('')}
-                    </ul>
-                    <p><strong>Recently Added:</strong></p>
-                    <ul>
-                        ${recentRecords.map(item => 
-                            `<li>${item.loco_no || 'N/A'} (${item.type || 'N/A'}) - ${new Date(item.createdAt).toLocaleDateString() || 'N/A'}</li>`
-                        ).join('')}
-                    </ul>
-                `;
+                
             }
             
             // Initial fetch
