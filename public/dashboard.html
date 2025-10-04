@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inspection Check Sheets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stats-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .stats-card h3 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        
+        .data-list-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .data-item {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .data-item:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-menu {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .nav-menu h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        .nav-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Inspection Check Sheets Dashboard</h1>
+            <p class="text-muted">Overview of all inspection records</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <h3>Statistics</h3>
+                    <div id="stats-content">
+                        <p>Loading statistics...</p>
+                    </div>
+                </div>
+                
+                <div class="nav-menu">
+                    <h3>Navigation</h3>
+                <ul id="menu-list" style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="/dashboard" style="text-decoration: none; color: #007bff; font-weight: bold;">Dashboard</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/vcb-sch-conventional-loco" style="text-decoration: none; color: #007bff;">VCB SCH Conventional Loco</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/vcb-aal-conventional-loco" style="text-decoration: none; color: #007bff;">VCB AAL Conventional Loco</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/tm" style="text-decoration: none; color: #007bff;">TM</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/panel-shop" style="text-decoration: none; color: #007bff;">Panel Shop</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/rsi" style="text-decoration: none; color: #007bff;">RSI</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/driving-desk" style="text-decoration: none; color: #007bff;">Driving Desk</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/misc" style="text-decoration: none; color: #007bff;">Misc</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/compressor-1000-lpm" style="text-decoration: none; color: #007bff;">Compressor 1000 LPM</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/compressor-1750-lpm" style="text-decoration: none; color: #007bff;">Compressor 1750 LPM</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/panto" style="text-decoration: none; color: #007bff;">Panto</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/relay" style="text-decoration: none; color: #007bff;">Relay</a></li>
+                    <li style="margin-bottom: 10px;"><a href="/valve" style="text-decoration: none; color: #007bff;">Valve</a></li>
+                </ul>
+                        </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="data-list-container">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3>All Check Sheets</h3>
+                        <button id="refresh-list" class="btn btn-primary">Refresh Data</button>
+                    </div>
+                    <div id="data-list-content">
+                        <p>Loading data...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+    <script>
+        // Dashboard specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove any existing navigation menu that might be added by app.js
+            const existingNav = document.getElementById('navigation-menu');
+            if (existingNav) {
+                existingNav.remove();
+                // Reset body padding
+                document.body.style.paddingLeft = '20px';
+            }
+            
+            // Fetch and display both data list and statistics in a single API call
+            function fetchData() {
+                fetch('/api/checksheets')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Update data list
+                            updateDataList(data.data);
+                            
+                            // Update statistics
+                            updateStats(data.data);
+                        } else {
+                            document.getElementById('data-list-content').innerHTML = '<p class="text-center text-danger">Error loading data. Please try again.</p>';
+                            document.getElementById('stats-content').innerHTML = '<p class="text-danger">Error loading statistics.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        document.getElementById('data-list-content').innerHTML = '<p class="text-center text-danger">Error loading data. Please try again.</p>';
+                        document.getElementById('stats-content').innerHTML = '<p class="text-danger">Error loading statistics.</p>';
+                    });
+            }
+            
+            // Update data list display
+            function updateDataList(data) {
+                const listContainer = document.getElementById('data-list-content');
+                if (data.length > 0) {
+                    let html = '';
+                    data.forEach(item => {
+                        // Map each type to its corresponding route
+                        let route = '/vcb-sch-conventional-loco'; // default
+                        switch(item.type) {
+                            case 'VCB AAL':
+                                route = '/vcb-aal-conventional-loco';
+                                break;
+                            case 'TM':
+                                route = '/tm';
+                                break;
+                            case 'Panel Shop':
+                                route = '/panel-shop';
+                                break;
+                            case 'RSI':
+                                route = '/rsi';
+                                break;
+                            case 'Driving Desk':
+                                route = '/driving-desk';
+                                break;
+                            case 'Misc':
+                                route = '/misc';
+                                break;
+                            case 'Compressor 1000 LPM':
+                                route = '/compressor-1000-lpm';
+                                break;
+                            case 'Compressor 1750 LPM':
+                                route = '/compressor-1750-lpm';
+                                break;
+                            case 'Panto':
+                                route = '/panto';
+                                break;
+                            case 'Relay':
+                                route = '/relay';
+                                break;
+                            case 'Valve':
+                                route = '/valve';
+                                break;
+                            default:
+                                route = '/vcb-sch-conventional-loco';
+                        }
+                        
+                        html += `
+                            <div class="data-item">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>${item.loco_no || 'N/A'}</h5>
+                                        <p class="text-muted mb-1">Shed: ${item.shed || 'N/A'}</p>
+                                        <p class="text-muted mb-1">Type: ${item.type || 'N/A'}</p>
+                                    </div>
+                                    <div class="col-md-6 text-md-end">
+                                        <p class="mb-1">VCB SL No: ${item.vcb_sl_no || 'N/A'}</p>
+                                        <p class="text-muted mb-2">Date: ${new Date(item.createdAt).toLocaleDateString() || 'N/A'}</p>
+                                        <a href="${route}/edit/${item._id}" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    listContainer.innerHTML = html;
+                } else {
+                    listContainer.innerHTML = '<p class="text-center text-muted">No check sheets found in the database.</p>';
+                }
+            }
+            
+            // Update statistics display
+            function updateStats(data) {
+                const statsContainer = document.getElementById('stats-content');
+                const totalRecords = data.length;
+                const recentRecords = data.slice(0, 5); // Last 5 records
+                
+                // Count by type
+                const typeCounts = {};
+                data.forEach(item => {
+                    const type = item.type || 'Unknown';
+                    typeCounts[type] = (typeCounts[type] || 0) + 1;
+                });
+                
+                statsContainer.innerHTML = `
+                    <p><strong>Total Records:</strong> ${totalRecords}</p>
+                    <p><strong>By Type:</strong></p>
+                    <ul>
+                        ${Object.entries(typeCounts).map(([type, count]) => 
+                            `<li>${type}: ${count}</li>`
+                        ).join('')}
+                    </ul>
+                    <p><strong>Recently Added:</strong></p>
+                    <ul>
+                        ${recentRecords.map(item => 
+                            `<li>${item.loco_no || 'N/A'} (${item.type || 'N/A'}) - ${new Date(item.createdAt).toLocaleDateString() || 'N/A'}</li>`
+                        ).join('')}
+                    </ul>
+                `;
+            }
+            
+            // Initial fetch
+            fetchData();
+            
+            // Refresh button event listener
+            document.getElementById('refresh-list').addEventListener('click', function() {
+                fetchData();
+            });
+        });
+    </script>
+</body>
+</html>

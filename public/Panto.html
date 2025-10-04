@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compressor Inspection Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1px solid #000;
+        }
+        
+        .header-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+        }
+        
+        .header-table .label {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            width: 180px;
+        }
+        
+        .header-table .value {
+            background-color: white;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+        
+        .main-table th,
+        .main-table td {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 11px;
+        }
+        
+        .main-table th {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .main-table .test-column {
+            width: 160px;
+        }
+        
+        .main-table .reference-column {
+            width: 150px;
+        }
+        
+        .main-table .standard-column {
+            width: 90px;
+        }
+        
+        .main-table .actual-column {
+            width: 70px;
+            text-align: center;
+        }
+        
+        .input-field {
+            width: 100%;
+            height: 24px;
+            border: 1px solid #ccc;
+            padding: 2px 4px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            border-radius: 2px;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #007acc;
+            background-color: white;
+        }
+        
+        .sn-column {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .sub-item {
+            padding-left: 15px;
+            font-size: 10px;
+        }
+        
+        .small-text {
+            font-size: 10px;
+        }
+        
+        .section-title {
+            background-color: #C0C0C0;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .main-table {
+                font-size: 10px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 4px 2px;
+            }
+            
+            .input-field {
+                height: 20px;
+                font-size: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-table {
+                font-size: 9px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 3px 1px;
+            }
+            
+            .input-field {
+                height: 18px;
+                font-size: 9px;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <!-- Hidden ID field for edit functionality -->
+        <input type="hidden" id="id" name="id" value="">
+         
+        <section>
+        <table class="main-table">
+            <tr>
+                <td colspan="3" class="header-cell">SECTION</td>
+                <td colspan="4" class="header-cell">PANTOGRAPH & BRAKE CYLINDER (Shop-09)</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="header-cell">Loco no./Type/Shed</td>
+                <td colspan="4"><input type="text" class="input-field" name="loco_details" id="loco_details"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="header-cell">Month of Overhauling</td>
+                <td colspan="4"><input type="text" class="input-field" name="overhaul_month" id="overhaul_month"></td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="gray-header equipment-cell">EQPT</td>
+                <td rowspan="2" class="gray-header sn-cell">SN</td>
+                <td rowspan="2" class="gray-header test-cell">TEST</td>
+                <td rowspan="2" class="gray-header"> </td>
+                <td rowspan="2" class="gray-header standard-cell">STANDARD</td>
+                <td colspan="2" class="gray-header">ACTUAL</td>
+            </tr>
+            <tr>
+                <td class="gray-header actual-pt1">PT-1</td>
+                <td class="gray-header actual-pt2">PT-2</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td class="header-cell">In Coming Equipment Sr. No.</td>
+                <td> </td>
+                <td> </td>
+                <td><input type="text" class="input-field" name="actual_pt1_1" id="actual_pt1_1"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_1" id="actual_pt2_1"></td>
+            </tr>
+            <tr>
+                <td rowspan="13" class="pantograph-label">PANTOGRAPH</td>
+                <td> </td>
+                <td class="header-cell">Out Going Equipment Sr. No.</td>
+                <td> </td>
+                <td> </td>
+                <td><input type="text" class="input-field" name="actual_pt1_2" id="actual_pt1_2"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_2" id="actual_pt2_2"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td class="test-description">Name of the Equipment Panto/(AM-12 /AM-92/03H Type)</td>
+                <td> </td>
+                <td> </td>
+                <td><input type="text" class="input-field" name="actual_pt1_3" id="actual_pt1_3"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_3" id="actual_pt2_3"></td>
+            </tr>
+            <tr>
+                <td class="row-number">1</td>
+                <td class="test-description">Check visually the main springs for cracks.</td>
+                <td class="standard-value">MM SIL Pg No-15</td>
+                <td class="standard-value">No Crack.</td>
+                <td><input type="text" class="input-field" name="actual_pt1_4" id="actual_pt1_4"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_4" id="actual_pt2_4"></td>
+            </tr>
+            <tr>
+                <td class="row-number">2</td>
+                <td class="test-description">Metalized Carbon Strip Size</td>
+                <td class="standard-value">ELRS/MS/265</td>
+                <td class="standard-value">Should not be less than 3.5 mm above Metal Surface</td>
+                <td><input type="text" class="input-field" name="actual_pt1_5" id="actual_pt1_5"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_5" id="actual_pt2_5"></td>
+            </tr>
+            <tr>
+                <td class="row-number">3</td>
+                <td class="test-description">Min. working air pressure for complete extension of Pantograph</td>
+                <td class="standard-value">MM SIL Pg No-7</td>
+                <td class="standard-value">4.5 Kg/Cm2</td>
+                <td><input type="text" class="input-field" name="actual_pt1_6" id="actual_pt1_6"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_6" id="actual_pt2_6"></td>
+            </tr>
+            <tr>
+                <td class="row-number">4</td>
+                <td class="test-description">Checking Raising time of Pantograph</td>
+                <td class="standard-value">RDSO/2008/EL/SPEC/66</td>
+                <td class="standard-value">6 to 10 Sec up to 1.5mtr height</td>
+                <td><input type="text" class="input-field" name="actual_pt1_7" id="actual_pt1_7"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_7" id="actual_pt2_7"></td>
+            </tr>
+            <tr>
+                <td class="row-number">5</td>
+                <td class="test-description">Checking Lowering time of Pantograph</td>
+                <td class="standard-value">RDSO/2008/EL/SPEC/66</td>
+                <td class="standard-value">10 Sec. (Max) from the height of 1.5mtr to 0 mtr</td>
+                <td><input type="text" class="input-field" name="actual_pt1_8" id="actual_pt1_8"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_8" id="actual_pt2_8"></td>
+            </tr>
+            <tr>
+                <td class="row-number">6</td>
+                <td class="test-description">Check the transverse flexibility of Pantograph pan when Panto is raised to 1.5 meters</td>
+                <td class="standard-value">MM SIL Pg No-17</td>
+                <td class="standard-value">36 +/- 5 mm</td>
+                <td><input type="text" class="input-field" name="actual_pt1_9" id="actual_pt1_9"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_9" id="actual_pt2_9"></td>
+            </tr>
+            <tr>
+                <td class="row-number">7</td>
+                <td class="test-description">Check whether panto pan is modified</td>
+                <td class="standard-value">ELRS/MS/0333</td>
+                <td class="standard-value">Modified</td>
+                <td><input type="text" class="input-field" name="actual_pt1_10" id="actual_pt1_10"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_10" id="actual_pt2_10"></td>
+            </tr>
+            <tr>
+                <td class="row-number">8</td>
+                <td class="test-description">Check the movement of plunger box.</td>
+                <td class="standard-value">MM SIL Pg No-16</td>
+                <td class="standard-value">Should have easy movement</td>
+                <td><input type="text" class="input-field" name="actual_pt1_11" id="actual_pt1_11"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_11" id="actual_pt2_11"></td>
+            </tr>
+            <tr>
+                <td class="row-number">9</td>
+                <td class="test-description">Replace the copper shunts by new on condition basis.</td>
+                <td class="standard-value">MM SIL Pg No-15</td>
+                <td class="standard-value">Replaced/ Serviceable</td>
+                <td><input type="text" class="input-field" name="actual_pt1_12" id="actual_pt1_12"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_12" id="actual_pt2_12"></td>
+            </tr>
+            <tr>
+                <td class="row-number">10</td>
+                <td class="test-description">Max. height of Pantograph control by providing unwired control stopper in pantograph.</td>
+                <td class="standard-value">RDSO/2008/EL/SPEC/66</td>
+                <td class="standard-value">Pantograph raises maximum upto 2 mtr height</td>
+                <td><input type="text" class="input-field" name="actual_pt1_13" id="actual_pt1_13"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_13" id="actual_pt2_13"></td>
+            </tr>
+            <tr>
+                <td class="row-number">11</td>
+                <td class="test-description">Additional Spring catcher to be provided</td>
+                <td class="standard-value">Mod.0389</td>
+                <td class="standard-value">Provided</td>
+                <td><input type="text" class="input-field" name="actual_pt1_14" id="actual_pt1_14"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_14" id="actual_pt2_14"></td>
+            </tr>
+         
+            <tr>
+                <td rowspan="10" class="equipment-cell"> </td>
+                <td class="row-number">12</td>
+                <td class="test-description">Check the condition of Bearings -</td>
+                <td class="standard-value">TC94</td>
+                <td><input type="text" class="input-field" name="standard_12" id="standard_12"></td>
+                <td><input type="text" class="input-field" name="actual_pt1_15" id="actual_pt1_15"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_15" id="actual_pt2_15"></td>
+            </tr>
+            <tr>
+                <td rowspan="4"> </td>
+                <td class="sub-item">a)Pedestal assembly 1305(2 nos)</td>
+                <td class="standard-value">TC94</td>
+                <td rowspan="4" class="standard-value">New/Good</td>
+                <td><input type="text" class="input-field" name="actual_pt1_16" id="actual_pt1_16"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_16" id="actual_pt2_16"></td>
+            </tr>
+            <tr>
+                <td class="sub-item">b)Central pedestal / Middle Articulation assembly 2204(2no)</td>
+                <td class="standard-value">TC94</td>
+                <td><input type="text" class="input-field" name="actual_pt1_17" id="actual_pt1_17"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_17" id="actual_pt2_17"></td>
+            </tr>
+            <tr>
+                <td class="sub-item">c) Yoke assembly6302(6nos)</td>
+                <td class="standard-value">TC94</td>
+                <td><input type="text" class="input-field" name="actual_pt1_18" id="actual_pt1_18"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_18" id="actual_pt2_18"></td>
+            </tr>
+            <tr>
+                <td class="sub-item">d) Middle Articulation arm fitting. 6205(2 nos)</td>
+                <td class="standard-value">TC94</td>
+                <td><input type="text" class="input-field" name="actual_pt1_19" id="actual_pt1_19"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_19" id="actual_pt2_19"></td>
+            </tr>
+            <tr>
+                <td class="row-number">13</td>
+                <td class="test-description">Check the condition of Bearings for Panto AM-92 Type</td>
+                <td class="standard-value">SMI-292</td>
+                <td> </td>
+                <td><input type="text" class="input-field" name="actual_pt1_20" id="actual_pt1_20"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_20" id="actual_pt2_20"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td class="sub-item">a) Upper Articulation Sleeve.</td>
+                <td class="standard-value">SMI-292</td>
+                <td rowspan="3" class="standard-value">New/Good</td>
+                <td><input type="text" class="input-field" name="actual_pt1_21" id="actual_pt1_21"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_21" id="actual_pt2_21"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td class="sub-item">b) Middle Articulation Sleeve.</td>
+                <td class="standard-value">SMI-292</td>
+                <td><input type="text" class="input-field" name="actual_pt1_22" id="actual_pt1_22"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_22" id="actual_pt2_22"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td class="sub-item">c) Lower Articulation.</td>
+                <td class="standard-value">SMI-292</td>
+                <td><input type="text" class="input-field" name="actual_pt1_23" id="actual_pt1_23"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_23" id="actual_pt2_23"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><input type="text" class="input-field" name="actual_pt1_24" id="actual_pt1_24"></td>
+                <td><input type="text" class="input-field" name="actual_pt2_24" id="actual_pt2_24"></td>
+            </tr>
+        </table>
+        </section>  
+
+          <section>
+          <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="header-cell" rowspan="2">EQPT</th>
+                    <th class="header-cell" rowspan="2">SN</th>
+                    <th class="header-cell" rowspan="2">TEST</th>
+                    <th class="header-cell" rowspan="2">REF.</th>
+                    <th class="header-cell" rowspan="2">STANDARD</th>
+                    <th class="header-cell" colspan="2">ACTUAL</th>
+                </tr>
+                <tr>
+                    <th class="header-cell">SERVO MOTOR 1</th>
+                    <th class="header-cell">SERVO MOTOR 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="6" class="equipment-label">SERVO MOTOR</td>
+                    <td class="empty-row"></td>
+                    <td class="section-title">In Coming Equipment Sr. No.</td>
+                    <td class="empty-row"></td>
+                    <td class="empty-row"></td>
+                    <td class="input-cell"><input type="text" name="servo1_incoming" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_incoming" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="empty-row"></td>
+                    <td class="section-title">Out Going Equipment Sr. No.</td>
+                    <td class="empty-row"></td>
+                    <td class="empty-row"></td>
+                    <td class="input-cell"><input type="text" name="servo1_outgoing" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_outgoing" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="empty-row"></td>
+                    <td class="section-title">TEST</td>
+                    <td class="empty-row"></td>
+                    <td class="empty-row"></td>
+                    <td class="input-cell"><input type="text" name="servo1_test" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">1</td>
+                    <td class="test-description">Check the condition of connecting rod.</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">No wear No tear</td>
+                    <td class="input-cell"><input type="text" name="servo1_test1" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test1" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">2</td>
+                    <td class="test-description">Check condition of servo motor arm fitting assembly</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">No wear No tear</td>
+                    <td class="input-cell"><input type="text" name="servo1_test2" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">3</td>
+                    <td class="test-description">Check condition of servo motor arm fitting assembly Bushes</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">Good condition/ Replaced.</td>
+                    <td class="input-cell"><input type="text" name="servo1_test3" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test3" class="form-input"></td>
+                </tr>
+            </tbody>
+        </table>
+          </section>
+
+        <!-- Servo Motor Continued -->
+         <section>
+         <table class="main-table">
+            <tbody>
+                <tr>
+                    <td rowspan="7" class="equipment-label"></td>
+                    <td class="test-number">4</td>
+                    <td class="test-description">Check the cracks & damage of servo motor cylinder</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">No wear No tear</td>
+                    <td class="input-cell"><input type="text" name="servo1_test4" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test4" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">5</td>
+                    <td class="test-description">Check Inner surface of servomotor cylinder</td>
+                    <td class="reference-cell">Maintenance practice</td>
+                    <td class="standard-cell">Found smooth</td>
+                    <td class="input-cell"><input type="text" name="servo1_test5" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test5" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">6</td>
+                    <td class="test-description">Check the condition main spring</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">No crack/ No deformation.</td>
+                    <td class="input-cell"><input type="text" name="servo1_test6" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test6" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">7</td>
+                    <td class="test-description">Check the condition of Mechanism assly insulator</td>
+                    <td class="reference-cell">Maintenance practice</td>
+                    <td class="standard-cell">Should be free from cracks & flash marks.</td>
+                    <td class="input-cell"><input type="text" name="servo1_test7" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test7" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">8</td>
+                    <td class="test-description">Rubber kit Piston Packing Ring & Gasket Rubber for Servomotor</td>
+                    <td class="reference-cell">TC/094</td>
+                    <td class="standard-cell">New Provided</td>
+                    <td class="input-cell"><input type="text" name="servo1_test8" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test8" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">9</td>
+                    <td class="test-description">Check the cracks, damage, wear & tear of whole assembly</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">NORMAL</td>
+                    <td class="input-cell"><input type="text" name="servo1_test9" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test9" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">10</td>
+                    <td class="test-description">Check the servo motor air leakage on test bench with operation</td>
+                    <td class="reference-cell">M.M.SIL Pg No19</td>
+                    <td class="standard-cell">No leakage.</td>
+                    <td class="input-cell"><input type="text" name="servo1_test10" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="servo2_test10" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">11</td>
+                    <td class="test-description">Any other remarks</td>
+                    <td colspan="4" class="remarks-cell">
+                        <input type="text" name="servo_remarks" class="form-input" style="height: 25px;">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+         </section>
+
+        <!-- Brake Cylinder Section -->
+         <section>
+            <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="header-cell">EQPT</th>
+                    <th class="header-cell">SN</th>
+                    <th class="header-cell">TEST</th>
+                    <th class="header-cell">REF.</th>
+                    <th class="header-cell">STANDARD</th>
+                    <th class="header-cell" colspan="2">ACTUAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="14" class="equipment-label">BRAKE CYLINDER</td>
+                    <td class="empty-row"></td>
+                    <td class="section-title">TEST</td>
+                    <td class="empty-row"></td>
+                    <td class="empty-row"></td>
+                    <td class="input-cell"><input type="text" name="brake_test_header" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test_header2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">1</td>
+                    <td class="test-description">Check visually for physical damage & cracks of whole assembly of the Brake Cylinder.</td>
+                    <td class="reference-cell">M.M. WSF</td>
+                    <td class="standard-cell">No Damage/ No Crack</td>
+                    <td class="input-cell"><input type="text" name="brake_test1" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test1_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">2</td>
+                    <td class="test-description">Overhauling of Brake Cylinder Test for any leakage to be done at specified pressure</td>
+                    <td class="reference-cell">M.M. WSF</td>
+                    <td class="standard-cell">3.8 Kg/Cm2</td>
+                    <td class="input-cell"><input type="text" name="brake_test2" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test2_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">3</td>
+                    <td class="test-description">Check for proper application & releasing of brake cylinder</td>
+                    <td class="reference-cell">M.M. WSF</td>
+                    <td class="standard-cell">Normal</td>
+                    <td class="input-cell"><input type="text" name="brake_test3" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test3_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">4</td>
+                    <td class="test-description">Check the condition of felt and split pin</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test4" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test4_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">5</td>
+                    <td class="test-description">All rubber items</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test5" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test5_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">6</td>
+                    <td class="test-description">Check the leakage with soap & water solution</td>
+                    <td class="reference-cell">M.M. WSF</td>
+                    <td class="standard-cell">No Leakage</td>
+                    <td class="input-cell"><input type="text" name="brake_test6" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test6_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">7</td>
+                    <td class="test-description">Checked leakage from safety valve of brake cylinder</td>
+                    <td class="reference-cell">M.M. WSF</td>
+                    <td class="standard-cell">No Leakage</td>
+                    <td class="input-cell"><input type="text" name="brake_test7" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test7_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">8</td>
+                    <td class="test-description">Lubrication to all moving parts of brake cylinder to be done.</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">Maintenance Practice</td>
+                    <td class="input-cell"><input type="text" name="brake_test8" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test8_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">9</td>
+                    <td class="test-description">Ensure all flat washers, spring washers, circlip & split pins to be provided.</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test9" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test9_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">10</td>
+                    <td class="test-description">Piston head disc for "8X8" air brake cylinder of locos.</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test10" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test10_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">11</td>
+                    <td class="test-description">Anti Ratler Ring (Rubber) of 8"X8" BK. Cylinder used in locos</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test11" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test11_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">12</td>
+                    <td class="test-description">Spongy rubber ring for 8"X8" Brake Cylinder used in locos</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test12" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test12_2" class="form-input"></td>
+                </tr>
+                <tr>
+                    <td class="test-number">13</td>
+                    <td class="test-description">Maintenance kit for BK Cly. 8"X8" consist of 07 items.</td>
+                    <td class="reference-cell">TC/0123</td>
+                    <td class="standard-cell">To be replaced</td>
+                    <td class="input-cell"><input type="text" name="brake_test13" class="form-input"></td>
+                    <td class="input-cell"><input type="text" name="brake_test13_2" class="form-input"></td>
+                </tr>
+            </tbody>
+        </table>
+         </section>
+
+
+
+
+
+
+
+
+
+
+
+        <section>
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="section-title">
+                            LIST OF <span style="font-weight: bold;">MUST CHANGE</span> ITEMS OF PANTO AM-12 & AM-92 TO BE REPLACED 100% DURING EVERY POH
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="5" style="font-size: 10px;">
+                            AS per ELRS/TC/0021 Rev"01" 2002 & TC/0123, Rev'0'/Amnd no '02'
+                        </th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2" class="sn-column">SN</th>
+                        <th rowspan="2" style="width: 428px;">Brief Description</th>
+                        <th rowspan="2" style="width: 102px;">PL No.</th>
+                        <th colspan="2">DONE/NOT DONE</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 71px;">PT-1</th>
+                        <th style="width: 83px;">PT-2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="sn-column">1</td>
+                        <td>Grease nipple for Panto</td>
+                        <td style="text-align: center;">2326-0208</td>
+                        <td><input type="text" name="pt1_1" id="pt1_1" class="input-field"></td>
+                        <td><input type="text" name="pt2_1" id="pt2_1" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">2</td>
+                        <td>Joint perfect for pedestal assly for PT</td>
+                        <td style="text-align: center;">2388-0508</td>
+                        <td><input type="text" name="pt1_2" id="pt1_2" class="input-field"></td>
+                        <td><input type="text" name="pt2_2" id="pt2_2" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">3</td>
+                        <td>Support rod cylinder assly for PT AM-12/EL-01/FR-01</td>
+                        <td style="text-align: center;">2388-3182</td>
+                        <td><input type="text" name="pt1_3" id="pt1_3" class="input-field"></td>
+                        <td><input type="text" name="pt2_3" id="pt2_3" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">4</td>
+                        <td>Bow assly with plunger. For panto for PT AM-12/EL-01/IR-01</td>
+                        <td style="text-align: center;">2388-3315</td>
+                        <td><input type="text" name="pt1_4" id="pt1_4" class="input-field"></td>
+                        <td><input type="text" name="pt2_4" id="pt2_4" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">5</td>
+                        <td>Metalized carbon strip for pantograph</td>
+                        <td style="text-align: center;">2588-8055</td>
+                        <td><input type="text" name="pt1_5" id="pt1_5" class="input-field"></td>
+                        <td><input type="text" name="pt2_5" id="pt2_5" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">6</td>
+                        <td>Bearing 6302ZZ</td>
+                        <td style="text-align: center;">8501-4084</td>
+                        <td><input type="text" name="pt1_6" id="pt1_6" class="input-field"></td>
+                        <td><input type="text" name="pt2_6" id="pt2_6" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">7</td>
+                        <td>Bearing 1305/1208</td>
+                        <td style="text-align: center;">8503-0673</td>
+                        <td><input type="text" name="pt1_7" id="pt1_7" class="input-field"></td>
+                        <td><input type="text" name="pt2_7" id="pt2_7" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">8</td>
+                        <td>Bearing 2204/2304</td>
+                        <td style="text-align: center;">8503-1185</td>
+                        <td><input type="text" name="pt1_8" id="pt1_8" class="input-field"></td>
+                        <td><input type="text" name="pt2_8" id="pt2_8" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">9</td>
+                        <td>Bearing 6205</td>
+                        <td style="text-align: center;">8590-5227</td>
+                        <td><input type="text" name="pt1_9" id="pt1_9" class="input-field"></td>
+                        <td><input type="text" name="pt2_9" id="pt2_9" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">10</td>
+                        <td>Rubber kit for Pantograph servomotor (Piston packing ring(Bucket) & Gasket rubber)</td>
+                        <td style="text-align: center;">2588-8390</td>
+                        <td><input type="text" name="pt1_10" id="pt1_10" class="input-field"></td>
+                        <td><input type="text" name="pt2_10" id="pt2_10" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">11</td>
+                        <td>Tight joint for Servomotor of Pantograph</td>
+                        <td style="text-align: center;">2388-3601</td>
+                        <td><input type="text" name="pt1_11" id="pt1_11" class="input-field"></td>
+                        <td><input type="text" name="pt2_11" id="pt2_11" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">12</td>
+                        <td>Bush for steady tube</td>
+                        <td style="text-align: center;">2388-2761</td>
+                        <td><input type="text" name="pt1_12" id="pt1_12" class="input-field"></td>
+                        <td><input type="text" name="pt2_12" id="pt2_12" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">13</td>
+                        <td>lock plate</td>
+                        <td style="text-align: center;">2388-2827</td>
+                        <td><input type="text" name="pt1_13" id="pt1_13" class="input-field"></td>
+                        <td><input type="text" name="pt2_13" id="pt2_13" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">14</td>
+                        <td>lock washer</td>
+                        <td style="text-align: center;">2388-1008</td>
+                        <td><input type="text" name="pt1_14" id="pt1_14" class="input-field"></td>
+                        <td><input type="text" name="pt2_14" id="pt2_14" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">15</td>
+                        <td>White Felt</td>
+                        <td style="text-align: center;">2325-6746</td>
+                        <td><input type="text" name="pt1_15" id="pt1_15" class="input-field"></td>
+                        <td><input type="text" name="pt2_15" id="pt2_15" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">16</td>
+                        <td>Flange for Yoke</td>
+                        <td style="text-align: center;">2388-2505</td>
+                        <td><input type="text" name="pt1_16" id="pt1_16" class="input-field"></td>
+                        <td><input type="text" name="pt2_16" id="pt2_16" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">17</td>
+                        <td>Flexible Long shunt</td>
+                        <td style="text-align: center;">2388-4204</td>
+                        <td><input type="text" name="pt1_17" id="pt1_17" class="input-field"></td>
+                        <td><input type="text" name="pt2_17" id="pt2_17" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">18</td>
+                        <td>Flexible Short Shunt</td>
+                        <td style="text-align: center;">2388-3789</td>
+                        <td><input type="text" name="pt1_18" id="pt1_18" class="input-field"></td>
+                        <td><input type="text" name="pt2_18" id="pt2_18" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">19</td>
+                        <td>Upper Articulation assly of Pantograph AM-12/FR-01/EL-01</td>
+                        <td style="text-align: center;">2388-3030</td>
+                        <td><input type="text" name="pt1_19" id="pt1_19" class="input-field"></td>
+                        <td><input type="text" name="pt2_19" id="pt2_19" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">20</td>
+                        <td>Water Protection Bush of Panto AM-12/IR-01/EL-01</td>
+                        <td style="text-align: center;">N/S</td>
+                        <td><input type="text" name="pt1_20" id="pt1_20" class="input-field"></td>
+                        <td><input type="text" name="pt2_20" id="pt2_20" class="input-field"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table class="main-table">
+                <tbody>
+                    <tr>
+                        <td class="sn-column">21</td>
+                        <td style="width: 421px; text-align: center; font-weight: bold;">List of Must Change items during POH of Locomotive for High Speed Pantograph Type AM-92/IR-03H</td>
+                        <td style="width: 117px;"> </td>
+                        <td style="width: 69px;"><input type="text" name="pt1_21" id="pt1_21" class="input-field"></td>
+                        <td style="width: 80px;"><input type="text" name="pt2_21" id="pt2_21" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">(i) Set of Shunts consisting of 4 items.</td>
+                        <td style="text-align: center;">2588-8328</td>
+                        <td><input type="text" name="pt1_21i" id="pt1_21i" class="input-field"></td>
+                        <td><input type="text" name="pt2_21i" id="pt2_21i" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">(ii) Support Rod Panto AM-92 only</td>
+                        <td style="text-align: center;">2588-8341</td>
+                        <td><input type="text" name="pt1_21ii" id="pt1_21ii" class="input-field"></td>
+                        <td><input type="text" name="pt2_21ii" id="pt2_21ii" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">(iii) Bow assembly of Pantograph AM-92</td>
+                        <td style="text-align: center;">2588-8100</td>
+                        <td><input type="text" name="pt1_21iii" id="pt1_21iii" class="input-field"></td>
+                        <td><input type="text" name="pt2_21iii" id="pt2_21iii" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">(iv) Set Spares for Pantograph AM-92 consisting of 8 items.</td>
+                        <td style="text-align: center;">2588-8353</td>
+                        <td><input type="text" name="pt1_21iv" id="pt1_21iv" class="input-field"></td>
+                        <td><input type="text" name="pt2_21iv" id="pt2_21iv" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">22</td>
+                        <td style="text-align: center;">Any other Remark's</td>
+                        <td colspan="3"><input type="text" name="remarks" id="remarks" class="input-field"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section style="margin-top: 20px;">
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="section-title">
+                            LIST OF <span style="font-weight: bold;">RDSO SMI/MODIFICATION NO</span> <span style="font-weight: bold;">FOR</span> PANTO AM-12 & AM-92
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="5" style="height: 15px;"></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2" class="sn-column">SN</th>
+                        <th rowspan="2" style="width: 421px;">Brief Description</th>
+                        <th rowspan="2" style="width: 117px;">RDSO SMI/MODIFICATION NO</th>
+                        <th colspan="2">DONE/NOT DONE</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 69px;">PT-1</th>
+                        <th style="width: 80px;">PT-2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="sn-column">1</td>
+                        <td>RELOCATION OF BOTH EXISTING RUBBER STOPPERS SUPPORTING PANTO PAN TO NEW POSITION UNDER THE UPPER ARTICULATION TUBE</td>
+                        <td style="text-align: center;">WAM4/129</td>
+                        <td><input type="text" name="smi_pt1_1" id="smi_pt1_1" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_1" id="smi_pt2_1" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">2</td>
+                        <td>PROVISION OF PANTO RAISING SPRING CATCHER TO HOLD THE SPRING IN CASE OF BREAKAGE</td>
+                        <td style="text-align: center;">RDSO/WAM4/155</td>
+                        <td><input type="text" name="smi_pt1_2" id="smi_pt1_2" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_2" id="smi_pt2_2" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">3</td>
+                        <td>PROVISION OF RUBBER BUSH INSIDE THE OPEN END OF LONGITUDINAL TUBE OF AM-12 TYPE PANTOGRAPH</td>
+                        <td style="text-align: center; font-size: 9px;">WAG5/29/IR-01/EL-ELRS/MS/WAG-5/242</td>
+                        <td><input type="text" name="smi_pt1_3" id="smi_pt1_3" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_3" id="smi_pt2_3" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">4</td>
+                        <td>PROVISION OF METALISED CARBON STRIP IN PLACE OF STEEL STRIPS ON PANTOGRAPH</td>
+                        <td style="text-align: center;">ELRS/MS/265</td>
+                        <td><input type="text" name="smi_pt1_4" id="smi_pt1_4" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_4" id="smi_pt2_4" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">5</td>
+                        <td>STANDARDISATION OF PANTO-PAN ASSLY. OF AM-12 OR SIMILAR FOR ELECTRIC LOCO/EMUS</td>
+                        <td style="text-align: center;">ELRS/MS/0333</td>
+                        <td><input type="text" name="smi_pt1_5" id="smi_pt1_5" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_5" id="smi_pt2_5" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">6</td>
+                        <td>STATIC BALANCING PROCEDURE FOR PANTOGRAPH TYPE AM-12(EDO/197.000)</td>
+                        <td style="text-align: center;">SMI-64</td>
+                        <td><input type="text" name="smi_pt1_6" id="smi_pt1_6" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_6" id="smi_pt2_6" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">7</td>
+                        <td>ENSURING PROPER RAISING AND LOWERING OF PANTOGRAPH TYPE AM-12</td>
+                        <td style="text-align: center;">SMI/75</td>
+                        <td><input type="text" name="smi_pt1_7" id="smi_pt1_7" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_7" id="smi_pt2_7" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">8</td>
+                        <td>LUBRICATION SCH. OF PANTOGRAPH TYPE AM-12, OR SIMILAR DESIGN</td>
+                        <td style="text-align: center;">SMI/198</td>
+                        <td><input type="text" name="smi_pt1_8" id="smi_pt1_8" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_8" id="smi_pt2_8" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">9</td>
+                        <td>MAINTENANCE & PERIODICAL CHECK OF PANTO-PAN</td>
+                        <td style="text-align: center;">SMI-192</td>
+                        <td><input type="text" name="smi_pt1_9" id="smi_pt1_9" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_9" id="smi_pt2_9" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">10</td>
+                        <td>PROVISION OF ADDITION SPRING CATCHER TO PANTOGRAPH AM-12/SIMILAR DESIGN & IR-03H.</td>
+                        <td style="text-align: center;">MS/0389</td>
+                        <td><input type="text" name="smi_pt1_10" id="smi_pt1_10" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_10" id="smi_pt2_10" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">11</td>
+                        <td>COMPONENTS TO BE CHANGED DURING AOH/IOH & POH OF SIMILAR DESIGN PANTOGRAPH TYPE AM-12, IR-01 AND PAN 01</td>
+                        <td style="text-align: center; font-size: 9px;">RDSO/2007/EL/TC/0094 (REV-0) DT. 08.06.2007</td>
+                        <td><input type="text" name="smi_pt1_11" id="smi_pt1_11" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_11" id="smi_pt2_11" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">12</td>
+                        <td>MAINTENANCE INSTRUCTION FOR PANTOGRAPH TYPE AM-92/IR-03H</td>
+                        <td style="text-align: center;">SMI/0292</td>
+                        <td><input type="text" name="smi_pt1_12" id="smi_pt1_12" class="input-field"></td>
+                        <td><input type="text" name="smi_pt2_12" id="smi_pt2_12" class="input-field"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+
+
+
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="button" id="submitBtn" class="btn btn-primary">
+            Save Check Sheet
+        </button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(window.location.href);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Function to get ID from URL path for edit route
+            function getIdFromPath() {
+                const pathParts = window.location.pathname.split('/');
+
+                console.log(pathParts)
+                if (pathParts[2] === 'edit' && pathParts[3]) {
+                    return pathParts[3];
+                }
+                return '';
+            }
+
+             
+            
+            // Function to load check sheet data by ID
+            function loadCheckSheetData(id) {
+                if (!id) return;
+                
+                $.ajax({
+                    url: '/panto/' + id,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.success) {
+                            // Set the ID in the hidden field
+                            $('#id').val(id);
+                            
+                            // Populate form fields with data
+                            const data = response.data;
+                            for (const key in data) {
+                                if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                    const element = $('#' + key);
+                                    if (element.length) {
+                                        element.val(data[key]);
+                                    }
+                                }
+                            }
+                        } else {
+                            alert('Error loading check sheet data: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error loading check sheet data: ' + error);
+                    }
+                });
+            }
+            
+            // Get ID from URL (either as parameter or from path)
+            const checkSheetId = getIdFromPath() || getUrlParameter('id');
+            if (checkSheetId) {
+                loadCheckSheetData(checkSheetId);
+            }
+            
+            // Handle form submission
+            $('#submitBtn').on('click', function() {
+                // Collect all form data
+                var formData = {};
+                $('input[type="text"]').each(function() {
+                    formData[$(this).attr('name')] = $(this).val();
+                });
+
+                console.log(formData)
+                
+                // Get the ID value to determine if we're adding or editing
+                var id = $('#id').val();
+                
+                var url = '/panto/add';
+                var method = 'POST';
+                
+                if (id && id !== '') {
+                    url = '/panto/edit/' + id;
+                }
+                
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // If this is a new record, save the ID for future edits
+                            if (response.id && !id) {
+                                $('#id').val(response.id);
+                            }
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error submitting form: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+</body>
+</html>

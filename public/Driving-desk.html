@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Desk Inspection Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 8.5pt;
+            color: black;
+            padding: 10pt;
+            line-height: 1.2;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15pt;
+        }
+        
+        .section-title {
+            color: #0F4761;
+            font-size: 13pt;
+            font-weight: normal;
+            text-align: center;
+            margin: 20pt 0;
+        }
+        
+        .form-field {
+            display: inline-block;
+            margin-right: 20pt;
+        }
+        
+        .form-field label {
+            font-weight: bold;
+            margin-right: 5pt;
+        }
+        
+        .form-field input {
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            padding: 2pt;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10pt 0;
+        }
+        
+        td, th {
+            border: 1pt solid black;
+            padding: 3pt 5pt;
+            vertical-align: top;
+            text-align: left;
+        }
+        
+        th {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .equipment-header {
+            font-weight: bold;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            text-align: center;
+            width: 26pt;
+        }
+        
+        .serial-number {
+            text-align: center;
+            width: 34pt;
+        }
+        
+        .input-cell input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            padding: 2pt;
+        }
+        
+        .small-text {
+            font-size: 7.5pt;
+        }
+        
+        .subtitle {
+            font-size: 9.5pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 15pt 0;
+        }
+        
+        .signature-section {
+            margin-top: 20pt;
+            font-weight: normal;
+        }
+        
+        .desk-columns {
+            text-align: center;
+            font-size: 8.5pt;
+        }
+
+
+
+
+
+        input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;  /* Changed from border: none */
+    background: white;        /* Changed from transparent */
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    padding: 4px;            /* Increased from 2px for better visibility */
+    min-height: 24px;        /* Added minimum height */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #007acc;
+    background-color: #f0f8ff;
+}
+
+input[type="text"]:hover {
+    border-color: #999;      /* Added hover effect */
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="section-title">DRIVER DESK</div>
+ 
+    <!-- Hidden ID field for edit functionality -->
+    <input type="hidden" id="id" name="id" value="">
+ 
+    <!-- SMI and Modifications Table -->
+    <table>
+        <thead>
+            <tr>
+                <th class="equipment-header">EQPT</th>
+                <th class="serial-number">SN</th>
+                <th>Check Point</th>
+                <th>Reference</th>
+                <th>Standard</th>
+                <th>Actual</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- SMI Section -->
+            <tr>
+                <td rowspan="3" class="equipment-header">SMI</td>
+                <td class="center">1</td>
+                <td>Breakage of Support block of auxiliary switch at the fixing point for master controller CLW make.</td>
+                <td class="center">RDSO/ELRS/SMI/21<br>Dt. 14.06.1978</td>
+                <td class="center">For shed only during schedule</td>
+                <td class="input-cell"><input type="text" name="smi_1_actual" id="smi_1_actual"   class="actual-input" ></td>
+            </tr>
+            <tr>
+                <td class="center">2</td>
+                <td>Cleaning interlock contact of master controller only for AOH & IOH (Must change in POH)</td>
+                <td class="center">RDSO/ELRS/SMI/30<br>Dt. 01.09.1978</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="smi_2_actual" id="smi_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">3</td>
+                <td>Instruction of Siemens programme switch for ZPT application.</td>
+                <td class="center">RDSO/ELRS/SMI/83<br>Dt. 25.07.1981</td>
+                <td class="center">To procure ZPT with handle</td>
+                <td class="input-cell"><input type="text" name="smi_3_actual" id="smi_3_actual"></td>
+            </tr>
+            
+            <!-- Modification Section -->
+            <tr>
+                <td rowspan="9" class="equipment-header">MODIFICATION</td>
+                <td class="center">1</td>
+                <td>Mounting of ZLC switches on Driver Desk</td>
+                <td class="center">WAM4/4D</td>
+                <td class="center">To be ensured</td>
+                <td class="input-cell"><input type="text" name="modification_1_actual" id="modification_1_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">2</td>
+                <td>Paralleling of interlocks of switches in control circuit of DJ/VCB to improve reliability.</td>
+                <td class="center">RDSO/WAM4/ELRS/MS/214<br>Dt. 23.10.1998</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_2_actual" id="modification_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">3</td>
+                <td>LED indication on Driver Desk to indicate tripping of static converter.</td>
+                <td class="center">ELRS/MS/0327<br>Dt. 31.07.2003</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_3_actual" id="modification_3_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">4</td>
+                <td>Modification of loco control circuit for circuit breaker (DJ) opening & panto lowering by BLDJ & ZPT switch in 25KV conventional locomotive equipped with microprocessor based control & fault diagnostic system.</td>
+                <td class="center">RDSO/2009/EL/MS/0384 Rev0, DT. 07.10.2009</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_4_actual" id="modification_4_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">5</td>
+                <td>Visual indication of TM current with push button switch</td>
+                <td class="center">RDSO/2014/EL/MS/0339<br>Rev1, DT. 22.06.2005</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_5_actual" id="modification_5_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">6</td>
+                <td>GR-0 indication of trailing locomotive through additional signalling lamp in leading locomotive in multiple unit operation of two locomotives.</td>
+                <td class="center">RDSO/2015/EL/MS/0442 Rev0, DT. 11.09.2015</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_6_actual" id="modification_6_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">7</td>
+                <td>Traction motor Dropping Detection System (TMDDS)</td>
+                <td class="center">RDSO/2022/EL/MS/0487<br>Rev0, DT. 21.05.2022</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_7_actual" id="modification_7_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">8</td>
+                <td>Provision of two LED indication lamps,LSIP1 & LSIP2 in conventional locomotives equipped with MPCS-V3</td>
+                <td class="center">RDSO/2024/EL/MS/0499<br>Rev0, DT. 19.09.2024</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_8_actual" id="modification_8_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">9</td>
+                <td>ACK method of VCD to Hand operated push button switch.</td>
+                <td class="center">RDSO/2024/EL/MS/0505<br>Rev 0 DT.-02/12/2024</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="modification_9_actual" id="modification_9_actual"></td>
+            </tr>
+            
+            <!-- TC/T1 Section -->
+            <tr>
+                <td class="equipment-header">TC/T1</td>
+                <td class="center">1</td>
+                <td>Provision of BPEMS Emergency stop switch</td>
+                <td class="center">El/4.2.15 Dt. 27.03.2012, Rly BD's letter No.2002/Elect (TRS)/441/1/Part IV Dt. 12.05.2005</td>
+                <td class="center">To be done<br>Only for MPCS fitted Loco</td>
+                <td class="input-cell"><input type="text" name="tc_t1_1_actual" id="tc_t1_1_actual"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="signature-section">
+        <label>Name & Signature of Supervisor:</label>
+        <input type="text" name="supervisor_signature" id="supervisor_signature" style="width: 300px;">
+    </div>
+
+    <!-- Must Change Items Table -->
+    <table style="margin-top: 20pt;">
+        <thead>
+            <tr>
+                <th class="small-text equipment-header">EQPT</th>
+                <th>SN</th>
+                <th>Check Point</th>
+                <th>Reference</th>
+                <th>Standard</th>
+                <th>Actual</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="28" class="equipment-header">MUST CHANGE ITEMS</td>
+                <td class="center">1</td>
+                <td>Set of AUX. Terminal block components PL-25208688</td>
+                <td rowspan="28" class="center">As Per TC No.<br>RDSO/2013/EL/TC-0123 Rev0, DT. 16.05.2013</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_1_actual" id="must_change_1_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">2</td>
+                <td>Aux. CAM switches PL- 23843202</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_2_actual" id="must_change_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">3</td>
+                <td>Spring loaded foot SW. PL-29700085</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_3_actual" id="must_change_3_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">4</td>
+                <td>Limit Switch (1 NO + 1 NC ) PL – 25708508</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_4_actual" id="must_change_4_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">5</td>
+                <td>Limit Switch (1 NO + 2 NC ) PL – 25708016</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_5_actual" id="must_change_5_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">6</td>
+                <td>Limit Switch (2 NO + 1 NC ) PL – 25700250</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_6_actual" id="must_change_6_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">7</td>
+                <td>ZPT PL- 25700650</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_7_actual" id="must_change_7_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">8</td>
+                <td>Signalling Lamp LED Indication PL- 25618155</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_8_actual" id="must_change_8_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">9</td>
+                <td>Synthetic Rubber Sheet PL- 25257705</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_9_actual" id="must_change_9_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">10</td>
+                <td>BL Switch Box complete. PL- 25700157</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_10_actual" id="must_change_10_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">11</td>
+                <td>Oil tight push buttons (Black) PL-31707701</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_11_actual" id="must_change_11_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">12</td>
+                <td>Oil tight push buttons (Red) PL-31707713</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_12_actual" id="must_change_12_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">13</td>
+                <td>HRAVT PL-25708491</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_13_actual" id="must_change_13_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">14</td>
+                <td>HVSI PL-25703705</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_14_actual" id="must_change_14_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">15</td>
+                <td>HVSL PL-23700014</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_15_actual" id="must_change_15_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">16</td>
+                <td>HMCS PL-23700026</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_16_actual" id="must_change_16_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">17</td>
+                <td>HVMT PL-23700051</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_17_actual" id="must_change_17_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">18</td>
+                <td>HPH PL-23708384</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_18_actual" id="must_change_18_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">19</td>
+                <td>HCP PL-23708426</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_19_actual" id="must_change_19_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">20</td>
+                <td>HBA PL-23708440</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_20_actual" id="must_change_20_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">21</td>
+                <td>HQCVAR PL-23708463</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_21_actual" id="must_change_21_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">22</td>
+                <td>ZCPA & HCHBA PL-23708487</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_22_actual" id="must_change_22_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">23</td>
+                <td>HVRH PL-23708499</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_23_actual" id="must_change_23_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">24</td>
+                <td>HSIV PL-25708223</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_24_actual" id="must_change_24_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">25</td>
+                <td>HPAR PL-25708235</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_25_actual" id="must_change_25_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">26</td>
+                <td>HVCD PL-25708480</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_26_actual" id="must_change_26_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">27</td>
+                <td>Toggle switch PL-31703501</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_27_actual" id="must_change_27_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">28</td>
+                <td>Toggle switch PL-23138418</td>
+                <td class="center">To be replace</td>
+                <td class="input-cell"><input type="text" name="must_change_28_actual" id="must_change_28_actual"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="subtitle">SHOP PRACTICE</div>
+
+    <!-- Shop Practice Tables -->
+    <!-- Driver Desk Panel Table -->
+    <table>
+        <thead>
+            <tr>
+                <th class="equipment-header">EQPT</th>
+                <th>SN</th>
+                <th>Check Point</th>
+                <th>Reference</th>
+                <th>Standard</th>
+                <th colspan="2">Actual</th>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+                <td class="desk-columns">DR. DESK - 1</td>
+                <td class="desk-columns">DR. DESK – 2</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="12" class="equipment-header">DRIVER DESK PANEL</td>
+                <td class="center">1</td>
+                <td>Check complete body for any damage and bend</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">No Damage No bend</td>
+                <td class="input-cell"><input type="text" name="driver_desk_1_1_actual" id="driver_desk_1_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_1_2_actual" id="driver_desk_1_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">2</td>
+                <td>Replace all invisible number of cables.</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">To be replaced</td>
+                <td class="input-cell"><input type="text" name="driver_desk_2_1_actual" id="driver_desk_2_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_2_2_actual" id="driver_desk_2_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">3</td>
+                <td>Check the proper crimping of pins in coupler</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">Properly Crimped</td>
+                <td class="input-cell"><input type="text" name="driver_desk_3_1_actual" id="driver_desk_3_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_3_2_actual" id="driver_desk_3_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">4</td>
+                <td>Check all elemex for any crack and damage</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">No Crack No Damage</td>
+                <td class="input-cell"><input type="text" name="driver_desk_4_1_actual" id="driver_desk_4_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_4_2_actual" id="driver_desk_4_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">6</td>
+                <td>Check lamp holder of BL Box & NR for any flash mark& breakage.</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">No Flash mark No breakage</td>
+                <td class="input-cell"><input type="text" name="driver_desk_6_1_actual" id="driver_desk_6_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_6_2_actual" id="driver_desk_6_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">7</td>
+                <td>Equip the various accessories after overhauling like padal switch, ZPT, Push buttons, BL box and meter etc.</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">To be provided</td>
+                <td class="input-cell"><input type="text" name="driver_desk_7_1_actual" id="driver_desk_7_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_7_2_actual" id="driver_desk_7_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">8</td>
+                <td>Check the tightness of all cable connection</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">Properly tightened</td>
+                <td class="input-cell"><input type="text" name="driver_desk_8_1_actual" id="driver_desk_8_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_8_2_actual" id="driver_desk_8_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">9</td>
+                <td>Lettering of all name plates</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">To be done</td>
+                <td class="input-cell"><input type="text" name="driver_desk_9_1_actual" id="driver_desk_9_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_9_2_actual" id="driver_desk_9_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">10</td>
+                <td>Test the Driver Desk on testing through continuity tester for continuity check & proper working of BL switches, ZPT,Push Button & padal switch etc.</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">Should be properly working</td>
+                <td class="input-cell"><input type="text" name="driver_desk_10_1_actual" id="driver_desk_10_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_10_2_actual" id="driver_desk_10_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">11</td>
+                <td>Check the locking of BL switches with BL key.</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">Proper Locking to be ensured</td>
+                <td class="input-cell"><input type="text" name="driver_desk_11_1_actual" id="driver_desk_11_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_11_2_actual" id="driver_desk_11_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">12</td>
+                <td>Check closing and Opening of limit switches</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">Proper Function</td>
+                <td class="input-cell"><input type="text" name="driver_desk_12_1_actual" id="driver_desk_12_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_12_2_actual" id="driver_desk_12_2_actual"></td>
+            </tr>
+            <tr>
+                <td class="center">13</td>
+                <td>Check the insulation resistance with 500V megger between terminal & Body</td>
+                <td class="center">Shop Practice</td>
+                <td class="center">100 M Ω (Min)</td>
+                <td class="input-cell"><input type="text" name="driver_desk_13_1_actual" id="driver_desk_13_1_actual"></td>
+                <td class="input-cell"><input type="text" name="driver_desk_13_2_actual" id="driver_desk_13_2_actual"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="text-indent: 0pt;text-align: left;">
+        <br/>
+    </p>
+ 
+
+                <table class="inspection-table">
+        <thead>
+            <tr>
+                <th>EQPT</th>
+                <th class="sn-cell">SN</th>
+                <th>Check Point</th>
+                <th class="reference-cell">Reference</th>
+                <th class="standard-cell">Standard</th>
+                <th class="actual-cell">DR. DESK - 1</th>
+                <th class="actual-cell">DR. DESK - 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="8" class="equipment-label">BL BOX</td>
+                <td class="sn-cell">1</td>
+                <td class="check-point">Check operation of levers</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">Smooth</td>
+                <td class="actual-cell">
+                    <input type="text" name="check_operation_of_levers_desk1" id="check_operation_of_levers_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="check_operation_of_levers_desk2" id="check_operation_of_levers_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell">2</td>
+                <td class="check-point">Check operation of H.T. switches without operating BL Key</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">Not Operating</td>
+                <td class="actual-cell">
+                    <input type="text" name="check_operation_of_ht_switches_without_bl_key_desk1" id="check_operation_of_ht_switches_without_bl_key_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="check_operation_of_ht_switches_without_bl_key_desk2" id="check_operation_of_ht_switches_without_bl_key_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell"></td>
+                <td class="check-point">Check operation of H.T. switches with operating BL Key</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">Operating</td>
+                <td class="actual-cell">
+                    <input type="text" name="check_operation_of_ht_switches_with_bl_key_desk1" id="check_operation_of_ht_switches_with_bl_key_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="check_operation_of_ht_switches_with_bl_key_desk2" id="check_operation_of_ht_switches_with_bl_key_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell">3</td>
+                <td class="check-point">Check closing & opening of limit switches & BL key rotating switch by bell indicator</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell"></td>
+                <td class="actual-cell">
+                    <input type="text" name="check_closing_opening_limit_switches_desk1" id="check_closing_opening_limit_switches_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="check_closing_opening_limit_switches_desk2" id="check_closing_opening_limit_switches_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell"></td>
+                <td class="check-point sub-item">a) When contacts are Closed</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">There will be indication</td>
+                <td class="actual-cell">
+                    <input type="text" name="when_contacts_are_closed_desk1" id="when_contacts_are_closed_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="when_contacts_are_closed_desk2" id="when_contacts_are_closed_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell"></td>
+                <td class="check-point sub-item">b) When contacts are opened</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">No indication</td>
+                <td class="actual-cell">
+                    <input type="text" name="when_contacts_are_opened_desk1" id="when_contacts_are_opened_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="when_contacts_are_opened_desk2" id="when_contacts_are_opened_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell">4</td>
+                <td class="check-point">Check limit switch separators for any breakage & crack</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">No breakage / No crack</td>
+                <td class="actual-cell">
+                    <input type="text" name="check_limit_switch_separators_for_any_breakage_crack_desk1" id="check_limit_switch_separators_for_any_breakage_crack_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="check_limit_switch_separators_for_any_breakage_crack_desk2" id="check_limit_switch_separators_for_any_breakage_crack_desk2" class="actual-input">
+                </td>
+            </tr>
+            <tr>
+                <td class="sn-cell">5</td>
+                <td class="check-point">Check the BL box bulb holder</td>
+                <td class="reference-cell">Shop Practice</td>
+                <td class="standard-cell">Bulb should glow</td>
+                <td class="actual-cell">
+                    <input type="text" name="check_the_bl_box_bulb_holder_desk1" id="check_the_bl_box_bulb_holder_desk1" class="actual-input">
+                </td>
+                <td class="actual-cell">
+                    <input type="text" name="check_the_bl_box_bulb_holder_desk2" id="check_the_bl_box_bulb_holder_desk2" class="actual-input">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+            <!-- LIMIT SWITCH Section -->
+            <table class="inspection-table">
+                <tbody>
+                    <tr>
+                        <td rowspan="5" class="equipment-label">LIMIT SWITCH</td>
+                        <td>1</td>
+                        <td class="check-point">Free operation of lever</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">O.K.</td>
+                        <td class="actual-cell">
+                            <input type="text" name="free_operation_of_lever_desk1" id="free_operation_of_lever_desk1" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="free_operation_of_lever_desk2" id="free_operation_of_lever_desk2" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="check-point">Closing and opening of limit switch</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">O.K.</td>
+                        <td class="actual-cell">
+                            <input type="text" name="closing_and_opening_of_limit_switch_desk1" id="closing_and_opening_of_limit_switch_desk1" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="closing_and_opening_of_limit_switch_desk2" id="closing_and_opening_of_limit_switch_desk2" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="check-point">Continuity checking when contact closed</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">O.K.</td>
+                        <td class="actual-cell">
+                            <input type="text" name="continuity_checking_when_contact_closed_desk1" id="continuity_checking_when_contact_closed_desk1" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="continuity_checking_when_contact_closed_desk2" id="continuity_checking_when_contact_closed_desk2" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="check-point">Open circuit when contact open</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">O.K.</td>
+                        <td class="actual-cell">
+                            <input type="text" name="open_circuit_when_contact_open_desk1" id="open_circuit_when_contact_open_desk1" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="open_circuit_when_contact_open_desk2" id="open_circuit_when_contact_open_desk2" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="check-point">Check for any crack and damage</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No Crack /No Damage</td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_for_any_crack_and_damage_desk1" id="check_for_any_crack_and_damage_desk1" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_for_any_crack_and_damage_desk2" id="check_for_any_crack_and_damage_desk2" class="actual-input">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ZPT / BL SWITCH Section -->
+            <table class="inspection-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="sn-cell">SN</th>
+                        <th>Check Point</th>
+                        <th class="reference-cell">Reference</th>
+                        <th class="standard-cell">Standard</th>
+                        <th class="actual-cell">ZPT SWITCH</th>
+                        <th class="actual-cell">BL KEY SWITCH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="9" class="equipment-label">ZPT / BL SWITCH</td>
+                        <td>1</td>
+                        <td class="check-point">Check the switch body, contact chamber & operating handle for cracks & breakage</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No Crack No Breakage</td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_switch_body_zpt" id="check_switch_body_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_switch_body_bl" id="check_switch_body_bl" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="check-point">Check operating mechanism for signs of fracture, Mechanical Damage, Wearing & distortion of parts</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No abnormality</td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_operating_mechanism_zpt" id="check_operating_mechanism_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_operating_mechanism_bl" id="check_operating_mechanism_bl" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="check-point">Check the condition of fixed & mobile contacts</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good</td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_condition_of_contacts_zpt" id="check_condition_of_contacts_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_condition_of_contacts_bl" id="check_condition_of_contacts_bl" class="actual-input">
+                        </td>
+                    </tr>
+
+
+
+                    <tr style="height: 27pt;">
+                        <td style="width: 31pt; border: 1pt solid #000; text-align: center;">4</td>
+                        <td style="width: 202pt; border: 1pt solid #000; padding-left: 5pt; text-align: left;">Check the opening of contacts on slight movement of operating mechanism</td>
+                        <td style="width: 100pt; border: 1pt solid #000; text-align: center;">Shop Practice</td>
+                        <td style="width: 140pt; border: 1pt solid #000; text-align: center;">No opening of contacts</td>
+                        <td style="width: 106pt; border: 1pt solid #000;">
+                            <input type="text" name="check_the_opening_of_contacts_on_slight_movement_of_operating_mechanism_desk1" id="check_the_opening_of_contacts_on_slight_movement_of_operating_mechanism_desk1" style="width: 95%; border: 1px solid #ccc; padding: 2px;">
+                        </td>
+                        <td style="width: 119pt; border: 1pt solid #000;">
+                            <input type="text" name="check_the_opening_of_contacts_on_slight_movement_of_operating_mechanism_desk2" id="check_the_opening_of_contacts_on_slight_movement_of_operating_mechanism_desk2" style="width: 95%; border: 1px solid #ccc; padding: 2px;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td class="check-point">IR value with 500 V Megger</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell"></td>
+                        <td class="actual-cell">
+                            <input type="text" name="ir_value_with_500v_megger_zpt" id="ir_value_with_500v_megger_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="ir_value_with_500v_megger_bl" id="ir_value_with_500v_megger_bl" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">a) Contact to contact</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">100 M Ω (Min)</td>
+                        <td class="actual-cell">
+                            <input type="text" name="contact_to_contact_zpt" id="contact_to_contact_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="contact_to_contact_bl" id="contact_to_contact_bl" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">b) Contact to body/earth</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">100 M Ω (Min)</td>
+                        <td class="actual-cell">
+                            <input type="text" name="contact_to_body_earth_zpt" id="contact_to_body_earth_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="contact_to_body_earth_bl" id="contact_to_body_earth_bl" class="actual-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="check-point">Check for good contact pressure</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good</td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_for_good_contact_pressure_zpt" id="check_for_good_contact_pressure_zpt" class="actual-input">
+                        </td>
+                        <td class="actual-cell">
+                            <input type="text" name="check_for_good_contact_pressure_bl" id="check_for_good_contact_pressure_bl" class="actual-input">
+                        </td>
+                    </tr>
+
+                    <tr style="height: 29pt;">
+                        <td style="width: 31pt; border: 1pt solid #000; text-align: center;">7</td>
+                        <td style="width: 202pt; border: 1pt solid #000; padding-left: 5pt; text-align: left;">Check closing &amp; opening sequence of contacts as per programme diagram</td>
+                        <td style="width: 100pt; border: 1pt solid #000; text-align: center;">Shop Practice</td>
+                        <td style="width: 140pt; border: 1pt solid #000; text-align: center;">Perfect</td>
+                        <td style="width: 106pt; border: 1pt solid #000;">
+                            <input type="text" name="check_closing_opening_sequence_of_contacts_as_per_programme_diagram_desk1" id="check_closing_opening_sequence_of_contacts_as_per_programme_diagram_desk1" style="width: 95%; border: 1px solid #ccc; padding: 2px;">
+                        </td>
+                        <td style="width: 119pt; border: 1pt solid #000;">
+                            <input type="text" name="check_closing_opening_sequence_of_contacts_as_per_programme_diagram_desk2" id="check_closing_opening_sequence_of_contacts_as_per_programme_diagram_desk2" style="width: 95%; border: 1px solid #ccc; padding: 2px;">
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
+                    <table>
+            <thead>
+                <tr>
+                    <th rowspan="2"></th>
+                    <th rowspan="2" class="sn-col">SN</th>
+                    <th rowspan="2">Check Point</th>
+                    <th rowspan="2" class="reference-col">Reference</th>
+                    <th rowspan="2" class="standard-col">Standard</th>
+                    <th colspan="2">Actual</th>
+                </tr>
+                <tr>
+                    <th class="actual-col">MP1</th>
+                    <th class="actual-col">MP2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="14" class="component-label">MASTER CONTROLLER</td>
+                    <td>1</td>
+                    <td class="check-point">Check Drum teeth & cam roller for any wear and tear</td>
+                    <td>Shop Practice</td>
+                    <td>No wear No tear</td>
+                    <td><input type="text" name="check_drum_teeth_cam_roller_mp1" id="check_drum_teeth_cam_roller_mp1"></td>
+                    <td><input type="text" name="check_drum_teeth_cam_roller_mp2" id="check_drum_teeth_cam_roller_mp2"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="check-point">Check the condition of sleeves, cable & crimping of pins in conk</td>
+                    <td>Shop Practice</td>
+                    <td>Good Condition</td>
+                    <td><input type="text" name="check_sleeves_cable_crimping_mp1" id="check_sleeves_cable_crimping_mp1"></td>
+                    <td><input type="text" name="check_sleeves_cable_crimping_mp2" id="check_sleeves_cable_crimping_mp2"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="check-point">Grease the inter locking discs rollers and cams</td>
+                    <td>Shop Practice</td>
+                    <td>Grease</td>
+                    <td><input type="text" name="grease_inter_locking_discs_mp1" id="grease_inter_locking_discs_mp1"></td>
+                    <td><input type="text" name="grease_inter_locking_discs_mp2" id="grease_inter_locking_discs_mp2"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="check-point">Check the interlock mechanism for proper interlocking</td>
+                    <td>Shop Practice</td>
+                    <td>Proper locking to be ensured</td>
+                    <td><input type="text" name="check_interlock_mechanism_mp1" id="check_interlock_mechanism_mp1"></td>
+                    <td><input type="text" name="check_interlock_mechanism_mp2" id="check_interlock_mechanism_mp2"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="check-point">Check proper mechanical locking</td>
+                    <td>Shop Practice</td>
+                    <td>Proper locking to be ensured</td>
+                    <td><input type="text" name="check_mechanical_locking_mp1" id="check_mechanical_locking_mp1"></td>
+                    <td><input type="text" name="check_mechanical_locking_mp2" id="check_mechanical_locking_mp2"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="check-point">Check the contact gap</td>
+                    <td>MM WAM-4 VOI – III</td>
+                    <td>4 to 6 mm</td>
+                    <td><input type="text" name="check_contact_gap_mp1" id="check_contact_gap_mp1"></td>
+                    <td><input type="text" name="check_contact_gap_mp2" id="check_contact_gap_mp2"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="check-point">Check Contact pressure</td>
+                    <td>MM WAM-4 VOI – III</td>
+                    <td>0.2 Kg ± 10%</td>
+                    <td><input type="text" name="check_contact_pressure_mp1" id="check_contact_pressure_mp1"></td>
+                    <td><input type="text" name="check_contact_pressure_mp2" id="check_contact_pressure_mp2"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="check-point">Check the proper working of Cam switches on different position of handles on test bench</td>
+                    <td>Shop Practice</td>
+                    <td>Properly working</td>
+                    <td><input type="text" name="check_cam_switches_mp1" id="check_cam_switches_mp1"></td>
+                    <td><input type="text" name="check_cam_switches_mp2" id="check_cam_switches_mp2"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="check-point">Check the insulation resistance with 500V Megger between conk pins and body</td>
+                    <td>Shop Practice</td>
+                    <td>100 M Ω (Min)</td>
+                    <td><input type="text" name="check_insulation_resistance_mp1" id="check_insulation_resistance_mp1"></td>
+                    <td><input type="text" name="check_insulation_resistance_mp2" id="check_insulation_resistance_mp2"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="check-point">Check the indication plates for legibility and correctness</td>
+                    <td>Shop Practice</td>
+                    <td>Clearly legible</td>
+                    <td><input type="text" name="check_indication_plates_mp1" id="check_indication_plates_mp1"></td>
+                    <td><input type="text" name="check_indication_plates_mp2" id="check_indication_plates_mp2"></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="check-point">Check the condition of all handles</td>
+                    <td>Shop Practice</td>
+                    <td>Good</td>
+                    <td><input type="text" name="check_handles_condition_mp1" id="check_handles_condition_mp1"></td>
+                    <td><input type="text" name="check_handles_condition_mp2" id="check_handles_condition_mp2"></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="check-point">Check each condenser value (04 Nos.) by LCR meter</td>
+                    <td>Shop Practice</td>
+                    <td class="small-text">0.21 – 0.23 µf<br>or<br>0.23 – 0.26 µf</td>
+                    <td><input type="text" name="check_condenser_value_mp1" id="check_condenser_value_mp1"></td>
+                    <td><input type="text" name="check_condenser_value_mp2" id="check_condenser_value_mp2"></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="check-point">Check each resistance value</td>
+                    <td>Shop Practice</td>
+                    <td>475 – 525 Ω</td>
+                    <td><input type="text" name="check_resistance_value_mp1" id="check_resistance_value_mp1"></td>
+                    <td><input type="text" name="check_resistance_value_mp2" id="check_resistance_value_mp2"></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="check-point">Check condition of spring</td>
+                    <td>Shop Practice</td>
+                    <td>Good</td>
+                    <td><input type="text" name="check_spring_condition_mp1" id="check_spring_condition_mp1"></td>
+                    <td><input type="text" name="check_spring_condition_mp2" id="check_spring_condition_mp2"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Push Button Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2"></th>
+                    <th rowspan="2" class="sn-col">SN</th>
+                    <th rowspan="2">Check Point</th>
+                    <th rowspan="2" class="reference-col">Reference</th>
+                    <th rowspan="2" class="standard-col">Standard</th>
+                    <th colspan="8">Actual</th>
+                </tr>
+                <tr>
+                    <th class="small-text">BPP1</th>
+                    <th class="small-text">BPP2</th>
+                    <th class="small-text">BPR1</th>
+                    <th class="small-text">BPR2</th>
+                    <th class="small-text">BPT1</th>
+                    <th class="small-text">BPT2</th>
+                    <th class="small-text">BPQD1</th>
+                    <th class="small-text">BPQD2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="6" class="component-label">PUSH BUTTON</td>
+                    <td>1</td>
+                    <td class="check-point">Check the body for crack and damage</td>
+                    <td>Shop Practice</td>
+                    <td>No Crack No Damage</td>
+                    <td><input type="text" name="check_body_crack_damage_bpp1" id="check_body_crack_damage_bpp1"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpp2" id="check_body_crack_damage_bpp2"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpr1" id="check_body_crack_damage_bpr1"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpr2" id="check_body_crack_damage_bpr2"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpt1" id="check_body_crack_damage_bpt1"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpt2" id="check_body_crack_damage_bpt2"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpqd1" id="check_body_crack_damage_bpqd1"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpqd2" id="check_body_crack_damage_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="check-point">Check the contact are fixed firmly with body</td>
+                    <td>Shop Practice</td>
+                    <td>Fixed</td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpp1" id="check_contact_fixed_firmly_bpp1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpp2" id="check_contact_fixed_firmly_bpp2"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpr1" id="check_contact_fixed_firmly_bpr1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpr2" id="check_contact_fixed_firmly_bpr2"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpt1" id="check_contact_fixed_firmly_bpt1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpt2" id="check_contact_fixed_firmly_bpt2"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpqd1" id="check_contact_fixed_firmly_bpqd1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpqd2" id="check_contact_fixed_firmly_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="check-point">Check the contacts for any flash & pitting mark.</td>
+                    <td>Shop Practice</td>
+                    <td>No Flash & Pitting mark</td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpp1" id="check_contacts_flash_pitting_bpp1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpp2" id="check_contacts_flash_pitting_bpp2"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpr1" id="check_contacts_flash_pitting_bpr1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpr2" id="check_contacts_flash_pitting_bpr2"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpt1" id="check_contacts_flash_pitting_bpt1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpt2" id="check_contacts_flash_pitting_bpt2"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpqd1" id="check_contacts_flash_pitting_bpqd1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpqd2" id="check_contacts_flash_pitting_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="check-point">Check the operation of push button</td>
+                    <td>Shop Practice</td>
+                    <td>Free</td>
+                    <td><input type="text" name="check_operation_push_button_bpp1" id="check_operation_push_button_bpp1"></td>
+                    <td><input type="text" name="check_operation_push_button_bpp2" id="check_operation_push_button_bpp2"></td>
+                    <td><input type="text" name="check_operation_push_button_bpr1" id="check_operation_push_button_bpr1"></td>
+                    <td><input type="text" name="check_operation_push_button_bpr2" id="check_operation_push_button_bpr2"></td>
+                    <td><input type="text" name="check_operation_push_button_bpt1" id="check_operation_push_button_bpt1"></td>
+                    <td><input type="text" name="check_operation_push_button_bpt2" id="check_operation_push_button_bpt2"></td>
+                    <td><input type="text" name="check_operation_push_button_bpqd1" id="check_operation_push_button_bpqd1"></td>
+                    <td><input type="text" name="check_operation_push_button_bpqd2" id="check_operation_push_button_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="check-point">Check the continuity and discontinuity test when push button is pressed and released</td>
+                    <td>Shop Practice</td>
+                    <td>Perfect</td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpp1" id="check_continuity_discontinuity_bpp1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpp2" id="check_continuity_discontinuity_bpp2"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpr1" id="check_continuity_discontinuity_bpr1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpr2" id="check_continuity_discontinuity_bpr2"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpt1" id="check_continuity_discontinuity_bpt1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpt2" id="check_continuity_discontinuity_bpt2"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpqd1" id="check_continuity_discontinuity_bpqd1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpqd2" id="check_continuity_discontinuity_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="check-point">Check insulation resistance with 500V Megger between contact to body</td>
+                    <td>Shop Practice</td>
+                    <td>100 M Ω</td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpp1" id="check_insulation_resistance_contact_bpp1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpp2" id="check_insulation_resistance_contact_bpp2"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpr1" id="check_insulation_resistance_contact_bpr1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpr2" id="check_insulation_resistance_contact_bpr2"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpt1" id="check_insulation_resistance_contact_bpt1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpt2" id="check_insulation_resistance_contact_bpt2"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpqd1" id="check_insulation_resistance_contact_bpqd1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpqd2" id="check_insulation_resistance_contact_bpqd2"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Additional Push Button Components -->
+        <!-- <table>
+            <thead>
+                <tr>
+                    <th rowspan="2"></th>
+                    <th rowspan="2" class="sn-col">SN</th>
+                    <th rowspan="2">Check Point</th>
+                    <th rowspan="2" class="reference-col">Reference</th>
+                    <th rowspan="2" class="standard-col">Standard</th>
+                    <th colspan="6">Actual</th>
+                </tr>
+                <tr>
+                    <th class="small-text">BPSW1</th>
+                    <th class="small-text">BPSW2</th>
+                    <th class="small-text">SW1</th>
+                    <th class="small-text">SW2</th>
+                    <th class="small-text">BPQWC1</th>
+                    <th class="small-text">BPQWC2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="6" class="component-label">PUSH BUTTON</td>
+                    <td>1</td>
+                    <td class="check-point">Check the body for crack and damage</td>
+                    <td>Shop Practice</td>
+                    <td>No Crack No Damage</td>
+                    <td><input type="text" name="check_body_crack_damage_bpsw1" id="check_body_crack_damage_bpsw1"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpsw2" id="check_body_crack_damage_bpsw2"></td>
+                    <td><input type="text" name="check_body_crack_damage_sw1" id="check_body_crack_damage_sw1"></td>
+                    <td><input type="text" name="check_body_crack_damage_sw2" id="check_body_crack_damage_sw2"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpqwc1" id="check_body_crack_damage_bpqwc1"></td>
+                    <td><input type="text" name="check_body_crack_damage_bpqwc2" id="check_body_crack_damage_bpqwc2"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="check-point">Check the contact are fixed firmly with body</td>
+                    <td>Shop Practice</td>
+                    <td>Fixed</td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpsw1" id="check_contact_fixed_firmly_bpsw1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpsw2" id="check_contact_fixed_firmly_bpsw2"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_sw1" id="check_contact_fixed_firmly_sw1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_sw2" id="check_contact_fixed_firmly_sw2"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpqwc1" id="check_contact_fixed_firmly_bpqwc1"></td>
+                    <td><input type="text" name="check_contact_fixed_firmly_bpqwc2" id="check_contact_fixed_firmly_bpqwc2"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="check-point">Check the contacts for any flash & pitting mark.</td>
+                    <td>Shop Practice</td>
+                    <td>No Flash & Pitting mark</td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpsw1" id="check_contacts_flash_pitting_bpsw1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpsw2" id="check_contacts_flash_pitting_bpsw2"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_sw1" id="check_contacts_flash_pitting_sw1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_sw2" id="check_contacts_flash_pitting_sw2"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpqwc1" id="check_contacts_flash_pitting_bpqwc1"></td>
+                    <td><input type="text" name="check_contacts_flash_pitting_bpqwc2" id="check_contacts_flash_pitting_bpqwc2"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="check-point">Check the operation of push button</td>
+                    <td>Shop Practice</td>
+                    <td>Free</td>
+                    <td><input type="text" name="check_operation_push_button_bpsw1" id="check_operation_push_button_bpsw1"></td>
+                    <td><input type="text" name="check_operation_push_button_bpsw2" id="check_operation_push_button_bpsw2"></td>
+                    <td><input type="text" name="check_operation_push_button_sw1" id="check_operation_push_button_sw1"></td>
+                    <td><input type="text" name="check_operation_push_button_sw2" id="check_operation_push_button_sw2"></td>
+                    <td><input type="text" name="check_operation_push_button_bpqwc1" id="check_operation_push_button_bpqwc1"></td>
+                    <td><input type="text" name="check_operation_push_button_bpqwc2" id="check_operation_push_button_bpqwc2"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="check-point">Check the continuity and discontinuity test when push button is pressed and released</td>
+                    <td>Shop Practice</td>
+                    <td>Perfect</td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpsw1" id="check_continuity_discontinuity_bpsw1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpsw2" id="check_continuity_discontinuity_bpsw2"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_sw1" id="check_continuity_discontinuity_sw1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_sw2" id="check_continuity_discontinuity_sw2"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpqwc1" id="check_continuity_discontinuity_bpqwc1"></td>
+                    <td><input type="text" name="check_continuity_discontinuity_bpqwc2" id="check_continuity_discontinuity_bpqwc2"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="check-point">Check insulation resistance with 500V Megger between contact to body</td>
+                    <td>Shop Practice</td>
+                    <td>100 M Ω</td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpsw1" id="check_insulation_resistance_contact_bpsw1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpsw2" id="check_insulation_resistance_contact_bpsw2"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_sw1" id="check_insulation_resistance_contact_sw1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_sw2" id="check_insulation_resistance_contact_sw2"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpqwc1" id="check_insulation_resistance_contact_bpqwc1"></td>
+                    <td><input type="text" name="check_insulation_resistance_contact_bpqwc2" id="check_insulation_resistance_contact_bpqwc2"></td>
+                </tr>
+            </tbody>
+        </table> -->
+
+
+        
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" class="section-header"></th>
+                    <th class="sn-column">SN</th>
+                    <th class="checkpoint-column">Check Point</th>
+                    <th class="reference-column">Reference</th>
+                    <th class="standard-column">Standard</th>
+                    <th colspan="2" class="actual-column">Actual</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="actual-column">MP1</th>
+                    <th class="actual-column">MP2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="14" class="section-header">MASTER CONTROLLER</td>
+                    <td class="sn-column">1</td>
+                    <td class="checkpoint-column">Check Drum teeth & cam roller for any wear and tear</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">No wear No tear</td>
+                    <td class="actual-column"><input type="text" name="check_drum_teeth_cam_roller_mp1" id="check_drum_teeth_cam_roller_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_drum_teeth_cam_roller_mp2" id="check_drum_teeth_cam_roller_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td class="checkpoint-column">Check the condition of sleeves, cable & crimping of pins in conk</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Good Condition</td>
+                    <td class="actual-column"><input type="text" name="check_condition_sleeves_cable_crimping_mp1" id="check_condition_sleeves_cable_crimping_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_condition_sleeves_cable_crimping_mp2" id="check_condition_sleeves_cable_crimping_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td class="checkpoint-column">Grease the inter locking discs rollers and cams</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Grease</td>
+                    <td class="actual-column"><input type="text" name="grease_inter_locking_discs_rollers_cams_mp1" id="grease_inter_locking_discs_rollers_cams_mp1"></td>
+                    <td class="actual-column"><input type="text" name="grease_inter_locking_discs_rollers_cams_mp2" id="grease_inter_locking_discs_rollers_cams_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td class="checkpoint-column">Check the interlock mechanism for proper interlocking</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Proper locking to be ensured</td>
+                    <td class="actual-column"><input type="text" name="check_interlock_mechanism_proper_interlocking_mp1" id="check_interlock_mechanism_proper_interlocking_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_interlock_mechanism_proper_interlocking_mp2" id="check_interlock_mechanism_proper_interlocking_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td class="checkpoint-column">Check proper mechanical locking</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Proper locking to be ensured</td>
+                    <td class="actual-column"><input type="text" name="check_proper_mechanical_locking_mp1" id="check_proper_mechanical_locking_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_proper_mechanical_locking_mp2" id="check_proper_mechanical_locking_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td class="checkpoint-column">Check the contact gap</td>
+                    <td class="reference-column">MM WAM-4 VOI – III</td>
+                    <td class="standard-column">4 to 6 mm</td>
+                    <td class="actual-column"><input type="text" name="check_contact_gap_mp1" id="check_contact_gap_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_gap_mp2" id="check_contact_gap_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td class="checkpoint-column">Check Contact pressure</td>
+                    <td class="reference-column">MM WAM-4 VOI – III</td>
+                    <td class="standard-column">0.2 Kg ± 10%</td>
+                    <td class="actual-column"><input type="text" name="check_contact_pressure_mp1" id="check_contact_pressure_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_pressure_mp2" id="check_contact_pressure_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td class="checkpoint-column">Check the proper working of Cam switches on different position of handles on test bench</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Properly working</td>
+                    <td class="actual-column"><input type="text" name="check_proper_working_cam_switches_mp1" id="check_proper_working_cam_switches_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_proper_working_cam_switches_mp2" id="check_proper_working_cam_switches_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td class="checkpoint-column">Check the insulation resistance with 500V Megger between conk pins and body</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">100 M Ω (Min)</td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_megger_mp1" id="check_insulation_resistance_500v_megger_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_megger_mp2" id="check_insulation_resistance_500v_megger_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td class="checkpoint-column">Check the indication plates for legibility and correctness</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Clearly legible</td>
+                    <td class="actual-column"><input type="text" name="check_indication_plates_legibility_correctness_mp1" id="check_indication_plates_legibility_correctness_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_indication_plates_legibility_correctness_mp2" id="check_indication_plates_legibility_correctness_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">11</td>
+                    <td class="checkpoint-column">Check the condition of all handles</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Good</td>
+                    <td class="actual-column"><input type="text" name="check_condition_all_handles_mp1" id="check_condition_all_handles_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_condition_all_handles_mp2" id="check_condition_all_handles_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">12</td>
+                    <td class="checkpoint-column">Check each condenser value (04 Nos.) by LCR meter</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column multi-line">0.21 – 0.23 µf<br>or<br>0.23 – 0.26 µf</td>
+                    <td class="actual-column"><input type="text" name="check_condenser_value_lcr_meter_mp1" id="check_condenser_value_lcr_meter_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_condenser_value_lcr_meter_mp2" id="check_condenser_value_lcr_meter_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">13</td>
+                    <td class="checkpoint-column">Check each resistance value</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">475 – 525 Ω</td>
+                    <td class="actual-column"><input type="text" name="check_resistance_value_mp1" id="check_resistance_value_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_resistance_value_mp2" id="check_resistance_value_mp2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">14</td>
+                    <td class="checkpoint-column">Check condition of spring</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Good</td>
+                    <td class="actual-column"><input type="text" name="check_condition_spring_mp1" id="check_condition_spring_mp1"></td>
+                    <td class="actual-column"><input type="text" name="check_condition_spring_mp2" id="check_condition_spring_mp2"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Push Button Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" class="section-header"></th>
+                    <th class="sn-column">SN</th>
+                    <th class="checkpoint-column">Check Point</th>
+                    <th class="reference-column">Reference</th>
+                    <th class="standard-column">Standard</th>
+                    <th colspan="8" class="actual-column">Actual</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="actual-column">BPP1</th>
+                    <th class="actual-column">BPP2</th>
+                    <th class="actual-column">BPR1</th>
+                    <th class="actual-column">BPR2</th>
+                    <th class="actual-column">BPT1</th>
+                    <th class="actual-column">BPT2</th>
+                    <th class="actual-column">BPQD1</th>
+                    <th class="actual-column">BPQD2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="13" class="section-header">PUSH BUTTON</td>
+                    <td class="sn-column">1</td>
+                    <td class="checkpoint-column">Check the body for crack and damage</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">No Crack No Damage</td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpp1" id="check_body_crack_damage_bpp1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpp2" id="check_body_crack_damage_bpp2"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpr1" id="check_body_crack_damage_bpr1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpr2" id="check_body_crack_damage_bpr2"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpt1" id="check_body_crack_damage_bpt1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpt2" id="check_body_crack_damage_bpt2"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpqd1" id="check_body_crack_damage_bpqd1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpqd2" id="check_body_crack_damage_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td class="checkpoint-column">Check the contact are fixed firmly with body</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Fixed</td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpp1" id="check_contact_fixed_firmly_body_bpp1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpp2" id="check_contact_fixed_firmly_body_bpp2"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpr1" id="check_contact_fixed_firmly_body_bpr1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpr2" id="check_contact_fixed_firmly_body_bpr2"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpt1" id="check_contact_fixed_firmly_body_bpt1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpt2" id="check_contact_fixed_firmly_body_bpt2"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpqd1" id="check_contact_fixed_firmly_body_bpqd1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpqd2" id="check_contact_fixed_firmly_body_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td class="checkpoint-column">Check the contacts for any flash & pitting mark.</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">No Flash & Pitting mark</td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpp1" id="check_contacts_flash_pitting_mark_bpp1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpp2" id="check_contacts_flash_pitting_mark_bpp2"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpr1" id="check_contacts_flash_pitting_mark_bpr1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpr2" id="check_contacts_flash_pitting_mark_bpr2"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpt1" id="check_contacts_flash_pitting_mark_bpt1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpt2" id="check_contacts_flash_pitting_mark_bpt2"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpqd1" id="check_contacts_flash_pitting_mark_bpqd1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpqd2" id="check_contacts_flash_pitting_mark_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td class="checkpoint-column">Check the operation of push button</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Free</td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpp1" id="check_operation_push_button_bpp1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpp2" id="check_operation_push_button_bpp2"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpr1" id="check_operation_push_button_bpr1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpr2" id="check_operation_push_button_bpr2"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpt1" id="check_operation_push_button_bpt1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpt2" id="check_operation_push_button_bpt2"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpqd1" id="check_operation_push_button_bpqd1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpqd2" id="check_operation_push_button_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td class="checkpoint-column">Check the continuity and discontinuity test when push button is pressed and released</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Perfect</td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpp1" id="check_continuity_discontinuity_test_bpp1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpp2" id="check_continuity_discontinuity_test_bpp2"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpr1" id="check_continuity_discontinuity_test_bpr1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpr2" id="check_continuity_discontinuity_test_bpr2"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpt1" id="check_continuity_discontinuity_test_bpt1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpt2" id="check_continuity_discontinuity_test_bpt2"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpqd1" id="check_continuity_discontinuity_test_bpqd1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpqd2" id="check_continuity_discontinuity_test_bpqd2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td class="checkpoint-column">Check insulation resistance with 500V Megger between contact to body</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">100 M Ω</td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpp1" id="check_insulation_resistance_500v_contact_body_bpp1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpp2" id="check_insulation_resistance_500v_contact_body_bpp2"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpr1" id="check_insulation_resistance_500v_contact_body_bpr1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpr2" id="check_insulation_resistance_500v_contact_body_bpr2"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpt1" id="check_insulation_resistance_500v_contact_body_bpt1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpt2" id="check_insulation_resistance_500v_contact_body_bpt2"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpqd1" id="check_insulation_resistance_500v_contact_body_bpqd1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpqd2" id="check_insulation_resistance_500v_contact_body_bpqd2"></td>
+                </tr>
+                <!-- Additional rows for switch types -->
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="checkpoint-column"></td>
+                    <td class="reference-column"></td>
+                    <td class="standard-column"></td>
+                    <th class="actual-column">BPSW1</th>
+                    <th class="actual-column">BPSW2</th>
+                    <th class="actual-column">SW1</th>
+                    <th class="actual-column">SW2</th>
+                    <th class="actual-column">BPQWC1</th>
+                    <th class="actual-column">BPQWC2</th>
+                    <th class="actual-column">VCD RCT-1</th>
+                    <th class="actual-column">VCD RCT-2</th>
+                </tr>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td class="checkpoint-column">Check the body for crack and damage</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">No Crack No Damage</td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpsw1" id="check_body_crack_damage_bpsw1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpsw2" id="check_body_crack_damage_bpsw2"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_sw1" id="check_body_crack_damage_sw1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_sw2" id="check_body_crack_damage_sw2"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpqwc1" id="check_body_crack_damage_bpqwc1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_bpqwc2" id="check_body_crack_damage_bpqwc2"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_vcd_rct1" id="check_body_crack_damage_vcd_rct1"></td>
+                    <td class="actual-column"><input type="text" name="check_body_crack_damage_vcd_rct2" id="check_body_crack_damage_vcd_rct2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td class="checkpoint-column">Check the contact are fixed firmly with body</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Fixed</td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpsw1" id="check_contact_fixed_firmly_body_bpsw1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpsw2" id="check_contact_fixed_firmly_body_bpsw2"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_sw1" id="check_contact_fixed_firmly_body_sw1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_sw2" id="check_contact_fixed_firmly_body_sw2"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpqwc1" id="check_contact_fixed_firmly_body_bpqwc1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_bpqwc2" id="check_contact_fixed_firmly_body_bpqwc2"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_vcd_rct1" id="check_contact_fixed_firmly_body_vcd_rct1"></td>
+                    <td class="actual-column"><input type="text" name="check_contact_fixed_firmly_body_vcd_rct2" id="check_contact_fixed_firmly_body_vcd_rct2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td class="checkpoint-column">Check the contacts for any flash & pitting mark.</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">No Flash & Pitting mark</td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpsw1" id="check_contacts_flash_pitting_mark_bpsw1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpsw2" id="check_contacts_flash_pitting_mark_bpsw2"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_sw1" id="check_contacts_flash_pitting_mark_sw1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_sw2" id="check_contacts_flash_pitting_mark_sw2"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpqwc1" id="check_contacts_flash_pitting_mark_bpqwc1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_bpqwc2" id="check_contacts_flash_pitting_mark_bpqwc2"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_vcd_rct1" id="check_contacts_flash_pitting_mark_vcd_rct1"></td>
+                    <td class="actual-column"><input type="text" name="check_contacts_flash_pitting_mark_vcd_rct2" id="check_contacts_flash_pitting_mark_vcd_rct2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td class="checkpoint-column">Check the operation of push button</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Free</td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpsw1" id="check_operation_push_button_bpsw1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpsw2" id="check_operation_push_button_bpsw2"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_sw1" id="check_operation_push_button_sw1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_sw2" id="check_operation_push_button_sw2"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpqwc1" id="check_operation_push_button_bpqwc1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_bpqwc2" id="check_operation_push_button_bpqwc2"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_vcd_rct1" id="check_operation_push_button_vcd_rct1"></td>
+                    <td class="actual-column"><input type="text" name="check_operation_push_button_vcd_rct2" id="check_operation_push_button_vcd_rct2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td class="checkpoint-column">Check the continuity and discontinuity test when push button is pressed and released</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">Perfect</td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpsw1" id="check_continuity_discontinuity_test_bpsw1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpsw2" id="check_continuity_discontinuity_test_bpsw2"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_sw1" id="check_continuity_discontinuity_test_sw1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_sw2" id="check_continuity_discontinuity_test_sw2"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpqwc1" id="check_continuity_discontinuity_test_bpqwc1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_bpqwc2" id="check_continuity_discontinuity_test_bpqwc2"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_vcd_rct1" id="check_continuity_discontinuity_test_vcd_rct1"></td>
+                    <td class="actual-column"><input type="text" name="check_continuity_discontinuity_test_vcd_rct2" id="check_continuity_discontinuity_test_vcd_rct2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td class="checkpoint-column">Check insulation resistance with 500V Megger between contact to body</td>
+                    <td class="reference-column">Shop Practice</td>
+                    <td class="standard-column">100 M Ω</td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpsw1" id="check_insulation_resistance_500v_contact_body_bpsw1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpsw2" id="check_insulation_resistance_500v_contact_body_bpsw2"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_sw1" id="check_insulation_resistance_500v_contact_body_sw1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_sw2" id="check_insulation_resistance_500v_contact_body_sw2"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpqwc1" id="check_insulation_resistance_500v_contact_body_bpqwc1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_bpqwc2" id="check_insulation_resistance_500v_contact_body_bpqwc2"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_vcd_rct1" id="check_insulation_resistance_500v_contact_body_vcd_rct1"></td>
+                    <td class="actual-column"><input type="text" name="check_insulation_resistance_500v_contact_body_vcd_rct2" id="check_insulation_resistance_500v_contact_body_vcd_rct2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="button" id="submitBtn" class="btn btn-primary">
+            Save Check Sheet
+        </button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(window.location.href);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Function to get ID from URL path for edit route
+            function getIdFromPath() {
+                const pathParts = window.location.pathname.split('/');
+
+                console.log(pathParts)
+                if (pathParts[2] === 'edit' && pathParts[3]) {
+                    return pathParts[3];
+                }
+                return '';
+            }
+
+             
+            
+            // Function to load check sheet data by ID
+            function loadCheckSheetData(id) {
+                if (!id) return;
+                
+                $.ajax({
+                    url: '/driving-desk/' + id,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.success) {
+                            // Set the ID in the hidden field
+                            $('#id').val(id);
+                            
+                            // Populate form fields with data
+                            const data = response.data;
+                            for (const key in data) {
+                                if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                    const element = $('#' + key);
+                                    if (element.length) {
+                                        element.val(data[key]);
+                                    }
+                                }
+                            }
+                        } else {
+                            alert('Error loading check sheet data: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error loading check sheet data: ' + error);
+                    }
+                });
+            }
+            
+            // Get ID from URL (either as parameter or from path)
+            const checkSheetId = getIdFromPath() || getUrlParameter('id');
+            if (checkSheetId) {
+                loadCheckSheetData(checkSheetId);
+            }
+            
+            // Handle form submission
+            $('#submitBtn').on('click', function() {
+                // Collect all form data
+                var formData = {};
+                $('input[type="text"]').each(function() {
+                    formData[$(this).attr('name')] = $(this).val();
+                });
+
+                console.log(formData)
+                
+                // Get the ID value to determine if we're adding or editing
+                var id = $('#id').val();
+                
+                var url = '/driving-desk/add';
+                var method = 'POST';
+                
+                if (id && id !== '') {
+                    url = '/driving-desk/edit/' + id;
+                }
+                
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // If this is a new record, save the ID for future edits
+                            if (response.id && !id) {
+                                $('#id').val(response.id);
+                            }
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error submitting form: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+</body>
+</html>
+         
+
+    

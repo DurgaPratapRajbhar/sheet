@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCB Maintenance Checklist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        td, th {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: top;
+            font-size: 12px;
+        }
+        .header-section {
+            background-color: #e6e6e6;
+            font-weight: bold;
+            text-align: center;
+        }
+        .equipment-header {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            text-align: center;
+        }
+        .serial-number {
+            text-align: center;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+        .check-item {
+            padding-left: 10px;
+        }
+        .standard-value {
+            background-color: #f8f8f8;
+            padding-left: 10px;
+        }
+        .actual-input {
+            background-color: #fff;
+        }
+        input[type="text"] {
+            width: 95%;
+            border:  1px solid #ccc;
+            padding: 4px;
+            font-size: 11px;
+            background: transparent;
+        }
+        input[type="text"]:focus {
+            outline: 1px solid #007acc;
+            background: #f0f8ff;
+        }
+        .reference-row {
+            background-color: #f5f5f5;
+        }
+        .must-change-header {
+            background-color: #ffeb3b;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        .status-header {
+            background-color: #e3f2fd;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        .pl-number {
+            text-align: center;
+        }
+        .description-text {
+            font-size: 11px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden ID field for check sheet -->
+    <input type="hidden" id="id" name="id" value="">
+    
+    <div class="container">
+        <h2>VACUUM CIRCUIT BREAKER MAINTENANCE CHECKLIST</h2>
+        
+        <!-- Header Information Table -->
+        <table>
+            <tr>
+                <td class="header-section">SECTION : VCB</td>
+                <td class="header-section">LOCO NO.</td>
+                <td class="header-section">SHED</td>
+                <td class="header-section">VCB SL. No.</td>
+                <td class="header-section">MAKE</td>
+                <td class="header-section">VCB MFG DATE</td>
+                <td class="header-section">POH DATE</td>
+            </tr>
+            <tr>
+                <td>KPA WORKSHOP</td>
+                <td><input type="text" name="loco_no" id="loco_no"></td>
+                <td><input type="text" name="shed" id="shed"></td>
+                <td><input type="text" name="vcb_sl_no" id="vcb_sl_no"></td>
+                <td><input type="text" name="make" id="make"></td>
+                <td><input type="text" name="mfg_date" id="mfg_date"></td>
+                <td><input type="text" name="poh_date" id="poh_date"></td>
+            </tr>
+        </table>
+
+        <!-- Main Checklist Table -->
+        <table>
+            <tr>
+                <td class="header-section">EQPT</td>
+                <td class="header-section">SL. No.</td>
+                <td class="header-section" colspan="2">Check point</td>
+                <td class="header-section" colspan="2">Standard</td>
+                <td class="header-section">Actual</td>
+            </tr>
+            <tr>
+                <td style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header" rowspan="13">VACUUM CIRCUIT BREAKER 10TR/M07 AAL/BT MAKE</td>
+                <td style="width:50px;" rowspan="2"></td>
+                <td class="reference-row" colspan="2">Reference</td>
+                <td class="reference-row" colspan="2">AAL/BT Manual / SMI</td>
+                <td><input type="text" name="insulatoridbtanula" id="insulatoridbtanula"></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td class="reference-row" colspan="2">WI no . 50902/DOC/01</td>
+                <td><input type="text" name="insulatordoc1" id="insulatordoc1"></td>
+            </tr>
+            <tr>
+                <td class="serial-number" rowspan="3">1</td>
+                <td class="header-section" colspan="5">INSULATORS</td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">I) Visually check for cracks, chips, damage of porcelain insulators</td>
+                <td class="standard-value" colspan="2">No crack , chips /damage found</td>
+                <td class="actual-input"><input type="text" name="insulator_check1" id="insulator_check1"></td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">II) Clean with wet cloths and let it dry</td>
+                <td class="standard-value" colspan="2">Cleaned</td>
+                <td class="actual-input"><input type="text" name="insulator_check2" id="insulator_check2"></td>
+            </tr>
+            <tr>
+                <td class="serial-number" rowspan="4">2</td>
+                <td class="header-section" colspan="5">PRESSURE SWITCH</td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">I) Replace complete pressure switch</td>
+                <td class="standard-value" colspan="2">Replaced</td>
+                <td class="actual-input"><input type="text" name="pressure_switch1" id="pressure_switch1"></td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">II) Pressure switch close at</td>
+                <td class="standard-value" colspan="2">Cut in : 3.6 ± 0.2 kg/cm²</td>
+                <td class="actual-input"><input type="text" name="pressure_switch2" id="pressure_switch2"></td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">III) Pressure switch opens at</td>
+                <td class="standard-value" colspan="2">Cut out : 3.3 ± 0.2 kg/cm²</td>
+                <td class="actual-input"><input type="text" name="pressure_switch3" id="pressure_switch3"></td>
+            </tr>
+            <tr>
+                <td class="serial-number" rowspan="4">3</td>
+                <td class="header-section" colspan="5">PRESSURE REGULATOR</td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">I) Replace the complete pressure regulator</td>
+                <td class="standard-value" colspan="2">Replaced</td>
+                <td class="actual-input"><input type="text" name="pressure_reg1" id="pressure_reg1"></td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">II) Ensure the tightness of pneumatic connection</td>
+                <td class="standard-value" colspan="2">Properly tightened</td>
+                <td class="actual-input"><input type="text" name="pressure_reg2" id="pressure_reg2"></td>
+            </tr>
+            <tr>
+                <td class="check-item" colspan="2">III) Setting of pressure regulator</td>
+                <td class="standard-value" colspan="2">4.6 ± 0.2 kg/cm² (As per manual)</td>
+                <td class="actual-input"><input type="text" name="pressure_reg3" id="pressure_reg3"></td>
+            </tr>
+        </table>
+
+        
+        <!-- Auxiliary Switch Section -->
+        <table>
+            <tr>
+                <td  style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header" rowspan="15"></td>
+                <td   style="width: 50px;" class="serial-number" rowspan="6">4</td>
+                <td class="header-section">AUXILIARY SWITCH</td>
+                <td class="header-section" colspan="2">N/O : <input type="text" name="aux_no" id="aux_no" style="width:60px;"> N/C : <input type="text" name="aux_nc" id="aux_nc" style="width:60px;"></td>
+            </tr>
+            <tr>
+                <td class="check-item">I) Ensure the tightness of all fixing bolt, nuts, connections</td>
+                <td class="standard-value">Properly tightened</td>
+                <td class="actual-input"><input type="text" name="aux_switch1" id="aux_switch1"></td>
+            </tr>
+            <tr>
+                <td class="check-item">II) Ensure the drive screw for any breakage or other damage</td>
+                <td class="standard-value">Ensured</td>
+                <td class="actual-input"><input type="text" name="aux_switch2" id="aux_switch2"></td>
+            </tr>
+            <tr>
+                <td class="check-item">III) Secured the auxiliary blocks and supports and tightened at torque 1.2 Nm</td>
+                <td class="standard-value">Tightened at 1.2 Nm</td>
+                <td class="actual-input"><input type="text" name="aux_switch3" id="aux_switch3"></td>
+            </tr>
+            <tr>
+                <td class="check-item">IV) Ensure the working order of each auxiliary contact</td>
+                <td class="standard-value">Ensured</td>
+                <td class="actual-input"><input type="text" name="aux_switch4" id="aux_switch4"></td>
+            </tr>
+            <tr>
+                <td class="check-item">V) Replace complete auxiliary switch new one</td>
+                <td class="standard-value">Replaced (As per SMI-236)</td>
+                <td class="actual-input"><input type="text" name="aux_switch5" id="aux_switch5"></td>
+            </tr>
+            <tr>
+                <td class="serial-number" rowspan="2">6</td>
+                <td class="header-section" colspan="3">AIR TANK (RESERVOIR)</td>
+            </tr>
+            <tr>
+                <td class="check-item">I) Check for any leakage</td>
+                <td class="standard-value">No any leakage</td>
+                <td class="actual-input"><input type="text" name="air_tank1" id="air_tank1"></td>
+            </tr>
+            <tr>
+                <td class="serial-number" rowspan="7">7</td>
+                <td class="header-section" colspan="3">MAGNET VALVE</td>
+            </tr>
+            <tr>
+                <td>MAGNET COILS</td>
+                <td class="header-section" colspan="2">Pick up : <input type="text" name="pickup" id="pickup" style="width:60px;"> Drop out : <input type="text" name="dropout" id="dropout" style="width:60px;"></td>
+            </tr>
+            <tr>
+                <td>AAL Make :</td>
+                <td class="standard-value" colspan="2">Coil No : <input type="text" name="aal_coil_no" id="aal_coil_no"></td>
+            </tr>
+            <tr>
+                <td class="check-item">I) Measure the resistance of EP Valve coil</td>
+                <td class="standard-value">1510 Ω± 8 % (1389.2 - 1630.8) Ω</td>
+                <td class="actual-input"><input type="text" name="aal_resistance" id="aal_resistance"></td>
+            </tr>
+            <tr>
+                <td>BT Make</td>
+                <td class="standard-value" colspan="2">Coil No : <input type="text" name="bt_coil_no" id="bt_coil_no"></td>
+            </tr>
+            <tr>
+                <td class="check-item">I) Measure the resistance of EP Valve coil</td>
+                <td class="standard-value">298 Ω± 8 % (274.16 - 321.84) Ω</td>
+                <td class="actual-input"><input type="text" name="bt_resistance1" id="bt_resistance1"></td>
+            </tr>
+            <tr>
+                <td class="check-item">II) Measure resistance of Holding coil</td>
+                <td class="standard-value">750 Ω± 8 % (690 - 810) Ω</td>
+                <td class="actual-input"><input type="text" name="bt_resistance2" id="bt_resistance2"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td class="header-section">EQPT</td>
+                <td class="header-section">SL. No.</td>
+                <td class="header-section" colspan="2">Check point</td>
+                <td class="header-section" colspan="2">Standard</td>
+                <td class="header-section">Actual</td>
+            </tr>
+            <tr>
+                <td style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header" rowspan="16">
+                    VACUUM CIRCUIT BREAKER 10TR/M07 AAL/BT MAKE
+                </td>
+                <td  rowspan="2">8</td>
+                <td  colspan="3">AIR DRIER</td>
+            </tr>
+                    <tr>
+                        <td >
+                            <label for="replace_old_molecular_sieve">I) Replace old molecular sieve</label>
+                        </td>
+                        <td >Replaced (As per SMI-236)</td>
+                        <td >
+                            <input type="text" name="replace_old_molecular_sieve" id="replace_old_molecular_sieve" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td   rowspan="2">9</td>
+                        <td  colspan="3">CABLING AND CONNECTOR</td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="visually_check_for_any_damage_cut_and_tightness_of_connectors_connections_pins_etc_including_pressure_switch_and_solenoid_valve">I) Visually check for any damage, cut and tightness of connectors, connections, pins etc including pressure switch and solenoid valve.</label>
+                        </td>
+                        <td >No cut, crack/Damage found.</td>
+                        <td >
+                            <input type="text" name="visually_check_for_any_damage_cut_and_tightness_of_connectors_connections_pins_etc_including_pressure_switch_and_solenoid_valve" id="visually_check_for_any_damage_cut_and_tightness_of_connectors_connections_pins_etc_including_pressure_switch_and_solenoid_valve" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td   rowspan="3">10</td>
+                        <td  colspan="3">PNEUMATIC CIRCUIT</td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="ensure_the_proper_air_pipe_connection">I) Ensure the proper air pipe connection</label>
+                        </td>
+                        <td >Ensured.</td>
+                        <td >
+                            <input type="text" name="ensure_the_proper_air_pipe_connection" id="ensure_the_proper_air_pipe_connection" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="ensure_the_sealing_of_connectors_flexible_pipe_regulator_air_tank_etc">II) Ensure the sealing of connectors, flexible pipe, regulator, air tank etc.</label>
+                        </td>
+                        <td >No air leakage</td>
+                        <td >
+                            <input type="text" name="ensure_the_sealing_of_connectors_flexible_pipe_regulator_air_tank_etc" id="ensure_the_sealing_of_connectors_flexible_pipe_regulator_air_tank_etc" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td   rowspan="2">11</td>
+                        <td  colspan="3">LATERAL COVER</td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="replace_the_kit_of_o_ring_of_lateral_cover">I) Replace the kit of "O" ring of lateral cover.</label>
+                        </td>
+                        <td >Replaced.</td>
+                        <td >
+                            <input type="text" name="replace_the_kit_of_o_ring_of_lateral_cover" id="replace_the_kit_of_o_ring_of_lateral_cover" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td  rowspan="3">12</td>
+                        <td  colspan="3">ELECTRICAL CONTROL UNIT /COIL PROTECTION UNIT</td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="ensure_the_cleanliness_of_control_unit">I) Ensure the cleanliness of control unit.</label>
+                        </td>
+                        <td >Properly cleaned.</td>
+                        <td >
+                            <input type="text" name="ensure_the_cleanliness_of_control_unit" id="ensure_the_cleanliness_of_control_unit" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="ensure_the_proper_operation_of_counter">II) Ensure the proper operation of counter.</label>
+                        </td>
+                        <td >Ensured.</td>
+                        <td >
+                            <input type="text" name="ensure_the_proper_operation_of_counter" id="ensure_the_proper_operation_of_counter" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td   rowspan="2">13</td>
+                        <td   colspan="3">TOGGLE MECHANISM</td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="ensure_the_proper_fixing_sticking_of_shock_absorber_plate_provided_below_toggle_mechanism">I) Ensure the proper fixing / sticking of shock absorber plate provided below toggle mechanism.</label>
+                        </td>
+                        <td >Ensured.</td>
+                        <td >
+                            <input type="text" name="ensure_the_proper_fixing_sticking_of_shock_absorber_plate_provided_below_toggle_mechanism" id="ensure_the_proper_fixing_sticking_of_shock_absorber_plate_provided_below_toggle_mechanism" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td   rowspan="2">14</td>
+                        <td  colspan="3">SHOCK ABSORBER</td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <label for="ensure_the_tightness_of_shock_absorber_if_found_loose_tighten_with_proper_torque_10_nm">I) Ensure the tightness of shock absorber, if found loose tighten with proper torque (10 Nm).</label>
+                        </td>
+                        <td >Properly tightened.</td>
+                        <td >
+                            <input type="text" name="ensure_the_tightness_of_shock_absorber_if_found_loose_tighten_with_proper_torque_10_nm" id="ensure_the_tightness_of_shock_absorber_if_found_loose_tighten_with_proper_torque_10_nm" style="width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 3px;">
+                        </td>
+                    </tr>
+        </table>
+
+        <table>
+            <!-- Insulation Test Section -->
+            <tbody>
+            <tr>
+
+                <td style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header" rowspan="3"></td>
+                <td  style="width: 50px;" class="serial-number"  >15</td>
+                <td colspan="6" class="section-header">INSULATION TEST BY 1KV MAGGER ( As per manual )</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="section-number"></td>
+                <td colspan="2" class="test-description">I) Control wiring to frame</td>
+                <td colspan="3" class="specification">10 MΩ ( Minimum )</td>
+                <td class="result-cell">
+                    <input type="text" name="control_wiring_to_frame" id="control_wiring_to_frame">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="test-description">II) VCB terminal to earth</td>
+                <td colspan="3" class="specification">200 MΩ ( Minimum )</td>
+                <td class="result-cell">
+                    <input type="text" name="vcb_terminal_to_earth" id="vcb_terminal_to_earth">
+                </td>
+            </tr>
+
+            <!-- Vacuum Switch Tube Section -->
+            <tr>
+                <td rowspan="3"></td>
+                <td class="section-number">16</td>
+                <td colspan="6" class="section-header">VACUUM SWITCH TUBE ( VST )</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="section-number"></td>
+                <td colspan="2" class="test-description">I) Check the healthiness of VST ( Di-electric test at 40 kv for 10 second )</td>
+                <td colspan="3" class="specification">Withstand for 10 second at 40KV ( As per OEM manual )</td>
+                <td class="result-cell">
+                    <input type="text" name="vst_dielectric_test" id="vst_dielectric_test">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="test-description">II) Measure the closing and opening time</td>
+                <td colspan="3" class="specification">CT &lt; 100 ms, OT &lt; 60 ms</td>
+                <td class="result-cell">
+                    <input type="text" name="closing_opening_time" id="closing_opening_time">
+                </td>
+            </tr>
+
+            <!-- Lubrication Section -->
+            <tr>
+                <td style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header" rowspan="3">AAL/BT</td>
+                <td class="section-number">17</td>
+                <td colspan="6" class="section-header">LUBRICATION</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="section-number"></td>
+                <td colspan="2" class="test-description">I) Lubricate toggle mechanism</td>
+                <td colspan="3" class="specification">Lubrication done</td>
+                <td class="result-cell">
+                    <input type="text" name="lubricate_toggle_mechanism" id="lubricate_toggle_mechanism">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="test-description">II) Lubricate shafting head bearing guides, vertical springs etc</td>
+                <td colspan="3" class="specification">Lubrication done</td>
+                <td class="result-cell">
+                    <input type="text" name="lubricate_shafting_head_bearing" id="lubricate_shafting_head_bearing">
+                </td>
+            </tr>
+
+            <!-- RC Damping Panel Section -->
+            <tr>
+                <td style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header"  rowspan="8">RC DAMPING PANEL</td>
+                <td class="section-number">18</td>
+                <td colspan="6" class="section-header">RC DAMPING PANEL</td>
+            </tr>
+            
+            <!-- Equipment Info Rows -->
+            <tr>
+                <td rowspan="3" class="section-number"></td>
+                <td class="test-description">SL No.1:</td>
+                <td class="make-info">
+                    MAKE <input type="text" name="sl1_make" id="sl1_make">
+                </td>
+                <td class="make-info">
+                    Mfg: <input type="text" name="sl1_mfg" id="sl1_mfg">
+                </td>
+                <td><input type="text" name="sl1_additional1" id="sl1_additional1"></td>
+                <td><input type="text" name="sl1_additional2" id="sl1_additional2"></td>
+                <td rowspan="3" class="result-cell">
+                    <input type="text" name="equipment_info_result" id="equipment_info_result">
+                </td>
+            </tr>
+            <tr>
+                <td class="test-description">SL No.2:</td>
+                <td class="make-info">
+                    MAKE <input type="text" name="sl2_make" id="sl2_make">
+                </td>
+                <td class="make-info">
+                    Mfg: <input type="text" name="sl2_mfg" id="sl2_mfg">
+                </td>
+                <td><input type="text" name="sl2_additional1" id="sl2_additional1"></td>
+                <td><input type="text" name="sl2_additional2" id="sl2_additional2"></td>
+            </tr>
+            <tr>
+                <td class="test-description">SL No.3:</td>
+                <td class="make-info">
+                    MAKE <input type="text" name="sl3_make" id="sl3_make">
+                </td>
+                <td class="make-info">
+                    Mfg: <input type="text" name="sl3_mfg" id="sl3_mfg">
+                </td>
+                <td><input type="text" name="sl3_additional1" id="sl3_additional1"></td>
+                <td><input type="text" name="sl3_additional2" id="sl3_additional2"></td>
+            </tr>
+
+            <!-- Test Rows -->
+            <tr>
+                <td rowspan="4" class="section-number"></td>
+                <td colspan="2" class="test-description">I) Ensure the proper tightness of electrical connection</td>
+                <td colspan="3" class="specification">Tightened properly</td>
+                <td class="result-cell">
+                    <input type="text" name="electrical_connection_tightness" id="electrical_connection_tightness">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="test-description">II) Measure the resistance value</td>
+                <td class="specification">4.7 ± 10 % Ω ( As per manual )</td>
+                <td class="test-description">R1: <input type="text" name="resistance_r1" id="resistance_r1" style="width:50px;"></td>
+                <td class="test-description">R2: <input type="text" name="resistance_r2" id="resistance_r2" style="width:50px;"></td>
+                <td class="test-description">R3: <input type="text" name="resistance_r3" id="resistance_r3" style="width:50px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="test-description">III) Measure the capacitance value</td>
+                <td class="specification">25 ± 10 % µf ( As per manual )</td>
+                <td class="test-description">C1: <input type="text" name="capacitance_c1" id="capacitance_c1" style="width:50px;"></td>
+                <td class="test-description">C2: <input type="text" name="capacitance_c2" id="capacitance_c2" style="width:50px;"></td>
+                <td class="test-description">C3: <input type="text" name="capacitance_c3" id="capacitance_c3" style="width:50px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="test-description">IV) Replace old RC Panel with new one</td>
+                <td colspan="3" class="specification">Replaced ( As per TC-123)</td>
+                <td class="result-cell">
+                    <input type="text" name="replace_old_rc_panel" id="replace_old_rc_panel">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <div class="form-container">
+        <!-- Cable Head Termination Section -->
+          <table>
+            <tr>
+                <td  style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header"  rowspan="7"  >CABLE HEAD TERMINATION (CHT)</td>
+                <td style="width: 50px;" rowspan="7" class="item-number">19</td>
+                <td colspan="2" class="section-header">CABLE HEAD TERMINATION (CHT)</td>
+                <td colspan="2" class="section-header">As per SMI No : RDSO/2017/EL/SMI/0317 , Date : 18.10.2017</td>
+            </tr>
+            <tr class="info-row">
+                <td>MAKE :</td>
+                <td>SL No :</td>
+                <td>MFG DT :</td>
+                <td><input type="text" name="cable_head_termination_mfg_dt" id="cable_head_termination_mfg_dt"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">I) Visually check for any cut mark, cracks and damage of CHT</td>
+                <td class="status-cell">No cut, crack/damage found .</td>
+                <td><input type="text" name="visual_check_cht" id="visual_check_cht"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">II) Visually check the healthiness of earthing shunt and connection</td>
+                <td class="status-cell">Earthing shunt is healthy .</td>
+                <td><input type="text" name="earthing_shunt_check" id="earthing_shunt_check"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">III) Clean the entire CHT.</td>
+                <td class="status-cell">Cleaned properly .</td>
+                <td><input type="text" name="clean_cht" id="clean_cht"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">IV) Change the self bonding tape and silicon tape</td>
+                <td class="status-cell">Changed .</td>
+                <td><input type="text" name="change_tapes" id="change_tapes"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">V) Measure the Insulation Resistance value by 5KV megger between shunt and connecting terminals.</td>
+                <td class="status-cell">200 MΩ (minimum) Shop practice .</td>
+                <td><input type="text" name="insulation_resistance" id="insulation_resistance"></td>
+            </tr>
+          </table>
+
+        <!-- Main Earthing Switch Section -->
+          <table>
+            <tr>
+                <td rowspan="9" style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header">MAIN EARTHING SWITCH (HOM)</td>
+                <td rowspan="9" style="width: 50px;">20</td>
+                <td colspan="4" class="section-header">MAIN EARTHING SWITCH (HOM)</td>
+            </tr>
+            <tr class="info-row">
+                <td>MAKE :</td>
+                <td>SL No :</td>
+                <td>MFG DT :</td>
+                <td><input type="text" name="main_earthing_switch_mfg_dt" id="main_earthing_switch_mfg_dt"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">I) Cleaning and painting to be done</td>
+                <td class="status-cell">Cleaning and painting Done .</td>
+                <td><input type="text" name="cleaning_painting" id="cleaning_painting"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">II) Ensure the continuity of contacts of programme switch in closed condition</td>
+                <td class="status-cell">Continuity ensured .</td>
+                <td><input type="text" name="continuity_closed" id="continuity_closed"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">III) Ensure the discontinuity of contacts of programme switch in opened condition.</td>
+                <td class="status-cell">Dis-continuity ensured .</td>
+                <td><input type="text" name="discontinuity_opened" id="discontinuity_opened"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">IV) Ensure air leakage from air valve when HOM in OFF and ON position</td>
+                <td class="status-cell">No air leakage .</td>
+                <td><input type="text" name="air_leakage_check" id="air_leakage_check"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">V) Ensure the continuity of air supply when HOM in ON condition</td>
+                <td class="status-cell">Continuity ensured .</td>
+                <td><input type="text" name="air_supply_continuity" id="air_supply_continuity"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">VI) Ensure the discontinuity of air supply when HOM OFF and there is no air leakage .</td>
+                <td class="status-cell">Dis-continuity ensured .</td>
+                <td><input type="text" name="air_supply_discontinuity" id="air_supply_discontinuity"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="task-description">VII) Check key lock when HOM in OFF condition</td>
+                <td class="status-cell">Checked .</td>
+                <td><input type="text" name="key_lock_check" id="key_lock_check"></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-container">
+        <h2>Railway Equipment Maintenance Form</h2>
+        
+        <!-- Combined Equipment Maintenance Table -->
+        <table>
+            <!-- Gapeless Lightning Arrester Section -->
+            <tr>
+                <td rowspan="5"  style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header">GAPELESS LIGHTNING ARRESTER</td>
+                <td rowspan="5" style="width: 50px;" >21</td>
+                <td  >GAPELESS LIGHTNING ARRESTER</td>
+                <td  >As per TC No: RDSO/2016/EL/TC/0136, Date: 08/08/2016</td>
+                <td  ></td>
+            </tr>
+            <tr>
+                <td class="make-info">
+                    LA-01, MAKE: <input type="text" name="gapeless_lightning_arrester_la01_make" id="gapeless_lightning_arrester_la01_make"><br><br>
+                    LA-02, MAKE: <input type="text" name="gapeless_lightning_arrester_la02_make" id="gapeless_lightning_arrester_la02_make">
+                </td>
+                <td class="make-info">
+                    SL NO: <input type="text" name="gapeless_lightning_arrester_la01_sl_no" id="gapeless_lightning_arrester_la01_sl_no"><br><br>
+                    SL NO: <input type="text" name="gapeless_lightning_arrester_la02_sl_no" id="gapeless_lightning_arrester_la02_sl_no">
+                </td>
+                <td class="result-cell">
+                    MFG: <input type="text" name="gapeless_lightning_arrester_la01_mfg" id="gapeless_lightning_arrester_la01_mfg"><br><br>
+                    MFG: <input type="text" name="gapeless_lightning_arrester_la02_mfg" id="gapeless_lightning_arrester_la02_mfg">
+                </td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">I) Clean the entire LA and base with soft detergent solution there after clean with dry cloths.</td>
+                <td class="spec-text">Cleaned.</td>
+                <td class="result-cell"><input type="text" name="gapeless_lightning_arrester_cleaning_result" id="gapeless_lightning_arrester_cleaning_result"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">II) Measure the insulation resistance by 1kv megger</td>
+                <td class="spec-text">1 GΩ (minimum)</td>
+                <td class="result-cell"><input type="text" name="gapeless_lightning_arrester_insulation_resistance" id="gapeless_lightning_arrester_insulation_resistance"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">III) Measure the third harmonic resistive leakage current test at 34 kv.</td>
+                <td class="spec-text">(0 - 350) µA.</td>
+                <td class="result-cell"><input type="text" name="gapeless_lightning_arrester_harmonic_current" id="gapeless_lightning_arrester_harmonic_current"></td>
+            </tr>
+            
+            <!-- Note Section -->
+            <tr>
+                <td colspan="5" class="full-width-note">SL NO: 22 & 23 ONLY FOR 3 PHASE LOCOMOTIVES</td>
+            </tr>
+            
+            <!-- High Voltage Bushing Section -->
+            <tr>
+                <td rowspan="4" style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header" class="equipment-name">HIGH VOLTAGE BUSHING (MICAFILL)</td>
+                <td rowspan="4" class="item-number">22</td>
+                <td class="header-cell">HIGH VOLTAGE BUSHING (MICAFILL)</td>
+                <td class="header-cell">As per Railway board Letter no: EL/3.2.21/3, Date: 10.12.2010</td>
+                <td class="result-cell"></td>
+            </tr>
+            <tr>
+                <td class="make-info">MAKE: <input type="text" name="high_voltage_bushing_make" id="high_voltage_bushing_make"></td>
+                <td class="make-info">SL No: <input type="text" name="high_voltage_bushing_sl_no" id="high_voltage_bushing_sl_no"></td>
+                <td class="result-cell">MFG DT: <input type="text" name="high_voltage_bushing_mfg_dt" id="high_voltage_bushing_mfg_dt"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">I) Clean the HV Bushing (micafill) fins and base with soft detergent solution there after clean with dry cloths.</td>
+                <td class="spec-text">Cleaned.</td>
+                <td class="result-cell"><input type="text" name="high_voltage_bushing_cleaning_result" id="high_voltage_bushing_cleaning_result"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">II) Measure Tan Delta at 10 kv</td>
+                <td class="spec-text">Less than 1.5%</td>
+                <td class="result-cell"><input type="text" name="high_voltage_bushing_tan_delta" id="high_voltage_bushing_tan_delta"></td>
+            </tr>
+            
+            <!-- Primary Voltage Transformer Section -->
+            <tr>
+                <td rowspan="7" style="width:50px; border:1px solid #000; text-align:center; vertical-align:middle;" class="equipment-header">PRIMARY VOLTAGE TRANSFORMER (PVT)</td>
+                <td rowspan="7" class="item-number">23</td>
+                <td class="header-cell">PRIMARY VOLTAGE TRANSFORMER (PVT)</td>
+                <td class="header-cell">As per OEM Manual.</td>
+                <td class="result-cell"></td>
+            </tr>
+            <tr>
+                <td class="make-info">MAKE: <input type="text" name="primary_voltage_transformer_make" id="primary_voltage_transformer_make"></td>
+                <td class="make-info">SL No: <input type="text" name="primary_voltage_transformer_sl_no" id="primary_voltage_transformer_sl_no"></td>
+                <td class="result-cell">MFG DT: <input type="text" name="primary_voltage_transformer_mfg_dt" id="primary_voltage_transformer_mfg_dt"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">I) Clean the entire primary voltage transformer and base with soft detergent solution there after clean with dry cloths.</td>
+                <td class="spec-text">Cleaned.</td>
+                <td class="result-cell"><input type="text" name="primary_voltage_transformer_cleaning_result" id="primary_voltage_transformer_cleaning_result"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">II) Measure the Primary side resistance value.</td>
+                <td class="spec-text">
+                    <ul>
+                        <li>50 KΩ (SADTEM) MAKE</li>
+                        <li>75 KΩ (RITZ INSTRUMENT TRANSFORMERS) MAKE</li>
+                    </ul>
+                </td>
+                <td class="result-cell"><input type="text" name="primary_voltage_transformer_primary_resistance" id="primary_voltage_transformer_primary_resistance"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">III) Measure the Secondary side resistance value.</td>
+                <td class="spec-text">&lt; 10 Ω</td>
+                <td class="result-cell"><input type="text" name="primary_voltage_transformer_secondary_resistance" id="primary_voltage_transformer_secondary_resistance"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">IV) Measure insulation test on secondary side.</td>
+                <td class="spec-text">With-stand for 60 second at 3kv, 50 Hz, AC voltage.</td>
+                <td class="result-cell"><input type="text" name="primary_voltage_transformer_secondary_insulation" id="primary_voltage_transformer_secondary_insulation"></td>
+            </tr>
+            <tr>
+                <td class="procedure-cell procedure-text">V) Measure the insulation test on primary side.</td>
+                <td class="spec-text">With-stand for 60 second at 3kv, 50 Hz, AC voltage.</td>
+                <td class="result-cell"><input type="text" name="primary_voltage_transformer_primary_insulation" id="primary_voltage_transformer_primary_insulation"></td>
+            </tr>
+        </table>
+    </div>
+
+        
+        <!-- Must Change Items Table -->
+        <table>
+            <tr>
+                <td class="must-change-header" colspan="4">MUST CHANGE ITEMS AS PER TC-123</td>
+                <td class="status-header" colspan="4">STATUS OF SMI/MS/TC</td>
+            </tr>
+            <tr>
+                <td class="header-section">SL</td>
+                <td class="header-section">ITEM</td>
+                <td class="header-section">PL No.</td>
+                <td class="header-section">Done/Not Done</td>
+                <td class="header-section">SL</td>
+                <td class="header-section">RDSO/SMI modification no.</td>
+                <td class="header-section">Description</td>
+                <td class="header-section">Done/Not Done</td>
+            </tr>
+            <tr>
+                <td class="pl-number">1</td>
+                <td>RC Damping panel</td>
+                <td class="pl-number">25738124</td>
+                <td><input type="text" name="tc123_1" id="tc123_1"></td>
+                <td class="pl-number">1</td>
+                <td class="description-text">RDSO/2012/EL/MS/405, Date: 03.01.2012</td>
+                <td class="description-text">Modification of earthing switch arrangement of conventional loco</td>
+                <td><input type="text" name="smi_1" id="smi_1"></td>
+            </tr>
+            <tr>
+                <td class="pl-number">2</td>
+                <td>POH kit for VCB, Make - AAL</td>
+                <td class="pl-number">25719040</td>
+                <td><input type="text" name="tc123_2" id="tc123_2"></td>
+                <td class="pl-number">2</td>
+                <td class="description-text">RDSO/ELRS/SMI/236, Date: 31.12.2012</td>
+                <td class="description-text">Use of overhauling kits for Single bottle VCB, Make - Schneider, AAL & BT</td>
+                <td><input type="text" name="smi_2" id="smi_2"></td>
+            </tr>
+            <tr>
+                <td class="pl-number">3</td>
+                <td>POH kit for VCB, Make - Bombardier</td>
+                <td class="pl-number">25718976</td>
+                <td><input type="text" name="tc123_3" id="tc123_3"></td>
+                <td class="pl-number" rowspan="2">3</td>
+                <td class="description-text" rowspan="2">RDSO/ELRS/SMI/137, Date: 01.02.1991</td>
+                <td class="description-text" rowspan="2">Maintenance of air drier provided in pneumatic circuit of VCB, Type -22CB</td>
+                <td rowspan="2"><input type="text" name="smi_3" id="smi_3"></td>
+            </tr>
+            <tr>
+                <td class="pl-number">4</td>
+                <td>Pressure switch</td>
+                <td class="pl-number">25184374</td>
+                <td><input type="text" name="tc123_4" id="tc123_4"></td>
+            </tr>
+            <tr>
+                <td class="pl-number">5</td>
+                <td>Set of maintenance kit for CHT</td>
+                <td class="pl-number">31933877</td>
+                <td><input type="text" name="tc123_5" id="tc123_5"></td>
+                <td class="pl-number">4</td>
+                <td class="description-text">RDSO/2017/EL/SMI/0317, Date: 18.10.2017</td>
+                <td class="description-text">Maintenance practice for improving reliability of Cable Head termination (CHT)</td>
+                <td><input type="text" name="smi_4" id="smi_4"></td>
+            </tr>
+            <tr>
+                <td class="pl-number">6</td>
+                <td>3 WAY cock /Air valve for HOM</td>
+                <td class="pl-number">25700522</td>
+                <td><input type="text" name="tc123_6" id="tc123_6"></td>
+                <td class="pl-number" rowspan="2">5</td>
+                <td class="description-text" rowspan="2">ELRS/MS/322, Date - 29.01.2003</td>
+                <td class="description-text" rowspan="2">Modification of RC damping panel with static converter loco</td>
+                <td rowspan="2"><input type="text" name="smi_5" id="smi_5"></td>
+            </tr>
+            <tr>
+                <td class="pl-number">7</td>
+                <td>Programme switch for HOM</td>
+                <td class="pl-number">25700510</td>
+                <td><input type="text" name="tc123_7" id="tc123_7"></td>
+            </tr>
+        </table>
+
+        <div class="textbox" style="border:0.5pt solid #000000;display:block;left:0.2pt;min-height:15.6pt;top:0.2pt;width:425.9pt;">
+        <p class="s1" style="text-indent: 0pt;text-align: center;">REMARKS</p>
+        <textarea name="remarks" id="remarks" class="remarks-textarea" style="width: 100%; height: 100px;"></textarea>
+
+        
+    </div>
+
+
+       <div style="text-align: center; margin-top: 20px;">
+            <button type="button" id="submitBtn" class="submit-btn">
+                Save Check Sheet
+            </button>
+        </div>
+    
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\\[]/, '\\[').replace(/[\\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(window.location.href);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\\+/g, ' '));
+            }
+
+            // Function to get ID from URL path for edit route
+            function getIdFromPath() {
+                const pathParts = window.location.pathname.split('/');
+                console.log(pathParts);
+                if (pathParts[2] === 'edit' && pathParts[3]) {
+                    return pathParts[3];
+                }
+                return '';
+            }
+
+            // Function to load check sheet data by ID
+            function loadCheckSheetData(id) {
+                if (!id) return;
+
+                $.ajax({
+                    url: '/vcb-aal-conventional-loco/' + id,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.success) {
+                            // Set the ID in the hidden field
+                            $('#id').val(id);
+
+                            // Populate form fields with data
+                            const data = response.data;
+                            for (const key in data) {
+                                if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                    const element = $('#' + key);
+                                    if (element.length) {
+                                        if (element.is('textarea')) {
+                                            element.val(data[key]);
+                                        } else {
+                                            element.val(data[key]);
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            alert('Error loading check sheet data: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error loading check sheet data: ' + error);
+                    }
+                });
+            }
+
+            // Get ID from URL (either as parameter or from path)
+            const checkSheetId = getIdFromPath() || getUrlParameter('id');
+            if (checkSheetId) {
+                loadCheckSheetData(checkSheetId);
+            }
+
+            // Handle form submission
+            $('#submitBtn').on('click', function() {
+                // Collect all form data
+                var formData = {};
+                $('input[type="text"], textarea').each(function() {
+                    formData[$(this).attr('name')] = $(this).val();
+                });
+
+                console.log(formData);
+
+                // Get the ID value to determine if we're adding or editing
+                var id = $('#id').val();
+
+                var url = '/vcb-aal-conventional-loco/add';
+                var method = 'POST';
+
+                if (id && id !== '') {
+                    url = '/vcb-aal-conventional-loco/edit/' + id;
+                }
+
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // If this is a new record, save the ID for future edits
+                            if (response.id && !id) {
+                                $('#id').val(response.id);
+                            }
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error submitting form: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+</body>
+</html>

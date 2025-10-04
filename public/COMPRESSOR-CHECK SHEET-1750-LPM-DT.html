@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compressor Inspection Form</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 10px;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 11px;
+        }
+        
+        td, th {
+            border: 1px solid #333;
+            padding: 4px 6px;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+        }
+        
+        .header-cell {
+            background-color: #7E7E7E;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .section-header {
+            font-weight: bold;
+            font-size: 11px;
+        }
+        
+        .test-description {
+            text-align: left;
+            padding-left: 8px;
+            font-size: 10px;
+        }
+        
+        .serial-number {
+            width: 40px;
+            font-weight: bold;
+        }
+        
+        .reference-cell {
+            font-size: 10px;
+            text-align: center;
+        }
+        
+        .standard-cell {
+            font-size: 10px;
+            text-align: center;
+        }
+        
+        .actual-column {
+            background-color: #f9f9f9;
+            min-width: 120px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            height: 25px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px 4px;
+            font-size: 10px;
+            text-align: center;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #007acc;
+            background-color: #f0f8ff;
+        }
+        
+        .formula-cell {
+            font-size: 9px;
+            text-align: left;
+            padding: 4px;
+        }
+        
+        .equipment-section {
+            margin-bottom: 30px;
+        }
+        
+        .info-row td {
+            height: 30px;
+        }
+        
+        .make-serial-row {
+            background-color: #f0f0f0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 8px;
+            }
+            
+            table {
+                font-size: 9px;
+            }
+            
+            td, th {
+                padding: 2px 3px;
+            }
+            
+            input[type="text"] {
+                height: 20px;
+                font-size: 9px;
+            }
+            
+            .test-description {
+                font-size: 8px;
+                padding-left: 4px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .container {
+                padding: 5px;
+            }
+            
+            table {
+                font-size: 8px;
+            }
+            
+            input[type="text"] {
+                height: 18px;
+                font-size: 8px;
+                padding: 1px 2px;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 10px;
+            }
+            
+            input[type="text"] {
+                border: 1px solid #333;
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <!-- Hidden ID field for edit functionality -->
+       <input type="hidden" id="id" name="id" value="">
+       
+     <header class="header">
+            <h1>LOCO NO. and BASE-</h1>
+        </header>
+
+        <section class="equipment-info">
+            <table class="header-table">
+                <tr>
+                    <td class="row-number">1.</td>
+                    <td class="test-description">SECTION</td>
+                    <td class="center">S/9A/COMPRESSOR</td>
+                </tr>
+                <tr>
+                    <td class="row-number">2.</td>
+                    <td class="test-description">EQUIPMENT</td>
+                    <td class="center">COMPRESSOR WITH MOTOR</td>
+                </tr>
+                <tr>
+                    <td class="row-number">3.</td>
+                    <td class="test-description">TYPE</td>
+                    <td><input type="text" class="input-field" name="type" id="type"></td>
+                </tr>
+                <tr>
+                    <td class="row-number">4.</td>
+                    <td class="test-description">MAKE & FITTED CP NO.</td>
+                    <td rowspan="2">ELGI</td>
+                </tr>
+                <tr>
+                    <td class="row-number">5.</td>
+                    <td class="test-description">MONTH OF OVERHAULING</td>
+                </tr>
+                <tr>
+                    <td class="row-number">6.</td>
+                    <td class="test-description">LOCO.NO./BASE</td>
+                    <td><input type="text" class="input-field" name="loco_base" id="loco_base"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="inspection-tests">
+            <table class="main-table">
+                <thead>
+                    <tr class="test-header">
+                        <td rowspan="2" class="row-number">SN</td>
+                        <td colspan="2" class="center">TEST</td>
+                        <td class="reference">REFERENCE</td>
+                        <td class="standard">STANDARD</td>
+                        <td colspan="2" class="center">ACTUAL</td>
+                    </tr>
+                    <tr class="test-header">
+                        <td colspan="3">COMPRESSOR SL NO.→</td>
+                        <td class="center actual-hp">HP</td>
+                        <td class="center actual-lp1">LP1</td>
+                        <td class="center actual-lp2">LP2</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="row-number">1</td>
+                        <td class="test-description">HP cylinder dia.</td>
+                        <td class="reference">Manual of ELGI<br>pg.no.22</td>
+                        <td class="standard">100.005 TO<br>100.015</td>
+                        <td><input type="text" class="input-field" name="hp_cylinder_hp" id="hp_cylinder_hp"></td>
+                        <td class="na-cell">NA</td>
+                        <td class="na-cell">NA</td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">2.</td>
+                        <td class="test-description">HP piston dia.</td>
+                        <td class="reference">Manual of ELGI<br>pg.no.22</td>
+                        <td class="standard">99.95±0.010<br>mm</td>
+                        <td><input type="text" class="input-field" name="hp_piston_hp" id="hp_piston_hp"></td>
+                        <td class="na-cell">NA</td>
+                        <td class="na-cell">NA</td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">3.</td>
+                        <td class="test-description">LP cylinder dia.</td>
+                        <td class="reference">DO</td>
+                        <td class="standard">127.06<br>to126.95 mm</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="lp_cylinder_lp1" id="lp_cylinder_lp1"></td>
+                        <td><input type="text" class="input-field" name="lp_cylinder_lp2" id="lp_cylinder_lp2"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">4.</td>
+                        <td class="test-description">LP piston dia.</td>
+                        <td class="reference">DO</td>
+                        <td class="standard">126.822 to<br>126.796 mm</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="lp_piston_lp1" id="lp_piston_lp1"></td>
+                        <td><input type="text" class="input-field" name="lp_piston_lp2" id="lp_piston_lp2"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">5.</td>
+                        <td class="test-description">Clearance in cylinder HP NORMAL mm<br>MAx mm</td>
+                        <td class="reference">DO</td>
+                        <td class="standard">0.045-0.075<br>mm<br><br>0.12 mm</td>
+                        <td><input type="text" class="input-field" name="clearance_hp_hp" id="clearance_hp_hp"></td>
+                        <td class="na-cell">NA</td>
+                        <td class="na-cell">NA</td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">6.</td>
+                        <td class="test-description">Clearance in cylinder LP NORMAL mm<br>MAx mm</td>
+                        <td class="reference">Manual of<br>ELGI pg.no. 22</td>
+                        <td class="standard">0.23-0.25 mm<br><br>0.4 mm</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="clearance_lp_lp1" id="clearance_lp_lp1"></td>
+                        <td><input type="text" class="input-field" name="clearance_lp_lp2" id="clearance_lp_lp2"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="row-number">7.</td>
+                        <td class="test-description">Permissible piston ring BUTT CLEARANCE HP NORMAL mm<br>MAx mm</td>
+                        <td class="reference">Do</td>
+                        <td class="standard">0.08-0.25 mm<br><br>0.5 mm</td>
+                        <td><input type="text" class="input-field" name="ring_clearance_hp_hp" id="ring_clearance_hp_hp"></td>
+                        <td class="na-cell">NA</td>
+                        <td class="na-cell">NA</td>
+                    </tr>
+                    <tr>
+                        <td class="test-description">Permissible piston ring BUTT CLEARANCE LP NORMAL mm<br>MAx mm</td>
+                        <td class="reference">Do</td>
+                        <td class="standard">0.10-0.35 mm<br><br>0.45 mm</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="ring_clearance_lp_lp1" id="ring_clearance_lp_lp1"></td>
+                        <td><input type="text" class="input-field" name="ring_clearance_lp_lp2" id="ring_clearance_lp_lp2"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">8.</td>
+                        <td class="test-description">Clearance between<br>piston crown and disc valve HP</td>
+                        <td class="reference">DO</td>
+                        <td class="standard">0.6 TO 0.8 mm</td>
+                        <td><input type="text" class="input-field" name="crown_clearance_hp_hp" id="crown_clearance_hp_hp"></td>
+                        <td class="na-cell">NA</td>
+                        <td class="na-cell">NA</td>
+                    </tr>
+                    <tr>
+                        <td class="row-number"></td>
+                        <td class="test-description">Clearance between piston crown and disc valve LP</td>
+                        <td class="reference">DO</td>
+                        <td class="standard">0.6 TO 0.8 mm</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="crown_clearance_lp_lp1" id="crown_clearance_lp_lp1"></td>
+                        <td><input type="text" class="input-field" name="crown_clearance_lp_lp2" id="crown_clearance_lp_lp2"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">9.</td>
+                        <td class="test-description">Valve leakage test by kerosene oil<br>a) Suction valve<br>b) Delivery valve</td>
+                        <td class="reference">SHOP PRACTICE</td>
+                        <td class="standard">NO LEAKAGE</td>
+                        <td colspan="3"><input type="text" class="input-field" name="valve_leakage" id="valve_leakage"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">10.</td>
+                        <td class="test-description">Type of coupling</td>
+                        <td class="reference">Tyre type coupling</td>
+                        <td colspan="4"><input type="text" class="input-field" name="coupling_type" id="coupling_type"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="row-number">11.</td>
+                        <td rowspan="4" class="test-description">Temperature degree centigrade</td>
+                        <td rowspan="4" class="reference">Page 20</td>
+                        <td colspan="2" class="temperature-row">LP1outlet-130</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="temp_lp1" id="temp_lp1"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="temperature-row">LP2 outlet-135</td>
+                        <td class="na-cell">NA</td>
+                        <td><input type="text" class="input-field" name="temp_lp2" id="temp_lp2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="temperature-row">HP OUTLET-200</td>
+                        <td><input type="text" class="input-field" name="temp_hp" id="temp_hp"></td>
+                        <td class="na-cell">NA</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="temperature-row">AFTERCOOLER<br>OUTLET-60</td>
+                        <td colspan="2"><input type="text" class="input-field" name="temp_aftercooler" id="temp_aftercooler"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">12.</td>
+                        <td class="test-description">check time taken to fill the reservoir of 230 liter capacity upto<br>10.5kg/cm2</td>
+                        <td class="reference"><input type="text" class="input-field" name="fill_time_ref" id="fill_time_ref"></td>
+                        <td colspan="2">70 to 80 seconds</td>
+                        <td colspan="2"><input type="text" class="input-field" name="fill_time_actual" id="fill_time_actual"></td>
+                    </tr>
+                    <tr>
+                        <td class="row-number">13.</td>
+                        <td class="test-description">All gaskets to be<br>replaced</td>
+                        <td class="reference">TC-0123</td>
+                        <td colspan="2">100%<br>Replacement</td>
+                        <td colspan="2"><input type="text" class="input-field" name="gasket_replacement" id="gasket_replacement"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+             <table>
+                <tr>
+                    <td class="center bold col-1">14.</td>
+                    <td class="col-2">
+                        Light run test, check<br>
+                        oil through
+                    </td>
+                    <td class="col-3">
+                        Shop<br>
+                        practice
+                    </td>
+                    <td class="col-4">No oil through</td>
+                    <td class="col-5">
+                        <input type="text" name="light_run_test" id="light_run_test" class="input-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">
+                        <input type="text" name="item_15" id="item_15" class="input-field">
+                    </td>
+                    <td>Use Lubricant</td>
+                    <td>
+                        Manual of ELGI<br>
+                        Pg. no. 20
+                    </td>
+                    <td>Servo press 150</td>
+                    <td>
+                        <input type="text" name="lubricant_remarks" id="lubricant_remarks" class="input-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">
+                        <input type="text" name="item_16" id="item_16" class="input-field">
+                    </td>
+                    <td>Check oil level</td>
+                    <td>
+                        <input type="text" name="oil_level_ref" id="oil_level_ref" class="input-field">
+                    </td>
+                    <td>Maximum level</td>
+                    <td>
+                        <input type="text" name="oil_level_remarks" id="oil_level_remarks" class="input-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center bold">17.</td>
+                    <td>CURRENT</td>
+                    <td>29 Am/s</td>
+                    <td>
+                        <input type="text" name="current_reading" id="current_reading" class="input-field">
+                    </td>
+                    <td>
+                        <input type="text" name="current_remarks" id="current_remarks" class="input-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center bold">18</td>
+                    <td>VOLTAGE</td>
+                    <td>290-500V</td>
+                    <td>
+                        <input type="text" name="voltage_reading" id="voltage_reading" class="input-field">
+                    </td>
+                    <td>
+                        <input type="text" name="voltage_remarks" id="voltage_remarks" class="input-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center bold">19.</td>
+                    <td>
+                        ANY SPECIAL REMARKS OR DETAILS OF NEW<br>
+                        MATERIAL(conditional based items) PROVIDED<br>
+                        IF ANY-
+                    </td>
+                    <td colspan="3">
+                        <input type="text" name="special_remarks" id="special_remarks" class="input-field" style="min-height: 40px;">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="section-title">
+            LIST OF MUST CHANGE ITEMS DURING POH OF LOCOMOTIVES AS PER ELRS/TC/0021 REV 01 /2002 & 123.
+        </div>
+
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="center col-1">
+                            SL.N<br>
+                            O
+                        </th>
+                        <th class="center col-desc">DESCRIPTION</th>
+                        <th class="center col-part">PL.NO</th>
+                        <th class="center col-status">STATUS(Y/N)</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input type="text" name="desc_header" id="desc_header" class="input-field">
+                        </th>
+                        <th>
+                            COMPRESSO<br>
+                            R SL.NO
+                        </th>
+                        <th>
+                            <input type="text" name="status_header" id="status_header" class="input-field">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center bold">1.</td>
+                        <td>LP DISC VALVE</td>
+                        <td>2351-7232</td>
+                        <td>
+                            <input type="text" name="lp_disc_valve_status" id="lp_disc_valve_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">2.</td>
+                        <td>SET OF LP PISTON RING</td>
+                        <td>2351-7293</td>
+                        <td>
+                            <input type="text" name="lp_piston_ring_status" id="lp_piston_ring_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">3.</td>
+                        <td>HP/LP CYLINDER SET 1750 LPM</td>
+                        <td>29169094</td>
+                        <td>
+                            <input type="text" name="cylinder_set_status" id="cylinder_set_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">4.</td>
+                        <td>CONNECTING ROD ASSLY 1750 LPM</td>
+                        <td>29518222</td>
+                        <td>
+                            <input type="text" name="connecting_rod_status" id="connecting_rod_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">5</td>
+                        <td>
+                            COMPRESSOR(2<sup>nd</sup> POH)UPL(SAFETY ITEMS) 1750<br>
+                            LPM
+                        </td>
+                        <td>2551-0095</td>
+                        <td>
+                            <input type="text" name="compressor_status" id="compressor_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">6</td>
+                        <td>AOH KIT 1750 LPM</td>
+                        <td>29518295</td>
+                        <td>
+                            <input type="text" name="aoh_kit_status" id="aoh_kit_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">7</td>
+                        <td>IOH KIT 1750 LPM</td>
+                        <td>29510387</td>
+                        <td>
+                            <input type="text" name="ioh_kit_status" id="ioh_kit_status" class="input-field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">8</td>
+                        <td>POH KIT 1750 LPM</td>
+                        <td>29510302</td>
+                        <td>
+                            <input type="text" name="poh_kit_status" id="poh_kit_status" class="input-field">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+              <header>
+            <h1 class="section-title">Fire Prevention Measure</h1>
+        </header>
+        
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="cell-number">SL.NO</th>
+                        <th class="cell-shop">CONCERNED SHOP</th>
+                        <th class="cell-remarks">PRESENT STATUS/REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-medium">
+                        <td class="cell-number">1</td>
+                        <td class="cell-shop">Compressor Are To Be Maintained As Per OEMS Recommendation.</td>
+                        <td class="cell-remarks">
+                            <input type="text" class="input-field" name="remarks_1" id="remarks_1">
+                        </td>
+                    </tr>
+                    <tr class="row-tall">
+                        <td class="cell-number">2</td>
+                        <td class="cell-shop">Replacements Of Spares During POH & Otherwise Should Be In The Form Of Kit, Specially For HP & LP Valves To Avoid Throwing Of Excess Oil Leakage.</td>
+                        <td class="cell-remarks">
+                            <input type="text" class="input-field" name="remarks_2" id="remarks_2">
+                        </td>
+                    </tr>
+                    <tr class="row-medium">
+                        <td class="cell-number">3</td>
+                        <td class="cell-shop">Filling Up & Topping Up Of Oil Should Be Done With Proper Funnel By The Shed & Out Stations</td>
+                        <td class="cell-remarks">
+                            <input type="text" class="input-field" name="remarks_3" id="remarks_3">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Summer and Monsoon Preparedness of AC EL</h2>
+            <p class="reference">Ref:- RB L/NO.2005/ELECT.(TRS)/440/23 DATED 24.02.2016</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th class="cell-number">S.NO.</th>
+                        <th class="cell-shop">ITEM</th>
+                        <th class="cell-remarks">REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-medium">
+                        <td class="cell-number">1.</td>
+                        <td class="cell-shop">CLEAN DRY TYPE FILTER OF CP & ENSURE PROPER FILLINGS. CYCLIC CHECK</td>
+                        <td class="cell-remarks">
+                            <input type="text" class="input-field" name="summer_remarks_1" id="summer_remarks_1">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+           <table class="header-table">
+            <tr>
+                <td class="section-label center bold">1.</td>
+                <td class="section-desc bold">SECTION</td>
+                <td class="section-value center bold">S/9A/COMPRESSOR</td>
+            </tr>
+            <tr>
+                <td class="section-label center bold">2.</td>
+                <td class="section-desc bold">EQUIPMENT</td>
+                <td class="section-value center bold">COMPRESSOR WITH MOTOR</td>
+            </tr>
+            <tr>
+                <td class="section-label center bold">3.</td>
+                <td class="section-desc bold">TYPE</td>
+                <td class="section-value"><input type="text" name="equipment_type" id="equipment_type"></td>
+            </tr>
+            <tr>
+                <td class="section-label center bold">4.</td>
+                <td class="section-desc bold">MAKE & FITTED CP NO.</td>
+                <td class="section-value" rowspan="2"><input type="text" name="make_cp_no" id="make_cp_no"></td>
+            </tr>
+            <tr>
+                <td class="section-label center bold">5.</td>
+                <td class="section-desc bold">MONTH OF OVERHAULING</td>
+            </tr>
+            <tr>
+                <td class="section-label center bold">6.</td>
+                <td class="section-desc bold">LOCO.NO./BASE</td>
+                <td class="section-value"><input type="text" name="loco_base" id="loco_base"></td>
+            </tr>
+        </table>
+
+        <!-- Main Inspection Table -->
+        <table>
+            <!-- Main Header -->
+            <tr>
+                <th rowspan="2" class="serial-col">SN</th>
+                <th colspan="2" class="center">TEST</th>
+                <th class="reference-col">REFERENCE</th>
+                <th class="standard-col">STANDARD</th>
+                <th colspan="3" class="center">ACTUAL</th>
+            </tr>
+            <tr class="sub-header">
+                <td colspan="3">COMPRESSOR SL NO.→ <input type="text" name="compressor_sl_no" id="compressor_sl_no" style="width: 120px; display: inline;"></td>
+                <td class="center">HP</td>
+                <td class="center">LP1</td>
+                <td class="center">LP2</td>
+            </tr>
+
+            <!-- Test Items -->
+            <tr>
+                <td class="center bold">1</td>
+                <td class="test-col">HP cylinder dia.</td>
+                <td class="reference-col">Manual of ELGI<br>pg.no.22</td>
+                <td class="standard-col">100.005 TO<br>100.015</td>
+                <td class="actual-col"><input type="text" name="hp_cyl_dia_hp" id="hp_cyl_dia_hp"></td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col">NA</td>
+            </tr>
+
+            <tr>
+                <td class="center bold">2.</td>
+                <td class="test-col">HP piston dia.</td>
+                <td class="reference-col">Manual of ELGI<br>pg.no.22</td>
+                <td class="standard-col">99.95±0.010<br>mm</td>
+                <td class="actual-col"><input type="text" name="hp_piston_dia_hp" id="hp_piston_dia_hp"></td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col">NA</td>
+            </tr>
+
+            <tr>
+                <td class="center bold">3.</td>
+                <td class="test-col">LP cylinder dia.</td>
+                <td class="reference-col">DO</td>
+                <td class="standard-col">127.06<br>to126.95 mm</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp_cyl_dia_lp1" id="lp_cyl_dia_lp1"></td>
+                <td class="actual-col"><input type="text" name="lp_cyl_dia_lp2" id="lp_cyl_dia_lp2"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">4.</td>
+                <td class="test-col">LP piston dia.</td>
+                <td class="reference-col">DO</td>
+                <td class="standard-col">126.822 to<br>126.796 mm</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp_piston_dia_lp1" id="lp_piston_dia_lp1"></td>
+                <td class="actual-col"><input type="text" name="lp_piston_dia_lp2" id="lp_piston_dia_lp2"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">5.</td>
+                <td class="test-col">Clearance in cylinder HP NORMAL mm<br>MAx mm</td>
+                <td class="reference-col">DO</td>
+                <td class="standard-col">0.045-0.075<br>mm<br><br>0.12 mm</td>
+                <td class="actual-col"><input type="text" name="hp_clearance_hp" id="hp_clearance_hp"></td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col">NA</td>
+            </tr>
+
+            <tr>
+                <td class="center bold">6.</td>
+                <td class="test-col">Clearance in cylinder LP NORMAL mm<br>MAx mm</td>
+                <td class="reference-col">Manual of ELGI pg.no.<br>22</td>
+                <td class="standard-col">0.23-0.25 mm<br><br>0.4 mm</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp_clearance_lp1" id="lp_clearance_lp1"></td>
+                <td class="actual-col"><input type="text" name="lp_clearance_lp2" id="lp_clearance_lp2"></td>
+            </tr>
+
+            <tr>
+                <td rowspan="2" class="center bold">7.</td>
+                <td class="test-col">Permissible piston ring BUTT CLEARANCE HP NORMAL mm<br>MAx mm</td>
+                <td class="reference-col">Do</td>
+                <td class="standard-col">0.08-0.25 mm<br><br>0.5 mm</td>
+                <td class="actual-col"><input type="text" name="hp_ring_clearance_hp" id="hp_ring_clearance_hp"></td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col">NA</td>
+            </tr>
+            <tr>
+                <td class="test-col">Permissible piston ring BUTT CLEARANCE LP NORMAL mm<br>MAx mm</td>
+                <td class="reference-col">Do</td>
+                <td class="standard-col">0.10-0.35 mm<br><br>0.45 mm</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp_ring_clearance_lp1" id="lp_ring_clearance_lp1"></td>
+                <td class="actual-col"><input type="text" name="lp_ring_clearance_lp2" id="lp_ring_clearance_lp2"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">8.</td>
+                <td class="test-col">Clearance between piston crown and disc valve HP</td>
+                <td class="reference-col">DO</td>
+                <td class="standard-col">0.6 TO 0.8 mm</td>
+                <td class="actual-col"><input type="text" name="hp_valve_clearance_hp" id="hp_valve_clearance_hp"></td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col">NA</td>
+            </tr>
+
+            <tr>
+                <td class="center bold"></td>
+                <td class="test-col">Clearance between piston crown and disc valve LP</td>
+                <td class="reference-col">DO</td>
+                <td class="standard-col">0.6 TO 0.8 mm</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp_valve_clearance_lp1" id="lp_valve_clearance_lp1"></td>
+                <td class="actual-col"><input type="text" name="lp_valve_clearance_lp2" id="lp_valve_clearance_lp2"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">9.</td>
+                <td class="test-col">Valve leakage test by kerosene oil<br>a) Suction valve<br>b) Delivery valve</td>
+                <td class="reference-col">SHOP PRACTICE</td>
+                <td class="standard-col">NO LEAKAGE</td>
+                <td colspan="3"><input type="text" name="valve_leakage_test" id="valve_leakage_test"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">10.</td>
+                <td class="test-col">Type of coupling</td>
+                <td class="reference-col">Tyre type coupling</td>
+                <td colspan="4"><input type="text" name="coupling_type" id="coupling_type"></td>
+            </tr>
+
+            <!-- Temperature Section -->
+            <tr>
+                <td rowspan="4" class="center bold">11.</td>
+                <td rowspan="4" class="test-col">Temperature degree centigrade</td>
+                <td rowspan="4" class="reference-col">Page 20</td>
+                <td colspan="2">LP1outlet-130</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp1_temp" id="lp1_temp"></td>
+                <td class="actual-col"><input type="text" name="lp1_temp_lp2" id="lp1_temp_lp2"></td>
+            </tr>
+            <tr>
+                <td colspan="2">LP2 outlet-135</td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col"><input type="text" name="lp2_temp" id="lp2_temp"></td>
+                <td class="actual-col"><input type="text" name="lp2_temp_lp2" id="lp2_temp_lp2"></td>
+            </tr>
+            <tr>
+                <td colspan="2">HP OUTLET-200</td>
+                <td class="actual-col"><input type="text" name="hp_temp" id="hp_temp"></td>
+                <td class="actual-col">NA</td>
+                <td class="actual-col">NA</td>
+            </tr>
+            <tr>
+                <td colspan="2">AFTERCOOLER OUTLET-60</td>
+                <td colspan="2"><input type="text" name="aftercooler_temp" id="aftercooler_temp"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">12.</td>
+                <td class="test-col">check time taken to fill the reservoir of 230 liter capacity upto 10.5kg/cm2</td>
+                <td class="reference-col"><input type="text" name="fill_time_ref" id="fill_time_ref"></td>
+                <td colspan="2">70 to 80 seconds</td>
+                <td colspan="2"><input type="text" name="fill_time_actual" id="fill_time_actual"></td>
+            </tr>
+
+            <tr>
+                <td class="center bold">13.</td>
+                <td class="test-col">All gaskets to be replaced</td>
+                <td class="reference-col">TC-0123</td>
+                <td colspan="2">100% Replacement</td>
+                <td colspan="2"><input type="text" name="gasket_replacement" id="gasket_replacement"></td>
+            </tr>
+        </table>
+
+
+        <table>
+                <tr>
+                    <td class="narrow center bold">14.</td>
+                    <td class="medium left">Light run test, check oil through</td>
+                    <td class="medium left">Shop practice</td>
+                    <td class="medium left">No oil through</td>
+                    <td class="extra-wide input-cell"><input type="text" name="light_run_test" id="light_run_test"></td>
+                </tr>
+                <tr>
+                    <td class="input-cell"><input type="text" name="row_15_1" id="row_15_1"></td>
+                    <td class="left">Use Lubricant</td>
+                    <td class="left">Manual of ELGI<br>Pg. no. 20</td>
+                    <td class="left">Servo press 150</td>
+                    <td class="input-cell"><input type="text" name="use_lubricant" id="use_lubricant"></td>
+                </tr>
+                <tr>
+                    <td class="input-cell"><input type="text" name="row_16_1" id="row_16_1"></td>
+                    <td class="left">Check oil level</td>
+                    <td class="input-cell"><input type="text" name="check_oil_ref" id="check_oil_ref"></td>
+                    <td class="left">Maximum level</td>
+                    <td class="input-cell"><input type="text" name="check_oil_result" id="check_oil_result"></td>
+                </tr>
+                <tr>
+                    <td class="narrow center bold">17.</td>
+                    <td class="left bold">CURRENT</td>
+                    <td class="left">29 Am/s</td>
+                    <td class="input-cell"><input type="text" name="current_reading" id="current_reading"></td>
+                    <td class="input-cell"><input type="text" name="current_remarks" id="current_remarks"></td>
+                </tr>
+                <tr>
+                    <td class="narrow center bold">18</td>
+                    <td class="left bold">VOLTAGE</td>
+                    <td class="left">290-500V</td>
+                    <td class="input-cell"><input type="text" name="voltage_reading" id="voltage_reading"></td>
+                    <td class="input-cell"><input type="text" name="voltage_remarks" id="voltage_remarks"></td>
+                </tr>
+                <tr>
+                    <td class="narrow center bold">19.</td>
+                    <td class="left">ANY SPECIAL REMARKS OR DETAILS OF NEW MATERIAL(conditional based items) PROVIDED IF ANY-</td>
+                    <td colspan="3" class="input-cell"><input type="text" name="special_remarks" id="special_remarks"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="section-title">LIST OF MUST CHANGE ITEMS DURING POH OF LOCOMOTIVES AS PER ELRS/TC/0021 REV 01 /2002 & 123.</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="narrow center bold">SL.NO</th>
+                        <th class="wide center bold">DESCRIPTION</th>
+                        <th class="medium center bold">PL.NO</th>
+                        <th class="medium center bold">STATUS(Y/N)</th>
+                    </tr>
+                    <tr>
+                        <td class="input-cell"><input type="text" name="description_header" id="description_header"></td>
+                        <td class="left">COMPRESSOR SL.NO</td>
+                        <td class="input-cell"><input type="text" name="status_header" id="status_header"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center bold">1.</td>
+                        <td class="left">LP DISC VALVE</td>
+                        <td class="left">2351-7232</td>
+                        <td class="input-cell"><input type="text" name="lp_disc_valve_status" id="lp_disc_valve_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">2.</td>
+                        <td class="left">SET OF LP PISTON RING</td>
+                        <td class="left">2351-7293</td>
+                        <td class="input-cell"><input type="text" name="lp_piston_ring_status" id="lp_piston_ring_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">3.</td>
+                        <td class="left">HP/LP CYLINDER SET 1750 LPM</td>
+                        <td class="left">29169094</td>
+                        <td class="input-cell"><input type="text" name="cylinder_set_status" id="cylinder_set_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">4.</td>
+                        <td class="left">CONNECTING ROD ASSLY 1750 LPM</td>
+                        <td class="left">29518222</td>
+                        <td class="input-cell"><input type="text" name="connecting_rod_status" id="connecting_rod_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">5</td>
+                        <td class="left">COMPRESSOR(2<sup>nd</sup> POH)UPL(SAFETY ITEMS) 1750 LPM</td>
+                        <td class="left">2551-0095</td>
+                        <td class="input-cell"><input type="text" name="compressor_2nd_poh_status" id="compressor_2nd_poh_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">6</td>
+                        <td class="left">AOH KIT 1750 LPM</td>
+                        <td class="left">29518295</td>
+                        <td class="input-cell"><input type="text" name="aoh_kit_status" id="aoh_kit_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">7</td>
+                        <td class="left">IOH KIT 1750 LPM</td>
+                        <td class="left">29510387</td>
+                        <td class="input-cell"><input type="text" name="ioh_kit_status" id="ioh_kit_status"></td>
+                    </tr>
+                    <tr>
+                        <td class="center bold">8</td>
+                        <td class="left">POH KIT 1750 LPM</td>
+                        <td class="left">29510302</td>
+                        <td class="input-cell"><input type="text" name="poh_kit_status" id="poh_kit_status"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+             
+             <header>
+            <h1>Fire Prevention Measure</h1>
+        </header>
+        
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-col">SL.NO</th>
+                        <th class="shop-col">CONCERNED SHOP</th>
+                        <th class="remarks-col">PRESENT STATUS/REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="serial-col">1</td>
+                        <td>Compressor Are To Be Maintained As Per OEMS Recommendation.</td>
+                        <td><input type="text" name="remarks1" id="remarks1"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-col">2</td>
+                        <td>Replacements Of Spares During POH & Otherwise Should Be In The Form Of Kit, Specially For HP & LP Valves To Avoid Throwing Of Excess Oil Leakage.</td>
+                        <td><input type="text" name="remarks2" id="remarks2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-col">3</td>
+                        <td>Filling Up & Topping Up Of Oil Should Be Done With Proper Funnel By The Shed & Out Stations</td>
+                        <td><input type="text" name="remarks3" id="remarks3"></td>
+                    </tr>
+                </tbody>
+            </table>
+         
+            <h2 class="section-title">Summer and Monsoon Preparedness of AC EL</h2>
+            <p class="reference">Ref:-RB L/NO.2005/ELECT.(TRS)/440/23 DATED 24.02.2016</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-col">S.NO.</th>
+                        <th class="item-col">ITEM</th>
+                        <th class="remarks-col">REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="serial-col">1.</td>
+                        <td>CLEAN DRY TYPE FILTER OF CP & ENSURE PROPER FILLINGS. CYCLIC CHECK</td>
+                        <td><input type="text" name="summer_remarks1" id="summer_remarks1"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+            <table class="header-table">
+                <tr>
+                    <td class="number-cell">1.</td>
+                    <td style="width: 170px;">SECTION</td>
+                    <td>S/9A/COMPRESSOR</td>
+                </tr>
+                <tr>
+                    <td class="number-cell">2.</td>
+                    <td>EQUIPMENT</td>
+                    <td>COMPRESSOR WITH MOTOR</td>
+                </tr>
+                <tr>
+                    <td class="number-cell">3.</td>
+                    <td>TYPE</td>
+                    <td><input type="text" name="type" id="type" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">4.</td>
+                    <td>MAKE & FITTED CP NO.</td>
+                    <td>AIML 1750</td>
+                </tr>
+                <tr>
+                    <td class="number-cell">5.</td>
+                    <td>MONTH OF OVERHAULING</td>
+                    <td><input type="text" name="overhauling_month" id="overhauling_month" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">6.</td>
+                    <td>LOCO.NO./BASE</td>
+                    <td><input type="text" name="loco_base" id="loco_base" class="wide-input"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="test-section">
+            <table>
+                <tr>
+                    <td rowspan="2" class="number-cell">SN</td>
+                    <td colspan="2" class="test-header">TEST</td>
+                    <td class="test-header reference-cell">REFERENCE</td>
+                    <td class="test-header standard-cell">STANDARD</td>
+                    <td colspan="2" class="test-header">ACTUAL</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="text" name="test_description" id="test_description" class="wide-input"></td>
+                    <td class="actual-cell">HP</td>
+                    <td class="actual-cell">LP1</td>
+                    <td class="actual-cell">LP2</td>
+                </tr>
+                <tr>
+                    <td class="number-cell">1</td>
+                    <td>HP cylinder dia.</td>
+                    <td>Manual of AIML pg.no.8</td>
+                    <td>90.00 TO 90.035 mm</td>
+                    <td><input type="text" name="hp_cyl_hp" id="hp_cyl_hp"></td>
+                    <td>NA</td>
+                    <td>NA</td>
+                </tr>
+                <tr>
+                    <td class="number-cell">2.</td>
+                    <td>HP piston dia.</td>
+                    <td>DO</td>
+                    <td>89.757 to 90.197 mm</td>
+                    <td><input type="text" name="hp_piston_hp" id="hp_piston_hp"></td>
+                    <td>NA</td>
+                    <td>NA</td>
+                </tr>
+                <tr>
+                    <td class="number-cell">3.</td>
+                    <td>LP cylinder dia.</td>
+                    <td>DO</td>
+                    <td>127.00 to 127.035 mm</td>
+                    <td>NA</td>
+                    <td><input type="text" name="lp_cyl_lp1" id="lp_cyl_lp1"></td>
+                    <td><input type="text" name="lp_cyl_lp2" id="lp_cyl_lp2"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">4.</td>
+                    <td>LP piston dia.</td>
+                    <td>DO</td>
+                    <td>126.698 to 127.248 mm</td>
+                    <td>NA</td>
+                    <td><input type="text" name="lp_piston_lp1" id="lp_piston_lp1"></td>
+                    <td><input type="text" name="lp_piston_lp2" id="lp_piston_lp2"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">9.</td>
+                    <td>
+                        Valve leakage test by kerosene oil<br>
+                        c) Suction valve<br>
+                        d) Delivery valve
+                    </td>
+                    <td>SHOP PRACTICE</td>
+                    <td>NO LEAKAGE</td>
+                    <td><input type="text" name="valve_leak_hp" id="valve_leak_hp"></td>
+                    <td><input type="text" name="valve_leak_lp1" id="valve_leak_lp1"></td>
+                    <td><input type="text" name="valve_leak_lp2" id="valve_leak_lp2"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">10.</td>
+                    <td>Type of coupling</td>
+                    <td>Tyre type coupling</td>
+                    <td colspan="4"><input type="text" name="coupling_type" id="coupling_type" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">12.</td>
+                    <td>check time taken to fill the reservoir of 230 liter capacity upto 10.5kg/cm2</td>
+                    <td colspan="3">70 to 80 seconds</td>
+                    <td colspan="2"><input type="text" name="fill_time" id="fill_time" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">13.</td>
+                    <td>All gaskets to be replaced</td>
+                    <td colspan="2">TC-0123</td>
+                    <td>100% Replacement</td>
+                    <td colspan="2"><input type="text" name="gaskets" id="gaskets" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">14.</td>
+                    <td>Light run test, check oil through</td>
+                    <td colspan="2">Shop practice</td>
+                    <td>No oil through</td>
+                    <td colspan="2"><input type="text" name="oil_through" id="oil_through" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Use Lubricant</td>
+                    <td colspan="2">RDSO recommended spec.oil</td>
+                    <td>Servo press 150</td>
+                    <td colspan="2"><input type="text" name="lubricant" id="lubricant" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Check oil level</td>
+                    <td colspan="2">1642 to 3600 ml</td>
+                    <td>Maximum level</td>
+                    <td colspan="2"><input type="text" name="oil_level" id="oil_level" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">17.</td>
+                    <td>CURRENT</td>
+                    <td colspan="2">33 Am/s</td>
+                    <td><input type="text" name="current_actual" id="current_actual"></td>
+                    <td colspan="2"><input type="text" name="current_result" id="current_result" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">18</td>
+                    <td>VOLTAGE</td>
+                    <td colspan="2">290-500V</td>
+                    <td><input type="text" name="voltage_actual" id="voltage_actual"></td>
+                    <td colspan="2"><input type="text" name="voltage_result" id="voltage_result" class="wide-input"></td>
+                </tr>
+                <tr>
+                    <td class="number-cell">19.</td>
+                    <td>
+                        ANY SPECIAL REMARKS OR DETAILS OF NEW<br>
+                        MATERIAL (conditional based items) PROVIDED<br>
+                        IF ANY-
+                    </td>
+                    <td colspan="5" class="remarks-cell">
+                        <input type="text" name="special_remarks" id="special_remarks" class="wide-input" style="height: 60px;">
+                    </td>
+                </tr>
+            </table>
+
+
+
+          <header class="header">
+            <h1>LIST OF MUST CHANGE ITEMS DURING POH OF LOCOMOTIVES AS PER ELRS/TC/0021 REV 01 /2002 & 123.</h1>
+        </header>
+
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="serial-col">SL.NO</th>
+                        <th class="description-col">DESCRIPTION</th>
+                        <th class="plno-col">PL.NO</th>
+                        <th class="status-col">STATUS(Y/N)</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="description_header" id="description_header"></td>
+                        <td><input type="text" name="plno_header" id="plno_header"></td>
+                        <td><input type="text" name="status_header" id="status_header"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center">1</td>
+                        <td class="description-text">
+                            COMPRESSOR(2<sup>nd</sup> POH)UPL(SAFETY<br>
+                            ITEMS) 1750 LPM
+                        </td>
+                        <td class="center">2551-0095</td>
+                        <td><input type="text" name="status_1" id="status_1"></td>
+                    </tr>
+                    <tr>
+                        <td class="center">2</td>
+                        <td class="description-text">IOH KIT 1750 LPM</td>
+                        <td><input type="text" name="plno_2" id="plno_2"></td>
+                        <td><input type="text" name="status_2" id="status_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="center">3</td>
+                        <td class="description-text">POH KIT 1750 LPM</td>
+                        <td><input type="text" name="plno_3" id="plno_3"></td>
+                        <td><input type="text" name="status_3" id="status_3"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="section-title">FIRE PREVENTION MEASURE</div>
+
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-col">SL.NO</th>
+                        <th class="shop-col">CONCERNED SHOP</th>
+                        <th class="remarks-col">PRESENT STATUS/REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center">1</td>
+                        <td class="description-text">
+                            Compressor Are To Be Maintened As Per<br>
+                            OEMS Recommendation.
+                        </td>
+                        <td><input type="text" name="remarks_1" id="remarks_1"></td>
+                    </tr>
+                    <tr>
+                        <td class="center">2</td>
+                        <td class="description-text">
+                            Replacements Of Spares During POH & Otherwise Should Be In The Form Of Kit,Specially For HP &LP Valves To Avoid<br>
+                            Throwing Of Excess Oil Leakage.
+                        </td>
+                        <td><input type="text" name="remarks_2" id="remarks_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="center">3</td>
+                        <td class="description-text">
+                            Filling Up & Topping Up Of Oil Should Be<br>
+                            Done With Proper Funnel By The Shed &Out Stations
+                        </td>
+                        <td><input type="text" name="remarks_3" id="remarks_3"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+            <header class="header">
+            <h1>SUMMER AND MONSOON PREPAREDNESS OF AC EL</h1>
+            <div class="reference">Ref:-RB L/NO.2005/ELECT.(TRS)/440/23 DATED 24.02.2016</div>
+        </header>
+
+       
+            <table class="table-1">
+                <thead>
+                    <tr>
+                        <th>S.NO.</th>
+                        <th>ITEM</th>
+                        <th>REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center-text">1.</td>
+                        <td>
+                            CLEAN DRY TYPE FILTER OF CP & ENSURE PROPER FILLINGS<br>
+                            .CYCLIC CHECK
+                        </td>
+                        <td>
+                            <input type="text" name="remarks_1" id="remarks_1">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table-2">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>SECTION</th>
+                        <th>DETAILS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center-text">1.</td>
+                        <td>SECTION</td>
+                        <td class="filled-cell">S/9A/COMPRESSOR</td>
+                    </tr>
+                    <tr>
+                        <td class="center-text">2.</td>
+                        <td>EQUIPMENT</td>
+                        <td class="filled-cell">COMPRESSOR WITH MOTOR</td>
+                    </tr>
+                    <tr>
+                        <td class="center-text">3.</td>
+                        <td>TYPE</td>
+                        <td>
+                            <input type="text" name="type_3" id="type_3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center-text">4.</td>
+                        <td>MAKE & FITTED CP NO.</td>
+                        <td class="filled-cell">AIML 1750</td>
+                    </tr>
+                    <tr>
+                        <td class="center-text">5.</td>
+                        <td>MONTH OF OVERHAULING</td>
+                        <td>
+                            <input type="text" name="overhauling_month_5" id="overhauling_month_5">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center-text">6.</td>
+                        <td>LOCO.NO./BASE</td>
+                        <td>
+                            <input type="text" name="loco_base_6" id="loco_base_6">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+         <table class="main-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">SN</th>
+                        <th colspan="2">TEST</th>
+                        <th>REFERENCE</th>
+                        <th>STANDARD</th>
+                        <th colspan="2">ACTUAL</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3"></th>
+                        <th>HP</th>
+                        <th>LP1</th>
+                        <th>LP2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>HP cylinder dia.</td>
+                        <td>Manual of AIML pg.no.8</td>
+                        <td>90.00 TO 90.035 mm</td>
+                        <td><input type="text" name="hp_1" id="hp_1" class="input-field"></td>
+                        <td>NA</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>HP piston dia.</td>
+                        <td>DO</td>
+                        <td>89.757 to 90.197 mm</td>
+                        <td><input type="text" name="hp_2" id="hp_2" class="input-field"></td>
+                        <td>NA</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>LP cylinder dia.</td>
+                        <td>DO</td>
+                        <td>127.00 to 127.035 mm</td>
+                        <td>NA</td>
+                        <td><input type="text" name="lp1_3" id="lp1_3" class="input-field"></td>
+                        <td><input type="text" name="lp2_3" id="lp2_3" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>LP piston dia.</td>
+                        <td>DO</td>
+                        <td>126.698 to 127.248 mm</td>
+                        <td>NA</td>
+                        <td><input type="text" name="lp1_4" id="lp1_4" class="input-field"></td>
+                        <td><input type="text" name="lp2_4" id="lp2_4" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>9.</td>
+                        <td>
+                            Valve leakage test by kerosene oil
+                            <ol class="valve-list">
+                                <li>Suction valve</li>
+                                <li>Delivery valve</li>
+                            </ol>
+                        </td>
+                        <td>SHOP PRACTICE</td>
+                        <td>NO LEAKAGE</td>
+                        <td><input type="text" name="hp_9" id="hp_9" class="input-field"></td>
+                        <td><input type="text" name="lp1_9" id="lp1_9" class="input-field"></td>
+                        <td><input type="text" name="lp2_9" id="lp2_9" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>10.</td>
+                        <td>Type of coupling</td>
+                        <td>Tyre type coupling</td>
+                        <td colspan="4"><input type="text" name="coupling_10" id="coupling_10" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>12.</td>
+                        <td>Check time taken to fill the reservoir of 230 liter capacity upto 10.5kg/cm2</td>
+                        <td colspan="3">70 to 80 seconds</td>
+                        <td colspan="2"><input type="text" name="time_12" id="time_12" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>13.</td>
+                        <td>All gaskets to be replaced</td>
+                        <td colspan="2">TC-0123</td>
+                        <td>100% Replacement</td>
+                        <td colspan="2"><input type="text" name="gaskets_13" id="gaskets_13" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>14.</td>
+                        <td>Light run test, check oil through</td>
+                        <td colspan="2">Shop practice</td>
+                        <td>No oil through</td>
+                        <td colspan="2"><input type="text" name="oil_test_14" id="oil_test_14" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Use Lubricant</td>
+                        <td colspan="2">RDSO recommended spec.oil</td>
+                        <td>Servo press 150</td>
+                        <td colspan="2"><input type="text" name="lubricant" id="lubricant" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Check oil level</td>
+                        <td colspan="2">1642 to 3600 ml</td>
+                        <td>Maximum level</td>
+                        <td colspan="2"><input type="text" name="oil_level" id="oil_level" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>17.</td>
+                        <td>CURRENT</td>
+                        <td colspan="2">33 Am/s</td>
+                        <td><input type="text" name="current_17" id="current_17" class="input-field"></td>
+                        <td colspan="2"><input type="text" name="current_actual_17" id="current_actual_17" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>VOLTAGE</td>
+                        <td colspan="2">290-500V</td>
+                        <td><input type="text" name="voltage_18" id="voltage_18" class="input-field"></td>
+                        <td colspan="2"><input type="text" name="voltage_actual_18" id="voltage_actual_18" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>19.</td>
+                        <td>ANY SPECIAL REMARKS OR DETAILS OF NEW MATERIAL(conditional based items) PROVIDED IF ANY-</td>
+                        <td colspan="5"><input type="text" name="remarks_19" id="remarks_19" class="input-field"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-title">
+                LIST OF MUST CHANGE ITEMS DURING POH OF LOCOMOTIVES AS PER ELRS/TC/0021 REV 01 /2002 & 123.
+            </div>
+
+            <table class="must-change-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">SL.NO</th>
+                        <th>DESCRIPTION</th>
+                        <th>PL.NO</th>
+                        <th>STATUS(Y/N)</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>COMPRESSOR(2<sup>nd</sup> POH)UPL(SAFETY ITEMS) 1750 LPM</td>
+                        <td>2551-0095</td>
+                        <td><input type="text" name="status_1" id="status_1" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>IOH KIT 1750 LPM</td>
+                        <td><input type="text" name="pl_no_2" id="pl_no_2" class="input-field"></td>
+                        <td><input type="text" name="status_2" id="status_2" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>POH KIT 1750 LPM</td>
+                        <td><input type="text" name="pl_no_3" id="pl_no_3" class="input-field"></td>
+                        <td><input type="text" name="status_3" id="status_3" class="input-field"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="fire-prevention">
+                FIRE PREVENTION MEASURE
+            </div>
+
+
+
+             <table>
+            <tr class="header-row">
+                <td class="serial-col">SL.NO</td>
+                <td class="shop-col">CONCERNED SHOP</td>
+                <td class="status-col">PRESENT STATUS/REMARKS</td>
+            </tr>
+            <tr>
+                <td class="serial-col">1</td>
+                <td class="shop-col">Compressor Are To Be Maintened As Per<br>OEMS Recommendation.</td>
+                <td class="status-col">
+                    <div class="input-container">
+                        <input type="text" name="status_1" id="status_1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="serial-col">2</td>
+                <td class="shop-col">Replacements Of Spares During POH & Otherwise Should Be In The Form Of Kit,Specially For HP &LP Valves To Avoid<br>Throwing Of Excess Oil Leakage.</td>
+                <td class="status-col">
+                    <div class="input-container">
+                        <input type="text" name="status_2" id="status_2">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="serial-col">3</td>
+                <td class="shop-col">Filling Up & Topping Up Of Oil Should Be<br>Done With Proper Funnel By The Shed &Out Stations</td>
+                <td class="status-col">
+                    <div class="input-container">
+                        <input type="text" name="status_3" id="status_3">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="container">
+        <div class="section-header">
+            SUMMER AND MONSOON PREPAREDNESS OF AC EL
+        </div>
+        <div class="reference-text">
+            Ref:-RB L/NO.2005/ELECT.(TRS)/440/23 DATED 24.02.2016
+        </div>
+        
+        <table>
+            <tr class="header-row">
+                <td class="serial-col">S.NO.</td>
+                <td class="item-col">ITEM</td>
+                <td class="remarks-col">REMARKS</td>
+            </tr>
+            <tr>
+                <td class="serial-col">1.</td>
+                <td class="item-col">CLEAN DRY TYPE FILTEROF CP & ENSURE PROPER FILLINGS<br>.CYCLIC CHECK</td>
+                <td class="remarks-col">
+                    <div class="input-container">
+                        <input type="text" name="remarks_1" id="remarks_1">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+
+         </section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+
+
+
+  </div>
+  
+  <!-- Submit Button -->
+  <div style="text-align: center; margin-top: 20px;">
+      <button type="button" id="submitBtn" class="btn btn-primary">
+          Save Check Sheet
+      </button>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          // Function to get URL parameters
+          function getUrlParameter(name) {
+              name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+              var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+              var results = regex.exec(window.location.href);
+              return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+          }
+          
+          // Function to get ID from URL path for edit route
+          function getIdFromPath() {
+              const pathParts = window.location.pathname.split('/');
+
+              console.log(pathParts)
+              if (pathParts[2] === 'edit' && pathParts[3]) {
+                  return pathParts[3];
+              }
+              return '';
+          }
+
+           
+          
+          // Function to load check sheet data by ID
+          function loadCheckSheetData(id) {
+              if (!id) return;
+              
+              $.ajax({
+                  url: '/compressor-1750-lpm/' + id,
+                  method: 'GET',
+                  success: function(response) {
+                      if (response.success) {
+                          // Set the ID in the hidden field
+                          $('#id').val(id);
+                          
+                          // Populate form fields with data
+                          const data = response.data;
+                          for (const key in data) {
+                              if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                  const element = $('#' + key);
+                                  if (element.length) {
+                                      element.val(data[key]);
+                                  }
+                              }
+                          }
+                      } else {
+                          alert('Error loading check sheet data: ' + response.message);
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      alert('Error loading check sheet data: ' + error);
+                  }
+              });
+          }
+          
+          // Get ID from URL (either as parameter or from path)
+          const checkSheetId = getIdFromPath() || getUrlParameter('id');
+          if (checkSheetId) {
+              loadCheckSheetData(checkSheetId);
+          }
+          
+          // Handle form submission
+          $('#submitBtn').on('click', function() {
+              // Collect all form data
+              var formData = {};
+              $('input[type="text"]').each(function() {
+                  formData[$(this).attr('name')] = $(this).val();
+              });
+
+              console.log(formData)
+              
+              // Get the ID value to determine if we're adding or editing
+              var id = $('#id').val();
+              
+              var url = '/compressor-1750-lpm/add';
+              var method = 'POST';
+              
+              if (id && id !== '') {
+                  url = '/compressor-1750-lpm/edit/' + id;
+              }
+              
+              // Send AJAX request
+              $.ajax({
+                  url: url,
+                  method: method,
+                  data: formData,
+                  success: function(response) {
+                      if (response.success) {
+                          alert(response.message);
+                          // If this is a new record, save the ID for future edits
+                          if (response.id && !id) {
+                              $('#id').val(response.id);
+                          }
+                      } else {
+                          alert('Error: ' + response.message);
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      alert('Error submitting form: ' + error);
+                  }
+              });
+          });
+      });
+  </script>
+  
+  <!-- Custom App Script -->
+  <script src="/app.js"></script>
+</body>
+</html>

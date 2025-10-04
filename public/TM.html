@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traction Motor Shop-9A Inspection Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1px solid #000;
+        }
+        
+        .header-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+        }
+        
+        .header-table .label {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            width: 180px;
+        }
+        
+        .header-table .value {
+            background-color: white;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+        
+        .main-table th,
+        .main-table td {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 11px;
+        }
+        
+        .main-table th {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .main-table .test-column {
+            width: 160px;
+        }
+        
+        .main-table .reference-column {
+            width: 150px;
+        }
+        
+        .main-table .standard-column {
+            width: 90px;
+        }
+        
+        .main-table .actual-column {
+            width: 70px;
+            text-align: center;
+        }
+        
+        .input-field {
+            width: 100%;
+            height: 24px;
+            border: 1px solid #ccc;
+            padding: 2px 4px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            border-radius: 2px;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #007acc;
+            background-color: white;
+        }
+        
+        .sn-column {
+            width: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .sub-item {
+            padding-left: 15px;
+            font-size: 10px;
+        }
+        
+        .small-text {
+            font-size: 10px;
+        }
+        
+        .section-title {
+            background-color: #C0C0C0;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .main-table {
+                font-size: 10px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 4px 2px;
+            }
+            
+            .input-field {
+                height: 20px;
+                font-size: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-table {
+                font-size: 9px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 3px 1px;
+            }
+            
+            .input-field {
+                height: 18px;
+                font-size: 9px;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hidden ID field for edit functionality -->
+        <input type="hidden" id="id" name="id" value="">
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Section</td>
+                <td class="value" colspan="5">Traction Motor, Shop-9A</td>
+            </tr>
+            <tr>
+                <td class="label">Loco No./Type/Shed</td>
+                <td class="value" colspan="5"><input type="text" class="input-field" name="loco_info" id="loco_info"></td>
+            </tr>
+            <tr>
+                <td class="label">Month</td>
+                <td class="value" colspan="5"><input type="text" class="input-field" name="month" id="month"></td>
+            </tr>
+        </table>
+
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">SL no.</th>
+                    <th class="test-column">Check Points</th>
+                    <th class="standard-column">Standard</th>
+                    <th class="reference-column">Reference</th>
+                    <th class="actual-column">TM1</th>
+                    <th class="actual-column">TM2</th>
+                    <th class="actual-column">TM3</th>
+                    <th class="actual-column">TM4</th>
+                    <th class="actual-column">TM5</th>
+                    <th class="actual-column">TM6</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>Frame no.</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" class="input-field" name="tm1_frame" id="tm1_frame"></td>
+                    <td><input type="text" class="input-field" name="tm2_frame" id="tm2_frame"></td>
+                    <td><input type="text" class="input-field" name="tm3_frame" id="tm3_frame"></td>
+                    <td><input type="text" class="input-field" name="tm4_frame" id="tm4_frame"></td>
+                    <td><input type="text" class="input-field" name="tm5_frame" id="tm5_frame"></td>
+                    <td><input type="text" class="input-field" name="tm6_frame" id="tm6_frame"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>Arm. no.</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" class="input-field" name="tm1_arm" id="tm1_arm"></td>
+                    <td><input type="text" class="input-field" name="tm2_arm" id="tm2_arm"></td>
+                    <td><input type="text" class="input-field" name="tm3_arm" id="tm3_arm"></td>
+                    <td><input type="text" class="input-field" name="tm4_arm" id="tm4_arm"></td>
+                    <td><input type="text" class="input-field" name="tm5_arm" id="tm5_arm"></td>
+                    <td><input type="text" class="input-field" name="tm6_arm" id="tm6_arm"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column" rowspan="2">3</td>
+                    <td colspan="9" class="section-title">Incoming Insulation Resistance with 1 KV Megger between</td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(a) Main pole circuit to earth</td>
+                    <td>01 MΩ</td>
+                    <td>Camtech, P-37</td>
+                    <td><input type="text" class="input-field" name="tm1_main_pole" id="tm1_main_pole"></td>
+                    <td><input type="text" class="input-field" name="tm2_main_pole" id="tm2_main_pole"></td>
+                    <td><input type="text" class="input-field" name="tm3_main_pole" id="tm3_main_pole"></td>
+                    <td><input type="text" class="input-field" name="tm4_main_pole" id="tm4_main_pole"></td>
+                    <td><input type="text" class="input-field" name="tm5_main_pole" id="tm5_main_pole"></td>
+                    <td><input type="text" class="input-field" name="tm6_main_pole" id="tm6_main_pole"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(b) Inter pole circuit to earth</td>
+                    <td>01 MΩ</td>
+                    <td>Camtech, P-37</td>
+                    <td><input type="text" class="input-field" name="tm1_inter_pole" id="tm1_inter_pole"></td>
+                    <td><input type="text" class="input-field" name="tm2_inter_pole" id="tm2_inter_pole"></td>
+                    <td><input type="text" class="input-field" name="tm3_inter_pole" id="tm3_inter_pole"></td>
+                    <td><input type="text" class="input-field" name="tm4_inter_pole" id="tm4_inter_pole"></td>
+                    <td><input type="text" class="input-field" name="tm5_inter_pole" id="tm5_inter_pole"></td>
+                    <td><input type="text" class="input-field" name="tm6_inter_pole" id="tm6_inter_pole"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column" rowspan="5">4</td>
+                    <td colspan="9" class="section-title">Incoming Light run test the TM by applying reduced DC voltage and check the following</td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(a) Bearing noise PE side & CE side</td>
+                    <td>Normal</td>
+                    <td>Camtech, P-37</td>
+                    <td><input type="text" class="input-field" name="tm1_bearing_noise" id="tm1_bearing_noise"></td>
+                    <td><input type="text" class="input-field" name="tm2_bearing_noise" id="tm2_bearing_noise"></td>
+                    <td><input type="text" class="input-field" name="tm3_bearing_noise" id="tm3_bearing_noise"></td>
+                    <td><input type="text" class="input-field" name="tm4_bearing_noise" id="tm4_bearing_noise"></td>
+                    <td><input type="text" class="input-field" name="tm5_bearing_noise" id="tm5_bearing_noise"></td>
+                    <td><input type="text" class="input-field" name="tm6_bearing_noise" id="tm6_bearing_noise"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(b) Vibration</td>
+                    <td>No vibration</td>
+                    <td>Camtech, P-37</td>
+                    <td><input type="text" class="input-field" name="tm1_vibration" id="tm1_vibration"></td>
+                    <td><input type="text" class="input-field" name="tm2_vibration" id="tm2_vibration"></td>
+                    <td><input type="text" class="input-field" name="tm3_vibration" id="tm3_vibration"></td>
+                    <td><input type="text" class="input-field" name="tm4_vibration" id="tm4_vibration"></td>
+                    <td><input type="text" class="input-field" name="tm5_vibration" id="tm5_vibration"></td>
+                    <td><input type="text" class="input-field" name="tm6_vibration" id="tm6_vibration"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(c) Note pinion teeth nos.</td>
+                    <td>16T/18T/23T</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_pinion" id="tm1_pinion"></td>
+                    <td><input type="text" class="input-field" name="tm2_pinion" id="tm2_pinion"></td>
+                    <td><input type="text" class="input-field" name="tm3_pinion" id="tm3_pinion"></td>
+                    <td><input type="text" class="input-field" name="tm4_pinion" id="tm4_pinion"></td>
+                    <td><input type="text" class="input-field" name="tm5_pinion" id="tm5_pinion"></td>
+                    <td><input type="text" class="input-field" name="tm6_pinion" id="tm6_pinion"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(d) Any abnormalities & record</td>
+                    <td>No abnormality</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_abnormality" id="tm1_abnormality"></td>
+                    <td><input type="text" class="input-field" name="tm2_abnormality" id="tm2_abnormality"></td>
+                    <td><input type="text" class="input-field" name="tm3_abnormality" id="tm3_abnormality"></td>
+                    <td><input type="text" class="input-field" name="tm4_abnormality" id="tm4_abnormality"></td>
+                    <td><input type="text" class="input-field" name="tm5_abnormality" id="tm5_abnormality"></td>
+                    <td><input type="text" class="input-field" name="tm6_abnormality" id="tm6_abnormality"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column" rowspan="6">5</td>
+                    <td colspan="9" class="section-title">Checking of bearing bracket PE</td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(a) Check for breakage of nets</td>
+                    <td>Good/Break</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_nets" id="tm1_nets"></td>
+                    <td><input type="text" class="input-field" name="tm2_nets" id="tm2_nets"></td>
+                    <td><input type="text" class="input-field" name="tm3_nets" id="tm3_nets"></td>
+                    <td><input type="text" class="input-field" name="tm4_nets" id="tm4_nets"></td>
+                    <td><input type="text" class="input-field" name="tm5_nets" id="tm5_nets"></td>
+                    <td><input type="text" class="input-field" name="tm6_nets" id="tm6_nets"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(b) Check the nets are modified</td>
+                    <td>Mod./Unmod.</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_nets_mod" id="tm1_nets_mod"></td>
+                    <td><input type="text" class="input-field" name="tm2_nets_mod" id="tm2_nets_mod"></td>
+                    <td><input type="text" class="input-field" name="tm3_nets_mod" id="tm3_nets_mod"></td>
+                    <td><input type="text" class="input-field" name="tm4_nets_mod" id="tm4_nets_mod"></td>
+                    <td><input type="text" class="input-field" name="tm5_nets_mod" id="tm5_nets_mod"></td>
+                    <td><input type="text" class="input-field" name="tm6_nets_mod" id="tm6_nets_mod"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(c) Check grease hole clear & blow air</td>
+                    <td>Done & Clear</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_grease_pe" id="tm1_grease_pe"></td>
+                    <td><input type="text" class="input-field" name="tm2_grease_pe" id="tm2_grease_pe"></td>
+                    <td><input type="text" class="input-field" name="tm3_grease_pe" id="tm3_grease_pe"></td>
+                    <td><input type="text" class="input-field" name="tm4_grease_pe" id="tm4_grease_pe"></td>
+                    <td><input type="text" class="input-field" name="tm5_grease_pe" id="tm5_grease_pe"></td>
+                    <td><input type="text" class="input-field" name="tm6_grease_pe" id="tm6_grease_pe"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(d) Any crack in crack pron area</td>
+                    <td>No crack</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_crack_pe" id="tm1_crack_pe"></td>
+                    <td><input type="text" class="input-field" name="tm2_crack_pe" id="tm2_crack_pe"></td>
+                    <td><input type="text" class="input-field" name="tm3_crack_pe" id="tm3_crack_pe"></td>
+                    <td><input type="text" class="input-field" name="tm4_crack_pe" id="tm4_crack_pe"></td>
+                    <td><input type="text" class="input-field" name="tm5_crack_pe" id="tm5_crack_pe"></td>
+                    <td><input type="text" class="input-field" name="tm6_crack_pe" id="tm6_crack_pe"></td>
+                </tr>
+                <tr>
+                    <td class="sub-item">(e) Check all holes thread</td>
+                    <td>Normal</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_holes_pe" id="tm1_holes_pe"></td>
+                    <td><input type="text" class="input-field" name="tm2_holes_pe" id="tm2_holes_pe"></td>
+                    <td><input type="text" class="input-field" name="tm3_holes_pe" id="tm3_holes_pe"></td>
+                    <td><input type="text" class="input-field" name="tm4_holes_pe" id="tm4_holes_pe"></td>
+                    <td><input type="text" class="input-field" name="tm5_holes_pe" id="tm5_holes_pe"></td>
+                    <td><input type="text" class="input-field" name="tm6_holes_pe" id="tm6_holes_pe"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td colspan="9" class="section-title">Checking of Pinion End (PE) Bearing</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(a) Check free movement, scratch mark of rollers, Cage looseness.</td>
+                    <td>Free & normal</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_pe_movement" id="tm1_pe_movement"></td>
+                    <td><input type="text" class="input-field" name="tm2_pe_movement" id="tm2_pe_movement"></td>
+                    <td><input type="text" class="input-field" name="tm3_pe_movement" id="tm3_pe_movement"></td>
+                    <td><input type="text" class="input-field" name="tm4_pe_movement" id="tm4_pe_movement"></td>
+                    <td><input type="text" class="input-field" name="tm5_pe_movement" id="tm5_pe_movement"></td>
+                    <td><input type="text" class="input-field" name="tm6_pe_movement" id="tm6_pe_movement"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(b) Check any scratch mark, pit mark on I/race.</td>
+                    <td>No scratch & pit mark</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_pe_scratch" id="tm1_pe_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm2_pe_scratch" id="tm2_pe_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm3_pe_scratch" id="tm3_pe_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm4_pe_scratch" id="tm4_pe_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm5_pe_scratch" id="tm5_pe_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm6_pe_scratch" id="tm6_pe_scratch"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(c) PE bearing make and condition</td>
+                    <td>FAG/SKF/NBC(N)</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_pe_make" id="tm1_pe_make"></td>
+                    <td><input type="text" class="input-field" name="tm2_pe_make" id="tm2_pe_make"></td>
+                    <td><input type="text" class="input-field" name="tm3_pe_make" id="tm3_pe_make"></td>
+                    <td><input type="text" class="input-field" name="tm4_pe_make" id="tm4_pe_make"></td>
+                    <td><input type="text" class="input-field" name="tm5_pe_make" id="tm5_pe_make"></td>
+                    <td><input type="text" class="input-field" name="tm6_pe_make" id="tm6_pe_make"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(d) PE bearing Code & mfg. year</td>
+                    <td>Note</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_pe_code" id="tm1_pe_code"></td>
+                    <td><input type="text" class="input-field" name="tm2_pe_code" id="tm2_pe_code"></td>
+                    <td><input type="text" class="input-field" name="tm3_pe_code" id="tm3_pe_code"></td>
+                    <td><input type="text" class="input-field" name="tm4_pe_code" id="tm4_pe_code"></td>
+                    <td><input type="text" class="input-field" name="tm5_pe_code" id="tm5_pe_code"></td>
+                    <td><input type="text" class="input-field" name="tm6_pe_code" id="tm6_pe_code"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td colspan="9" class="section-title">Checking of bearing bracket CE</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(a) Check grease hole clear & blow air</td>
+                    <td>Done & Clear</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_grease_ce" id="tm1_grease_ce"></td>
+                    <td><input type="text" class="input-field" name="tm2_grease_ce" id="tm2_grease_ce"></td>
+                    <td><input type="text" class="input-field" name="tm3_grease_ce" id="tm3_grease_ce"></td>
+                    <td><input type="text" class="input-field" name="tm4_grease_ce" id="tm4_grease_ce"></td>
+                    <td><input type="text" class="input-field" name="tm5_grease_ce" id="tm5_grease_ce"></td>
+                    <td><input type="text" class="input-field" name="tm6_grease_ce" id="tm6_grease_ce"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(b) Check all holes thread</td>
+                    <td>Normal</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_holes_ce" id="tm1_holes_ce"></td>
+                    <td><input type="text" class="input-field" name="tm2_holes_ce" id="tm2_holes_ce"></td>
+                    <td><input type="text" class="input-field" name="tm3_holes_ce" id="tm3_holes_ce"></td>
+                    <td><input type="text" class="input-field" name="tm4_holes_ce" id="tm4_holes_ce"></td>
+                    <td><input type="text" class="input-field" name="tm5_holes_ce" id="tm5_holes_ce"></td>
+                    <td><input type="text" class="input-field" name="tm6_holes_ce" id="tm6_holes_ce"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td colspan="9" class="section-title">Checking of Comm. End (CE) Bearing</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(a) Check free movement, scratch mark of rollers, Cage looseness.</td>
+                    <td>Free & normal</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_ce_movement" id="tm1_ce_movement"></td>
+                    <td><input type="text" class="input-field" name="tm2_ce_movement" id="tm2_ce_movement"></td>
+                    <td><input type="text" class="input-field" name="tm3_ce_movement" id="tm3_ce_movement"></td>
+                    <td><input type="text" class="input-field" name="tm4_ce_movement" id="tm4_ce_movement"></td>
+                    <td><input type="text" class="input-field" name="tm5_ce_movement" id="tm5_ce_movement"></td>
+                    <td><input type="text" class="input-field" name="tm6_ce_movement" id="tm6_ce_movement"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(b) Check any scratch mark, pit mark on I/race.</td>
+                    <td>No scratch & pit mark</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_ce_scratch" id="tm1_ce_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm2_ce_scratch" id="tm2_ce_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm3_ce_scratch" id="tm3_ce_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm4_ce_scratch" id="tm4_ce_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm5_ce_scratch" id="tm5_ce_scratch"></td>
+                    <td><input type="text" class="input-field" name="tm6_ce_scratch" id="tm6_ce_scratch"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(f) CE bearing make and condition</td>
+                    <td>FAG/SKF/NBC(N)</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_ce_make" id="tm1_ce_make"></td>
+                    <td><input type="text" class="input-field" name="tm2_ce_make" id="tm2_ce_make"></td>
+                    <td><input type="text" class="input-field" name="tm3_ce_make" id="tm3_ce_make"></td>
+                    <td><input type="text" class="input-field" name="tm4_ce_make" id="tm4_ce_make"></td>
+                    <td><input type="text" class="input-field" name="tm5_ce_make" id="tm5_ce_make"></td>
+                    <td><input type="text" class="input-field" name="tm6_ce_make" id="tm6_ce_make"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(g) CE bearing Code & mfg. year</td>
+                    <td>Note</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_ce_code" id="tm1_ce_code"></td>
+                    <td><input type="text" class="input-field" name="tm2_ce_code" id="tm2_ce_code"></td>
+                    <td><input type="text" class="input-field" name="tm3_ce_code" id="tm3_ce_code"></td>
+                    <td><input type="text" class="input-field" name="tm4_ce_code" id="tm4_ce_code"></td>
+                    <td><input type="text" class="input-field" name="tm5_ce_code" id="tm5_ce_code"></td>
+                    <td><input type="text" class="input-field" name="tm6_ce_code" id="tm6_ce_code"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td colspan="9" class="section-title">Checking of Brush Holder(B/H)</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(a) Check mod./unmod. If B/H old</td>
+                    <td>Mod./Unmod.</td>
+                    <td>POH/295/92</td>
+                    <td><input type="text" class="input-field" name="tm1_bh_mod" id="tm1_bh_mod"></td>
+                    <td><input type="text" class="input-field" name="tm2_bh_mod" id="tm2_bh_mod"></td>
+                    <td><input type="text" class="input-field" name="tm3_bh_mod" id="tm3_bh_mod"></td>
+                    <td><input type="text" class="input-field" name="tm4_bh_mod" id="tm4_bh_mod"></td>
+                    <td><input type="text" class="input-field" name="tm5_bh_mod" id="tm5_bh_mod"></td>
+                    <td><input type="text" class="input-field" name="tm6_bh_mod" id="tm6_bh_mod"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(b) Clean B/H if old fitted</td>
+                    <td>Cleaned</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_bh_clean" id="tm1_bh_clean"></td>
+                    <td><input type="text" class="input-field" name="tm2_bh_clean" id="tm2_bh_clean"></td>
+                    <td><input type="text" class="input-field" name="tm3_bh_clean" id="tm3_bh_clean"></td>
+                    <td><input type="text" class="input-field" name="tm4_bh_clean" id="tm4_bh_clean"></td>
+                    <td><input type="text" class="input-field" name="tm5_bh_clean" id="tm5_bh_clean"></td>
+                    <td><input type="text" class="input-field" name="tm6_bh_clean" id="tm6_bh_clean"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(c) Change PTFE & spring if B/H old</td>
+                    <td>Changed</td>
+                    <td>MS/0329</td>
+                    <td><input type="text" class="input-field" name="tm1_ptfe" id="tm1_ptfe"></td>
+                    <td><input type="text" class="input-field" name="tm2_ptfe" id="tm2_ptfe"></td>
+                    <td><input type="text" class="input-field" name="tm3_ptfe" id="tm3_ptfe"></td>
+                    <td><input type="text" class="input-field" name="tm4_ptfe" id="tm4_ptfe"></td>
+                    <td><input type="text" class="input-field" name="tm5_ptfe" id="tm5_ptfe"></td>
+                    <td><input type="text" class="input-field" name="tm6_ptfe" id="tm6_ptfe"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(d) Check C/B free in pockets</td>
+                    <td>Free</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_cb_free" id="tm1_cb_free"></td>
+                    <td><input type="text" class="input-field" name="tm2_cb_free" id="tm2_cb_free"></td>
+                    <td><input type="text" class="input-field" name="tm3_cb_free" id="tm3_cb_free"></td>
+                    <td><input type="text" class="input-field" name="tm4_cb_free" id="tm4_cb_free"></td>
+                    <td><input type="text" class="input-field" name="tm5_cb_free" id="tm5_cb_free"></td>
+                    <td><input type="text" class="input-field" name="tm6_cb_free" id="tm6_cb_free"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(e) Check pockets by GO-NOGO gauge</td>
+                    <td>Checked</td>
+                    <td>SMI/0243</td>
+                    <td><input type="text" class="input-field" name="tm1_gauge" id="tm1_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm2_gauge" id="tm2_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm3_gauge" id="tm3_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm4_gauge" id="tm4_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm5_gauge" id="tm5_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm6_gauge" id="tm6_gauge"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(f) check the B/H by gauge & fixture</td>
+                    <td>Checked</td>
+                    <td>SMI/0243</td>
+                    <td><input type="text" class="input-field" name="tm1_bh_fixture" id="tm1_bh_fixture"></td>
+                    <td><input type="text" class="input-field" name="tm2_bh_fixture" id="tm2_bh_fixture"></td>
+                    <td><input type="text" class="input-field" name="tm3_bh_fixture" id="tm3_bh_fixture"></td>
+                    <td><input type="text" class="input-field" name="tm4_bh_fixture" id="tm4_bh_fixture"></td>
+                    <td><input type="text" class="input-field" name="tm5_bh_fixture" id="tm5_bh_fixture"></td>
+                    <td><input type="text" class="input-field" name="tm6_bh_fixture" id="tm6_bh_fixture"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(g) Spring pressure at full length C/B</td>
+                    <td>3.10-3.78 kgf</td>
+                    <td>Camtech, P-38</td>
+                    <td><input type="text" class="input-field" name="tm1_spring" id="tm1_spring"></td>
+                    <td><input type="text" class="input-field" name="tm2_spring" id="tm2_spring"></td>
+                    <td><input type="text" class="input-field" name="tm3_spring" id="tm3_spring"></td>
+                    <td><input type="text" class="input-field" name="tm4_spring" id="tm4_spring"></td>
+                    <td><input type="text" class="input-field" name="tm5_spring" id="tm5_spring"></td>
+                    <td><input type="text" class="input-field" name="tm6_spring" id="tm6_spring"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(h) Gap between B/H and comm.</td>
+                    <td>2-4 mm.</td>
+                    <td>Camtech, P-38</td>
+                    <td><input type="text" class="input-field" name="tm1_gap_comm" id="tm1_gap_comm"></td>
+                    <td><input type="text" class="input-field" name="tm2_gap_comm" id="tm2_gap_comm"></td>
+                    <td><input type="text" class="input-field" name="tm3_gap_comm" id="tm3_gap_comm"></td>
+                    <td><input type="text" class="input-field" name="tm4_gap_comm" id="tm4_gap_comm"></td>
+                    <td><input type="text" class="input-field" name="tm5_gap_comm" id="tm5_gap_comm"></td>
+                    <td><input type="text" class="input-field" name="tm6_gap_comm" id="tm6_gap_comm"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(i) Gap between B/H and arm. riser</td>
+                    <td>4 mm.</td>
+                    <td>Camtech, P-38</td>
+                    <td><input type="text" class="input-field" name="tm1_gap_riser" id="tm1_gap_riser"></td>
+                    <td><input type="text" class="input-field" name="tm2_gap_riser" id="tm2_gap_riser"></td>
+                    <td><input type="text" class="input-field" name="tm3_gap_riser" id="tm3_gap_riser"></td>
+                    <td><input type="text" class="input-field" name="tm4_gap_riser" id="tm4_gap_riser"></td>
+                    <td><input type="text" class="input-field" name="tm5_gap_riser" id="tm5_gap_riser"></td>
+                    <td><input type="text" class="input-field" name="tm6_gap_riser" id="tm6_gap_riser"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(j) Gap between arc horn</td>
+                    <td>11.5-13.5</td>
+                    <td>Camtech, P-38</td>
+                    <td><input type="text" class="input-field" name="tm1_arc_horn" id="tm1_arc_horn"></td>
+                    <td><input type="text" class="input-field" name="tm2_arc_horn" id="tm2_arc_horn"></td>
+                    <td><input type="text" class="input-field" name="tm3_arc_horn" id="tm3_arc_horn"></td>
+                    <td><input type="text" class="input-field" name="tm4_arc_horn" id="tm4_arc_horn"></td>
+                    <td><input type="text" class="input-field" name="tm5_arc_horn" id="tm5_arc_horn"></td>
+                    <td><input type="text" class="input-field" name="tm6_arc_horn" id="tm6_arc_horn"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td colspan="9" class="section-title">Brush Holder Rocker Ring(BHRR)</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(a) Check BHRR Mod./Unmodified</td>
+                    <td>Mod./Unmod.</td>
+                    <td>MS/0347</td>
+                    <td><input type="text" class="input-field" name="tm1_bhrr_mod" id="tm1_bhrr_mod"></td>
+                    <td><input type="text" class="input-field" name="tm2_bhrr_mod" id="tm2_bhrr_mod"></td>
+                    <td><input type="text" class="input-field" name="tm3_bhrr_mod" id="tm3_bhrr_mod"></td>
+                    <td><input type="text" class="input-field" name="tm4_bhrr_mod" id="tm4_bhrr_mod"></td>
+                    <td><input type="text" class="input-field" name="tm5_bhrr_mod" id="tm5_bhrr_mod"></td>
+                    <td><input type="text" class="input-field" name="tm6_bhrr_mod" id="tm6_bhrr_mod"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(b) Check arc horn Mod./Unmodified</td>
+                    <td>Mod./Unmod.</td>
+                    <td>MS/0347</td>
+                    <td><input type="text" class="input-field" name="tm1_arc_mod" id="tm1_arc_mod"></td>
+                    <td><input type="text" class="input-field" name="tm2_arc_mod" id="tm2_arc_mod"></td>
+                    <td><input type="text" class="input-field" name="tm3_arc_mod" id="tm3_arc_mod"></td>
+                    <td><input type="text" class="input-field" name="tm4_arc_mod" id="tm4_arc_mod"></td>
+                    <td><input type="text" class="input-field" name="tm5_arc_mod" id="tm5_arc_mod"></td>
+                    <td><input type="text" class="input-field" name="tm6_arc_mod" id="tm6_arc_mod"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(c) Check B/H insulator Mod./Unmod.</td>
+                    <td>Mod./Unmod.</td>
+                    <td>RDSO/G5/28</td>
+                    <td><input type="text" class="input-field" name="tm1_insulator" id="tm1_insulator"></td>
+                    <td><input type="text" class="input-field" name="tm2_insulator" id="tm2_insulator"></td>
+                    <td><input type="text" class="input-field" name="tm3_insulator" id="tm3_insulator"></td>
+                    <td><input type="text" class="input-field" name="tm4_insulator" id="tm4_insulator"></td>
+                    <td><input type="text" class="input-field" name="tm5_insulator" id="tm5_insulator"></td>
+                    <td><input type="text" class="input-field" name="tm6_insulator" id="tm6_insulator"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(d) Check '+' ve & '-' ve ins. Mod/unmod.</td>
+                    <td>Mod./Unmod.</td>
+                    <td>RDSO/G5/27</td>
+                    <td><input type="text" class="input-field" name="tm1_ve_ins" id="tm1_ve_ins"></td>
+                    <td><input type="text" class="input-field" name="tm2_ve_ins" id="tm2_ve_ins"></td>
+                    <td><input type="text" class="input-field" name="tm3_ve_ins" id="tm3_ve_ins"></td>
+                    <td><input type="text" class="input-field" name="tm4_ve_ins" id="tm4_ve_ins"></td>
+                    <td><input type="text" class="input-field" name="tm5_ve_ins" id="tm5_ve_ins"></td>
+                    <td><input type="text" class="input-field" name="tm6_ve_ins" id="tm6_ve_ins"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(e) check the B/H by gauge & fixture</td>
+                    <td>Checked</td>
+                    <td>SMI/0243</td>
+                    <td><input type="text" class="input-field" name="tm1_bhrr_gauge" id="tm1_bhrr_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm2_bhrr_gauge" id="tm2_bhrr_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm3_bhrr_gauge" id="tm3_bhrr_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm4_bhrr_gauge" id="tm4_bhrr_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm5_bhrr_gauge" id="tm5_bhrr_gauge"></td>
+                    <td><input type="text" class="input-field" name="tm6_bhrr_gauge" id="tm6_bhrr_gauge"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(f) Good cleaning to do</td>
+                    <td>Done</td>
+                    <td>Shop practice</td>
+                    <td><input type="text" class="input-field" name="tm1_cleaning" id="tm1_cleaning"></td>
+                    <td><input type="text" class="input-field" name="tm2_cleaning" id="tm2_cleaning"></td>
+                    <td><input type="text" class="input-field" name="tm3_cleaning" id="tm3_cleaning"></td>
+                    <td><input type="text" class="input-field" name="tm4_cleaning" id="tm4_cleaning"></td>
+                    <td><input type="text" class="input-field" name="tm5_cleaning" id="tm5_cleaning"></td>
+                    <td><input type="text" class="input-field" name="tm6_cleaning" id="tm6_cleaning"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(g) Conduct HV test of complite BHRR</td>
+                    <td>Done</td>
+                    <td>POH/78/82</td>
+                    <td><input type="text" class="input-field" name="tm1_hv_test" id="tm1_hv_test"></td>
+                    <td><input type="text" class="input-field" name="tm2_hv_test" id="tm2_hv_test"></td>
+                    <td><input type="text" class="input-field" name="tm3_hv_test" id="tm3_hv_test"></td>
+                    <td><input type="text" class="input-field" name="tm4_hv_test" id="tm4_hv_test"></td>
+                    <td><input type="text" class="input-field" name="tm5_hv_test" id="tm5_hv_test"></td>
+                    <td><input type="text" class="input-field" name="tm6_hv_test" id="tm6_hv_test"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">11</td>
+                    <td colspan="9" class="section-title">Carbon Brush</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">(a) New or old Carbon Brush Used</td>
+                    <td>New/Old</td>
+                    <td>TC 123</td>
+                    <td><input type="text" class="input-field" name="tm1_brush" id="tm1_brush"></td>
+                    <td><input type="text" class="input-field" name="tm2_brush" id="tm2_brush"></td>
+                    <td><input type="text" class="input-field" name="tm3_brush" id="tm3_brush"></td>
+                    <td><input type="text" class="input-field" name="tm4_brush" id="tm4_brush"></td>
+                    <td><input type="text" class="input-field" name="tm5_brush" id="tm5_brush"></td>
+                    <td><input type="text" class="input-field" name="tm6_brush" id="tm6_brush"></td>
+                </tr>
+            </tbody>
+         
+            <tbody>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(b) Height of old Carbon Brush (note in mm.)</td>
+                    <td>Shop practice</td>
+                    <td></td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_brush_height" id="m1_brush_height"></td>
+                    <td><input type="text" class="input-field" name="m2_brush_height" id="m2_brush_height"></td>
+                    <td><input type="text" class="input-field" name="m3_brush_height" id="m3_brush_height"></td>
+                    <td><input type="text" class="input-field" name="m4_brush_height" id="m4_brush_height"></td>
+                    <td><input type="text" class="input-field" name="m5_brush_height" id="m5_brush_height"></td>
+                    <td><input type="text" class="input-field" name="m6_brush_height" id="m6_brush_height"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(e) Manufacturing year of Carbon Brush (Note)</td>
+                    <td>Shop practice</td>
+                    <td></td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_brush_year" id="m1_brush_year"></td>
+                    <td><input type="text" class="input-field" name="m2_brush_year" id="m2_brush_year"></td>
+                    <td><input type="text" class="input-field" name="m3_brush_year" id="m3_brush_year"></td>
+                    <td><input type="text" class="input-field" name="m4_brush_year" id="m4_brush_year"></td>
+                    <td><input type="text" class="input-field" name="m5_brush_year" id="m5_brush_year"></td>
+                    <td><input type="text" class="input-field" name="m6_brush_year" id="m6_brush_year"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">12</td>
+                    <td colspan="10" class="section-title">Pinion fitment</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(a) Pinion make & mfg. year (Note)</td>
+                    <td>Shop practice</td>
+                    <td></td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_pinion_make" id="m1_pinion_make"></td>
+                    <td><input type="text" class="input-field" name="m2_pinion_make" id="m2_pinion_make"></td>
+                    <td><input type="text" class="input-field" name="m3_pinion_make" id="m3_pinion_make"></td>
+                    <td><input type="text" class="input-field" name="m4_pinion_make" id="m4_pinion_make"></td>
+                    <td><input type="text" class="input-field" name="m5_pinion_make" id="m5_pinion_make"></td>
+                    <td><input type="text" class="input-field" name="m6_pinion_make" id="m6_pinion_make"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(b) Pinion serial no. (Note)</td>
+                    <td>Shop practice</td>
+                    <td></td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_pinion_serial" id="m1_pinion_serial"></td>
+                    <td><input type="text" class="input-field" name="m2_pinion_serial" id="m2_pinion_serial"></td>
+                    <td><input type="text" class="input-field" name="m3_pinion_serial" id="m3_pinion_serial"></td>
+                    <td><input type="text" class="input-field" name="m4_pinion_serial" id="m4_pinion_serial"></td>
+                    <td><input type="text" class="input-field" name="m5_pinion_serial" id="m5_pinion_serial"></td>
+                    <td><input type="text" class="input-field" name="m6_pinion_serial" id="m6_pinion_serial"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(c) Measure 'K' value if old pinion fitted (16/18/23 Teeth)</td>
+                    <td>95.88-96.02/ 93.29-94.74/ 131.46-131.61</td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_k_value" id="m1_k_value"></td>
+                    <td><input type="text" class="input-field" name="m2_k_value" id="m2_k_value"></td>
+                    <td><input type="text" class="input-field" name="m3_k_value" id="m3_k_value"></td>
+                    <td><input type="text" class="input-field" name="m4_k_value" id="m4_k_value"></td>
+                    <td><input type="text" class="input-field" name="m5_k_value" id="m5_k_value"></td>
+                    <td><input type="text" class="input-field" name="m6_k_value" id="m6_k_value"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(d) Check % of pinion bedding</td>
+                    <td>90-100%</td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_bedding" id="m1_bedding"></td>
+                    <td><input type="text" class="input-field" name="m2_bedding" id="m2_bedding"></td>
+                    <td><input type="text" class="input-field" name="m3_bedding" id="m3_bedding"></td>
+                    <td><input type="text" class="input-field" name="m4_bedding" id="m4_bedding"></td>
+                    <td><input type="text" class="input-field" name="m5_bedding" id="m5_bedding"></td>
+                    <td><input type="text" class="input-field" name="m6_bedding" id="m6_bedding"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(e) Pinion advance</td>
+                    <td>1.92-2.0</td>
+                    <td>Camtech, P-40</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_advance" id="m1_advance"></td>
+                    <td><input type="text" class="input-field" name="m2_advance" id="m2_advance"></td>
+                    <td><input type="text" class="input-field" name="m3_advance" id="m3_advance"></td>
+                    <td><input type="text" class="input-field" name="m4_advance" id="m4_advance"></td>
+                    <td><input type="text" class="input-field" name="m5_advance" id="m5_advance"></td>
+                    <td><input type="text" class="input-field" name="m6_advance" id="m6_advance"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">13</td>
+                    <td colspan="10" class="section-title">Tightness checking by torque wrench</td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td><strong>Size bolt & nut</strong></td>
+                    <td><strong>Std. value kgf.cm</strong></td>
+                    <td>Camtech, P-41</td>
+                    <td class="eqpt-column"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M 6</td>
+                    <td>51.1</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m6" id="m1_m6"></td>
+                    <td><input type="text" class="input-field" name="m2_m6" id="m2_m6"></td>
+                    <td><input type="text" class="input-field" name="m3_m6" id="m3_m6"></td>
+                    <td><input type="text" class="input-field" name="m4_m6" id="m4_m6"></td>
+                    <td><input type="text" class="input-field" name="m5_m6" id="m5_m6"></td>
+                    <td><input type="text" class="input-field" name="m6_m6" id="m6_m6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M8</td>
+                    <td>122</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m8" id="m1_m8"></td>
+                    <td><input type="text" class="input-field" name="m2_m8" id="m2_m8"></td>
+                    <td><input type="text" class="input-field" name="m3_m8" id="m3_m8"></td>
+                    <td><input type="text" class="input-field" name="m4_m8" id="m4_m8"></td>
+                    <td><input type="text" class="input-field" name="m5_m8" id="m5_m8"></td>
+                    <td><input type="text" class="input-field" name="m6_m8" id="m6_m8"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M10</td>
+                    <td>245</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m10" id="m1_m10"></td>
+                    <td><input type="text" class="input-field" name="m2_m10" id="m2_m10"></td>
+                    <td><input type="text" class="input-field" name="m3_m10" id="m3_m10"></td>
+                    <td><input type="text" class="input-field" name="m4_m10" id="m4_m10"></td>
+                    <td><input type="text" class="input-field" name="m5_m10" id="m5_m10"></td>
+                    <td><input type="text" class="input-field" name="m6_m10" id="m6_m10"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M12</td>
+                    <td>418</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m12" id="m1_m12"></td>
+                    <td><input type="text" class="input-field" name="m2_m12" id="m2_m12"></td>
+                    <td><input type="text" class="input-field" name="m3_m12" id="m3_m12"></td>
+                    <td><input type="text" class="input-field" name="m4_m12" id="m4_m12"></td>
+                    <td><input type="text" class="input-field" name="m5_m12" id="m5_m12"></td>
+                    <td><input type="text" class="input-field" name="m6_m12" id="m6_m12"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M16</td>
+                    <td>1020</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m16" id="m1_m16"></td>
+                    <td><input type="text" class="input-field" name="m2_m16" id="m2_m16"></td>
+                    <td><input type="text" class="input-field" name="m3_m16" id="m3_m16"></td>
+                    <td><input type="text" class="input-field" name="m4_m16" id="m4_m16"></td>
+                    <td><input type="text" class="input-field" name="m5_m16" id="m5_m16"></td>
+                    <td><input type="text" class="input-field" name="m6_m16" id="m6_m16"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M20</td>
+                    <td>2000</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m20" id="m1_m20"></td>
+                    <td><input type="text" class="input-field" name="m2_m20" id="m2_m20"></td>
+                    <td><input type="text" class="input-field" name="m3_m20" id="m3_m20"></td>
+                    <td><input type="text" class="input-field" name="m4_m20" id="m4_m20"></td>
+                    <td><input type="text" class="input-field" name="m5_m20" id="m5_m20"></td>
+                    <td><input type="text" class="input-field" name="m6_m20" id="m6_m20"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>M24</td>
+                    <td>3500</td>
+                    <td>Done</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_m24" id="m1_m24"></td>
+                    <td><input type="text" class="input-field" name="m2_m24" id="m2_m24"></td>
+                    <td><input type="text" class="input-field" name="m3_m24" id="m3_m24"></td>
+                    <td><input type="text" class="input-field" name="m4_m24" id="m4_m24"></td>
+                    <td><input type="text" class="input-field" name="m5_m24" id="m5_m24"></td>
+                    <td><input type="text" class="input-field" name="m6_m24" id="m6_m24"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">14</td>
+                    <td colspan="3">Outgoing Light run test the TM by applying reduced DC voltage and check the following</td>
+                    <td class="eqpt-column"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(a) TM starting Volt/Amp</td>
+                    <td>4-6 V/45-65 A</td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_starting" id="m1_starting"></td>
+                    <td><input type="text" class="input-field" name="m2_starting" id="m2_starting"></td>
+                    <td><input type="text" class="input-field" name="m3_starting" id="m3_starting"></td>
+                    <td><input type="text" class="input-field" name="m4_starting" id="m4_starting"></td>
+                    <td><input type="text" class="input-field" name="m5_starting" id="m5_starting"></td>
+                    <td><input type="text" class="input-field" name="m6_starting" id="m6_starting"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(b) Voltage/ Current at 895 rpm.</td>
+                    <td>70-72V/45-48A</td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_voltage" id="m1_voltage"></td>
+                    <td><input type="text" class="input-field" name="m2_voltage" id="m2_voltage"></td>
+                    <td><input type="text" class="input-field" name="m3_voltage" id="m3_voltage"></td>
+                    <td><input type="text" class="input-field" name="m4_voltage" id="m4_voltage"></td>
+                    <td><input type="text" class="input-field" name="m5_voltage" id="m5_voltage"></td>
+                    <td><input type="text" class="input-field" name="m6_voltage" id="m6_voltage"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(c) TM Vibration</td>
+                    <td>Green/Yellow</td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_vibration" id="m1_vibration"></td>
+                    <td><input type="text" class="input-field" name="m2_vibration" id="m2_vibration"></td>
+                    <td><input type="text" class="input-field" name="m3_vibration" id="m3_vibration"></td>
+                    <td><input type="text" class="input-field" name="m4_vibration" id="m4_vibration"></td>
+                    <td><input type="text" class="input-field" name="m5_vibration" id="m5_vibration"></td>
+                    <td><input type="text" class="input-field" name="m6_vibration" id="m6_vibration"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(d) Temperature rise</td>
+                    <td>35-40°C (PE/CE)</td>
+                    <td>Camtech, P-41</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_temp" id="m1_temp"></td>
+                    <td><input type="text" class="input-field" name="m2_temp" id="m2_temp"></td>
+                    <td><input type="text" class="input-field" name="m3_temp" id="m3_temp"></td>
+                    <td><input type="text" class="input-field" name="m4_temp" id="m4_temp"></td>
+                    <td><input type="text" class="input-field" name="m5_temp" id="m5_temp"></td>
+                    <td><input type="text" class="input-field" name="m6_temp" id="m6_temp"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(e) Final IR (arm./IP/MP)</td>
+                    <td>Above 1 MΩ</td>
+                    <td>Camtech, P-41</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_ir" id="m1_ir"></td>
+                    <td><input type="text" class="input-field" name="m2_ir" id="m2_ir"></td>
+                    <td><input type="text" class="input-field" name="m3_ir" id="m3_ir"></td>
+                    <td><input type="text" class="input-field" name="m4_ir" id="m4_ir"></td>
+                    <td><input type="text" class="input-field" name="m5_ir" id="m5_ir"></td>
+                    <td><input type="text" class="input-field" name="m6_ir" id="m6_ir"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(f) Arm. ovality after assly</td>
+                    <td>0.00-00.06mm</td>
+                    <td>SM1/06</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_ovality" id="m1_ovality"></td>
+                    <td><input type="text" class="input-field" name="m2_ovality" id="m2_ovality"></td>
+                    <td><input type="text" class="input-field" name="m3_ovality" id="m3_ovality"></td>
+                    <td><input type="text" class="input-field" name="m4_ovality" id="m4_ovality"></td>
+                    <td><input type="text" class="input-field" name="m5_ovality" id="m5_ovality"></td>
+                    <td><input type="text" class="input-field" name="m6_ovality" id="m6_ovality"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">15</td>
+                    <td>TM Despatch date (Note date)</td>
+                    <td></td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_despatch" id="m1_despatch"></td>
+                    <td><input type="text" class="input-field" name="m2_despatch" id="m2_despatch"></td>
+                    <td><input type="text" class="input-field" name="m3_despatch" id="m3_despatch"></td>
+                    <td><input type="text" class="input-field" name="m4_despatch" id="m4_despatch"></td>
+                    <td><input type="text" class="input-field" name="m5_despatch" id="m5_despatch"></td>
+                    <td><input type="text" class="input-field" name="m6_despatch" id="m6_despatch"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">16</td>
+                    <td>Remarks if any (Note)</td>
+                    <td></td>
+                    <td>Shop practice</td>
+                    <td class="eqpt-column"></td>
+                    <td><input type="text" class="input-field" name="m1_remarks" id="m1_remarks"></td>
+                    <td><input type="text" class="input-field" name="m2_remarks" id="m2_remarks"></td>
+                    <td><input type="text" class="input-field" name="m3_remarks" id="m3_remarks"></td>
+                    <td><input type="text" class="input-field" name="m4_remarks" id="m4_remarks"></td>
+                    <td><input type="text" class="input-field" name="m5_remarks" id="m5_remarks"></td>
+                    <td><input type="text" class="input-field" name="m6_remarks" id="m6_remarks"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="text-align: center; margin: 30px 0 20px 0; font-size: 14px; font-weight: bold;">STATUS OF MODIFICATIONS AND RAP CARRIED OUT IN OFF POH LOCOMOTIVE No.</h2>
+
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">SL. NO.</th>
+                    <th style="width: 180px;">RDSO MODIFICATION NO.</th>
+                    <th>DESCRIPTION</th>
+                    <th style="width: 150px;">STATUS (BEING DONE/ NOT BEING DONE)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>POH/404/99 or SMI 181</td>
+                    <td>Neutral setting of brush holder revolving ring by 'KICK' method.</td>
+                    <td><input type="text" class="input-field" name="status_1" id="status_1"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>RDSO/WAG5/28, dt. 27.02.98</td>
+                    <td>Adoption of modified brush holder insulator assembly (Insulating Rod) and Brush box along with provision for arcing studs on BHRR assembly of TM type HS 15250A.</td>
+                    <td><input type="text" class="input-field" name="status_2" id="status_2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>SMI/220/2000 Rev'1', dt. 28-10-04</td>
+                    <td>Preventive measures to arrest the failures due to breakage of M16X40 (L) hexagonal head bolts of CE outer bearing stopper on HS 15250A TM.</td>
+                    <td><input type="text" class="input-field" name="status_3" id="status_3"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>MS/ WAG5/24</td>
+                    <td>Adoption of modified Commutator end bearing bracket on HS 15250A.</td>
+                    <td><input type="text" class="input-field" name="status_4" id="status_4"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td>ELRS/MS/0364(Rev. 0), dt. 02.06.08</td>
+                    <td>Adopting of modified inspection cover of Traction Motor type H.S. 15250A.</td>
+                    <td><input type="text" class="input-field" name="status_5" id="status_5"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td>RDSO/WAG5/27, dt.27-02-98</td>
+                    <td>Adoption of modified insulating rod assembly (for positive and negative support) and modified fixation arrangement of BHRR flexible cable interconnectors for TM HS 15250A.</td>
+                    <td><input type="text" class="input-field" name="status_6" id="status_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>RDSO/WAG5/25, dt. 29.1.98 & ELRS/MS/0280.</td>
+                    <td>Provision of grease outlet i.e, drain hole in 'CE' outer bearing cap of Traction Motor type HS 15250A and procedure for regreasing of armature roller bearings.</td>
+                    <td><input type="text" class="input-field" name="status_7" id="status_7"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>MS/0329/Rev '0'</td>
+                    <td>Replacement of HIT TM Brush holder spacers for HS 15250A made of brass with PTFE</td>
+                    <td><input type="text" class="input-field" name="status_8" id="status_8"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td>ELRS/MS/0347 Rev'0'</td>
+                    <td>Adoption of modified Arcing stud & fixing bracket on BHRR Assembly of TM type HS-15250A.</td>
+                    <td><input type="text" class="input-field" name="status_9" id="status_9"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td>POH/449/2000</td>
+                    <td>Locking of 3 nos. CE bearing locking bolts in Traction Motor, Type HS-15250A</td>
+                    <td><input type="text" class="input-field" name="status_10" id="status_10"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">11</td>
+                    <td>POH/614/2007</td>
+                    <td>Special maintenance instruction for fixture and gauges for brush holder and BHRR assemblies of TM type TAO-659 & HS-15250A.</td>
+                    <td><input type="text" class="input-field" name="status_11" id="status_11"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">12</td>
+                    <td>POH/78/82</td>
+                    <td>High voltage testing of Tr. Motors and auxiliaries.</td>
+                    <td><input type="text" class="input-field" name="status_12" id="status_12"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">13</td>
+                    <td>POH/156/83 or SMI/31</td>
+                    <td>Under cutting and chamfering of Tr. Motor commutator.</td>
+                    <td><input type="text" class="input-field" name="status_13" id="status_13"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">14</td>
+                    <td>POH/278/89</td>
+                    <td>Radial clearance for roller bearing used on Tr. Motor.</td>
+                    <td><input type="text" class="input-field" name="status_14" id="status_14"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">15</td>
+                    <td>POH/7/77</td>
+                    <td>Mounting of Tr. Motor pinion.</td>
+                    <td><input type="text" class="input-field" name="status_15" id="status_15"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">16</td>
+                    <td>MS-414(Rev. o) dated: 03-10-12</td>
+                    <td>Modified interference between TM assembly components</td>
+                    <td><input type="text" class="input-field" name="status_16" id="status_16"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <h2 style="text-align: center; margin-bottom: 20px;">MUST CHANGE ITEMS DURING POH OF LOCOMOTIVE</h2>
+        <p style="text-align: center; margin-bottom: 20px;">AS PER ELRS/TC/0123 (Rev '0'), dated 16.05.13</p>
+        
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">SL. NO.</th>
+                    <th>ITEM</th>
+                    <th style="width: 120px;">PL_NO.</th>
+                    <th style="width: 120px;">STATUS (Y/N)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" class="section-title">TRACTION MOTOR Section</td>
+                </tr>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>Roller bearing NU-330 for HIT (PE)</td>
+                    <td style="text-align: center;">85991211</td>
+                    <td><input type="text" class="input-field" name="status_1" id="status_1"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>Roller bearing NU-324 for HIT (CE)</td>
+                    <td style="text-align: center;">85989149</td>
+                    <td><input type="text" class="input-field" name="status_2" id="status_2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>Traction motor pinion 16 teeth</td>
+                    <td style="text-align: center;">25988165</td>
+                    <td><input type="text" class="input-field" name="status_3" id="status_3"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>Traction motor pinion 18 teeth</td>
+                    <td style="text-align: center;">25427520</td>
+                    <td><input type="text" class="input-field" name="status_4" id="status_4"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td>Traction motor pinion 23 teeth</td>
+                    <td style="text-align: center;">25989054</td>
+                    <td><input type="text" class="input-field" name="status_5" id="status_5"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td>Brush holder (HIT)</td>
+                    <td style="text-align: center;">25605471</td>
+                    <td><input type="text" class="input-field" name="status_6" id="status_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>Carbon brush (HIT)</td>
+                    <td style="text-align: center;">25627910</td>
+                    <td><input type="text" class="input-field" name="status_7" id="status_7"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>Grease nipple (HIT)</td>
+                    <td style="text-align: center;">25986375</td>
+                    <td><input type="text" class="input-field" name="status_8" id="status_8"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td>Gasket for bottom insp. Cover (HIT)</td>
+                    <td style="text-align: center;">25985802</td>
+                    <td><input type="text" class="input-field" name="status_9" id="status_9"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td>Gasket for magnet frame cover (HIT)</td>
+                    <td style="text-align: center;">25985814</td>
+                    <td><input type="text" class="input-field" name="status_10" id="status_10"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">11</td>
+                    <td>Modified insulator for brush holder</td>
+                    <td style="text-align: center;">25728180</td>
+                    <td><input type="text" class="input-field" name="status_11" id="status_11"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">12</td>
+                    <td>Modified insulator for +ve & -ve</td>
+                    <td style="text-align: center;">25728120</td>
+                    <td><input type="text" class="input-field" name="status_12" id="status_12"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="text-align: center; margin: 20px 0;">Traction Motors - Maintenance Guidelines</h3>
+        <p style="text-align: center; margin-bottom: 20px; font-size: 11px;">(As per Railway Board L/no. 2008/Elect(TRS)/113/5 Pt. Dated 08/12/2016)</p>
+        <p style="text-align: center; margin-bottom: 20px; font-weight: bold;">Concerned shop: 9A/Traction Motor Sec.</p>
+
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">SL</th>
+                    <th>Traction Motors</th>
+                    <th style="width: 180px;">Present status/Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-column" rowspan="3">1</td>
+                    <td>Flash over of Traction Motors can be minimized by following methods:</td>
+                    <td rowspan="2"><input type="text" class="input-field" name="remark_1" id="remark_1"></td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">A) Condition of arching studs/horns should be closely monitored for their gaps & proper shape. Strictly it should be changed in case of flashing sign or change in shape.</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">B) Use of anti tracking varnish, cleaning of BHRR, proper spring tension of carbon brushes, proper use of carbon brushes etc should be maintained and keep proper record.</td>
+                    <td><input type="text" class="input-field" name="remark_1b" id="remark_1b"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>During overhauling ovality checking during commutator turning, proper mica under cutting & proper chamfering of commutator should be done.</td>
+                    <td><input type="text" class="input-field" name="remark_2" id="remark_2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>Condition of inter connecting leads, terminal board & insulators should be checked thoroughly during Overhauling.</td>
+                    <td><input type="text" class="input-field" name="remark_3" id="remark_3"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>All insulating materials, insulators and other such items should be procured only from approved sources.</td>
+                    <td><input type="text" class="input-field" name="remark_4" id="remark_4"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+         <table class="header-table">
+            <tr>
+                <td class="label" colspan="2">Section</td>
+                <td class="value" colspan="4">TRACTION MOTOR (TAO/TAOCHI)</td>
+            </tr>
+            <tr>
+                <td class="label" colspan="2">Loco no./Type/Shed</td>
+                <td class="value" colspan="4"><input type="text" class="input-field" name="loco_info" id="loco_info"></td>
+            </tr>
+            <tr>
+                <td class="label" colspan="2">Month</td>
+                <td class="value" colspan="4"><input type="text" class="input-field" name="month" id="month"></td>
+            </tr>
+        </table>
+
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 50px;">Test</th>
+                    <th rowspan="2" class="sn-column">SN</th>
+                    <th rowspan="2" class="test-column">Check-point</th>
+                    <th rowspan="2" class="standard-column">Standard</th>
+                    <th rowspan="2" class="reference-column">Reference</th>
+                    <th colspan="6">Actual</th>
+                </tr>
+                <tr>
+                    <th class="actual-column">TM-1</th>
+                    <th class="actual-column">TM-2</th>
+                    <th class="actual-column">TM-3</th>
+                    <th class="actual-column">TM-4</th>
+                    <th class="actual-column">TM-5</th>
+                    <th class="actual-column">TM-6</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="9" style="width: 50px; writing-mode: vertical-lr; text-orientation: mixed; text-align: center; font-weight: bold;"></td>
+                    <td class="sn-column">1</td>
+                    <td>Frame No.</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" class="input-field" name="frame_tm1" id="frame_tm1"></td>
+                    <td><input type="text" class="input-field" name="frame_tm2" id="frame_tm2"></td>
+                    <td><input type="text" class="input-field" name="frame_tm3" id="frame_tm3"></td>
+                    <td><input type="text" class="input-field" name="frame_tm4" id="frame_tm4"></td>
+                    <td><input type="text" class="input-field" name="frame_tm5" id="frame_tm5"></td>
+                    <td><input type="text" class="input-field" name="frame_tm6" id="frame_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>Armature No</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" class="input-field" name="armature_tm1" id="armature_tm1"></td>
+                    <td><input type="text" class="input-field" name="armature_tm2" id="armature_tm2"></td>
+                    <td><input type="text" class="input-field" name="armature_tm3" id="armature_tm3"></td>
+                    <td><input type="text" class="input-field" name="armature_tm4" id="armature_tm4"></td>
+                    <td><input type="text" class="input-field" name="armature_tm5" id="armature_tm5"></td>
+                    <td><input type="text" class="input-field" name="armature_tm6" id="armature_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td colspan="9" class="section-title">Incoming Insulation Resistance with 1 KV Megger between</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(a) Main pole circuit to earth</td>
+                    <td style="text-align: center;">Noted</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="main_pole_tm1" id="main_pole_tm1"></td>
+                    <td><input type="text" class="input-field" name="main_pole_tm2" id="main_pole_tm2"></td>
+                    <td><input type="text" class="input-field" name="main_pole_tm3" id="main_pole_tm3"></td>
+                    <td><input type="text" class="input-field" name="main_pole_tm4" id="main_pole_tm4"></td>
+                    <td><input type="text" class="input-field" name="main_pole_tm5" id="main_pole_tm5"></td>
+                    <td><input type="text" class="input-field" name="main_pole_tm6" id="main_pole_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(b) Inter pole circuit to earth</td>
+                    <td style="text-align: center;">Noted</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="inter_pole_tm1" id="inter_pole_tm1"></td>
+                    <td><input type="text" class="input-field" name="inter_pole_tm2" id="inter_pole_tm2"></td>
+                    <td><input type="text" class="input-field" name="inter_pole_tm3" id="inter_pole_tm3"></td>
+                    <td><input type="text" class="input-field" name="inter_pole_tm4" id="inter_pole_tm4"></td>
+                    <td><input type="text" class="input-field" name="inter_pole_tm5" id="inter_pole_tm5"></td>
+                    <td><input type="text" class="input-field" name="inter_pole_tm6" id="inter_pole_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td colspan="9" class="section-title">Light run the TM by applying reduced DC voltage and check the following</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(a) Bearing noise (i) PE side</td>
+                    <td rowspan="2" style="text-align: center;">Normal Noise</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="pe_noise_tm1" id="pe_noise_tm1"></td>
+                    <td><input type="text" class="input-field" name="pe_noise_tm2" id="pe_noise_tm2"></td>
+                    <td><input type="text" class="input-field" name="pe_noise_tm3" id="pe_noise_tm3"></td>
+                    <td><input type="text" class="input-field" name="pe_noise_tm4" id="pe_noise_tm4"></td>
+                    <td><input type="text" class="input-field" name="pe_noise_tm5" id="pe_noise_tm5"></td>
+                    <td><input type="text" class="input-field" name="pe_noise_tm6" id="pe_noise_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-left: 77px;">(ii) CE Side</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="ce_noise_tm1" id="ce_noise_tm1"></td>
+                    <td><input type="text" class="input-field" name="ce_noise_tm2" id="ce_noise_tm2"></td>
+                    <td><input type="text" class="input-field" name="ce_noise_tm3" id="ce_noise_tm3"></td>
+                    <td><input type="text" class="input-field" name="ce_noise_tm4" id="ce_noise_tm4"></td>
+                    <td><input type="text" class="input-field" name="ce_noise_tm5" id="ce_noise_tm5"></td>
+                    <td><input type="text" class="input-field" name="ce_noise_tm6" id="ce_noise_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(b) Vibration</td>
+                    <td style="text-align: center;">No Vibration</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="vibration_tm1" id="vibration_tm1"></td>
+                    <td><input type="text" class="input-field" name="vibration_tm2" id="vibration_tm2"></td>
+                    <td><input type="text" class="input-field" name="vibration_tm3" id="vibration_tm3"></td>
+                    <td><input type="text" class="input-field" name="vibration_tm4" id="vibration_tm4"></td>
+                    <td><input type="text" class="input-field" name="vibration_tm5" id="vibration_tm5"></td>
+                    <td><input type="text" class="input-field" name="vibration_tm6" id="vibration_tm6"></td>
+                </tr>
+                <tr>
+                    <td rowspan="8" style="width: 50px; writing-mode: vertical-lr; text-orientation: mixed; text-align: center; font-weight: bold;"></td>
+                    <td class="sn-column">6</td>
+                    <td>Perform HV test on rocker ring by applying 3 KV AC supply for one minute and measure the leakage current.</td>
+                    <td style="text-align: center;">10 M Amp (Maximum)</td>
+                    <td style="text-align: center;">HIT Camtech, P-38</td>
+                    <td><input type="text" class="input-field" name="hv_test_tm1" id="hv_test_tm1"></td>
+                    <td><input type="text" class="input-field" name="hv_test_tm2" id="hv_test_tm2"></td>
+                    <td><input type="text" class="input-field" name="hv_test_tm3" id="hv_test_tm3"></td>
+                    <td><input type="text" class="input-field" name="hv_test_tm4" id="hv_test_tm4"></td>
+                    <td><input type="text" class="input-field" name="hv_test_tm5" id="hv_test_tm5"></td>
+                    <td><input type="text" class="input-field" name="hv_test_tm6" id="hv_test_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>Check the condition of teflon sleeve of insulator.</td>
+                    <td style="text-align: center;">Good Condition</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="teflon_tm1" id="teflon_tm1"></td>
+                    <td><input type="text" class="input-field" name="teflon_tm2" id="teflon_tm2"></td>
+                    <td><input type="text" class="input-field" name="teflon_tm3" id="teflon_tm3"></td>
+                    <td><input type="text" class="input-field" name="teflon_tm4" id="teflon_tm4"></td>
+                    <td><input type="text" class="input-field" name="teflon_tm5" id="teflon_tm5"></td>
+                    <td><input type="text" class="input-field" name="teflon_tm6" id="teflon_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>Brush grade to be used</td>
+                    <td style="text-align: center;">EG 105 or EG 367</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="brush_grade_tm1" id="brush_grade_tm1"></td>
+                    <td><input type="text" class="input-field" name="brush_grade_tm2" id="brush_grade_tm2"></td>
+                    <td><input type="text" class="input-field" name="brush_grade_tm3" id="brush_grade_tm3"></td>
+                    <td><input type="text" class="input-field" name="brush_grade_tm4" id="brush_grade_tm4"></td>
+                    <td><input type="text" class="input-field" name="brush_grade_tm5" id="brush_grade_tm5"></td>
+                    <td><input type="text" class="input-field" name="brush_grade_tm6" id="brush_grade_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td>size of new brush set (H X W X T)</td>
+                    <td style="text-align: center;">52 X 43 X (2X8) mm</td>
+                    <td style="text-align: center;">Camtech, P-2</td>
+                    <td><input type="text" class="input-field" name="brush_size_tm1" id="brush_size_tm1"></td>
+                    <td><input type="text" class="input-field" name="brush_size_tm2" id="brush_size_tm2"></td>
+                    <td><input type="text" class="input-field" name="brush_size_tm3" id="brush_size_tm3"></td>
+                    <td><input type="text" class="input-field" name="brush_size_tm4" id="brush_size_tm4"></td>
+                    <td><input type="text" class="input-field" name="brush_size_tm5" id="brush_size_tm5"></td>
+                    <td><input type="text" class="input-field" name="brush_size_tm6" id="brush_size_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td>Brush height</td>
+                    <td style="text-align: center;">52 mm (New)</td>
+                    <td style="text-align: center;">Camtech, P-2</td>
+                    <td><input type="text" class="input-field" name="brush_height_tm1" id="brush_height_tm1"></td>
+                    <td><input type="text" class="input-field" name="brush_height_tm2" id="brush_height_tm2"></td>
+                    <td><input type="text" class="input-field" name="brush_height_tm3" id="brush_height_tm3"></td>
+                    <td><input type="text" class="input-field" name="brush_height_tm4" id="brush_height_tm4"></td>
+                    <td><input type="text" class="input-field" name="brush_height_tm5" id="brush_height_tm5"></td>
+                    <td><input type="text" class="input-field" name="brush_height_tm6" id="brush_height_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(POH Condemning Height = 35mm)</td>
+                    <td rowspan="2" style="text-align: center;">New EG 105 or EG 367</td>
+                    <td rowspan="2" style="text-align: center;">Camtech, P-2</td>
+                    <td rowspan="2"><input type="text" class="input-field" name="condemn_tm1" id="condemn_tm1"></td>
+                    <td rowspan="2"><input type="text" class="input-field" name="condemn_tm2" id="condemn_tm2"></td>
+                    <td rowspan="2"><input type="text" class="input-field" name="condemn_tm3" id="condemn_tm3"></td>
+                    <td rowspan="2"><input type="text" class="input-field" name="condemn_tm4" id="condemn_tm4"></td>
+                    <td rowspan="2"><input type="text" class="input-field" name="condemn_tm5" id="condemn_tm5"></td>
+                    <td rowspan="2"><input type="text" class="input-field" name="condemn_tm6" id="condemn_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>ACTUAL BRUSH HEIGHT (For old brush when used)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Brush holder 1 2 3 4 5 6 Brush Set<br>1 2<br>3</td>
+                    <td style="text-align: center;">New EG 105 or EG 367</td>
+                    <td></td>
+                    <td><input type="text" class="input-field" name="brush_holder_tm1" id="brush_holder_tm1"></td>
+                    <td><input type="text" class="input-field" name="brush_holder_tm2" id="brush_holder_tm2"></td>
+                    <td><input type="text" class="input-field" name="brush_holder_tm3" id="brush_holder_tm3"></td>
+                    <td><input type="text" class="input-field" name="brush_holder_tm4" id="brush_holder_tm4"></td>
+                    <td><input type="text" class="input-field" name="brush_holder_tm5" id="brush_holder_tm5"></td>
+                    <td><input type="text" class="input-field" name="brush_holder_tm6" id="brush_holder_tm6"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="main-table">
+            <tbody>
+                <tr>
+                    <td rowspan="3" style="width: 50px; writing-mode: vertical-lr; text-orientation: mixed; text-align: center; font-weight: bold;"></td>
+                    <td class="sn-column">11</td>
+                    <td colspan="9" class="section-title">Check spring tension on brushes</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-column">New Brush</td>
+                    <td class="standard-column" style="text-align: center;">2.4 Kg.</td>
+                    <td class="reference-column" style="text-align: center;">Camtech, P-2</td>
+                    <td><input type="text" class="input-field" name="new_brush_tm1" id="new_brush_tm1"></td>
+                    <td><input type="text" class="input-field" name="new_brush_tm2" id="new_brush_tm2"></td>
+                    <td><input type="text" class="input-field" name="new_brush_tm3" id="new_brush_tm3"></td>
+                    <td><input type="text" class="input-field" name="new_brush_tm4" id="new_brush_tm4"></td>
+                    <td><input type="text" class="input-field" name="new_brush_tm5" id="new_brush_tm5"></td>
+                    <td><input type="text" class="input-field" name="new_brush_tm6" id="new_brush_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-column">Worn Brush</td>
+                    <td class="standard-column" style="text-align: center;">2.2 Kg.</td>
+                    <td class="reference-column" style="text-align: center;">Camtech, P-2</td>
+                    <td><input type="text" class="input-field" name="worn_brush_tm1" id="worn_brush_tm1"></td>
+                    <td><input type="text" class="input-field" name="worn_brush_tm2" id="worn_brush_tm2"></td>
+                    <td><input type="text" class="input-field" name="worn_brush_tm3" id="worn_brush_tm3"></td>
+                    <td><input type="text" class="input-field" name="worn_brush_tm4" id="worn_brush_tm4"></td>
+                    <td><input type="text" class="input-field" name="worn_brush_tm5" id="worn_brush_tm5"></td>
+                    <td><input type="text" class="input-field" name="worn_brush_tm6" id="worn_brush_tm6"></td>
+                </tr>
+                <tr>
+                    <td rowspan="7" style="width: 50px; writing-mode: vertical-lr; text-orientation: mixed; text-align: center; font-weight: bold;"></td>
+                    <td class="sn-column">13</td>
+                    <td colspan="9"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(a) Gap between brush holder & commutator.</td>
+                    <td style="text-align: center;">1.5 - 3.5 mm</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="gap_holder_tm1" id="gap_holder_tm1"></td>
+                    <td><input type="text" class="input-field" name="gap_holder_tm2" id="gap_holder_tm2"></td>
+                    <td><input type="text" class="input-field" name="gap_holder_tm3" id="gap_holder_tm3"></td>
+                    <td><input type="text" class="input-field" name="gap_holder_tm4" id="gap_holder_tm4"></td>
+                    <td><input type="text" class="input-field" name="gap_holder_tm5" id="gap_holder_tm5"></td>
+                    <td><input type="text" class="input-field" name="gap_holder_tm6" id="gap_holder_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(b) Play between brush holder & carbon brush</td>
+                    <td style="text-align: center;">0.3 mm (Max)</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="play_brush_tm1" id="play_brush_tm1"></td>
+                    <td><input type="text" class="input-field" name="play_brush_tm2" id="play_brush_tm2"></td>
+                    <td><input type="text" class="input-field" name="play_brush_tm3" id="play_brush_tm3"></td>
+                    <td><input type="text" class="input-field" name="play_brush_tm4" id="play_brush_tm4"></td>
+                    <td><input type="text" class="input-field" name="play_brush_tm5" id="play_brush_tm5"></td>
+                    <td><input type="text" class="input-field" name="play_brush_tm6" id="play_brush_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(c) Check condition of arcing horn</td>
+                    <td style="text-align: center;">Good condition</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="arcing_horn_tm1" id="arcing_horn_tm1"></td>
+                    <td><input type="text" class="input-field" name="arcing_horn_tm2" id="arcing_horn_tm2"></td>
+                    <td><input type="text" class="input-field" name="arcing_horn_tm3" id="arcing_horn_tm3"></td>
+                    <td><input type="text" class="input-field" name="arcing_horn_tm4" id="arcing_horn_tm4"></td>
+                    <td><input type="text" class="input-field" name="arcing_horn_tm5" id="arcing_horn_tm5"></td>
+                    <td><input type="text" class="input-field" name="arcing_horn_tm6" id="arcing_horn_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(d) Check gap between arcing horn</td>
+                    <td style="text-align: center;">11.5 to 13.5 mm</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="gap_arcing_tm1" id="gap_arcing_tm1"></td>
+                    <td><input type="text" class="input-field" name="gap_arcing_tm2" id="gap_arcing_tm2"></td>
+                    <td><input type="text" class="input-field" name="gap_arcing_tm3" id="gap_arcing_tm3"></td>
+                    <td><input type="text" class="input-field" name="gap_arcing_tm4" id="gap_arcing_tm4"></td>
+                    <td><input type="text" class="input-field" name="gap_arcing_tm5" id="gap_arcing_tm5"></tRetryHContinueEdithtmld>
+                    <td><input type="text" class="input-field" name="gap_arcing_tm6" id="gap_arcing_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">16</td>
+                    <td>Insulation resistance with 1KV Megger between commutator & body (before overhauling)</td>
+                    <td style="text-align: center;">Record</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="insulation_tm1" id="insulation_tm1"></td>
+                    <td><input type="text" class="input-field" name="insulation_tm2" id="insulation_tm2"></td>
+                    <td><input type="text" class="input-field" name="insulation_tm3" id="insulation_tm3"></td>
+                    <td><input type="text" class="input-field" name="insulation_tm4" id="insulation_tm4"></td>
+                    <td><input type="text" class="input-field" name="insulation_tm5" id="insulation_tm5"></td>
+                    <td><input type="text" class="input-field" name="insulation_tm6" id="insulation_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">17</td>
+                    <td>Mica under cutting & end chamfering of commutator to be done as per SMI-31</td>
+                    <td></td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="mica_cutting_tm1" id="mica_cutting_tm1"></td>
+                    <td><input type="text" class="input-field" name="mica_cutting_tm2" id="mica_cutting_tm2"></td>
+                    <td><input type="text" class="input-field" name="mica_cutting_tm3" id="mica_cutting_tm3"></td>
+                    <td><input type="text" class="input-field" name="mica_cutting_tm4" id="mica_cutting_tm4"></td>
+                    <td><input type="text" class="input-field" name="mica_cutting_tm5" id="mica_cutting_tm5"></td>
+                    <td><input type="text" class="input-field" name="mica_cutting_tm6" id="mica_cutting_tm6"></td>
+                </tr>
+                <tr>
+                    <td rowspan="8" style="width: 50px; writing-mode: vertical-lr; text-orientation: mixed; text-align: center; font-weight: bold;"></td>
+                    <td></td>
+                    <td>(a) Micra under cutting depth</td>
+                    <td style="text-align: center;">1.8 mm</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="mica_depth_tm1" id="mica_depth_tm1"></td>
+                    <td><input type="text" class="input-field" name="mica_depth_tm2" id="mica_depth_tm2"></td>
+                    <td><input type="text" class="input-field" name="mica_depth_tm3" id="mica_depth_tm3"></td>
+                    <td><input type="text" class="input-field" name="mica_depth_tm4" id="mica_depth_tm4"></td>
+                    <td><input type="text" class="input-field" name="mica_depth_tm5" id="mica_depth_tm5"></td>
+                    <td><input type="text" class="input-field" name="mica_depth_tm6" id="mica_depth_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(b) Mica under cutting width</td>
+                    <td style="text-align: center;">1.2 mm</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="mica_width_tm1" id="mica_width_tm1"></td>
+                    <td><input type="text" class="input-field" name="mica_width_tm2" id="mica_width_tm2"></td>
+                    <td><input type="text" class="input-field" name="mica_width_tm3" id="mica_width_tm3"></td>
+                    <td><input type="text" class="input-field" name="mica_width_tm4" id="mica_width_tm4"></td>
+                    <td><input type="text" class="input-field" name="mica_width_tm5" id="mica_width_tm5"></td>
+                    <td><input type="text" class="input-field" name="mica_width_tm6" id="mica_width_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(c) Chamfering angle</td>
+                    <td style="text-align: center;">45 degree 0.4 mm</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="chamfer_angle_tm1" id="chamfer_angle_tm1"></td>
+                    <td><input type="text" class="input-field" name="chamfer_angle_tm2" id="chamfer_angle_tm2"></td>
+                    <td><input type="text" class="input-field" name="chamfer_angle_tm3" id="chamfer_angle_tm3"></td>
+                    <td><input type="text" class="input-field" name="chamfer_angle_tm4" id="chamfer_angle_tm4"></td>
+                    <td><input type="text" class="input-field" name="chamfer_angle_tm5" id="chamfer_angle_tm5"></td>
+                    <td><input type="text" class="input-field" name="chamfer_angle_tm6" id="chamfer_angle_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">18</td>
+                    <td colspan="9" class="section-title">Condition of Bearing -</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(a) Pinion End</td>
+                    <td style="text-align: center;">NU 328 M-C4</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="pinion_end_tm1" id="pinion_end_tm1"></td>
+                    <td><input type="text" class="input-field" name="pinion_end_tm2" id="pinion_end_tm2"></td>
+                    <td><input type="text" class="input-field" name="pinion_end_tm3" id="pinion_end_tm3"></td>
+                    <td><input type="text" class="input-field" name="pinion_end_tm4" id="pinion_end_tm4"></td>
+                    <td><input type="text" class="input-field" name="pinion_end_tm5" id="pinion_end_tm5"></td>
+                    <td><input type="text" class="input-field" name="pinion_end_tm6" id="pinion_end_tm6"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(b) Commutator End</td>
+                    <td style="text-align: center;">NU 318 H-C4</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="commutator_end_tm1" id="commutator_end_tm1"></td>
+                    <td><input type="text" class="input-field" name="commutator_end_tm2" id="commutator_end_tm2"></td>
+                    <td><input type="text" class="input-field" name="commutator_end_tm3" id="commutator_end_tm3"></td>
+                    <td><input type="text" class="input-field" name="commutator_end_tm4" id="commutator_end_tm4"></td>
+                    <td><input type="text" class="input-field" name="commutator_end_tm5" id="commutator_end_tm5"></td>
+                    <td><input type="text" class="input-field" name="commutator_end_tm6" id="commutator_end_tm6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">19</td>
+                    <td colspan="9" class="section-title">Checking of Bearings</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>(a) Condition of outer bearing race of both bearing NU 328 & NH 318</td>
+                    <td style="text-align: center;">Normal</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="outer_race_tm1" id="outer_race_tm1"></td>
+                    <td><input type="text" class="input-field" name="outer_race_tm2" id="outer_race_tm2"></td>
+                    <td><input type="text" class="input-field" name="outer_race_tm3" id="outer_race_tm3"></td>
+                    <td><input type="text" class="input-field" name="outer_race_tm4" id="outer_race_tm4"></td>
+                    <td><input type="text" class="input-field" name="outer_race_tm5" id="outer_race_tm5"></td>
+                    <td><input type="text" class="input-field" name="outer_race_tm6" id="outer_race_tm6"></td>
+                </tr>
+                <tr>
+                    <td style="width: 50px; writing-mode: vertical-lr; text-orientation: mixed; text-align: center; font-weight: bold;"></td>
+                    <td></td>
+                    <td>(b) Roller freeness of both bearing NU328 & NH 318.</td>
+                    <td style="text-align: center;">Free</td>
+                    <td style="text-align: center;">Shop Practice</td>
+                    <td><input type="text" class="input-field" name="roller_free_tm1" id="roller_free_tm1"></td>
+                    <td><input type="text" class="input-field" name="roller_free_tm2" id="roller_free_tm2"></td>
+                    <td><input type="text" class="input-field" name="roller_free_tm3" id="roller_free_tm3"></td>
+                    <td><input type="text" class="input-field" name="roller_free_tm4" id="roller_free_tm4"></td>
+                    <td><input type="text" class="input-field" name="roller_free_tm5" id="roller_free_tm5"></td>
+                    <td><input type="text" class="input-field" name="roller_free_tm6" id="roller_free_tm6"></td>
+                </tr>
+            </tbody>
+         
+            <tbody>
+                <tr>
+                    <td class="eqpt-column" rowspan="17"></td>
+                    <td class="sn-column"></td>
+                    <td>(c) Looseness of brass cage of both NU 328 & NH 318.</td>
+                    <td>Normal</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_c_1" id="test_c_1"></td>
+                    <td><input type="text" class="input-field" name="test_c_2" id="test_c_2"></td>
+                    <td><input type="text" class="input-field" name="test_c_3" id="test_c_3"></td>
+                    <td><input type="text" class="input-field" name="test_c_4" id="test_c_4"></td>
+                    <td><input type="text" class="input-field" name="test_c_5" id="test_c_5"></td>
+                    <td><input type="text" class="input-field" name="test_c_6" id="test_c_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(d) Condition of bearing cage rivet of both NU 328 & NH 318</td>
+                    <td>Normal</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_d_1" id="test_d_1"></td>
+                    <td><input type="text" class="input-field" name="test_d_2" id="test_d_2"></td>
+                    <td><input type="text" class="input-field" name="test_d_3" id="test_d_3"></td>
+                    <td><input type="text" class="input-field" name="test_d_4" id="test_d_4"></td>
+                    <td><input type="text" class="input-field" name="test_d_5" id="test_d_5"></td>
+                    <td><input type="text" class="input-field" name="test_d_6" id="test_d_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(e) Check the both inner racer for scratch or pitting mark.</td>
+                    <td>No mark</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_e_1" id="test_e_1"></td>
+                    <td><input type="text" class="input-field" name="test_e_2" id="test_e_2"></td>
+                    <td><input type="text" class="input-field" name="test_e_3" id="test_e_3"></td>
+                    <td><input type="text" class="input-field" name="test_e_4" id="test_e_4"></td>
+                    <td><input type="text" class="input-field" name="test_e_5" id="test_e_5"></td>
+                    <td><input type="text" class="input-field" name="test_e_6" id="test_e_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(f) Expansion of inner racer - PE Side</td>
+                    <td>0.033 - 0.061 mm</td>
+                    <td>CAMTECH/99/E/RB/1.0, P-8</td>
+                    <td colspan="6"><input type="text" class="input-field" name="test_f_pe" id="test_f_pe"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td class="sub-item">CE Side</td>
+                    <td>0.018 - 0.043 mm</td>
+                    <td>CAMTECH/99/E/RB/1.0, P-8</td>
+                    <td colspan="6"><input type="text" class="input-field" name="test_f_ce" id="test_f_ce"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>Make and manufacturing year of pinion</td>
+                    <td></td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_make_1" id="test_make_1"></td>
+                    <td><input type="text" class="input-field" name="test_make_2" id="test_make_2"></td>
+                    <td><input type="text" class="input-field" name="test_make_3" id="test_make_3"></td>
+                    <td><input type="text" class="input-field" name="test_make_4" id="test_make_4"></td>
+                    <td><input type="text" class="input-field" name="test_make_5" id="test_make_5"></td>
+                    <td><input type="text" class="input-field" name="test_make_6" id="test_make_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">20</td>
+                    <td>Serial Number of the Pinion</td>
+                    <td></td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_20_1" id="test_20_1"></td>
+                    <td><input type="text" class="input-field" name="test_20_2" id="test_20_2"></td>
+                    <td><input type="text" class="input-field" name="test_20_3" id="test_20_3"></td>
+                    <td><input type="text" class="input-field" name="test_20_4" id="test_20_4"></td>
+                    <td><input type="text" class="input-field" name="test_20_5" id="test_20_5"></td>
+                    <td><input type="text" class="input-field" name="test_20_6" id="test_20_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>Check the condition of pinion teeth for pitting chipping.</td>
+                    <td>Good Condition</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_teeth_1" id="test_teeth_1"></td>
+                    <td><input type="text" class="input-field" name="test_teeth_2" id="test_teeth_2"></td>
+                    <td><input type="text" class="input-field" name="test_teeth_3" id="test_teeth_3"></td>
+                    <td><input type="text" class="input-field" name="test_teeth_4" id="test_teeth_4"></td>
+                    <td><input type="text" class="input-field" name="test_teeth_5" id="test_teeth_5"></td>
+                    <td><input type="text" class="input-field" name="test_teeth_6" id="test_teeth_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">21</td>
+                    <td>Check the "K" value of old pinion between 3 teeths. Number of teeths on pinon.</td>
+                    <td>Min - Max</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_21_1" id="test_21_1"></td>
+                    <td><input type="text" class="input-field" name="test_21_2" id="test_21_2"></td>
+                    <td><input type="text" class="input-field" name="test_21_3" id="test_21_3"></td>
+                    <td><input type="text" class="input-field" name="test_21_4" id="test_21_4"></td>
+                    <td><input type="text" class="input-field" name="test_21_5" id="test_21_5"></td>
+                    <td><input type="text" class="input-field" name="test_21_6" id="test_21_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>Between 3 teeths on 15 teeth pinion</td>
+                    <td>95.589-95.713</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_15t_1" id="test_15t_1"></td>
+                    <td><input type="text" class="input-field" name="test_15t_2" id="test_15t_2"></td>
+                    <td><input type="text" class="input-field" name="test_15t_3" id="test_15t_3"></td>
+                    <td><input type="text" class="input-field" name="test_15t_4" id="test_15t_4"></td>
+                    <td><input type="text" class="input-field" name="test_15t_5" id="test_15t_5"></td>
+                    <td><input type="text" class="input-field" name="test_15t_6" id="test_15t_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>Between 3 teeths on 17 teeth pinion</td>
+                    <td>111.064 - 111.947</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_17t_1" id="test_17t_1"></td>
+                    <td><input type="text" class="input-field" name="test_17t_2" id="test_17t_2"></td>
+                    <td><input type="text" class="input-field" name="test_17t_3" id="test_17t_3"></td>
+                    <td><input type="text" class="input-field" name="test_17t_4" id="test_17t_4"></td>
+                    <td><input type="text" class="input-field" name="test_17t_5" id="test_17t_5"></td>
+                    <td><input type="text" class="input-field" name="test_17t_6" id="test_17t_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>Between 3 teeths on 21 teeth pinion</td>
+                    <td>93.450 - 93.574</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_21t_1" id="test_21t_1"></td>
+                    <td><input type="text" class="input-field" name="test_21t_2" id="test_21t_2"></td>
+                    <td><input type="text" class="input-field" name="test_21t_3" id="test_21t_3"></td>
+                    <td><input type="text" class="input-field" name="test_21t_4" id="test_21t_4"></td>
+                    <td><input type="text" class="input-field" name="test_21t_5" id="test_21t_5"></td>
+                    <td><input type="text" class="input-field" name="test_21t_6" id="test_21t_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">22</td>
+                    <td>Check the "P" value of pinion teeth</td>
+                    <td>0.4 mm (Max)</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_22_1" id="test_22_1"></td>
+                    <td><input type="text" class="input-field" name="test_22_2" id="test_22_2"></td>
+                    <td><input type="text" class="input-field" name="test_22_3" id="test_22_3"></td>
+                    <td><input type="text" class="input-field" name="test_22_4" id="test_22_4"></td>
+                    <td><input type="text" class="input-field" name="test_22_5" id="test_22_5"></td>
+                    <td><input type="text" class="input-field" name="test_22_6" id="test_22_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">23</td>
+                    <td>Check pinion to shaft bedding</td>
+                    <td>More than 80%</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_23_1" id="test_23_1"></td>
+                    <td><input type="text" class="input-field" name="test_23_2" id="test_23_2"></td>
+                    <td><input type="text" class="input-field" name="test_23_3" id="test_23_3"></td>
+                    <td><input type="text" class="input-field" name="test_23_4" id="test_23_4"></td>
+                    <td><input type="text" class="input-field" name="test_23_5" id="test_23_5"></td>
+                    <td><input type="text" class="input-field" name="test_23_6" id="test_23_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">24</td>
+                    <td>Check advancement of pinion</td>
+                    <td>1.9 to 2.2 mm</td>
+                    <td>Camtech, P-29</td>
+                    <td><input type="text" class="input-field" name="test_24_1" id="test_24_1"></td>
+                    <td><input type="text" class="input-field" name="test_24_2" id="test_24_2"></td>
+                    <td><input type="text" class="input-field" name="test_24_3" id="test_24_3"></td>
+                    <td><input type="text" class="input-field" name="test_24_4" id="test_24_4"></td>
+                    <td><input type="text" class="input-field" name="test_24_5" id="test_24_5"></td>
+                    <td><input type="text" class="input-field" name="test_24_6" id="test_24_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">25</td>
+                    <td>Conduct DPT test for old pinion</td>
+                    <td>Done</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_25_1" id="test_25_1"></td>
+                    <td><input type="text" class="input-field" name="test_25_2" id="test_25_2"></td>
+                    <td><input type="text" class="input-field" name="test_25_3" id="test_25_3"></td>
+                    <td><input type="text" class="input-field" name="test_25_4" id="test_25_4"></td>
+                    <td><input type="text" class="input-field" name="test_25_5" id="test_25_5"></td>
+                    <td><input type="text" class="input-field" name="test_25_6" id="test_25_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">26</td>
+                    <td colspan="9">Check the insulation resistance (after final assembly of TM) with 1 KV Megger between-</td>
+                </tr>
+                <tr>
+                    <td class="eqpt-column" rowspan="11"></td>
+                    <td class="sn-column"></td>
+                    <td>(a) Main Pole circuit and earth</td>
+                    <td>1 MΩ(Minimum)</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_26a_1" id="test_26a_1"></td>
+                    <td><input type="text" class="input-field" name="test_26a_2" id="test_26a_2"></td>
+                    <td><input type="text" class="input-field" name="test_26a_3" id="test_26a_3"></td>
+                    <td><input type="text" class="input-field" name="test_26a_4" id="test_26a_4"></td>
+                    <td><input type="text" class="input-field" name="test_26a_5" id="test_26a_5"></td>
+                    <td><input type="text" class="input-field" name="test_26a_6" id="test_26a_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(b) Inter Pole circuit and earth</td>
+                    <td></td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_26b_1" id="test_26b_1"></td>
+                    <td><input type="text" class="input-field" name="test_26b_2" id="test_26b_2"></td>
+                    <td><input type="text" class="input-field" name="test_26b_3" id="test_26b_3"></td>
+                    <td><input type="text" class="input-field" name="test_26b_4" id="test_26b_4"></td>
+                    <td><input type="text" class="input-field" name="test_26b_5" id="test_26b_5"></td>
+                    <td><input type="text" class="input-field" name="test_26b_6" id="test_26b_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">27</td>
+                    <td>Run the Traction Motor at 1100 RPM on no load for two hours & check the following.</td>
+                    <td>Normal</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_27_1" id="test_27_1"></td>
+                    <td><input type="text" class="input-field" name="test_27_2" id="test_27_2"></td>
+                    <td><input type="text" class="input-field" name="test_27_3" id="test_27_3"></td>
+                    <td><input type="text" class="input-field" name="test_27_4" id="test_27_4"></td>
+                    <td><input type="text" class="input-field" name="test_27_5" id="test_27_5"></td>
+                    <td><input type="text" class="input-field" name="test_27_6" id="test_27_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(a) Vibration</td>
+                    <td>No Vibration</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_27a_1" id="test_27a_1"></td>
+                    <td><input type="text" class="input-field" name="test_27a_2" id="test_27a_2"></td>
+                    <td><input type="text" class="input-field" name="test_27a_3" id="test_27a_3"></td>
+                    <td><input type="text" class="input-field" name="test_27a_4" id="test_27a_4"></td>
+                    <td><input type="text" class="input-field" name="test_27a_5" id="test_27a_5"></td>
+                    <td><input type="text" class="input-field" name="test_27a_6" id="test_27a_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(b) Bearing Noise. (i) PE Side</td>
+                    <td>Normal Noise</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_27b1_1" id="test_27b1_1"></td>
+                    <td><input type="text" class="input-field" name="test_27b1_2" id="test_27b1_2"></td>
+                    <td><input type="text" class="input-field" name="test_27b1_3" id="test_27b1_3"></td>
+                    <td><input type="text" class="input-field" name="test_27b1_4" id="test_27b1_4"></td>
+                    <td><input type="text" class="input-field" name="test_27b1_5" id="test_27b1_5"></td>
+                    <td><input type="text" class="input-field" name="test_27b1_6" id="test_27b1_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(ii) CE Side</td>
+                    <td>Normal Noise</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_27b2_1" id="test_27b2_1"></td>
+                    <td><input type="text" class="input-field" name="test_27b2_2" id="test_27b2_2"></td>
+                    <td><input type="text" class="input-field" name="test_27b2_3" id="test_27b2_3"></td>
+                    <td><input type="text" class="input-field" name="test_27b2_4" id="test_27b2_4"></td>
+                    <td><input type="text" class="input-field" name="test_27b2_5" id="test_27b2_5"></td>
+                    <td><input type="text" class="input-field" name="test_27b2_6" id="test_27b2_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(c) Temp. rise of bearing - (i) PE Side</td>
+                    <td>25˚C (Max.)</td>
+                    <td>Camtech, P-29</td>
+                    <td><input type="text" class="input-field" name="test_27c1_1" id="test_27c1_1"></td>
+                    <td><input type="text" class="input-field" name="test_27c1_2" id="test_27c1_2"></td>
+                    <td><input type="text" class="input-field" name="test_27c1_3" id="test_27c1_3"></td>
+                    <td><input type="text" class="input-field" name="test_27c1_4" id="test_27c1_4"></td>
+                    <td><input type="text" class="input-field" name="test_27c1_5" id="test_27c1_5"></td>
+                    <td><input type="text" class="input-field" name="test_27c1_6" id="test_27c1_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(ii) CE Side</td>
+                    <td>25˚C (Max.)</td>
+                    <td>Camtech, P-29</td>
+                    <td><input type="text" class="input-field" name="test_27c2_1" id="test_27c2_1"></td>
+                    <td><input type="text" class="input-field" name="test_27c2_2" id="test_27c2_2"></td>
+                    <td><input type="text" class="input-field" name="test_27c2_3" id="test_27c2_3"></td>
+                    <td><input type="text" class="input-field" name="test_27c2_4" id="test_27c2_4"></td>
+                    <td><input type="text" class="input-field" name="test_27c2_5" id="test_27c2_5"></td>
+                    <td><input type="text" class="input-field" name="test_27c2_6" id="test_27c2_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(d) Vibration by vibration pen.</td>
+                    <td>Green/Yellow</td>
+                    <td>SKF</td>
+                    <td><input type="text" class="input-field" name="test_27d_1" id="test_27d_1"></td>
+                    <td><input type="text" class="input-field" name="test_27d_2" id="test_27d_2"></td>
+                    <td><input type="text" class="input-field" name="test_27d_3" id="test_27d_3"></td>
+                    <td><input type="text" class="input-field" name="test_27d_4" id="test_27d_4"></td>
+                    <td><input type="text" class="input-field" name="test_27d_5" id="test_27d_5"></td>
+                    <td><input type="text" class="input-field" name="test_27d_6" id="test_27d_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column"></td>
+                    <td>(e) Armature ovality after assly.</td>
+                    <td>0.00 to 0.06 mm</td>
+                    <td>SMI/06</td>
+                    <td><input type="text" class="input-field" name="test_27e_1" id="test_27e_1"></td>
+                    <td><input type="text" class="input-field" name="test_27e_2" id="test_27e_2"></td>
+                    <td><input type="text" class="input-field" name="test_27e_3" id="test_27e_3"></td>
+                    <td><input type="text" class="input-field" name="test_27e_4" id="test_27e_4"></td>
+                    <td><input type="text" class="input-field" name="test_27e_5" id="test_27e_5"></td>
+                    <td><input type="text" class="input-field" name="test_27e_6" id="test_27e_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">28</td>
+                    <td>If new bearings provided month/year should be inscribed</td>
+                    <td>ELW/Month/Year</td>
+                    <td>Shop Practice</td>
+                    <td><input type="text" class="input-field" name="test_28_1" id="test_28_1"></td>
+                    <td><input type="text" class="input-field" name="test_28_2" id="test_28_2"></td>
+                    <td><input type="text" class="input-field" name="test_28_3" id="test_28_3"></td>
+                    <td><input type="text" class="input-field" name="test_28_4" id="test_28_4"></td>
+                    <td><input type="text" class="input-field" name="test_28_5" id="test_28_5"></td>
+                    <td><input type="text" class="input-field" name="test_28_6" id="test_28_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">29</td>
+                    <td>Remarks</td>
+                    <td colspan="8"><input type="text" class="input-field" name="test_29_remarks" id="test_29_remarks"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+          <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">SL. no.</th>
+                    <th>RDSO MODIFICATION NO.</th>
+                    <th>DESCRIPTION</th>
+                    <th>STATUS (BEING DONE/ NOT BEING DONE)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>RDSO/WAM4/186, dt. 18.4.95</td>
+                    <td>Modification to the protection screen of pinion end shield and air outlet of magnet frame of TAO-659 Traction Motor.</td>
+                    <td><input type="text" class="input-field" name="status_1" id="status_1"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>MS/ WAM4/0216 dt. 5.2.99 or MS/WAM4/196</td>
+                    <td>Adoption of modified brush holder assembly on TAO-659</td>
+                    <td><input type="text" class="input-field" name="status_2" id="status_2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>ELRS/MS/WAM4/0215 dt. 17.11.98</td>
+                    <td>Adoption of modified bottom inspection Cover on TAO-659 Traction Motor.</td>
+                    <td><input type="text" class="input-field" name="status_3" id="status_3"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>POH/404/99</td>
+                    <td>Neutral setting of brush holder revolving ring by 'KICK' method.</td>
+                    <td><input type="text" class="input-field" name="status_4" id="status_4"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td>POH/300/92 or MS/165</td>
+                    <td>Provision of thread locking compound on bolts/screws of TAO-659 Traction Motor.</td>
+                    <td><input type="text" class="input-field" name="status_5" id="status_5"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td>POH/614/2007 or SMI 243</td>
+                    <td>Special maintenance instruction for fixture and gauges for brush holder and BHRR assemblies of TM type TAO-659 & HS-15250A.</td>
+                    <td><input type="text" class="input-field" name="status_6" id="status_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>POH/78/82</td>
+                    <td>High voltage testing of Tr. Motors and auxiliaries.</td>
+                    <td><input type="text" class="input-field" name="status_7" id="status_7"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>POH/156/83</td>
+                    <td>Under cutting and chamfering of Tr. Motor commutator.</td>
+                    <td><input type="text" class="input-field" name="status_8" id="status_8"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td>POH/278/89</td>
+                    <td>Radial clearance for roller bearing used on Tr. Motor.</td>
+                    <td><input type="text" class="input-field" name="status_9" id="status_9"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td>POH/7/77</td>
+                    <td>Mounting of Tr. Motor pinion.</td>
+                    <td><input type="text" class="input-field" name="status_10" id="status_10"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>LIST OF MUST CHANGE ITEMS DURING POH OF LOCOMOTIVE AS PER</h3>
+        <h2>ELRS/TC/0123 (Rev '0'), dated 16.05.13</h2>
+
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">SL. NO.</th>
+                    <th>ITEM</th>
+                    <th>PL_NO.</th>
+                    <th>STATUS (Y/N)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" class="section-title">TRACTION MOTOR Sec. -</td>
+                </tr>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>Roller bearing NU-328 for TAO (PE)</td>
+                    <td>85291730</td>
+                    <td><input type="text" class="input-field" name="must_change_1" id="must_change_1"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>Roller bearing NH-318 for TAO (CE)</td>
+                    <td>85151099</td>
+                    <td><input type="text" class="input-field" name="must_change_2" id="must_change_2"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>Traction motor pinion 15 teeth</td>
+                    <td>25420355</td>
+                    <td><input type="text" class="input-field" name="must_change_3" id="must_change_3"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>Traction motor pinion 21 teeth</td>
+                    <td>25427532</td>
+                    <td><input type="text" class="input-field" name="must_change_4" id="must_change_4"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td>Brush holder (TAO)</td>
+                    <td>25941975</td>
+                    <td><input type="text" class="input-field" name="must_change_5" id="must_change_5"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td>Carbon brush (TAO)</td>
+                    <td>25620058</td>
+                    <td><input type="text" class="input-field" name="must_change_6" id="must_change_6"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>Grease nipple (TAO)</td>
+                    <td>23260257</td>
+                    <td><input type="text" class="input-field" name="must_change_7" id="must_change_7"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>Gasket for bottom insp. Cover(TAO)</td>
+                    <td>N/S</td>
+                    <td><input type="text" class="input-field" name="must_change_8" id="must_change_8"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td>Gasket for dust guard(TAO)</td>
+                    <td>25988220</td>
+                    <td><input type="text" class="input-field" name="must_change_9" id="must_change_9"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <header>
+            <h1 style="text-align: center; padding: 15px 0; font-size: 18px;">FIRE PREVENTION MEASURE</h1>
+            <h2 style="text-align: center; padding: 10px 0; font-size: 16px;">9A/Traction Motor Sec.</h2>
+        </header>
+
+        <section>
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th class="sn-column">Sr. No.</th>
+                        <th>Operational System</th>
+                        <th style="width: 200px;">Present Status/Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="sn-column">1</td>
+                        <td>
+                            <strong>Flash over of Traction Motors can be minimized by following methods:</strong>
+                            <br><br>
+                            <strong>A)</strong> In every IC schedule V cone of Armature should be cleaned.
+                            <br><br>
+                            <strong>B)</strong> Condition of arching studs/horns should be monitored for their gaps & proper shape. It should be changed in case of flashing sign or change in shape.
+                            <br><br>
+                            <strong>C)</strong> Use of anti tracking varnish, cleaning of BHRR, proper spring tension of carbon brushes, proper use of carbon brushes etc should be maintained and keep proper record.
+                        </td>
+                        <td>
+                            <input type="text" class="input-field" name="status_1" id="status_1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">2</td>
+                        <td>
+                            During overhauling ovality checking during commutator turning, proper mica under cutting & proper chamfering of commutator should be done.
+                        </td>
+                        <td>
+                            <input type="text" class="input-field" name="status_2" id="status_2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">3</td>
+                        <td>
+                            Condition of inter connecting leads, terminal board & insulators should be checked thoroughly during Overhauling.
+                        </td>
+                        <td>
+                            <input type="text" class="input-field" name="status_3" id="status_3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">4</td>
+                        <td>
+                            All insulating materials, insulators and other such items should be procured only from approved sources.
+                        </td>
+                        <td>
+                            <input type="text" class="input-field" name="status_4" id="status_4">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        
+
+
+
+
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="button" id="submitBtn" class="btn btn-primary">
+            Save Check Sheet
+        </button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(window.location.href);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Function to get ID from URL path for edit route
+            function getIdFromPath() {
+                const pathParts = window.location.pathname.split('/');
+
+                console.log(pathParts)
+                if (pathParts[2] === 'edit' && pathParts[3]) {
+                    return pathParts[3];
+                }
+                return '';
+            }
+
+             
+            
+            // Function to load check sheet data by ID
+            function loadCheckSheetData(id) {
+                if (!id) return;
+                
+                $.ajax({
+                    url: '/tm/' + id,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.success) {
+                            // Set the ID in the hidden field
+                            $('#id').val(id);
+                            
+                            // Populate form fields with data
+                            const data = response.data;
+                            for (const key in data) {
+                                if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                    const element = $('#' + key);
+                                    if (element.length) {
+                                        element.val(data[key]);
+                                    }
+                                }
+                            }
+                        } else {
+                            alert('Error loading check sheet data: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error loading check sheet data: ' + error);
+                    }
+                });
+            }
+            
+            // Get ID from URL (either as parameter or from path)
+            const checkSheetId = getIdFromPath() || getUrlParameter('id');
+            if (checkSheetId) {
+                loadCheckSheetData(checkSheetId);
+            }
+            
+            // Handle form submission
+            $('#submitBtn').on('click', function() {
+                // Collect all form data
+                var formData = {};
+                $('input[type="text"]').each(function() {
+                    formData[$(this).attr('name')] = $(this).val();
+                });
+
+                console.log(formData)
+                
+                // Get the ID value to determine if we're adding or editing
+                var id = $('#id').val();
+                
+                var url = '/tm/add';
+                var method = 'POST';
+                
+                if (id && id !== '') {
+                    url = '/tm/edit/' + id;
+                }
+                
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // If this is a new record, save the ID for future edits
+                            if (response.id && !id) {
+                                $('#id').val(response.id);
+                            }
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error submitting form: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+</body>
+</html>

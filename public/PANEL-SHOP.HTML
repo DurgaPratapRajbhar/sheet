@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POH Check Sheet of Locomotive - Speedometer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1px solid #000;
+        }
+        
+        .header-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+        }
+        
+        .header-table .label {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            width: 180px;
+        }
+        
+        .header-table .value {
+            background-color: white;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+        
+        .main-table th,
+        .main-table td {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 11px;
+        }
+        
+        .main-table th {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .main-table .test-column {
+            width: 160px;
+        }
+        
+        .main-table .reference-column {
+            width: 150px;
+        }
+        
+        .main-table .standard-column {
+            width: 90px;
+        }
+        
+        .main-table .actual-column {
+            width: 70px;
+            text-align: center;
+        }
+        
+        .input-field {
+            width: 100%;
+            height: 24px;
+            border: 1px solid #ccc;
+            padding: 2px 4px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            border-radius: 2px;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #007acc;
+            background-color: white;
+        }
+        
+        .sn-column {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .sub-item {
+            padding-left: 15px;
+            font-size: 10px;
+        }
+        
+        .small-text {
+            font-size: 10px;
+        }
+        
+        .section-title {
+            background-color: #C0C0C0;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .main-table {
+                font-size: 10px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 4px 2px;
+            }
+            
+            .input-field {
+                height: 20px;
+                font-size: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-table {
+                font-size: 9px;
+            }
+            
+            .main-table th,
+            .main-table td {
+                padding: 3px 1px;
+            }
+            
+            .input-field {
+                height: 18px;
+                font-size: 9px;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hidden ID field for edit functionality -->
+    <input type="hidden" id="id" name="id" value="">
+    
+    <h1>SMI/MS OF BA PANEL</h1>
+
+    <!-- TABLE 1 -->
+    <table class="main-table">
+        <tr>
+            <th style="width:40px"   >Sl.No</th>
+            <th  >Check Point</th>
+            <th  >Reference</th>
+            <th  >Standard</th>
+            <th  >Status</th>
+        </tr>
+        <!-- <tr>
+            <td><input type="text" name="slno1"></td>
+            <td><input type="text" name="checkpoint1"></td>
+            <td><input type="text" name="reference1"></td>
+            <td><input type="text" name="standard1"></td>
+            <td><input type="text" name="status1"></td>
+        </tr> -->
+        <tr>
+            <td>1</td>
+            <td class="checkpoint">Maintenance instruction of Dynamic braking excitation contactor C145 auxiliary contact for 25KV ac electric locomotives</td>
+            <td>RDSO/2012/EL/SMI/0216, Rev ‘0’.Dt:27/07/2012</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status2"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="checkpoint">Modification to provide ammeter, voltmeter for metering on 6P combination loco</td>
+            <td>RDSO/WAM-4/205</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status3"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="checkpoint">Auto regression of GR on energization of over voltage Q-20 relay</td>
+            <td>RDSO-WAM-4/211</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status4"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td class="checkpoint">Modification in DBR control circuit to prevent opening of C-145 contactor</td>
+            <td>ELRS/MS/0261</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status5"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td class="checkpoint">Provision of CTF interlock in C-145 contact circuit to avoid burning of ATFEX</td>
+            <td>ELRS/MS/0330 Rev-0</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status6"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td class="checkpoint">Circuit modification of I-68 branch for C-145 operation feedback for 25kV with MPCS based loco & Provision of 2nos N/O of C145 contactor in series in control Ckt. Of C145</td>
+            <td>RDSO/EL/MS/0410 Rev-0</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status7"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td class="checkpoint">CTF1 control Ckt. Mod. To prevent de-magnetization of QRS relay</td>
+            <td>RDSO/WAG5/SMI/32</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status8"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td class="checkpoint">Reverser control ckt.Mod.for Auto flasher operation</td>
+            <td>RDSOs L/No. SO.DFM.A.4.7 dt.21.05.2003</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status9"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td class="checkpoint">C145 control ckt.Mod.for LSC-145</td>
+            <td>EL/MS/0383/(REV-“O”)Oct.2009</td>
+            <td>to be Done</td>
+            <td><input type="text" name="status10"></td>
+        </tr>
+    </table>
+
+     <!-- TABLE 2 -->
+    <table class="main-table">
+            <tr>
+                <td style="width:40px" >Step</td>
+                <td class="reference header">Reference</td>
+                <td class="standard header">Standard</td>
+                <td class="colspan-header header" colspan="6">RS Resistance Measured value</td>
+            </tr>
+            <tr>
+                <td class="step">1</td>
+                <td class="reference"> </td>
+                <td class="standard"> </td>
+                <td class="resistance">RS11</td>
+                <td class="resistance-wide">RS21</td>
+                <td class="resistance-wide">RS31</td>
+                <td class="resistance">RS41</td>
+                <td class="resistance">RS51</td>
+                <td class="resistance">RS61</td>
+            </tr>
+            <tr>
+                <td class="step" rowspan="2">1</td>
+                <td class="reference multi-line">Ref: Drg.No.CLW.3W.12000.026 Sht.No.04 (For G5 & G7)</td>
+                <td class="standard">76.5mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_1_11" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_1_21" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_1_31" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_1_41" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_1_51" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_1_61" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="reference">Ref: Drg.No.CLW.3W.8004.40.Sht.No.5A (For P4)</td>
+                <td class="standard">46.4mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_1_12" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_1_22" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_1_32" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_1_42" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_1_52" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_1_62" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="step">2</td>
+                <td class="reference"> </td>
+                <td class="standard"> </td>
+                <td class="resistance">RS12</td>
+                <td class="resistance-wide">RS22</td>
+                <td class="resistance-wide">RS32</td>
+                <td class="resistance">RS42</td>
+                <td class="resistance">RS52</td>
+                <td class="resistance">RS62</td>
+            </tr>
+            <tr>
+                <td class="step" rowspan="2">2</td>
+                <td class="reference multi-line">Ref: Drg.No.CLW.3W.12000.026 Sht.No.04 (For G5 & G7)</td>
+                <td class="standard">46.4mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_2_12" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_2_22" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_2_32" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_2_42" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_2_52" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_2_62" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="reference">Ref: Drg.No.CLW.3W.8004.40.Sht.No.5A (For P4)</td>
+                <td class="standard">32.1mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_2_13" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_2_23" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_2_33" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_2_43" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_2_53" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_2_63" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="step">3</td>
+                <td class="reference"> </td>
+                <td class="standard"> </td>
+                <td class="resistance">RS13</td>
+                <td class="resistance-wide">RS23</td>
+                <td class="resistance-wide">RS33</td>
+                <td class="resistance">RS43</td>
+                <td class="resistance">RS53</td>
+                <td class="resistance">RS63</td>
+            </tr>
+            <tr>
+                <td class="step" rowspan="2">3</td>
+                <td class="reference multi-line">Ref: Drg.No.CLW.3W.12000.026 Sht.No.04 (For G5 & G7)</td>
+                <td class="standard">32.1mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_3_13" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_3_23" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_3_33" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_3_43" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_3_53" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_3_63" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="reference">Ref: Drg.No.CLW.3W.8004.40.Sht.No.5A (For P4)</td>
+                <td class="standard">22.4mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_3_14" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_3_24" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_3_34" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_3_44" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_3_54" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_3_64" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="step">4</td>
+                <td class="reference"> </td>
+                <td class="standard"> </td>
+                <td class="resistance">RS14</td>
+                <td class="resistance-wide">RS24</td>
+                <td class="resistance-wide">RS34</td>
+                <td class="resistance">RS44</td>
+                <td class="resistance">RS54</td>
+                <td class="resistance">RS64</td>
+            </tr>
+            <tr>
+                <td class="step">4</td>
+                <td class="reference">Ref: Drg.No.CLW.3W.8004.40.Sht.No.5A (For P4)</td>
+                <td class="standard">11.2mΩ±8%</td>
+                <td class="resistance"><input type="text" name="rs_4_14" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_4_24" class="input-field"></td>
+                <td class="resistance-wide"><input type="text" name="rs_4_34" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_4_44" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_4_54" class="input-field"></td>
+                <td class="resistance"><input type="text" name="rs_4_64" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="step">5</td>
+                <td class="reference multi-line">RQOP (06 Nos.),<br>(Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">3.2 KΩ ± 5% each,75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_5" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">6</td>
+                <td class="reference">RQ – 20, (Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">13.2 KΩ ± 5% each,75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_6" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">7</td>
+                <td class="reference">RU (04 Nos)</td>
+                <td class="standard">88KΩ±1%</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_7" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">8</td>
+                <td class="reference multi-line">RSIV (01 No),<br>(Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">1.5KΩ±5%, 500W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_8" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">9</td>
+                <td class="reference multi-line">RQ30 (01No),<br>(Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">18 KΩ±5%,75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_9" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">10</td>
+                <td class="reference multi-line">RHOBA (01 No),/ <b>FDCS</b><br>(Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">210Ω±5%, 75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_10" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">11</td>
+                <td class="reference">RQOA1, RQOA2 (02 Nos), (Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">680Ω±5%, 75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_11" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">12</td>
+                <td class="reference multi-line">RPQOA (01 No),<br>(Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">150Ω±5%, 75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_12" class="input-field" style="width: 98%;"></td>
+            </tr>
+            <tr>
+                <td class="step">13</td>
+                <td class="reference multi-line">RPQOP1, RPQOP2 (02Nos) / <b>FDCS</b><br>(Ref: CLW/ES/S/R-38/D, Sht. No-09)</td>
+                <td class="standard">150Ω±5%, 75W</td>
+                <td class="resistance" colspan="6"><input type="text" name="rs_13" class="input-field" style="width: 98%;"></td>
+            </tr>
+    </table>
+
+    <!-- TABLE 3 -->
+    
+     <table class="main-table">
+                <thead>
+                    <tr>
+                        <th style="width:40px">SL</th>
+                        <th  >Check Point</th>
+                        <th >Reference</th>
+                        <th  >Standard</th>
+                        <th colspan="3" >Actual/Activity</th>
+                    </tr>
+                    <tr>
+                        <td ></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td >CTF1</td>
+                        <td >CTF2</td>
+                        <td >CTF3</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:40px">1</td>
+                        <td>Check the dip clearance between finger contacts & contact holder of main finger contact Top Bottom</td>
+                        <td>CLW Spec.No.4TTS.101.005 Alt.-1</td>
+                        <td>2+0.5mm, -0</td>
+                        <td><input type="text" name="ctf1_1" class="input-field"></td>
+                        <td><input type="text" name="ctf2_1" class="input-field"></td>
+                        <td><input type="text" name="ctf3_1" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>a) Check the dip clearance between finger contacts & contact holder of main finger contact Top Bottom</td>
+                        <td>CLW Spec.No.4TTS.101.005 Alt.-5</td>
+                        <td>10±1 Kg (9-11kg)</td>
+                        <td><input type="text" name="ctf1_2" class="input-field"></td>
+                        <td><input type="text" name="ctf2_2" class="input-field"></td>
+                        <td><input type="text" name="ctf3_2" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>b) Check main contact pressure for 1500A capacity Top Bottom</td>
+                        <td>CLW Spec.No.4TTS.101.005 Alt.-5</td>
+                        <td>12±1 Kg (11-13Kg)</td>
+                        <td><input type="text" name="ctf1_3" class="input-field"></td>
+                        <td><input type="text" name="ctf2_3" class="input-field"></td>
+                        <td><input type="text" name="ctf3_3" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">2</td>
+                        <td>Check Auxiliary contact pressure Top Bottom</td>
+                        <td>CLW Spec.No.4TTS.101.005 Alt.-1</td>
+                        <td>160 to 250gm</td>
+                        <td><input type="text" name="ctf1_4" class="input-field"></td>
+                        <td><input type="text" name="ctf2_4" class="input-field"></td>
+                        <td><input type="text" name="ctf3_4" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">3</td>
+                        <td>Check Auxiliary contact gap Top Bottom</td>
+                        <td>M.M.VolumeIII</td>
+                        <td>3.5mm (Min.)</td>
+                        <td><input type="text" name="ctf1_5" class="input-field"></td>
+                        <td><input type="text" name="ctf2_5" class="input-field"></td>
+                        <td><input type="text" name="ctf3_5" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">4</td>
+                        <td>Check the resistance of coil at 20 °C</td>
+                        <td>M.M.VolumeIII</td>
+                        <td colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">a) Forward coil</td>
+                        <td>M.M.VolumeIII</td>
+                        <td>1350 Ω + 8%</td>
+                        <td><input type="text" name="ctf1_6" class="input-field"></td>
+                        <td><input type="text" name="ctf2_6" class="input-field"></td>
+                        <td><input type="text" name="ctf3_6" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">b) Reverse coil</td>
+                        <td>M.M.VolumeIII</td>
+                        <td>1350 Ω + 8%</td>
+                        <td><input type="text" name="ctf1_7" class="input-field"></td>
+                        <td><input type="text" name="ctf2_7" class="input-field"></td>
+                        <td><input type="text" name="ctf3_7" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">5</td>
+                        <td>Minimum operating pressure</td>
+                        <td>CLW Spec.No.4TTS.101.005(A) Alt.-4</td>
+                        <td>4 kg/cm²</td>
+                        <td><input type="text" name="ctf1_8" class="input-field"></td>
+                        <td><input type="text" name="ctf2_8" class="input-field"></td>
+                        <td><input type="text" name="ctf3_8" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">6</td>
+                        <td>Provision of double roll pin of CTF</td>
+                        <td>RAP</td>
+                        <td>to be done</td>
+                        <td><input type="text" name="ctf1_9" class="input-field"></td>
+                        <td><input type="text" name="ctf2_9" class="input-field"></td>
+                        <td><input type="text" name="ctf3_9" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">7</td>
+                        <td>Provision of brass roller instead of nylon roller for CTF</td>
+                        <td>RAP</td>
+                        <td>to be done</td>
+                        <td><input type="text" name="ctf1_10" class="input-field"></td>
+                        <td><input type="text" name="ctf2_10" class="input-field"></td>
+                        <td><input type="text" name="ctf3_10" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">8</td>
+                        <td>Check complete drum, contacts & frame for any damage</td>
+                        <td>Work Instruction</td>
+                        <td>no damage</td>
+                        <td><input type="text" name="ctf1_11" class="input-field"></td>
+                        <td><input type="text" name="ctf2_11" class="input-field"></td>
+                        <td><input type="text" name="ctf3_11" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">9</td>
+                        <td>Varnish of drum to be done</td>
+                        <td>Work Instruction</td>
+                        <td>done</td>
+                        <td><input type="text" name="ctf1_12" class="input-field"></td>
+                        <td><input type="text" name="ctf2_12" class="input-field"></td>
+                        <td><input type="text" name="ctf3_12" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">10</td>
+                        <td>Check the wear on finger contact Top Bottom</td>
+                        <td>Work Instruction</td>
+                        <td>1mm maximum</td>
+                        <td><input type="text" name="ctf1_13" class="input-field"></td>
+                        <td><input type="text" name="ctf2_13" class="input-field"></td>
+                        <td><input type="text" name="ctf3_13" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">11</td>
+                        <td>Check for proper opening & closing of Aux. contact</td>
+                        <td>Work Instruction</td>
+                        <td>Perfect</td>
+                        <td><input type="text" name="ctf1_14" class="input-field"></td>
+                        <td><input type="text" name="ctf2_14" class="input-field"></td>
+                        <td><input type="text" name="ctf3_14" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">12</td>
+                        <td>Check the insulation resistance with 2.5 KV Megger between</td>
+                        <td>Work Instruction</td>
+                        <td colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">a) Between Contact to earth</td>
+                        <td>Work Instruction</td>
+                        <td>10 MΩ</td>
+                        <td><input type="text" name="ctf1_15" class="input-field"></td>
+                        <td><input type="text" name="ctf2_15" class="input-field"></td>
+                        <td><input type="text" name="ctf3_15" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">b) Between Contact to Contact</td>
+                        <td>Work Instruction</td>
+                        <td>10 MΩ</td>
+                        <td><input type="text" name="ctf1_16" class="input-field"></td>
+                        <td><input type="text" name="ctf2_16" class="input-field"></td>
+                        <td><input type="text" name="ctf3_16" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sub-item">c) Coil & Earth with 500 volt Megger</td>
+                        <td>Work Instruction</td>
+                        <td>10 MΩ</td>
+                        <td><input type="text" name="ctf1_17" class="input-field"></td>
+                        <td><input type="text" name="ctf2_17" class="input-field"></td>
+                        <td><input type="text" name="ctf3_17" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">13</td>
+                        <td>Check the air leakage of both EP valve in energise & de-energise condition</td>
+                        <td>Work Instruction</td>
+                        <td>No leakage</td>
+                        <td><input type="text" name="ctf1_18" class="input-field"></td>
+                        <td><input type="text" name="ctf2_18" class="input-field"></td>
+                        <td><input type="text" name="ctf3_18" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">14</td>
+                        <td>Check the air leakage of servomotor in forward and reverse position</td>
+                        <td>Work Instruction</td>
+                        <td>No leakage</td>
+                        <td><input type="text" name="ctf1_19" class="input-field"></td>
+                        <td><input type="text" name="ctf2_19" class="input-field"></td>
+                        <td><input type="text" name="ctf3_19" class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td class="sn-column">15</td>
+                        <td>Operate switch 20 times at different operating pressure from 5 to 9kg/cm² at no load by energising the electro valve with 100V DC supply</td>
+                        <td>Work Instruction</td>
+                        <td>No sluggish operation</td>
+                        <td><input type="text" name="ctf1_20" class="input-field"></td>
+                        <td><input type="text" name="ctf2_20" class="input-field"></td>
+                        <td><input type="text" name="ctf3_20" class="input-field"></td>
+                    </tr>
+                </tbody>
+    </table>
+
+    <!-- TABLE 4 -->
+    <table class="main-table">
+            <thead>
+                <tr>
+                    <th style="width:40px">S. No</th>
+                    <th  >Check Point</th>
+                    <th  >Reference</th>
+                    <th  >Standard</th>
+                    <th  >J1</th>
+                    <th  >J2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>Check the dip clearance between finger contacts & contact holder of main<br>finger contact Top Bottom</td>
+                    <td>CLW Spec.No.4TTS.101.005 Alt.-1</td>
+                    <td>2+0.5mm, -0</td>
+                    <td><input type="text" name="j1_dip_clearance" id="j1_dip_clearance" class="input-field"></td>
+                    <td><input type="text" name="j2_dip_clearance" id="j2_dip_clearance" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sub-item">a) Check main contact pressure for 1000A capacity Top Bottom</td>
+                    <td>CLW Spec.No.4TTS.101.005 Alt.-5</td>
+                    <td>10±1 Kg (9-11kg)</td>
+                    <td><input type="text" name="j1_contact_pressure_1000a" id="j1_contact_pressure_1000a" class="input-field"></td>
+                    <td><input type="text" name="j2_contact_pressure_1000a" id="j2_contact_pressure_1000a" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sub-item">b) Check main contact pressure for 1500A capacity Top Bottom</td>
+                    <td>CLW Spec.No.4TTS.101.005 Alt.-5</td>
+                    <td>12±1 Kg (11-13Kg)</td>
+                    <td><input type="text" name="j1_contact_pressure_1500a" id="j1_contact_pressure_1500a" class="input-field"></td>
+                    <td><input type="text" name="j2_contact_pressure_1500a" id="j2_contact_pressure_1500a" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>Check Auxiliary contact pressure Top Bottom</td>
+                    <td>CLW Spec.No.4TTS.101.005 Alt.-1</td>
+                    <td>160 to 250gm</td>
+                    <td><input type="text" name="j1_aux_contact_pressure" id="j1_aux_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="j2_aux_contact_pressure" id="j2_aux_contact_pressure" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>Check Auxiliary contact gap Top Bottom</td>
+                    <td>M.M.VolumeIII</td>
+                    <td>3.5mm (Min.)</td>
+                    <td><input type="text" name="j1_aux_contact_gap" id="j1_aux_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="j2_aux_contact_gap" id="j2_aux_contact_gap" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>Check the resistance of coil at 20 °C</td>
+                    <td>M.M.VolumeIII</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sub-item">a) Forward coil</td>
+                    <td></td>
+                    <td>1350 Ω + 8%</td>
+                    <td><input type="text" name="j1_forward_coil" id="j1_forward_coil" class="input-field"></td>
+                    <td><input type="text" name="j2_forward_coil" id="j2_forward_coil" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sub-item">b) Reverse coil</td>
+                    <td></td>
+                    <td>1350 Ω + 8%</td>
+                    <td><input type="text" name="j1_reverse_coil" id="j1_reverse_coil" class="input-field"></td>
+                    <td><input type="text" name="j2_reverse_coil" id="j2_reverse_coil" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td>Minimum operating pressure</td>
+                    <td>CLW Spec.No.4TTS.101.005(A)<br>Alt.-4</td>
+                    <td>4 kg/cm²</td>
+                    <td><input type="text" name="j1_min_operating_pressure" id="j1_min_operating_pressure" class="input-field"></td>
+                    <td><input type="text" name="j2_min_operating_pressure" id="j2_min_operating_pressure" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td>Provision of double roll pin of Reverser</td>
+                    <td>RAP</td>
+                    <td>to be done</td>
+                    <td><input type="text" name="j1_double_roll_pin" id="j1_double_roll_pin" class="input-field"></td>
+                    <td><input type="text" name="j2_double_roll_pin" id="j2_double_roll_pin" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>Provision of brass roller instead of nylon roller for Reverser</td>
+                    <td>RAP</td>
+                    <td>to be done</td>
+                    <td><input type="text" name="j1_brass_roller" id="j1_brass_roller" class="input-field"></td>
+                    <td><input type="text" name="j2_brass_roller" id="j2_brass_roller" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>Check complete drum, contacts & frame for any damage</td>
+                    <td>Work Instruction</td>
+                    <td>No damage</td>
+                    <td><input type="text" name="j1_drum_check" id="j1_drum_check" class="input-field"></td>
+                    <td><input type="text" name="j2_drum_check" id="j2_drum_check" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td>Varnish of drum to be done</td>
+                    <td>Work Instruction</td>
+                    <td>Done</td>
+                    <td><input type="text" name="j1_varnish" id="j1_varnish" class="input-field"></td>
+                    <td><input type="text" name="j2_varnish" id="j2_varnish" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td>Check the wear on finger contact Top Bottom</td>
+                    <td>Work Instruction</td>
+                    <td>1mm maximum</td>
+                    <td><input type="text" name="j1_finger_wear" id="j1_finger_wear" class="input-field"></td>
+                    <td><input type="text" name="j2_finger_wear" id="j2_finger_wear" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">11</td>
+                    <td>Check for proper opening & closing of Aux. contact</td>
+                    <td>Work Instruction</td>
+                    <td>Perfect</td>
+                    <td><input type="text" name="j1_aux_contact_operation" id="j1_aux_contact_operation" class="input-field"></td>
+                    <td><input type="text" name="j2_aux_contact_operation" id="j2_aux_contact_operation" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">12</td>
+                    <td>Check the insulation resistance with 2.5 KV Megger between</td>
+                    <td>Work Instruction</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">13</td>
+                    <td>a) Between Contact to earth</td>
+                    <td>Work Instruction</td>
+                    <td>10 MΩ</td>
+                    <td><input type="text" name="j1_contact_to_earth" id="j1_contact_to_earth" class="input-field"></td>
+                    <td><input type="text" name="j2_contact_to_earth" id="j2_contact_to_earth" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">14</td>
+                    <td>b) Between Contact to Contact</td>
+                    <td>Work Instruction</td>
+                    <td>10 MΩ</td>
+                    <td><input type="text" name="j1_contact_to_contact" id="j1_contact_to_contact" class="input-field"></td>
+                    <td><input type="text" name="j2_contact_to_contact" id="j2_contact_to_contact" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sub-item">c) Coil & Earth with 500 volt Megger</td>
+                    <td>Work Instruction</td>
+                    <td>10MΩ</td>
+                    <td><input type="text" name="j1_coil_to_earth" id="j1_coil_to_earth" class="input-field"></td>
+                    <td><input type="text" name="j2_coil_to_earth" id="j2_coil_to_earth" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">15</td>
+                    <td>Check the air leakage of both EP valve in energise & de-energise condition</td>
+                    <td>Work Instruction</td>
+                    <td>No leakage</td>
+                    <td><input type="text" name="j1_ep_valve_leakage" id="j1_ep_valve_leakage" class="input-field"></td>
+                    <td><input type="text" name="j2_ep_valve_leakage" id="j2_ep_valve_leakage" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">16</td>
+                    <td>Check the air leakage of servomotor in forward and reverse position</td>
+                    <td>Work Instruction</td>
+                    <td>No leakage</td>
+                    <td><input type="text" name="j1_servomotor_leakage" id="j1_servomotor_leakage" class="input-field"></td>
+                    <td><input type="text" name="j2_servomotor_leakage" id="j2_servomotor_leakage" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">17</td>
+                    <td>Operate switch 20 times at different operating pressure from 5 to 9kg/cm² at no load by energising the electro valve with 100V DC supply</td>
+                    <td>Work Instruction</td>
+                    <td>No sluggish operation</td>
+                    <td><input type="text" name="j1_switch_operation" id="j1_switch_operation" class="input-field"></td>
+                    <td><input type="text" name="j2_switch_operation" id="j2_switch_operation" class="input-field"></td>
+                </tr>
+            </tbody>
+    </table>
+
+    <!-- TABLE 5 -->
+    <table class="main-table">
+            <tr>
+                <th style="width:40px">S.N</th>
+                <th class="test-column">TEST</th>
+                <th class="reference-column">STANDARD</th>
+                <th colspan="8" class="section-title">ACTUAL</th>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td colspan="2">Name of Contactor</td>
+                <td >L1</td>
+                <td >L2</td>
+                <td >L3</td>
+                <td >L4</td>
+                <td >L5</td>
+                <td >L6</td>
+                <td >C-145</td>
+                <td >C-118</td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td colspan="2">Sl.No. of Contactor</td>
+                <td><input type="text" name="sl_no_l1" class="input-field"></td>
+                <td><input type="text" name="sl_no_l2" class="input-field"></td>
+                <td><input type="text" name="sl_no_l3" class="input-field"></td>
+                <td><input type="text" name="sl_no_l4" class="input-field"></td>
+                <td><input type="text" name="sl_no_l5" class="input-field"></td>
+                <td><input type="text" name="sl_no_l6" class="input-field"></td>
+                <td><input type="text" name="sl_no_c145" class="input-field"></td>
+                <td><input type="text" name="sl_no_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">1</td>
+                <td>Check the all components for any crack and damage.</td>
+                <td>No Crack / No damage</td>
+                <td><input type="text" name="check_components_l1" class="input-field"></td>
+                <td><input type="text" name="check_components_l2" class="input-field"></td>
+                <td><input type="text" name="check_components_l3" class="input-field"></td>
+                <td><input type="text" name="check_components_l4" class="input-field"></td>
+                <td><input type="text" name="check_components_l5" class="input-field"></td>
+                <td><input type="text" name="check_components_l6" class="input-field"></td>
+                <td><input type="text" name="check_components_c145" class="input-field"></td>
+                <td><input type="text" name="check_components_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">2</td>
+                <td>Check magnet valve coil resistance</td>
+                <td>1350±8% Ω <br><span class="small-text"><strong>(Ref:CLW Maintenance instruction VIII pg no-2)</strong></span></td>
+                <td><input type="text" name="coil_resistance_l1" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_l2" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_l3" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_l4" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_l5" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_l6" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_c145" class="input-field"></td>
+                <td><input type="text" name="coil_resistance_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">3</td>
+                <td>Check main contact gap</td>
+                <td>21 to 25mm <br><span class="small-text"><strong>(Ref: CLW. Drg. No.O.TWD.112.001)</strong></span></td>
+                <td><input type="text" name="contact_gap_l1" class="input-field"></td>
+                <td><input type="text" name="contact_gap_l2" class="input-field"></td>
+                <td><input type="text" name="contact_gap_l3" class="input-field"></td>
+                <td><input type="text" name="contact_gap_l4" class="input-field"></td>
+                <td><input type="text" name="contact_gap_l5" class="input-field"></td>
+                <td><input type="text" name="contact_gap_l6" class="input-field"></td>
+                <td><input type="text" name="contact_gap_c145" class="input-field"></td>
+                <td><input type="text" name="contact_gap_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">4</td>
+                <td>Check main contact pressure</td>
+                <td>14 to 20Kg <br><span class="small-text"><strong>(Ref: CLW. Drg. No.O.TWD.112.001)</strong></span></td>
+                <td><input type="text" name="contact_pressure_l1" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_l2" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_l3" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_l4" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_l5" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_l6" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_c145" class="input-field"></td>
+                <td><input type="text" name="contact_pressure_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">5</td>
+                <td>Minimum operating air pressure</td>
+                <td>5 kg./sq.cm <br><span class="small-text"><strong>(Ref:CLW MI-VIII pg no7)</strong></span></td>
+                <td><input type="text" name="air_pressure_l1" class="input-field"></td>
+                <td><input type="text" name="air_pressure_l2" class="input-field"></td>
+                <td><input type="text" name="air_pressure_l3" class="input-field"></td>
+                <td><input type="text" name="air_pressure_l4" class="input-field"></td>
+                <td><input type="text" name="air_pressure_l5" class="input-field"></td>
+                <td><input type="text" name="air_pressure_l6" class="input-field"></td>
+                <td><input type="text" name="air_pressure_c145" class="input-field"></td>
+                <td><input type="text" name="air_pressure_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">6</td>
+                <td>Minimum operating voltage at 9.0 kg/cm² pressure</td>
+                <td>68 Volts DC <br><span class="small-text"><strong>(Ref: CAMTECH/pg- 32)</strong></span></td>
+                <td><input type="text" name="voltage_l1" class="input-field"></td>
+                <td><input type="text" name="voltage_l2" class="input-field"></td>
+                <td><input type="text" name="voltage_l3" class="input-field"></td>
+                <td><input type="text" name="voltage_l4" class="input-field"></td>
+                <td><input type="text" name="voltage_l5" class="input-field"></td>
+                <td><input type="text" name="voltage_l6" class="input-field"></td>
+                <td><input type="text" name="voltage_c145" class="input-field"></td>
+                <td><input type="text" name="voltage_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">7</td>
+                <td>Lubrication to be used</td>
+                <td>SAE - 30</td>
+                <td><input type="text" name="lubrication_l1" class="input-field"></td>
+                <td><input type="text" name="lubrication_l2" class="input-field"></td>
+                <td><input type="text" name="lubrication_l3" class="input-field"></td>
+                <td><input type="text" name="lubrication_l4" class="input-field"></td>
+                <td><input type="text" name="lubrication_l5" class="input-field"></td>
+                <td><input type="text" name="lubrication_l6" class="input-field"></td>
+                <td><input type="text" name="lubrication_c145" class="input-field"></td>
+                <td><input type="text" name="lubrication_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">8</td>
+                <td>Check the air leakage</td>
+                <td>At 9kg/cm² <br><span class="small-text"><strong>(Ref:CLW MI- VIII pg no7)</strong></span></td>
+                <td colspan="8"><input type="text" name="air_leakage" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">a) Coil in Energies condition</td>
+                <td>No leakage</td>
+                <td><input type="text" name="coil_energies_l1" class="input-field"></td>
+                <td><input type="text" name="coil_energies_l2" class="input-field"></td>
+                <td><input type="text" name="coil_energies_l3" class="input-field"></td>
+                <td><input type="text" name="coil_energies_l4" class="input-field"></td>
+                <td><input type="text" name="coil_energies_l5" class="input-field"></td>
+                <td><input type="text" name="coil_energies_l6" class="input-field"></td>
+                <td><input type="text" name="coil_energies_c145" class="input-field"></td>
+                <td><input type="text" name="coil_energies_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">b) Coil in De-energies condition</td>
+                <td>No leakage</td>
+                <td><input type="text" name="coil_deenergies_l1" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_l2" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_l3" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_l4" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_l5" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_l6" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_c145" class="input-field"></td>
+                <td><input type="text" name="coil_deenergies_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">9</td>
+                <td>Check the condition of the shunt (Max. broken strands permitted 10%)</td>
+                <td>Good</td>
+                <td><input type="text" name="shunt_l1" class="input-field"></td>
+                <td><input type="text" name="shunt_l2" class="input-field"></td>
+                <td><input type="text" name="shunt_l3" class="input-field"></td>
+                <td><input type="text" name="shunt_l4" class="input-field"></td>
+                <td><input type="text" name="shunt_l5" class="input-field"></td>
+                <td><input type="text" name="shunt_l6" class="input-field"></td>
+                <td><input type="text" name="shunt_c145" class="input-field"></td>
+                <td><input type="text" name="shunt_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">10</td>
+                <td>Check the continuity & discontinuity of Auxiliary interlock</td>
+                <td>Perfect</td>
+                <td><input type="text" name="interlock_l1" class="input-field"></td>
+                <td><input type="text" name="interlock_l2" class="input-field"></td>
+                <td><input type="text" name="interlock_l3" class="input-field"></td>
+                <td><input type="text" name="interlock_l4" class="input-field"></td>
+                <td><input type="text" name="interlock_l5" class="input-field"></td>
+                <td><input type="text" name="interlock_l6" class="input-field"></td>
+                <td><input type="text" name="interlock_c145" class="input-field"></td>
+                <td><input type="text" name="interlock_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">11</td>
+                <td>Check the condition of Arc chute</td>
+                <td>Good</td>
+                <td><input type="text" name="arc_chute_l1" class="input-field"></td>
+                <td><input type="text" name="arc_chute_l2" class="input-field"></td>
+                <td><input type="text" name="arc_chute_l3" class="input-field"></td>
+                <td><input type="text" name="arc_chute_l4" class="input-field"></td>
+                <td><input type="text" name="arc_chute_l5" class="input-field"></td>
+                <td><input type="text" name="arc_chute_l6" class="input-field"></td>
+                <td><input type="text" name="arc_chute_c145" class="input-field"></td>
+                <td><input type="text" name="arc_chute_c118" class="input-field"></td>
+            </tr>
+            <tr>  
+                <td class="sn-column">12</td>
+                <td>Check the insulation resistance with 2.5 KV Megger between</td>
+                <td></td>
+                <td colspan="8"><input type="text" name="insulation_resistance" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">a) Bus bar & Earth with Arc Chute fitted</td>
+                <td>10 M Ω (Min.)</td>
+                <td><input type="text" name="bus_bar_earth_l1" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_l2" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_l3" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_l4" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_l5" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_l6" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_c145" class="input-field"></td>
+                <td><input type="text" name="bus_bar_earth_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">b) Contact to Contact with Arc Chute fitted & contact in open condition</td>
+                <td>10 M Ω (Min.)</td>
+                <td><input type="text" name="contact_to_contact_l1" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_l2" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_l3" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_l4" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_l5" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_l6" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_c145" class="input-field"></td>
+                <td><input type="text" name="contact_to_contact_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">c) Coil & Earth with 500 volt Megger</td>
+                <td>10 M Ω (Min.)</td>
+                <td><input type="text" name="coil_earth_l1" class="input-field"></td>
+                <td><input type="text" name="coil_earth_l2" class="input-field"></td>
+                <td><input type="text" name="coil_earth_l3" class="input-field"></td>
+                <td><input type="text" name="coil_earth_l4" class="input-field"></td>
+                <td><input type="text" name="coil_earth_l5" class="input-field"></td>
+                <td><input type="text" name="coil_earth_l6" class="input-field"></td>
+                <td><input type="text" name="coil_earth_c145" class="input-field"></td>
+                <td><input type="text" name="coil_earth_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">13</td>
+                <td>Check the condition of locking of Arc chute</td>
+                <td>Good</td>
+                <td><input type="text" name="arc_chute_locking_l1" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_l2" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_l3" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_l4" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_l5" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_l6" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_c145" class="input-field"></td>
+                <td><input type="text" name="arc_chute_locking_c118" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">14</td>
+                <td>Endurance Test Duration of 2 Hrs. at the rate of 20 closing per min./ Mech. Operation test 20 times at air pressure 8.5Kg/cm² with 70V</td>
+                <td>Done. <br><span class="small-text"><strong>(Ref: CLW Maintenance Instruction V-III, Page No-8)</strong></span></td>
+                <td><input type="text" name="endurance_test_l1" class="input-field"></td>
+                <td><input type="text" name="endurance_test_l2" class="input-field"></td>
+                <td><input type="text" name="endurance_test_l3" class="input-field"></td>
+                <td><input type="text" name="endurance_test_l4" class="input-field"></td>
+                <td><input type="text" name="endurance_test_l5" class="input-field"></td>
+                <td><input type="text" name="endurance_test_l6" class="input-field"></td>
+                <td><input type="text" name="endurance_test_c145" class="input-field"></td>
+                <td><input type="text" name="endurance_test_c118" class="input-field"></td>
+            </tr>
+    </table>
+
+    <!-- TABLE 6 -->
+    <table class="main-table">
+                <tr>
+                    <th style="width:40px">S.N</th>
+                    <th class="col-test">TEST</th>
+                    <th class="col-standard">STANDARD</th>
+                    <th class="col-actual" colspan="8">ACTUAL</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="left-align">Name of Contactor</td>
+                    <td>S11</td>
+                    <td>S12</td>
+                    <td>S13</td>
+                    <td>S14</td>
+                    <td>S21</td>
+                    <td>S22</td>
+                    <td>S23</td>
+                    <td>S24</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="left-align">Sl.No. of Contactor</td>
+                    <td><input type="text" name="s11_serial" class="input-field"></td>
+                    <td><input type="text" name="s12_serial" class="input-field"></td>
+                    <td><input type="text" name="s13_serial" class="input-field"></td>
+                    <td><input type="text" name="s14_serial" class="input-field"></td>
+                    <td><input type="text" name="s21_serial" class="input-field"></td>
+                    <td><input type="text" name="s22_serial" class="input-field"></td>
+                    <td><input type="text" name="s23_serial" class="input-field"></td>
+                    <td><input type="text" name="s24_serial" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Check the all components for any crack and damage.</td>
+                    <td>No Crack / No damage</td>
+                    <td><input type="text" name="s11_components" class="input-field"></td>
+                    <td><input type="text" name="s12_components" class="input-field"></td>
+                    <td><input type="text" name="s13_components" class="input-field"></td>
+                    <td><input type="text" name="s14_components" class="input-field"></td>
+                    <td><input type="text" name="s21_components" class="input-field"></td>
+                    <td><input type="text" name="s22_components" class="input-field"></td>
+                    <td><input type="text" name="s23_components" class="input-field"></td>
+                    <td><input type="text" name="s24_components" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Check main contact gap</td>
+                    <td>23 to 27mm, (Ref: Camtech Maintenance Instruction Page No-32)</td>
+                    <td><input type="text" name="s11_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s12_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s13_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s14_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s21_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s22_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s23_contact_gap" class="input-field"></td>
+                    <td><input type="text" name="s24_contact_gap" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Main Contact Pressure</td>
+                    <td>4.5 to 8.8Kg (Ref: CLW Maintenance Instruction V-III, Page No-2)</td>
+                    <td><input type="text" name="s11_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s12_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s13_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s14_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s21_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s22_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s23_contact_pressure" class="input-field"></td>
+                    <td><input type="text" name="s24_contact_pressure" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Minimum operating air pressure</td>
+                    <td>5 kg/cm² (Ref: CLW Maintenance Instruction V-III, Page No-7)</td>
+                    <td><input type="text" name="s11_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s12_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s13_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s14_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s21_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s22_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s23_air_pressure" class="input-field"></td>
+                    <td><input type="text" name="s24_air_pressure" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Minimum operating voltage at 9 kg/cm² pressure</td>
+                    <td>68V (Ref: CAMTECH/pg-32)</td>
+                    <td><input type="text" name="s11_voltage" class="input-field"></td>
+                    <td><input type="text" name="s12_voltage" class="input-field"></td>
+                    <td><input type="text" name="s13_voltage" class="input-field"></td>
+                    <td><input type="text" name="s14_voltage" class="input-field"></td>
+                    <td><input type="text" name="s21_voltage" class="input-field"></td>
+                    <td><input type="text" name="s22_voltage" class="input-field"></td>
+                    <td><input type="text" name="s23_voltage" class="input-field"></td>
+                    <td><input type="text" name="s24_voltage" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Lubrication to be used</td>
+                    <td>SAE - 30</td>
+                    <td><input type="text" name="s11_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s12_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s13_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s14_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s21_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s22_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s23_lubrication" class="input-field"></td>
+                    <td><input type="text" name="s24_lubrication" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Check the air leakage</td>
+                    <td></td>
+                    <td colspan="8"><input type="text" name="air_leakage_all" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="left-align">a) Coil in Energized</td>
+                    <td>No leakage</td>
+                    <td><input type="text" name="s11_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s12_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s13_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s14_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s21_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s22_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s23_coil_energized" class="input-field"></td>
+                    <td><input type="text" name="s24_coil_energized" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="left-align">b) Coil in De-energized</td>
+                    <td>No leakage</td>
+                    <td><input type="text" name="s11_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s12_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s13_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s14_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s21_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s22_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s23_coil_deenergized" class="input-field"></td>
+                    <td><input type="text" name="s24_coil_deenergized" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Check the condition of the shunt (Max. broken strands permitted 10%)</td>
+                    <td>Good</td>
+                    <td><input type="text" name="s11_shunt" class="input-field"></td>
+                    <td><input type="text" name="s12_shunt" class="input-field"></td>
+                    <td><input type="text" name="s13_shunt" class="input-field"></td>
+                    <td><input type="text" name="s14_shunt" class="input-field"></td>
+                    <td><input type="text" name="s21_shunt" class="input-field"></td>
+                    <td><input type="text" name="s22_shunt" class="input-field"></td>
+                    <td><input type="text" name="s23_shunt" class="input-field"></td>
+                    <td><input type="text" name="s24_shunt" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Check the condition of Arc chute</td>
+                    <td>Good</td>
+                    <td><input type="text" name="s11_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s12_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s13_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s14_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s21_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s22_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s23_arc_chute" class="input-field"></td>
+                    <td><input type="text" name="s24_arc_chute" class="input-field"></td>
+                </tr>
+    </table>
+
+    <!-- TABLE 7  -->
+     <table class="main-table">
+            <tr  >
+                <td style="width:40px"><p>10</p></td>
+                <td>
+                    <p>Check the insulation resistance with 2.5 KV</p>
+                    <p>Megger between</p>
+                </td>
+                <td><input type="text" name="test_10" class="input-field"></td>
+                <td colspan="8"><input type="text" name="actual_10" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td></td>
+                <td><p style="padding-left: 27pt;text-align: left;">a) Bus bar & Earth with Arc Chute fitted</p></td>
+                <td><p>10 M Ω (Min.)</p></td>
+                <td><input type="text" name="s31_10a" class="input-field"></td>
+                <td><input type="text" name="s32_10a" class="input-field"></td>
+                <td><input type="text" name="s33_10a" class="input-field"></td>
+                <td><input type="text" name="s34_10a" class="input-field"></td>
+                <td><input type="text" name="s41_10a" class="input-field"></td>
+                <td><input type="text" name="s42_10a" class="input-field"></td>
+                <td><input type="text" name="s43_10a" class="input-field"></td>
+                <td><input type="text" name="s44_10a" class="input-field"></td>
+            </tr>
+            <tr style="height:25pt">
+                <td></td>
+                <td><p style="padding-left: 60pt;text-indent: -44pt;text-align: left;">b) Contact to Contact with Arc Chute fitted & contact in open condition</p></td>
+                <td><p>10 M Ω (Min.)</p></td>
+                <td><input type="text" name="s31_10b" class="input-field"></td>
+                <td><input type="text" name="s32_10b" class="input-field"></td>
+                <td><input type="text" name="s33_10b" class="input-field"></td>
+                <td><input type="text" name="s34_10b" class="input-field"></td>
+                <td><input type="text" name="s41_10b" class="input-field"></td>
+                <td><input type="text" name="s42_10b" class="input-field"></td>
+                <td><input type="text" name="s43_10b" class="input-field"></td>
+                <td><input type="text" name="s44_10b" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td></td>
+                <td><p style="padding-left: 33pt;text-align: left;">c) Coil & Earth with 500 volt Megger</p></td>
+                <td><p>10 M Ω (Min.)</p></td>
+                <td><input type="text" name="s31_10c" class="input-field"></td>
+                <td><input type="text" name="s32_10c" class="input-field"></td>
+                <td><input type="text" name="s33_10c" class="input-field"></td>
+                <td><input type="text" name="s34_10c" class="input-field"></td>
+                <td><input type="text" name="s41_10c" class="input-field"></td>
+                <td><input type="text" name="s42_10c" class="input-field"></td>
+                <td><input type="text" name="s43_10c" class="input-field"></td>
+                <td><input type="text" name="s44_10c" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td class="sn-column"><p>11</p></td>
+                <td><p>Check the condition of locking of Arc chute</p></td>
+                <td><p>Good</p></td>
+                <td><input type="text" name="s31_11" class="input-field"></td>
+                <td><input type="text" name="s32_11" class="input-field"></td>
+                <td><input type="text" name="s33_11" class="input-field"></td>
+                <td><input type="text" name="s34_11" class="input-field"></td>
+                <td><input type="text" name="s41_11" class="input-field"></td>
+                <td><input type="text" name="s42_11" class="input-field"></td>
+                <td><input type="text" name="s43_11" class="input-field"></td>
+                <td><input type="text" name="s44_11" class="input-field"></td>
+            </tr>
+            <tr style="height:38pt">
+                <td class="sn-column"><p>12</p></td>
+                <td><p>Magnet valve coil resistance</p></td>
+                <td>
+                    <p>1350±8% at 20 C̊ <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No- 2)</span></p>
+                </td>
+                <td><input type="text" name="s31_12" class="input-field"></td>
+                <td><input type="text" name="s32_12" class="input-field"></td>
+                <td><input type="text" name="s33_12" class="input-field"></td>
+                <td><input type="text" name="s34_12" class="input-field"></td>
+                <td><input type="text" name="s41_12" class="input-field"></td>
+                <td><input type="text" name="s42_12" class="input-field"></td>
+                <td><input type="text" name="s43_12" class="input-field"></td>
+                <td><input type="text" name="s44_12" class="input-field"></td>
+            </tr>
+            <tr style="height:37pt">
+                <td class="sn-column"><p>13</p></td>
+                <td><p>Endurance Test Duration of 2 Hrs. at the rate of 20 closing per min./ Mech. Operation test 20 times at air pressure 8.5Kg/cm² with 70V</p></td>
+                <td><p>DONE, <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-8)</span></p></td>
+                <td><input type="text" name="s31_13" class="input-field"></td>
+                <td><input type="text" name="s32_13" class="input-field"></td>
+                <td><input type="text" name="s33_13" class="input-field"></td>
+                <td><input type="text" name="s34_13" class="input-field"></td>
+                <td><input type="text" name="s41_13" class="input-field"></td>
+                <td><input type="text" name="s42_13" class="input-field"></td>
+                <td><input type="text" name="s43_13" class="input-field"></td>
+                <td><input type="text" name="s44_13" class="input-field"></td>
+            </tr>
+            <tr style="height:13pt">
+                <td class="section-title">S.N</td>
+                <td class="section-title">TEST</td>
+                <td class="section-title">STANDARD</td>
+                <td colspan="8" class="section-title">ACTUAL</td>
+            </tr>
+            <tr style="height:15pt">
+                <td></td>
+                <td colspan="2"><p style="padding-left: 169pt;text-align: left;">Name of Contactor</p></td>
+                <td class="section-title">S31</td>
+                <td class="section-title">S32</td>
+                <td class="section-title">S33</td>
+                <td class="section-title">S34</td>
+                <td class="section-title">S41</td>
+                <td class="section-title">S42</td>
+                <td class="section-title">S43</td>
+                <td class="section-title">S44</td>
+            </tr>
+            <tr style="height:15pt">
+                <td></td>
+                <td colspan="2"><p style="padding-left: 169pt;text-align: left;">Sl.No. of Contactor</p></td>
+                <td><input type="text" name="s31_sl_no" class="input-field"></td>
+                <td><input type="text" name="s32_sl_no" class="input-field"></td>
+                <td><input type="text" name="s33_sl_no" class="input-field"></td>
+                <td><input type="text" name="s34_sl_no" class="input-field"></td>
+                <td><input type="text" name="s41_sl_no" class="input-field"></td>
+                <td><input type="text" name="s42_sl_no" class="input-field"></td>
+                <td><input type="text" name="s43_sl_no" class="input-field"></td>
+                <td><input type="text" name="s44_sl_no" class="input-field"></td>
+            </tr>
+            <tr style="height:25pt">
+                <td class="sn-column"><p>1</p></td>
+                <td><p>Check the all components for any crack and damage.</p></td>
+                <td><p>No Crack / No damage</p></td>
+                <td><input type="text" name="s31_1" class="input-field"></td>
+                <td><input type="text" name="s32_1" class="input-field"></td>
+                <td><input type="text" name="s33_1" class="input-field"></td>
+                <td><input type="text" name="s34_1" class="input-field"></td>
+                <td><input type="text" name="s41_1" class="input-field"></td>
+                <td><input type="text" name="s42_1" class="input-field"></td>
+                <td><input type="text" name="s43_1" class="input-field"></td>
+                <td><input type="text" name="s44_1" class="input-field"></td>
+            </tr>
+            <tr style="height:35pt">
+                <td class="sn-column"><p>2</p></td>
+                <td><p>Check main contact gap</p></td>
+                <td>
+                    <p>23 to 27mm, <span class="small-text">( Ref: Camtech Maintenance Instruction Page No- 32)</span></p>
+                </td>
+                <td><input type="text" name="s31_2" class="input-field"></td>
+                <td><input type="text" name="s32_2" class="input-field"></td>
+                <td><input type="text" name="s33_2" class="input-field"></td>
+                <td><input type="text" name="s34_2" class="input-field"></td>
+                <td><input type="text" name="s41_2" class="input-field"></td>
+                <td><input type="text" name="s42_2" class="input-field"></td>
+                <td><input type="text" name="s43_2" class="input-field"></td>
+                <td><input type="text" name="s44_2" class="input-field"></td>
+            </tr>
+            <tr style="height:35pt">
+                <td class="sn-column"><p>3</p></td>
+                <td><p>Main Contact Pressure</p></td>
+                <td>
+                    <p>4.5 to 8.8Kg <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-2)</span></p>
+                </td>
+                <td><input type="text" name="s31_3" class="input-field"></td>
+                <td><input type="text" name="s32_3" class="input-field"></td>
+                <td><input type="text" name="s33_3" class="input-field"></td>
+                <td><input type="text" name="s34_3" class="input-field"></td>
+                <td><input type="text" name="s41_3" class="input-field"></td>
+                <td><input type="text" name="s42_3" class="input-field"></td>
+                <td><input type="text" name="s43_3" class="input-field"></td>
+                <td><input type="text" name="s44_3" class="input-field"></td>
+            </tr>
+            <tr style="height:24pt">
+                <td class="sn-column"><p>4</p></td>
+                <td><p>Minimum operating air pressure</p></td>
+                <td>
+                    <p>5 kg/cm² <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-7)</span></p>
+                </td>
+                <td><input type="text" name="s31_4" class="input-field"></td>
+                <td><input type="text" name="s32_4" class="input-field"></td>
+                <td><input type="text" name="s33_4" class="input-field"></td>
+                <td><input type="text" name="s34_4" class="input-field"></td>
+                <td><input type="text" name="s41_4" class="input-field"></td>
+                <td><input type="text" name="s42_4" class="input-field"></td>
+                <td><input type="text" name="s43_4" class="input-field"></td>
+                <td><input type="text" name="s44_4" class="input-field"></td>
+            </tr>
+            <tr style="height:25pt">
+                <td class="sn-column"><p>5</p></td>
+                <td>
+                    <p>Minimum operating voltage at 9 kg./cm2 pressure</p>
+                </td>
+                <td><p>68V <span class="small-text">(Ref: CAMTECH/pg-32)</span></p></td>
+                <td><input type="text" name="s31_5" class="input-field"></td>
+                <td><input type="text" name="s32_5" class="input-field"></td>
+                <td><input type="text" name="s33_5" class="input-field"></td>
+                <td><input type="text" name="s34_5" class="input-field"></td>
+                <td><input type="text" name="s41_5" class="input-field"></td>
+                <td><input type="text" name="s42_5" class="input-field"></td>
+                <td><input type="text" name="s43_5" class="input-field"></td>
+                <td><input type="text" name="s44_5" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td class="sn-column"><p>6</p></td>
+                <td><p>Lubrication to be use</p></td>
+                <td><p>SAE - 30</p></td>
+                <td><input type="text" name="s31_6" class="input-field"></td>
+                <td><input type="text" name="s32_6" class="input-field"></td>
+                <td><input type="text" name="s33_6" class="input-field"></td>
+                <td><input type="text" name="s34_6" class="input-field"></td>
+                <td><input type="text" name="s41_6" class="input-field"></td>
+                <td><input type="text" name="s42_6" class="input-field"></td>
+                <td><input type="text" name="s43_6" class="input-field"></td>
+                <td><input type="text" name="s44_6" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td class="sn-column"><p>7</p></td>
+                <td><p>Check the air leakage</p></td>
+                <td></td>
+                <td colspan="8"> </td>
+            </tr>
+            <tr style="height:14pt">
+                <td></td>
+                <td><p style="padding-left: 71pt;text-align: left;">a) Coil in Energies</p></td>
+                <td><p>No leakage</p></td>
+                <td><input type="text" name="s31_7a" class="input-field"></td>
+                <td><input type="text" name="s32_7a" class="input-field"></td>
+                <td><input type="text" name="s33_7a" class="input-field"></td>
+                <td><input type="text" name="s34_7a" class="input-field"></td>
+                <td><input type="text" name="s41_7a" class="input-field"></td>
+                <td><input type="text" name="s42_7a" class="input-field"></td>
+                <td><input type="text" name="s43_7a" class="input-field"></td>
+                <td><input type="text" name="s44_7a" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td></td>
+                <td><p style="padding-left: 64pt;text-align: left;">b) Coil in De-energies</p></td>
+                <td><p>No leakage</p></td>
+                <td><input type="text" name="s31_7b" class="input-field"></td>
+                <td><input type="text" name="s32_7b" class="input-field"></td>
+                <td><input type="text" name="s33_7b" class="input-field"></td>
+                <td><input type="text" name="s34_7b" class="input-field"></td>
+                <td><input type="text" name="s41_7b" class="input-field"></td>
+                <td><input type="text" name="s42_7b" class="input-field"></td>
+                <td><input type="text" name="s43_7b" class="input-field"></td>
+                <td><input type="text" name="s44_7b" class="input-field"></td>
+            </tr>
+            <tr style="height:25pt">
+                <td class="sn-column"><p>8</p></td>
+                <td>
+                    <p>Check the condition of the shunt</p>
+                    <p>(Max. broken strands permitted10%)</p>
+                </td>
+                <td><p>Good</p></td>
+                <td><input type="text" name="s31_8" class="input-field"></td>
+                <td><input type="text" name="s32_8" class="input-field"></td>
+                <td><input type="text" name="s33_8" class="input-field"></td>
+                <td><input type="text" name="s34_8" class="input-field"></td>
+                <td><input type="text" name="s41_8" class="input-field"></td>
+                <td><input type="text" name="s42_8" class="input-field"></td>
+                <td><input type="text" name="s43_8" class="input-field"></td>
+                <td><input type="text" name="s44_8" class="input-field"></td>
+            </tr>
+            <tr style="height:14pt">
+                <td class="sn-column"><p>9</p></td>
+                <td><p>Check the condition of Arc chute</p></td>
+                <td><p>Good</p></td>
+                <td><input type="text" name="s31_9" class="input-field"></td>
+                <td><input type="text" name="s32_9" class="input-field"></td>
+                <td><input type="text" name="s33_9" class="input-field"></td>
+                <td><input type="text" name="s34_9" class="input-field"></td>
+                <td><input type="text" name="s41_9" class="input-field"></td>
+                <td><input type="text" name="s42_9" class="input-field"></td>
+                <td><input type="text" name="s43_9" class="input-field"></td>
+                <td><input type="text" name="s44_9" class="input-field"></td>
+            </tr>
+     </table>
+
+    <!-- TABLE 8  -->
+
+     <!-- <table class="main-table">
+            <tr>
+                <td style="width:40px">10</td>
+                <td class="cell-center">
+                    <p>Check the insulation resistance with 2.5 KV Megger between</p>
+                </td>
+                <td> </td>
+                <td colspan="8"><input type="text" name="input_1_4" class="input-field"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>a) Bus bar & Earth with Arc Chute fitted</td>
+                <td class="cell-center">10 M Ω (Min.)</td>
+                <td><input type="text" name="input_2_4" class="input-field"></td>
+                <td><input type="text" name="input_2_5" class="input-field"></td>
+                <td><input type="text" name="input_2_6" class="input-field"></td>
+                <td><input type="text" name="input_2_7" class="input-field"></td>
+                <td><input type="text" name="input_2_8" class="input-field"></td>
+                <td><input type="text" name="input_2_9" class="input-field"></td>
+                <td><input type="text" name="input_2_10" class="input-field"></td>
+                <td><input type="text" name="input_2_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>b) Contact to Contact with Arc Chute fitted & contact in open condition</td>
+                <td class="cell-center">10 M Ω (Min.)</td>
+                <td><input type="text" name="input_3_4" class="input-field"></td>
+                <td><input type="text" name="input_3_5" class="input-field"></td>
+                <td><input type="text" name="input_3_6" class="input-field"></td>
+                <td><input type="text" name="input_3_7" class="input-field"></td>
+                <td><input type="text" name="input_3_8" class="input-field"></td>
+                <td><input type="text" name="input_3_9" class="input-field"></td>
+                <td><input type="text" name="input_3_10" class="input-field"></td>
+                <td><input type="text" name="input_3_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>c) Coil & Earth with 500 volt Megger</td>
+                <td class="cell-center">10 M Ω (Min.)</td>
+                <td><input type="text" name="input_4_4" class="input-field"></td>
+                <td><input type="text" name="input_4_5" class="input-field"></td>
+                <td><input type="text" name="input_4_6" class="input-field"></td>
+                <td><input type="text" name="input_4_7" class="input-field"></td>
+                <td><input type="text" name="input_4_8" class="input-field"></td>
+                <td><input type="text" name="input_4_9" class="input-field"></td>
+                <td><input type="text" name="input_4_10" class="input-field"></td>
+                <td><input type="text" name="input_4_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="cell-center">11</td>
+                <td class="cell-center">Check the condition of locking of Arc chute</td>
+                <td class="cell-center">Good</td>
+                <td><input type="text" name="input_5_4" class="input-field"></td>
+                <td><input type="text" name="input_5_5" class="input-field"></td>
+                <td><input type="text" name="input_5_6" class="input-field"></td>
+                <td><input type="text" name="input_5_7" class="input-field"></td>
+                <td><input type="text" name="input_5_8" class="input-field"></td>
+                <td><input type="text" name="input_5_9" class="input-field"></td>
+                <td><input type="text" name="input_5_10" class="input-field"></td>
+                <td><input type="text" name="input_5_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="cell-center">12</td>
+                <td class="cell-center">Magnet valve coil resistance</td>
+                <td class="cell-center">
+                    <p>1350±8% at 20 C̊ <span>(Ref: CLW Maintenance Instruction V-III, Page No- 2)</span></p>
+                </td>
+                <td><input type="text" name="input_6_4" class="input-field"></td>
+                <td><input type="text" name="input_6_5" class="input-field"></td>
+                <td><input type="text" name="input_6_6" class="input-field"></td>
+                <td><input type="text" name="input_6_7" class="input-field"></td>
+                <td><input type="text" name="input_6_8" class="input-field"></td>
+                <td><input type="text" name="input_6_9" class="input-field"></td>
+                <td><input type="text" name="input_6_10" class="input-field"></td>
+                <td><input type="text" name="input_6_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="cell-center">13</td>
+                <td class="cell-center">Endurance Test Duration of 2 Hrs. at the rate of 20 closing per min./ Mech. Operation test 20 times at air pressure 8.5Kg/cm² with 70V</td>
+                <td>
+                    <p>DONE, <span>(Ref: CLW Maintenance Instruction V-III, Page No-8)</span></p>
+                </td>
+                <td><input type="text" name="input_7_4" class="input-field"></td>
+                <td><input type="text" name="input_7_5" class="input-field"></td>
+                <td><input type="text" name="input_7_6" class="input-field"></td>
+                <td><input type="text" name="input_7_7" class="input-field"></td>
+                <td><input type="text" name="input_7_8" class="input-field"></td>
+                <td><input type="text" name="input_7_9" class="input-field"></td>
+                <td><input type="text" name="input_7_10" class="input-field"></td>
+                <td><input type="text" name="input_7_11" class="input-field"></td>
+            </tr>
+        </table> -->
+
+    <!-- TABLE 9  -->
+
+    <!-- <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="sn-column">S.N</th>
+                    <th class="test-column">TEST</th>
+                    <th class="standard-column">STANDARD</th>
+                    <th colspan="8" >ACTUAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width:40px">1</td>
+                    <td colspan="2" style="text-align: center; font-weight: bold;">Name of Contactor</td>
+                    <td >S51</td>
+                    <td >S52</td>
+                    <td >S53</td>
+                    <td >S54</td>
+                    <td >S61</td>
+                    <td >S62</td>
+                    <td >S63</td>
+                    <td >S64</td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td colspan="2" style="text-align: center; font-weight: bold;">Sl.No. of Contactor</td>
+                    <td ><input type="text" name="s51_slno" class="input-field"></td>
+                    <td ><input type="text" name="s52_slno" class="input-field"></td>
+                    <td ><input type="text" name="s53_slno" class="input-field"></td>
+                    <td ><input type="text" name="s54_slno" class="input-field"></td>
+                    <td ><input type="text" name="s61_slno" class="input-field"></td>
+                    <td ><input type="text" name="s62_slno" class="input-field"></td>
+                    <td ><input type="text" name="s63_slno" class="input-field"></td>
+                    <td ><input type="text" name="s64_slno" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td class="test-column">Check the all components for any crack and damage.</td>
+                    <td class="standard-column">No Crack / No Damage</td>
+                    <td ><input type="text" name="s51_check1" class="input-field"></td>
+                    <td ><input type="text" name="s52_check1" class="input-field"></td>
+                    <td ><input type="text" name="s53_check1" class="input-field"></td>
+                    <td ><input type="text" name="s54_check1" class="input-field"></td>
+                    <td ><input type="text" name="s61_check1" class="input-field"></td>
+                    <td ><input type="text" name="s62_check1" class="input-field"></td>
+                    <td ><input type="text" name="s63_check1" class="input-field"></td>
+                    <td ><input type="text" name="s64_check1" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td class="test-column">Check main contact gap</td>
+                    <td class="standard-column">23mm to 27mm<br><span class="small-text">(Ref: Camtech Maintenance Instruction Page No-32)</span></td>
+                    <td ><input type="text" name="s51_check2" class="input-field"></td>
+                    <td ><input type="text" name="s52_check2" class="input-field"></td>
+                    <td ><input type="text" name="s53_check2" class="input-field"></td>
+                    <td ><input type="text" name="s54_check2" class="input-field"></td>
+                    <td ><input type="text" name="s61_check2" class="input-field"></td>
+                    <td ><input type="text" name="s62_check2" class="input-field"></td>
+                    <td ><input type="text" name="s63_check2" class="input-field"></td>
+                    <td ><input type="text" name="s64_check2" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td class="test-column">Main Contact Pressure</td>
+                    <td class="standard-column">4.5 to 8.8Kg<br><span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-2)</span></td>
+                    <td ><input type="text" name="s51_check3" class="input-field"></td>
+                    <td ><input type="text" name="s52_check3" class="input-field"></td>
+                    <td ><input type="text" name="s53_check3" class="input-field"></td>
+                    <td ><input type="text" name="s54_check3" class="input-field"></td>
+                    <td ><input type="text" name="s61_check3" class="input-field"></td>
+                    <td ><input type="text" name="s62_check3" class="input-field"></td>
+                    <td ><input type="text" name="s63_check3" class="input-field"></td>
+                    <td ><input type="text" name="s64_check3" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td class="test-column">Minimum operating air pressure</td>
+                    <td class="standard-column">5 kg/cm²<br><span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-7)</span></td>
+                    <td ><input type="text" name="s51_check4" class="input-field"></td>
+                    <td ><input type="text" name="s52_check4" class="input-field"></td>
+                    <td ><input type="text" name="s53_check4" class="input-field"></td>
+                    <td ><input type="text" name="s54_check4" class="input-field"></td>
+                    <td ><input type="text" name="s61_check4" class="input-field"></td>
+                    <td ><input type="text" name="s62_check4" class="input-field"></td>
+                    <td ><input type="text" name="s63_check4" class="input-field"></td>
+                    <td ><input type="text" name="s64_check4" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td class="test-column">Minimum operating voltage at 9 kg/cm² pressure</td>
+                    <td class="standard-column">68V<br><span class="small-text">(Ref: CAMTECH/pg-32)</span></td>
+                    <td ><input type="text" name="s51_check5" class="input-field"></td>
+                    <td ><input type="text" name="s52_check5" class="input-field"></td>
+                    <td ><input type="text" name="s53_check5" class="input-field"></td>
+                    <td ><input type="text" name="s54_check5" class="input-field"></td>
+                    <td ><input type="text" name="s61_check5" class="input-field"></td>
+                    <td ><input type="text" name="s62_check5" class="input-field"></td>
+                    <td ><input type="text" name="s63_check5" class="input-field"></td>
+                    <td ><input type="text" name="s64_check5" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td class="test-column">Lubrication to be used</td>
+                    <td class="standard-column">SAE - 30</td>
+                    <td ><input type="text" name="s51_check6" class="input-field"></td>
+                    <td ><input type="text" name="s52_check6" class="input-field"></td>
+                    <td ><input type="text" name="s53_check6" class="input-field"></td>
+                    <td ><input type="text" name="s54_check6" class="input-field"></td>
+                    <td ><input type="text" name="s61_check6" class="input-field"></td>
+                    <td ><input type="text" name="s62_check6" class="input-field"></td>
+                    <td ><input type="text" name="s63_check6" class="input-field"></td>
+                    <td ><input type="text" name="s64_check6" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">9</td>
+                    <td class="test-column">Check the air leakage</td>
+                    <td class="standard-column"> </td>
+                    <td colspan="8" > </td>
+                </tr>
+                <tr>
+                    <td class="sn-column">a)</td>
+                    <td class="sub-item">Coil in Energies</td>
+                    <td class="standard-column">No leakage</td>
+                    <td ><input type="text" name="s51_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s52_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s53_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s54_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s61_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s62_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s63_check7a" class="input-field"></td>
+                    <td ><input type="text" name="s64_check7a" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">b)</td>
+                    <td class="sub-item">Coil in De-energies</td>
+                    <td class="standard-column">No leakage</td>
+                    <td ><input type="text" name="s51_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s52_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s53_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s54_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s61_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s62_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s63_check7b" class="input-field"></td>
+                    <td ><input type="text" name="s64_check7b" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">10</td>
+                    <td class="test-column">Check the condition of the shunt (Max. broken strands permitted 10%)</td>
+                    <td class="standard-column">Good</td>
+                    <td ><input type="text" name="s51_check8" class="input-field"></td>
+                    <td ><input type="text" name="s52_check8" class="input-field"></td>
+                    <td ><input type="text" name="s53_check8" class="input-field"></td>
+                    <td ><input type="text" name="s54_check8" class="input-field"></td>
+                    <td ><input type="text" name="s61_check8" class="input-field"></td>
+                    <td ><input type="text" name="s62_check8" class="input-field"></td>
+                    <td ><input type="text" name="s63_check8" class="input-field"></td>
+                    <td ><input type="text" name="s64_check8" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">11</td>
+                    <td class="test-column">Check the condition of Arc chute</td>
+                    <td class="standard-column">Good</td>
+                    <td ><input type="text" name="s51_check9" class="input-field"></td>
+                    <td ><input type="text" name="s52_check9" class="input-field"></td>
+                    <td ><input type="text" name="s53_check9" class="input-field"></td>
+                    <td ><input type="text" name="s54_check9" class="input-field"></td>
+                    <td ><input type="text" name="s61_check9" class="input-field"></td>
+                    <td ><input type="text" name="s62_check9" class="input-field"></td>
+                    <td ><input type="text" name="s63_check9" class="input-field"></td>
+                    <td ><input type="text" name="s64_check9" class="input-field"></td>
+                </tr>
+            </tbody>
+     </table> -->
+
+  <!-- TABLE 10  -->
+
+   
+      <table class="main-table">
+            <tr>
+                <td class="sn-column">10</td>
+                <td>
+                    Check the insulation resistance with 2.5 KV<br>
+                    Megger between
+                </td>
+                <td><input type="text" name="input_1_3" class="input-field"></td>
+                <td colspan="8"><input type="text" name="input_1_4" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="left-align indent-23">a) Bus bar & Earth with Arc Chute fitted</td>
+                <td class="center-align">10 M Ω (Min.)</td>
+                <td><input type="text" name="input_2_4" class="input-field"></td>
+                <td><input type="text" name="input_2_5" class="input-field"></td>
+                <td><input type="text" name="input_2_6" class="input-field"></td>
+                <td><input type="text" name="input_2_7" class="input-field"></td>
+                <td><input type="text" name="input_2_8" class="input-field"></td>
+                <td><input type="text" name="input_2_9" class="input-field"></td>
+                <td><input type="text" name="input_2_10" class="input-field"></td>
+                <td><input type="text" name="input_2_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="left-align indent-57">b) Contact to Contact with Arc Chute fitted & contact in open condition</td>
+                <td class="center-align">10 M Ω (Min.)</td>
+                <td><input type="text" name="input_3_4" class="input-field"></td>
+                <td><input type="text" name="input_3_5" class="input-field"></td>
+                <td><input type="text" name="input_3_6" class="input-field"></td>
+                <td><input type="text" name="input_3_7" class="input-field"></td>
+                <td><input type="text" name="input_3_8" class="input-field"></td>
+                <td><input type="text" name="input_3_9" class="input-field"></td>
+                <td><input type="text" name="input_3_10" class="input-field"></td>
+                <td><input type="text" name="input_3_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="left-align indent-30">c) Coil & Earth with 500 volt Megger</td>
+                <td class="center-align">10 M Ω (Min.)</td>
+                <td><input type="text" name="input_4_4" class="input-field"></td>
+                <td><input type="text" name="input_4_5" class="input-field"></td>
+                <td><input type="text" name="input_4_6" class="input-field"></td>
+                <td><input type="text" name="input_4_7" class="input-field"></td>
+                <td><input type="text" name="input_4_8" class="input-field"></td>
+                <td><input type="text" name="input_4_9" class="input-field"></td>
+                <td><input type="text" name="input_4_10" class="input-field"></td>
+                <td><input type="text" name="input_4_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">11</td>
+                <td>Check the condition of locking of Arc chute</td>
+                <td class="center-align">Good</td>
+                <td><input type="text" name="input_5_4" class="input-field"></td>
+                <td><input type="text" name="input_5_5" class="input-field"></td>
+                <td><input type="text" name="input_5_6" class="input-field"></td>
+                <td><input type="text" name="input_5_7" class="input-field"></td>
+                <td><input type="text" name="input_5_8" class="input-field"></td>
+                <td><input type="text" name="input_5_9" class="input-field"></td>
+                <td><input type="text" name="input_5_10" class="input-field"></td>
+                <td><input type="text" name="input_5_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">12</td>
+                <td>Magnet valve coil resistance</td>
+                <td class="center-align">
+                    1350±8% at 20°C<br>
+                    <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No- 2)</span>
+                </td>
+                <td><input type="text" name="input_6_4" class="input-field"></td>
+                <td><input type="text" name="input_6_5" class="input-field"></td>
+                <td><input type="text" name="input_6_6" class="input-field"></td>
+                <td><input type="text" name="input_6_7" class="input-field"></td>
+                <td><input type="text" name="input_6_8" class="input-field"></td>
+                <td><input type="text" name="input_6_9" class="input-field"></td>
+                <td><input type="text" name="input_6_10" class="input-field"></td>
+                <td><input type="text" name="input_6_11" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">13</td>
+                <td>Endurance Test Duration of 2 Hrs. at the rate of 20 closing per min./ Mech. Operation test 20 times at air pressure 8.5Kg/cm² with 70V</td>
+                <td class="left-align">
+                    DONE,<br>
+                    <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-8)</span>
+                </td>
+                <td><input type="text" name="input_7_4" class="input-field"></td>
+                <td><input type="text" name="input_7_5" class="input-field"></td>
+                <td><input type="text" name="input_7_6" class="input-field"></td>
+                <td><input type="text" name="input_7_7" class="input-field"></td>
+                <td><input type="text" name="input_7_8" class="input-field"></td>
+                <td><input type="text" name="input_7_9" class="input-field"></td>
+                <td><input type="text" name="input_7_10" class="input-field"></td>
+                <td><input type="text" name="input_7_11" class="input-field"></td>
+            </tr>
+        </table>
+
+
+
+  <!-- TABLE 11  -->
+
+  
+        <!-- <table class="main-table">
+            <tr>
+                <td style="width: 40px;">10</td>
+                <td >
+                    Check the insulation resistance with 2.5 KV<br>
+                    Megger between
+                </td>
+                <td class="reference-column"></td>
+                <td ><input type="text" name="actual_1_1" class="input-field"></td>
+                <td ><input type="text" name="actual_1_2" class="input-field"></td>
+                <td ><input type="text" name="actual_1_3" class="input-field"></td>
+                <td ><input type="text" name="actual_1_4" class="input-field"></td>
+                <td ><input type="text" name="actual_1_5" class="input-field"></td>
+                <td ><input type="text" name="actual_1_6" class="input-field"></td>
+                <td ><input type="text" name="actual_1_7" class="input-field"></td>
+                <td ><input type="text" name="actual_1_8" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="test-column sub-item">a) Bus bar & Earth with Arc Chute fitted</td>
+                <td class="reference-column" style="text-align: center; padding: 5px;">10 M Ω (Min.)</td>
+                <td ><input type="text" name="actual_2_1" class="input-field"></td>
+                <td ><input type="text" name="actual_2_2" class="input-field"></td>
+                <td ><input type="text" name="actual_2_3" class="input-field"></td>
+                <td ><input type="text" name="actual_2_4" class="input-field"></td>
+                <td ><input type="text" name="actual_2_5" class="input-field"></td>
+                <td ><input type="text" name="actual_2_6" class="input-field"></td>
+                <td ><input type="text" name="actual_2_7" class="input-field"></td>
+                <td ><input type="text" name="actual_2_8" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="test-column sub-item">b) Contact to Contact with Arc Chute fitted & contact in open condition</td>
+                <td class="reference-column" style="text-align: center; padding: 5px;">10 M Ω (Min.)</td>
+                <td ><input type="text" name="actual_3_1" class="input-field"></td>
+                <td ><input type="text" name="actual_3_2" class="input-field"></td>
+                <td ><input type="text" name="actual_3_3" class="input-field"></td>
+                <td ><input type="text" name="actual_3_4" class="input-field"></td>
+                <td ><input type="text" name="actual_3_5" class="input-field"></td>
+                <td ><input type="text" name="actual_3_6" class="input-field"></td>
+                <td ><input type="text" name="actual_3_7" class="input-field"></td>
+                <td ><input type="text" name="actual_3_8" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="test-column sub-item">c) Coil & Earth with 500 volt Megger</td>
+                <td class="reference-column" style="text-align: center; padding: 5px;">10 M Ω (Min.)</td>
+                <td ><input type="text" name="actual_4_1" class="input-field"></td>
+                <td ><input type="text" name="actual_4_2" class="input-field"></td>
+                <td ><input type="text" name="actual_4_3" class="input-field"></td>
+                <td ><input type="text" name="actual_4_4" class="input-field"></td>
+                <td ><input type="text" name="actual_4_5" class="input-field"></td>
+                <td ><input type="text" name="actual_4_6" class="input-field"></td>
+                <td ><input type="text" name="actual_4_7" class="input-field"></td>
+                <td ><input type="text" name="actual_4_8" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">11</td>
+                <td class="test-column">Check the condition of locking of Arc chute</td>
+                <td class="reference-column" style="text-align: center; padding: 5px; font-weight: bold;">Good</td>
+                <td ><input type="text" name="actual_5_1" class="input-field"></td>
+                <td ><input type="text" name="actual_5_2" class="input-field"></td>
+                <td ><input type="text" name="actual_5_3" class="input-field"></td>
+                <td ><input type="text" name="actual_5_4" class="input-field"></td>
+                <td ><input type="text" name="actual_5_5" class="input-field"></td>
+                <td ><input type="text" name="actual_5_6" class="input-field"></td>
+                <td ><input type="text" name="actual_5_7" class="input-field"></td>
+                <td ><input type="text" name="actual_5_8" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">12</td>
+                <td class="test-column">Magnet valve coil resistance</td>
+                <td class="reference-column" style="text-align: center; padding: 5px;">
+                    1350±8% at 20°C<br>
+                    <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No- 2)</span>
+                </td>
+                <td ><input type="text" name="actual_6_1" class="input-field"></td>
+                <td ><input type="text" name="actual_6_2" class="input-field"></td>
+                <td ><input type="text" name="actual_6_3" class="input-field"></td>
+                <td ><input type="text" name="actual_6_4" class="input-field"></td>
+                <td ><input type="text" name="actual_6_5" class="input-field"></td>
+                <td ><input type="text" name="actual_6_6" class="input-field"></td>
+                <td ><input type="text" name="actual_6_7" class="input-field"></td>
+                <td ><input type="text" name="actual_6_8" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">13</td>
+                <td class="test-column">Endurance Test Duration of 2 Hrs. at the rate of 20 closing per min./ Mech. Operation test 20 times at air pressure 8.5Kg/cm² with 70V</td>
+                <td class="reference-column" style="text-align: left; padding: 5px; line-height: 1.3; padding-left: 25px;">
+                    DONE<br>
+                    <span class="small-text">(Ref: CLW Maintenance Instruction V-III, Page No-8)</span>
+                </td>
+                <td ><input type="text" name="actual_7_1" class="input-field"></td>
+                <td ><input type="text" name="actual_7_2" class="input-field"></td>
+                <td ><input type="text" name="actual_7_3" class="input-field"></td>
+                <td ><input type="text" name="actual_7_4" class="input-field"></td>
+                <td ><input type="text" name="actual_7_5" class="input-field"></td>
+                <td ><input type="text" name="actual_7_6" class="input-field"></td>
+                <td ><input type="text" name="actual_7_7" class="input-field"></td>
+                <td ><input type="text" name="actual_7_8" class="input-field"></td>
+            </tr>
+        </table> -->
+
+  <!-- TABLE 12  -->
+
+  <table class="main-table">
+            <tr>
+                <td  style="width: 40px;">SL No</td>
+                <td  >List of item of <span class="bold">CTF</span> and <span class="bold">Reverser</span> to be replaced 100% during POH schedule</td>
+                <td  >Reference</td>
+                <td  >Standard</td>
+                <td  >Status</td>
+            </tr>
+            <tr>
+                <td class="sl-no"></td>
+                <td class="description">Description</td>
+                <td class="reference">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="standard"></td>
+                <td class="status">CTF1<input type="text" name="ctf1" class="input-field"></td>
+                <td class="status">CTF2<input type="text" name="ctf2" class="input-field"></td>
+                <td class="status">CTF3<input type="text" name="ctf3" class="input-field"></td>
+                <td class="status">Reverser (J1)<input type="text" name="reverser_j1" class="input-field"></td>
+                <td class="status">Reverser (J2)<input type="text" name="reverser_j2" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sl-no">1</td>
+                <td class="description">EP Valve (NC-4)</td>
+                <td class="reference">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="standard">to be replaced</td>
+                <td class="status"><input type="text" name="ep_valve_ctf1" class="input-field"></td>
+                <td class="status"><input type="text" name="ep_valve_ctf2" class="input-field"></td>
+                <td class="status"><input type="text" name="ep_valve_ctf3" class="input-field"></td>
+                <td class="status"><input type="text" name="ep_valve_j1" class="input-field"></td>
+                <td class="status"><input type="text" name="ep_valve_j2" class="input-field"></td>
+            </tr>
+            <!-- <tr>
+                <td class="spacer" colspan="9"></td>
+            </tr> -->
+            <tr>
+                <td class="sl-no">2</td>
+                <td class="description">Dowel sleeve</td>
+                <td class="reference">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="standard">to be replaced</td>
+                <td class="status"><input type="text" name="dowel_sleeve_ctf1" class="input-field"></td>
+                <td class="status"><input type="text" name="dowel_sleeve_ctf2" class="input-field"></td>
+                <td class="status"><input type="text" name="dowel_sleeve_ctf3" class="input-field"></td>
+                <td class="status"><input type="text" name="dowel_sleeve_j1" class="input-field"></td>
+                <td class="status"><input type="text" name="dowel_sleeve_j2" class="input-field"></td>
+            </tr>
+            <!-- <tr>
+                <td class="spacer" colspan="9"></td>
+            </tr> -->
+            <tr>
+                <td class="sl-no">3</td>
+                <td class="description">Piston bucket</td>
+                <td class="reference">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="standard">to be replaced</td>
+                <td class="status"><input type="text" name="piston_bucket_ctf1" class="input-field"></td>
+                <td class="status"><input type="text" name="piston_bucket_ctf2" class="input-field"></td>
+                <td class="status"><input type="text" name="piston_bucket_ctf3" class="input-field"></td>
+                <td class="status"><input type="text" name="piston_bucket_j1" class="input-field"></td>
+                <td class="status"><input type="text" name="piston_bucket_j2" class="input-field"></td>
+            </tr>
+            <!-- <tr>
+                <td class="spacer" colspan="9"></td>
+            </tr> -->
+            <tr>
+                <td class="sl-no">4</td>
+                <td class="description">Finger contact for 1500amp</td>
+                <td class="reference">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="standard">to be replaced</td>
+                <td class="status"><input type="text" name="finger_contact_ctf1" class="input-field"></td>
+                <td class="status"><input type="text" name="finger_contact_ctf2" class="input-field"></td>
+                <td class="status"><input type="text" name="finger_contact_ctf3" class="input-field"></td>
+                <td class="status"><input type="text" name="finger_contact_j1" class="input-field"></td>
+                <td class="status"><input type="text" name="finger_contact_j2" class="input-field"></td>
+            </tr>
+        
+            <tr>
+                <td style="width: 40px;">5</td>
+                <td  >Drum contact for 1500amp</td>
+                <td  >TC-RDSO/TC/0123 Rev-0</td>
+                <td  >to be replaced</td>
+                <td><input type="text" class="input-field" name="field1"></td>
+                <td><input type="text" class="input-field" name="field2"></td>
+                <td><input type="text" class="input-field" name="field3"></td>
+                <td><input type="text" class="input-field" name="field4"></td>
+                <td><input type="text" class="input-field" name="field5"></td>
+            </tr>
+            <tr>
+                <td  >6</td>
+                <td  >Auxiliary switches</td>
+                <td  >TC-RDSO/TC/0123 Rev-0</td>
+                <td  >to be replaced</td>
+                <td><input type="text" class="input-field" name="field1"></td>
+                <td><input type="text" class="input-field" name="field2"></td>
+                <td><input type="text" class="input-field" name="field3"></td>
+                <td><input type="text" class="input-field" name="field4"></td>
+                <td><input type="text" class="input-field" name="field5"></td>
+            </tr>
+            <tr>
+                <td class="cell-id">7</td>
+                <td class="cell-desc">Rubber grommet</td>
+                <td class="cell-spec">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="cell-status">to be replaced</td>
+                <td><input type="text" class="input-field" name="field1"></td>
+                <td><input type="text" class="input-field" name="field2"></td>
+                <td><input type="text" class="input-field" name="field3"></td>
+                <td><input type="text" class="input-field" name="field4"></td>
+                <td><input type="text" class="input-field" name="field5"></td>
+            </tr>
+            <tr>
+                <td class="cell-id">8</td>
+                <td class="cell-desc">Notching liver complete</td>
+                <td class="cell-spec">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="cell-status">to be replaced</td>
+                <td><input type="text" class="input-field" name="field1"></td>
+                <td><input type="text" class="input-field" name="field2"></td>
+                <td><input type="text" class="input-field" name="field3"></td>
+                <td><input type="text" class="input-field" name="field4"></td>
+                <td><input type="text" class="input-field" name="field5"></td>
+            </tr>
+            <tr>
+                <td class="cell-id">9</td>
+                <td class="cell-desc">Gasket and felt ring</td>
+                <td class="cell-spec">TC-RDSO/TC/0123 Rev-0</td>
+                <td class="cell-status">to be replaced</td>
+                <td><input type="text" class="input-field" name="field1"></td>
+                <td><input type="text" class="input-field" name="field2"></td>
+                <td><input type="text" class="input-field" name="field3"></td>
+                <td><input type="text" class="input-field" name="field4"></td>
+                <td><input type="text" class="input-field" name="field5"></td>
+            </tr>
+  </table>
+
+
+  <!-- TABLE 14  -->
+
+    <table class="main-table">
+            <thead>
+                <tr>
+                    <th style="width: 40px;">SL<br>No</th>
+                    <th  >List of item of <strong>Line</strong> Contactor, <strong>C145</strong> Contactor and <strong>C118</strong> Contactor (EP type) to be replaced 100% during POH schedule</th>
+                    <th  >Reference</th>
+                    <th >Standard</th>
+                    <th  >L1</th>
+                    <th >L2</th>
+                    <th >L3</th>
+                    <th >L4</th>
+                    <th >L5</th>
+                    <th >L6</th>
+                    <th >C145</th>
+                    <th >C118</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-column">1</td>
+                    <td>EP Valve (NC-4) complete (PL-23872160)</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_1" id="standard_1" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_1" id="l1_status_1" class="input-field"></td>
+                    <td><input type="text" name="l2_status_1" id="l2_status_1" class="input-field"></td>
+                    <td><input type="text" name="l3_status_1" id="l3_status_1" class="input-field"></td>
+                    <td><input type="text" name="l4_status_1" id="l4_status_1" class="input-field"></td>
+                    <td><input type="text" name="l5_status_1" id="l5_status_1" class="input-field"></td>
+                    <td><input type="text" name="l6_status_1" id="l6_status_1" class="input-field"></td>
+                    <td><input type="text" name="c145_status_1" id="c145_status_1" class="input-field"></td>
+                    <td><input type="text" name="c118_status_1" id="c118_status_1" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">2</td>
+                    <td>Set of fixed and mobile contact (25949950)</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_2" id="standard_2" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_2" id="l1_status_2" class="input-field"></td>
+                    <td><input type="text" name="l2_status_2" id="l2_status_2" class="input-field"></td>
+                    <td><input type="text" name="l3_status_2" id="l3_status_2" class="input-field"></td>
+                    <td><input type="text" name="l4_status_2" id="l4_status_2" class="input-field"></td>
+                    <td><input type="text" name="l5_status_2" id="l5_status_2" class="input-field"></td>
+                    <td><input type="text" name="l6_status_2" id="l6_status_2" class="input-field"></td>
+                    <td><input type="text" name="c145_status_2" id="c145_status_2" class="input-field"></td>
+                    <td><input type="text" name="c118_status_2" id="c118_status_2" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">3</td>
+                    <td>Aux Interlock switch (25968476) for line contactor</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_3" id="standard_3" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_3" id="l1_status_3" class="input-field"></td>
+                    <td><input type="text" name="l2_status_3" id="l2_status_3" class="input-field"></td>
+                    <td><input type="text" name="l3_status_3" id="l3_status_3" class="input-field"></td>
+                    <td><input type="text" name="l4_status_3" id="l4_status_3" class="input-field"></td>
+                    <td><input type="text" name="l5_status_3" id="l5_status_3" class="input-field"></td>
+                    <td><input type="text" name="l6_status_3" id="l6_status_3" class="input-field"></td>
+                    <td><input type="text" name="c145_status_3" id="c145_status_3" class="input-field"></td>
+                    <td><input type="text" name="c118_status_3" id="c118_status_3" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">4</td>
+                    <td>Set of gasket of EP contactor (25256841)</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_4" id="standard_4" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_4" id="l1_status_4" class="input-field"></td>
+                    <td><input type="text" name="l2_status_4" id="l2_status_4" class="input-field"></td>
+                    <td><input type="text" name="l3_status_4" id="l3_status_4" class="input-field"></td>
+                    <td><input type="text" name="l4_status_4" id="l4_status_4" class="input-field"></td>
+                    <td><input type="text" name="l5_status_4" id="l5_status_4" class="input-field"></td>
+                    <td><input type="text" name="l6_status_4" id="l6_status_4" class="input-field"></td>
+                    <td><input type="text" name="c145_status_4" id="c145_status_4" class="input-field"></td>
+                    <td><input type="text" name="c118_status_4" id="c118_status_4" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">5</td>
+                    <td>Piston bucket (23252777)</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_5" id="standard_5" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_5" id="l1_status_5" class="input-field"></td>
+                    <td><input type="text" name="l2_status_5" id="l2_status_5" class="input-field"></td>
+                    <td><input type="text" name="l3_status_5" id="l3_status_5" class="input-field"></td>
+                    <td><input type="text" name="l4_status_5" id="l4_status_5" class="input-field"></td>
+                    <td><input type="text" name="l5_status_5" id="l5_status_5" class="input-field"></td>
+                    <td><input type="text" name="l6_status_5" id="l6_status_5" class="input-field"></td>
+                    <td><input type="text" name="c145_status_5" id="c145_status_5" class="input-field"></td>
+                    <td><input type="text" name="c118_status_5" id="c118_status_5" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">6</td>
+                    <td>Base gasket for EP valve (23252182)</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_6" id="standard_6" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_6" id="l1_status_6" class="input-field"></td>
+                    <td><input type="text" name="l2_status_6" id="l2_status_6" class="input-field"></td>
+                    <td><input type="text" name="l3_status_6" id="l3_status_6" class="input-field"></td>
+                    <td><input type="text" name="l4_status_6" id="l4_status_6" class="input-field"></td>
+                    <td><input type="text" name="l5_status_6" id="l5_status_6" class="input-field"></td>
+                    <td><input type="text" name="l6_status_6" id="l6_status_6" class="input-field"></td>
+                    <td><input type="text" name="c145_status_6" id="c145_status_6" class="input-field"></td>
+                    <td><input type="text" name="c118_status_6" id="c118_status_6" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">7</td>
+                    <td>Felt ring for servomotor (NON STOCK)</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_7" id="standard_7" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_7" id="l1_status_7" class="input-field"></td>
+                    <td><input type="text" name="l2_status_7" id="l2_status_7" class="input-field"></td>
+                    <td><input type="text" name="l3_status_7" id="l3_status_7" class="input-field"></td>
+                    <td><input type="text" name="l4_status_7" id="l4_status_7" class="input-field"></td>
+                    <td><input type="text" name="l5_status_7" id="l5_status_7" class="input-field"></td>
+                    <td><input type="text" name="l6_status_7" id="l6_status_7" class="input-field"></td>
+                    <td><input type="text" name="c145_status_7" id="c145_status_7" class="input-field"></td>
+                    <td><input type="text" name="c118_status_7" id="c118_status_7" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="sn-column">8</td>
+                    <td>All insulating materials & fasteners</td>
+                    <td>TC-RDSO/TC/0123<br>Rev-0</td>
+                    <td><input type="text" name="standard_8" id="standard_8" class="input-field" value="to be replaced"></td>
+                    <td><input type="text" name="l1_status_8" id="l1_status_8" class="input-field"></td>
+                    <td><input type="text" name="l2_status_8" id="l2_status_8" class="input-field"></td>
+                    <td><input type="text" name="l3_status_8" id="l3_status_8" class="input-field"></td>
+                    <td><input type="text" name="l4_status_8" id="l4_status_8" class="input-field"></td>
+                    <td><input type="text" name="l5_status_8" id="l5_status_8" class="input-field"></td>
+                    <td><input type="text" name="l6_status_8" id="l6_status_8" class="input-field"></td>
+                    <td><input type="text" name="c145_status_8" id="c145_status_8" class="input-field"></td>
+                    <td><input type="text" name="c118_status_8" id="c118_status_8" class="input-field"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+  <!-- TABLE 15  -->
+
+    <table class="main-table">
+            <thead>
+                <tr class="header">
+                    <th class="sn-column">
+                        SL<br>No
+                    </th>
+                    <th class="test-column">
+                        List of item of <strong>Shunting Contactor</strong> to be replaced 100% during POH schedule
+                    </th>
+                    <th class="reference-column">
+                        Reference
+                    </th>
+                    <th class="standard-column">
+                        Standard
+                    </th>
+                    <th >
+                        Status (All Shunting Contactors)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="data">
+                    <td class="sn-column"></td>
+                    <td class="test-column">
+                        Description
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        <input type="text" name="standard_0" class="input-field">
+                    </td>
+                    <td >
+                        <input type="text" name="status_0" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        1
+                    </td>
+                    <td class="test-column">
+                        EP Valve( NC-4 ) complete(PL-23872160)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_1" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        2
+                    </td>
+                    <td class="test-column">
+                        Set of fixed and mobile contact(23960863)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_2" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        3
+                    </td>
+                    <td class="test-column">
+                        Set of gasket of EP contactor(25256841)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_3" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        4
+                    </td>
+                    <td class="test-column">
+                        Piston bucket(23252777)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_4" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        5
+                    </td>
+                    <td class="test-column">
+                        Base gasket for EP valve(23252182)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_5" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        6
+                    </td>
+                    <td class="test-column">
+                        Felt ring for servomotor(NON STOCK)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_6" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        7
+                    </td>
+                    <td class="test-column">
+                        All insulating materials & fasteners
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_7" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        8
+                    </td>
+                    <td class="test-column">
+                        Ammeter Shunt, (Pl.No:25910700)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_8" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        9
+                    </td>
+                    <td class="test-column">
+                        QF Shunt, (Pl.No:25910050)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_9" class="input-field">
+                    </td>
+                </tr>
+                <tr class="data">
+                    <td class="sn-column">
+                        10
+                    </td>
+                    <td class="test-column">
+                        RU, (Pl.No:25500156)
+                    </td>
+                    <td class="reference-column">
+                        TC-RDSO/TC/0123 Rev-0
+                    </td>
+                    <td class="standard-column">
+                        to be replaced
+                    </td>
+                    <td >
+                        <input type="text" name="status_10" class="input-field">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+  <!-- TABLE 16  -->
+
+     
+        <table class="main-table">
+            <tr>
+                <th class="sn-column">S.N</th>
+                <th class="test-column">Check Point</th>
+                <th class="standard-column">Standard Value</th>
+                <th  colspan="7">Actual (NEW)</th>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td>Serial No. of Equipment</td>
+                <td class="standard-column"><input type="text" name="serial_standard" class="input-field"></td>
+                <td >C101</td>
+                <td >C102</td>
+                <td >C103</td>
+                <td >C105</td>
+                <td >C106</td>
+                <td >C107</td>
+                <td >C108</td>
+            </tr>
+            <tr>
+                <td class="sn-column">1</td>
+                <td>Insulation resistance with 500 V Megger between magnet coil terminals</td>
+                <td class="standard-column">10 MΩ (Min.)</td>
+                <td ><input type="text" name="insulation_500v_c101" class="input-field"></td>
+                <td ><input type="text" name="insulation_500v_c102" class="input-field"></td>
+                <td ><input type="text" name="insulation_500v_c103" class="input-field"></td>
+                <td ><input type="text" name="insulation_500v_c105" class="input-field"></td>
+                <td ><input type="text" name="insulation_500v_c106" class="input-field"></td>
+                <td ><input type="text" name="insulation_500v_c107" class="input-field"></td>
+                <td ><input type="text" name="insulation_500v_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">2</td>
+                <td>Insulation resistance with 1000 V Megger of main contacts</td>
+                <td class="standard-column">10 MΩ (Min.)</td>
+                <td ><input type="text" name="insulation_1000v_c101" class="input-field"></td>
+                <td ><input type="text" name="insulation_1000v_c102" class="input-field"></td>
+                <td ><input type="text" name="insulation_1000v_c103" class="input-field"></td>
+                <td ><input type="text" name="insulation_1000v_c105" class="input-field"></td>
+                <td ><input type="text" name="insulation_1000v_c106" class="input-field"></td>
+                <td ><input type="text" name="insulation_1000v_c107" class="input-field"></td>
+                <td ><input type="text" name="insulation_1000v_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">i) Between Phase</td>
+                <td class="standard-column">10 MΩ (Min.)</td>
+                <td ><input type="text" name="phase_c101" class="input-field"></td>
+                <td ><input type="text" name="phase_c102" class="input-field"></td>
+                <td ><input type="text" name="phase_c103" class="input-field"></td>
+                <td ><input type="text" name="phase_c105" class="input-field"></td>
+                <td ><input type="text" name="phase_c106" class="input-field"></td>
+                <td ><input type="text" name="phase_c107" class="input-field"></td>
+                <td ><input type="text" name="phase_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">ii) Between each phase & insulated shaft</td>
+                <td class="standard-column">10 MΩ (Min.)</td>
+                <td ><input type="text" name="phase_shaft_c101" class="input-field"></td>
+                <td ><input type="text" name="phase_shaft_c102" class="input-field"></td>
+                <td ><input type="text" name="phase_shaft_c103" class="input-field"></td>
+                <td ><input type="text" name="phase_shaft_c105" class="input-field"></td>
+                <td ><input type="text" name="phase_shaft_c106" class="input-field"></td>
+                <td ><input type="text" name="phase_shaft_c107" class="input-field"></td>
+                <td ><input type="text" name="phase_shaft_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">3</td>
+                <td>Coil resistance at 20°C</td>
+                <td class="standard-column">550 ± 8% Ω<br><span class="small-text">(Ref: CLW Spec.No.4TTS.291.001, Sht.No-1)</span></td>
+                <td ><input type="text" name="coil_resistance_c101" class="input-field"></td>
+                <td ><input type="text" name="coil_resistance_c102" class="input-field"></td>
+                <td ><input type="text" name="coil_resistance_c103" class="input-field"></td>
+                <td ><input type="text" name="coil_resistance_c105" class="input-field"></td>
+                <td ><input type="text" name="coil_resistance_c106" class="input-field"></td>
+                <td ><input type="text" name="coil_resistance_c107" class="input-field"></td>
+                <td ><input type="text" name="coil_resistance_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">4</td>
+                <td>Pick up Voltage</td>
+                <td class="standard-column">65 + 5V DC<br><span class="small-text">(Ref: CLW Spec.No.4TTS.291.001, Sht.No-2)</span></td>
+                <td ><input type="text" name="pickup_voltage_c101" class="input-field"></td>
+                <td ><input type="text" name="pickup_voltage_c102" class="input-field"></td>
+                <td ><input type="text" name="pickup_voltage_c103" class="input-field"></td>
+                <td ><input type="text" name="pickup_voltage_c105" class="input-field"></td>
+                <td ><input type="text" name="pickup_voltage_c106" class="input-field"></td>
+                <td ><input type="text" name="pickup_voltage_c107" class="input-field"></td>
+                <td ><input type="text" name="pickup_voltage_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">5</td>
+                <td>Drop out voltage</td>
+                <td class="standard-column">10 to 20 V DC<br><span class="small-text">(Ref: CLW Spec.No.4TTS.291.001, Sht.No-3)</span></td>
+                <td ><input type="text" name="dropout_voltage_c101" class="input-field"></td>
+                <td ><input type="text" name="dropout_voltage_c102" class="input-field"></td>
+                <td ><input type="text" name="dropout_voltage_c103" class="input-field"></td>
+                <td ><input type="text" name="dropout_voltage_c105" class="input-field"></td>
+                <td ><input type="text" name="dropout_voltage_c106" class="input-field"></td>
+                <td ><input type="text" name="dropout_voltage_c107" class="input-field"></td>
+                <td ><input type="text" name="dropout_voltage_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column" rowspan="3">6</td>
+                <td>Main Contact Pressure - 1</td>
+                <td class="standard-column" rowspan="3">950 ± 100 Grms<br><span class="small-text">(Ref: CLW.Drg.No.4TWD.291.001, Sht.No-4)</span></td>
+                <td ><input type="text" name="contact_pressure_1_c101" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_1_c102" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_1_c103" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_1_c105" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_1_c106" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_1_c107" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_1_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Main Contact Pressure - 2</td>
+                <td ><input type="text" name="contact_pressure_2_c101" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_2_c102" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_2_c103" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_2_c105" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_2_c106" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_2_c107" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_2_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Main Contact Pressure - 3</td>
+                <td ><input type="text" name="contact_pressure_3_c101" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_3_c102" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_3_c103" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_3_c105" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_3_c106" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_3_c107" class="input-field"></td>
+                <td ><input type="text" name="contact_pressure_3_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">7</td>
+                <td>Checking for simultaneous closing of all 3 Phase EMC contact</td>
+                <td class="standard-column">BY means of indication lamp</td>
+                <td >OK</td>
+                <td >OK</td>
+                <td >OK</td>
+                <td >OK</td>
+                <td >OK</td>
+                <td >OK</td>
+                <td >OK</td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td>Aux. Contact pressure</td>
+                <td class="standard-column">80-120 Grms.</td>
+                <td ><input type="text" name="aux_contact_c101" class="input-field"></td>
+                <td ><input type="text" name="aux_contact_c102" class="input-field"></td>
+                <td ><input type="text" name="aux_contact_c103" class="input-field"></td>
+                <td ><input type="text" name="aux_contact_c105" class="input-field"></td>
+                <td ><input type="text" name="aux_contact_c106" class="input-field"></td>
+                <td ><input type="text" name="aux_contact_c107" class="input-field"></td>
+                <td ><input type="text" name="aux_contact_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column" rowspan="3">8</td>
+                <td>Main Contact Gap - 1</td>
+                <td class="standard-column" rowspan="3">8.5 to 10mm<br><span class="small-text">(Ref: CLW Drg No.4TWD.291.33. Alt-9)</span></td>
+                <td ><input type="text" name="contact_gap_1_c101" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_1_c102" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_1_c103" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_1_c105" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_1_c106" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_1_c107" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_1_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Main Contact Gap - 2</td>
+                <td ><input type="text" name="contact_gap_2_c101" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_2_c102" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_2_c103" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_2_c105" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_2_c106" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_2_c107" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_2_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Main Contact Gap - 3</td>
+                <td ><input type="text" name="contact_gap_3_c101" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_3_c102" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_3_c103" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_3_c105" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_3_c106" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_3_c107" class="input-field"></td>
+                <td ><input type="text" name="contact_gap_3_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column" rowspan="3">9</td>
+                <td>Crushing of Main Contact - 1</td>
+                <td class="standard-column" rowspan="3">3.8±0.5mm<br><span class="small-text">(Ref: CLW Drg.No 4TWD.291.001 Sht.No-3)</span></td>
+                <td ><input type="text" name="crushing_contact_1_c101" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_1_c102" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_1_c103" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_1_c105" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_1_c106" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_1_c107" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_1_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Crushing of Main Contact - 2</td>
+                <td ><input type="text" name="crushing_contact_2_c101" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_2_c102" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_2_c103" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_2_c105" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_2_c106" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_2_c107" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_2_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Crushing of Main Contact - 3</td>
+                <td ><input type="text" name="crushing_contact_3_c101" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_3_c102" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_3_c103" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_3_c105" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_3_c106" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_3_c107" class="input-field"></td>
+                <td ><input type="text" name="crushing_contact_3_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">10</td>
+                <td>Maximum permissible play of insulated shaft</td>
+                <td class="standard-column">Ref: Camtech/2000/E/EMC/1.0, Page.No-23</td>
+                <td  colspan="7"><input type="text" name="shaft_play" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">a) Diametrically</td>
+                <td class="standard-column">0.2 – 0.5mm</td>
+                <td ><input type="text" name="diametrically_c101" class="input-field"></td>
+                <td ><input type="text" name="diametrically_c102" class="input-field"></td>
+                <td ><input type="text" name="diametrically_c103" class="input-field"></td>
+                <td ><input type="text" name="diametrically_c105" class="input-field"></td>
+                <td ><input type="text" name="diametrically_c106" class="input-field"></td>
+                <td ><input type="text" name="diametrically_c107" class="input-field"></td>
+                <td ><input type="text" name="diametrically_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column"></td>
+                <td class="sub-item">b) Laterally</td>
+                <td class="standard-column">0.5mm</td>
+                <td ><input type="text" name="laterally_c101" class="input-field"></td>
+                <td ><input type="text" name="laterally_c102" class="input-field"></td>
+                <td ><input type="text" name="laterally_c103" class="input-field"></td>
+                <td ><input type="text" name="laterally_c105" class="input-field"></td>
+                <td ><input type="text" name="laterally_c106" class="input-field"></td>
+                <td ><input type="text" name="laterally_c107" class="input-field"></td>
+                <td ><input type="text" name="laterally_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">11</td>
+                <td>Crushing of auxiliary contact</td>
+                <td class="standard-column">1.5±0.2mm</td>
+                <td ><input type="text" name="aux_crushing_c101" class="input-field"></td>
+                <td ><input type="text" name="aux_crushing_c102" class="input-field"></td>
+                <td ><input type="text" name="aux_crushing_c103" class="input-field"></td>
+                <td ><input type="text" name="aux_crushing_c105" class="input-field"></td>
+                <td ><input type="text" name="aux_crushing_c106" class="input-field"></td>
+                <td ><input type="text" name="aux_crushing_c107" class="input-field"></td>
+                <td ><input type="text" name="aux_crushing_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">12</td>
+                <td>Check the bedding of main contacts</td>
+                <td class="standard-column">85% (Min)</td>
+                <td ><input type="text" name="bedding_c101" class="input-field"></td>
+                <td ><input type="text" name="bedding_c102" class="input-field"></td>
+                <td ><input type="text" name="bedding_c103" class="input-field"></td>
+                <td ><input type="text" name="bedding_c105" class="input-field"></td>
+                <td ><input type="text" name="bedding_c106" class="input-field"></td>
+                <td ><input type="text" name="bedding_c107" class="input-field"></td>
+                <td ><input type="text" name="bedding_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">13</td>
+                <td>Lubrication of levers, drive rod and articulations with 'Mobil Oil A'</td>
+                <td class="standard-column">DONE</td>
+                <td  colspan="7"><input type="text" name="lubrication" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column" rowspan="2">14</td>
+                <td>Check play between armature and Yoke on either side</td>
+                <td class="standard-column" rowspan="2">1 mm<br><span class="small-text">Ref: Camtech/2000/E/EMC/1.0, Page.No-28</span></td>
+                <td ><input type="text" name="armature_yoke_right_c101" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_right_c102" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_right_c103" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_right_c105" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_right_c106" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_right_c107" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_right_c108" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Left Side</td>
+                <td ><input type="text" name="armature_yoke_left_c101" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_left_c102" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_left_c103" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_left_c105" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_left_c106" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_left_c107" class="input-field"></td>
+                <td ><input type="text" name="armature_yoke_left_c108" class="input-field"></td>
+            </tr>
+        </table>
+
+        <table class="main-table">
+            <tr>
+                <th class="sn-column">Sl.No</th>
+                <th class="test-column">Description</th>
+                <th class="reference-column">Reference</th>
+                <th >Status</th>
+            </tr>
+            <tr>
+                <td class="sn-column">1</td>
+                <td>EM Contactor Complete assembly (Pl.No: 23891051)</td>
+                <td class="reference-column">TC-RDSO/TC/0123 Rev-0</td>
+                <td ><input type="text" name="status1" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">2</td>
+                <td>Contact Tip for C118 contactor, (Pl.No:23890045)</td>
+                <td class="reference-column">TC-RDSO/TC/0123 Rev-0</td>
+                <td ><input type="text" name="status2" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">3</td>
+                <td>Aux. Switch for C-118 contactor(Pl.No:25890207)</td>
+                <td class="reference-column">TC-RDSO/TC/0123 Rev-0</td>
+                <td ><input type="text" name="status3" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">4</td>
+                <td>All Push buttons</td>
+                <td class="reference-column">TC-RDSO/TC/0123 Rev-0</td>
+                <td ><input type="text" name="status4" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">5</td>
+                <td>Set of 1-pole Fuse for 35Amps</td>
+                <td class="reference-column">Report No: ELRS/PR/0113,Rev'0'</td>
+                <td ><input type="text" name="status5" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="sn-column">6</td>
+                <td>Set of 1-pole D-type Fuse for 16/10/6Amps</td>
+                <td class="reference-column">Report No: ELRS/PR/0113,Rev'0'</td>
+                <td ><input type="text" name="status6" class="input-field"></td>
+            </tr>
+        </table>
+
+<!-- TABLE 18  -->
+
+<table class="main-table">
+    <tr>
+      <th  style="width: 40px;">Sl.No</th>
+      <th class="description-col">Description</th>
+      <th class="standard-col">Standard</th>
+      <th class="status-col">Status</th>
+    </tr>
+    <tr>
+      <td style="width: 40px;">1</td>
+      <td class="description">Check visually for any crack and damage</td>
+      <td>No crack/No damage</td>
+      <td><input type="text" name="status1"></td>
+    </tr>
+    <tr>
+      <td class="sl-no">2</td>
+      <td class="description">Check the continuity between central and earthing electrodes by using multimeter</td>
+      <td>No continuity</td>
+      <td><input type="text" name="status2"></td>
+    </tr>
+    <tr>
+      <td class="sl-no">3</td>
+      <td class="description">Check the leakage current by applying 110 V DC supply between central electrode and earthing point</td>
+      <td>15 Milli-Amps.</td>
+      <td><input type="text" name="status3"></td>
+    </tr>
+  </table>
+
+<!-- TABLE 19  -->
+
+ <table class="main-table">
+        <tr>
+            <th style="width: 40px;">Sl.No</th>
+            <th  >Description</th>
+            <th  >Reference</th>
+            <th  >Status</th>
+        </tr>
+        <tr>
+            <td class="center">1</td>
+            <td class="left">Provision of CCINV (6A) for static Converter Loco. (Only in SIV Loco)</td>
+            <td class="left">ELRS/MS/WAG7/11</td>
+            <td><input type="text" name="status1"></td>
+        </tr>
+        <tr>
+            <td class="center">2</td>
+            <td class="center">Paralleling of all I/L of C118 Contactor & BP1DJ Switch</td>
+            <td class="right">ELRS/MS/WAM4/0214 dt.23.10.98</td>
+            <td><input type="text" name="status2"></td>
+        </tr>
+        <tr>
+            <td class="center">3</td>
+            <td class="center">MCP Delay starting Modification. (In all Loco)</td>
+            <td class="left">ELRS/MS/0298-2000 (Rev-‘0’)</td>
+            <td><input type="text" name="status3"></td>
+        </tr>
+        <tr>
+            <td class="center">4</td>
+            <td class="left">Introduction of C118 N/C I/L in between wire no.700 & input I-63 of FDCS.</td>
+            <td class="left">ELRS/MS/WAG7/0256</td>
+            <td><input type="text" name="status4"></td>
+        </tr>
+        <tr>
+            <td class="center">5</td>
+            <td class="left">Introduction of VSFL1 & VSFL2 Diode & Ckt. Mod., for auto flasher operation.<br><span class="highlight">ALSO VSFL 3 & 4 IMPLEMENTATION IN VERSION 3 LOCO</span></td>
+            <td class="center">RDSO.L/No.SD.DFM.A.4.7.Dt.21/05/2003<br><span class="highlight">MS-498 (RECORDING OF FLASHER OPERATION)</span></td>
+            <td><input type="text" name="status5"></td>
+        </tr>
+        <tr>
+            <td class="center">6</td>
+            <td class="center">Introduction of SIV Loco with RSIV & Control Ckt. Modification. (Only in SIV Loco)</td>
+            <td class="right">EL/MS/0353 (Rev-1) Dt.04/07/2008</td>
+            <td><input type="text" name="status6"></td>
+        </tr>
+        <tr>
+            <td class="center">7</td>
+            <td class="left">Introduction of C108 Contactor & Ckt. Mod., for retro-fitment of ACMVRF.</td>
+            <td class="center">ELRS/MS/0292004 (Rev-1) ELO/MS/0348 (Rev-0)</td>
+            <td><input type="text" name="status7"></td>
+        </tr>
+        <tr>
+            <td class="center">8</td>
+            <td class="center">Control Circuit Modification for Air- Dryer. (In all Loco)</td>
+            <td class="right">Report No. MP.NI-18 (Rev-2) 2008</td>
+            <td><input type="text" name="status8"></td>
+        </tr>
+        <tr>
+            <td class="center">9</td>
+            <td class="center">Provision of LSC-145 LED indication with Ckt. Layout. (Only in Conventional Loco)</td>
+            <td class="left">EL/MS/0383 (Rev-0), Oct.2009</td>
+            <td><input type="text" name="status9"></td>
+        </tr>
+        <tr>
+            <td class="center">10</td>
+            <td class="left">Removal of parallel connection of HMCS1 &2 and direct connection of HMCS1 & HMCS2 with wire no.700, 154 & I-95 respectively. (Only in FDCS Loco)</td>
+            <td class="right">EL/MS/0404 (Rev-0) Dt.28/12/2011</td>
+            <td><input type="text" name="status10"></td>
+        </tr>
+        <tr>
+            <td class="center">11</td>
+            <td class="left">CCLS fuse rating to be modified as 10A rating with incoming & outgoing cable 4.mm² (min.) / At BD, 040 terminals to be made double BT terminal. / Provision of additional link plate BT at BD board numbers as 917/1. / Wire no.F-917 to be made as CA917/1 from BD to Q30 Relay and connection to be made at 917/1 new terminals. (Only in Conventional Loco)</td>
+            <td class="center">RDSO/2015/EL/TC/0131 (Rev ‘0’)<br>Dt.04/08/2015<br>(Not Required for MPCS based Loco)</td>
+            <td><input type="text" name="status11"></td>
+        </tr>
+        <tr>
+            <td class="center">12</td>
+            <td class="left">Provision of additional link plate BT at BD board, number as 257 (231 for MPCS base Locos).</td>
+            <td class="left">RDSO/2015/EC/MS/0442 (REY ‘0’) Dt.11/09/2015</td>
+            <td><input type="text" name="status12"></td>
+        </tr>
+        <tr>
+            <td class="center">13</td>
+            <td class="center">Rating of CCPT fuse should be 16Amps. (In all Loco)</td>
+            <td class="center">RDSO/2010/EL/TC-118 REV ‘0’ 35<sup>th</sup> MSG meeting</td>
+            <td><input type="text" name="status13"></td>
+        </tr>
+        <tr>
+            <td class="center">14</td>
+            <td class="left">Auto Regression Circuit in Tap-changer based Conventional Electric Locomotives for ensuring the shunting mode operations.</td>
+            <td class="left">RDSO/2023/EL/MS/0492 (Rev 0)</td>
+            <td><input type="text" name="status14"></td>
+        </tr>
+        <tr>
+            <td class="center">15</td>
+            <td class="left">Introduction of VSTM and CCTM as per MS 487</td>
+            <td class="left">RDSO/2022/EL/MS/0487 Rev ‘0’</td>
+            <td><input type="text" name="status15"></td>
+        </tr>
+    </table>
+
+<!-- TABLE 20  -->
+
+ <table class="main-table">
+        <tr>
+            <th style="width: 40px;">S.NO</th>
+            <th  >Check Point</th>
+            <th  >Standard Value</th>
+            <th  >Reference</th>
+            <th  >Actual</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>REF</td>
+            <td colspan="2">MM VOL-III- GUIDE PG.37.MI/E-12/04/01 OF JAN 74</td>
+            <td><input type="text" name="ref_actual"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Serial No. of Equipment</td>
+            <td></td>
+            <td></td>
+            <td><input type="text" name="serial_actual"></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Insulation resistance with 500 V Megger between magnet coil terminals</td>
+            <td>10 Mega Ohms</td>
+            <td></td>
+            <td><input type="text" name="insulation_500v_actual"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Insulation resistance with 1000 V Megger of main contacts and insulated shaft</td>
+            <td>10 Mega Ohms</td>
+            <td></td>
+            <td><input type="text" name="insulation_1000v_actual"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Coil resistance at 20°C</td>
+            <td>95±8% Ohms</td>
+            <td>Camtech/2000/E/EMC.110.page No-10</td>
+            <td><input type="text" name="coil_resistance_actual"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Main pick up voltage</td>
+            <td>60V DC</td>
+            <td class="reference">CLW Spec. No. CLW/ES/E-15/C,Sht.No-25</td>
+            <td><input type="text" name="pickup_voltage_actual"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Main contact gap</td>
+            <td>17±1mm</td>
+            <td class="reference">Camtech/2000/E/EMC.110.page No-10</td>
+            <td><input type="text" name="contact_gap_actual"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Wipe of main contact</td>
+            <td>4.5±0.5mm</td>
+            <td></td>
+            <td><input type="text" name="wipe_contact_actual"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Air gap of Aux. Contact</td>
+            <td>5±0.5mm</td>
+            <td class="reference">CLW Spec. No. CLW/ES/E-15/C,Sht.No-24</td>
+            <td><input type="text" name="aux_contact_actual"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Check distance between core and armature</td>
+            <td>2mm – 0.5, +0.0</td>
+            <td></td>
+            <td><input type="text" name="core_armature_actual"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Maximum permissible play of insulated shaft</td>
+            <td></td>
+            <td></td>
+            <td><input type="text" name="shaft_play_actual"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="sub-row">a) Diametrically</td>
+            <td>0.2 – 0.5mm</td>
+            <td></td>
+            <td><input type="text" name="diametrically_actual"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="sub-row">b) Laterally</td>
+            <td>0.1mm</td>
+            <td></td>
+            <td><input type="text" name="laterally_actual"></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Check the alignment of main moving contact with respect to fixed contact</td>
+            <td>1.5mm (Max)</td>
+            <td></td>
+            <td><input type="text" name="alignment_actual"></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Check the bedding of main contacts</td>
+            <td>85% (Min)</td>
+            <td></td>
+            <td><input type="text" name="bedding_actual"></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Drop out Voltage</td>
+            <td>10-20V DC</td>
+            <td class="reference">CLW Spec. No. CLW/ES/E-15/C,Sht.No-25</td>
+            <td><input type="text" name="dropout_voltage_actual"></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Check the condition of copper shunts (Replace if stiff or badly frayed and more than 10% strands are out)</td>
+            <td>Good Condition</td>
+            <td colspan="2">GOOD</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Lubrication of levers, drive rod and articulations with 'Mobil Oil A'</td>
+            <td>Mobil Oil</td>
+            <td colspan="2"><input type="text" name="lubrication_actual"></td>
+        </tr>
+        <tr>
+            <td rowspan="3">15</td>
+            <td>Check the play between armature end yoke on either side</td>
+            <td rowspan="3">1 mm</td>
+            <td colspan="2"><input type="text" name="armature_yoke_actual"></td>
+        </tr>
+        <tr>
+            <td>Left Side</td>
+            <td colspan="2">1 mm</td>
+        </tr>
+        <tr>
+            <td>Right Side</td>
+            <td colspan="2">1 mm</td>
+        </tr>
+    </table>  
+</div>
+
+<!-- Submit Button -->
+<div style="text-align: center; margin-top: 20px;">
+    <button type="button" id="submitBtn" class="btn btn-primary">
+        Save Check Sheet
+    </button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(window.location.href);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+        
+        // Function to get ID from URL path for edit route
+        function getIdFromPath() {
+            const pathParts = window.location.pathname.split('/');
+
+            console.log(pathParts)
+            if (pathParts[2] === 'edit' && pathParts[3]) {
+                return pathParts[3];
+            }
+            return '';
+        }
+
+         
+
+         
+        
+        // Function to load check sheet data by ID
+        function loadCheckSheetData(id) {
+            if (!id) return;
+            
+            $.ajax({
+                url: '/panel-shop/' + id,
+                method: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        $('#id').val(id);
+                        // Populate form fields with data using name attribute only
+                        const data = response.data;
+                        
+                        for (const key in data) {
+                            if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                const element = $('[name="' + key + '"]');
+                                if (element.length) {
+                                    element.val(data[key]);
+                                }
+                            }
+                        }
+                    } else {
+                        alert('Error loading check sheet data: ' + response.message);
+                    }
+                }
+            });
+        }
+        
+        // Get ID from URL (either as parameter or from path)
+        const checkSheetId = getIdFromPath() || getUrlParameter('id');
+        if (checkSheetId) {
+            loadCheckSheetData(checkSheetId);
+        }
+        
+        // Handle form submission
+        $('#submitBtn').on('click', function() {
+            // Collect all form data
+            var formData = {};
+            $('input[type="text"]').each(function() {
+                formData[$(this).attr('name')] = $(this).val();
+            });
+
+            console.log(formData)
+            
+            // Get the ID value to determine if we're adding or editing
+            var id = $('#id').val();
+            alert(id)
+            var url = '/panel-shop/add';
+            var method = 'POST';
+            
+            if (id && id !== '') {
+                url = '/panel-shop/edit/' + id;
+            }
+            
+            // Send AJAX request
+            $.ajax({
+                url: url,
+                method: method,
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        // If this is a new record, save the ID for future edits
+                        if (response.id && !id) {
+                            $('#id').val(response.id);
+                        }
+                    } else {
+                        alert('Error: ' + response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('Error submitting form: ' + error);
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Custom App Script -->
+<script src="/app.js"></script>
+</body>
+</html>

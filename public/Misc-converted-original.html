@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POH Check Sheet of Locomotive - Speedometer</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 11.5pt;
+            line-height: 1.2;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        td, th {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: top;
+            text-align: left;
+        }
+        
+        .header-row {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .equipment-cell {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+        }
+        
+        .serial-number {
+            text-align: center;
+            width: 40px;
+        }
+        
+        .check-point {
+            text-align: center;
+            width: 330px;
+        }
+        
+        .standard {
+            text-align: center;
+            width: 118px;
+        }
+        
+        .actual-rsi {
+            text-align: center;
+            width: 95px;
+        }
+        
+        .section-header {
+            font-weight: bold;
+            font-size: 10.5pt;
+            padding: 18px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 9.5pt;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .modification-header {
+            font-weight: bold;
+            font-size: 9.5pt;
+            text-align: center;
+            padding: 6px;
+        }
+        
+        .fire-prevention-header {
+            font-weight: bold;
+            font-size: 8.5pt;
+            text-align: center;
+            padding: 4px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            text-align: center;
+            padding: 2px;
+        }
+        
+        input[type="text"]:focus {
+            outline: 1px solid #007acc;
+            background-color: #f0f8ff;
+        }
+        
+        .form-header {
+            border: 1px solid #000;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .small-text {
+            font-size: 10.5pt;
+        }
+        
+        .smaller-text {
+            font-size: 9.5pt;
+        }
+        
+        .smallest-text {
+            font-size: 8.5pt;
+        }
+
+        input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;  /* Changed from border: none */
+    background: white;        /* Changed from transparent */
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    padding: 4px;            /* Increased from 2px for better visibility */
+    min-height: 24px;        /* Added minimum height */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #007acc;
+    background-color: #f0f8ff;
+}
+
+input[type="text"]:hover {
+    border-color: #999;      /* Added hover effect */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hidden ID field for edit functionality -->
+        <input type="hidden" id="id" name="id" value="">
+        
+        <!-- SL-30 SMOOTHING REACTOR Section -->
+        <section class="equipment-section">
+            <table>
+                <tr>
+                    <td colspan="3" class="section-header">SHOP/SECTION</td>
+                    <td colspan="3" class="section-header">S-9/MISC</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="section-header">LOCO NO./TYPE/SHED</td>
+                    <td colspan="3"><input type="text" name="loco_info_1" id="loco_info_1"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="section-header">MONTH OF POH</td>
+                    <td colspan="3"><input type="text" name="month_poh_1" id="month_poh_1"></td>
+                </tr>
+                <tr class="header-cell">
+                    <td colspan="3" class="header-cell">EQUIPMENT</td>
+                    <td colspan="3" class="header-cell">SL-30 (SMOOTHING REACTOR)</td>
+                </tr>
+                <tr>
+                    <th class="serial-number">SN</th>
+                    <th style="width: 210px;">Test</th>
+                    <th style="width: 115px;">Reference</th>
+                    <th style="width: 69px;">Standard</th>
+                    <th class="actual-column">SL1</th>
+                    <th class="actual-column">SL2</th>
+                </tr>
+                <tr class="make-serial-row">
+                    <td colspan="4" class="section-header">Make & Sr. no.</td>
+                    <td><input type="text" name="make_sl1" id="make_sl1"></td>
+                    <td><input type="text" name="make_sl2" id="make_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">1</td>
+                    <td class="test-description">Check complete SL visually for any insulation damage</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">No damage</td>
+                    <td><input type="text" name="test1_sl1" id="test1_sl1"></td>
+                    <td><input type="text" name="test1_sl2" id="test1_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">2</td>
+                    <td class="test-description">Pre-heating of SL in oven for 2 Hrs. at 100°C to be done</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Done</td>
+                    <td><input type="text" name="test2_sl1" id="test2_sl1"></td>
+                    <td><input type="text" name="test2_sl2" id="test2_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">3</td>
+                    <td class="test-description">Baking of the complete assembly in oven for 12 Hrs. at 140°C to be done after varnishing</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Done</td>
+                    <td><input type="text" name="test3_sl1" id="test3_sl1"></td>
+                    <td><input type="text" name="test3_sl2" id="test3_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">4</td>
+                    <td class="test-description">Check the coil resistance at Temp 20°C.</td>
+                    <td class="reference-cell">as per spec no. 4TES075001 dt. 20.12.2005</td>
+                    <td class="standard-cell">SL-30</td>
+                    <td><input type="text" name="test4_sl1" id="test4_sl1"></td>
+                    <td><input type="text" name="test4_sl2" id="test4_sl2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-description">Coil - 1</td>
+                    <td></td>
+                    <td rowspan="2" class="standard-cell">2300 to 3100 µΩ</td>
+                    <td><input type="text" name="coil1_sl1" id="coil1_sl1"></td>
+                    <td><input type="text" name="coil1_sl2" id="coil1_sl2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-description">Coil - 2</td>
+                    <td></td>
+                    <td><input type="text" name="coil2_sl1" id="coil2_sl1"></td>
+                    <td><input type="text" name="coil2_sl2" id="coil2_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">5</td>
+                    <td class="test-description">Check the impedence (z) at 50 Hz</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" name="test5_sl1" id="test5_sl1"></td>
+                    <td><input type="text" name="test5_sl2" id="test5_sl2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-description">z = V/I Ω</td>
+                    <td></td>
+                    <td class="standard-cell">0.96 to 1.15Ω</td>
+                    <td><input type="text" name="impedance_sl1" id="impedance_sl1"></td>
+                    <td><input type="text" name="impedance_sl2" id="impedance_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">6</td>
+                    <td class="test-description">Check inductance at 50 C/s. (can be calculated from impedence)</td>
+                    <td class="reference-cell">as per SMI 0304 dt. 22.03.2017</td>
+                    <td rowspan="2" class="standard-cell">3.05 to 3.65 mH</td>
+                    <td><input type="text" name="test6_sl1" id="test6_sl1"></td>
+                    <td><input type="text" name="test6_sl2" id="test6_sl2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="formula-cell">L = √(Z² - R²)<br>────────────<br>314.14<br>Where:- H=Inductance in Henry<br>Z=Impedence in Ω<br>R=Resistance in Ω</td>
+                    <td></td>
+                    <td><input type="text" name="inductance_sl1" id="inductance_sl1"></td>
+                    <td><input type="text" name="inductance_sl2" id="inductance_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">7</td>
+                    <td class="test-description">Provide Nomex paper between core and coil in all corners, throughout the length</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Provided</td>
+                    <td><input type="text" name="test7_sl1" id="test7_sl1"></td>
+                    <td><input type="text" name="test7_sl2" id="test7_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">8</td>
+                    <td class="test-description">Tinning of terminal to be done</td>
+                    <td></td>
+                    <td class="standard-cell">Done</td>
+                    <td><input type="text" name="test8_sl1" id="test8_sl1"></td>
+                    <td><input type="text" name="test8_sl2" id="test8_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">9</td>
+                    <td class="test-description">Check the insulation resistance with 1 KV Megger between terminal and earth</td>
+                    <td class="reference-cell">as per spec no. 4TES075001 dt. 20.12.2005</td>
+                    <td class="standard-cell">100 MΩ (Min.)</td>
+                    <td><input type="text" name="test9_sl1" id="test9_sl1"></td>
+                    <td><input type="text" name="test9_sl2" id="test9_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">10</td>
+                    <td class="test-description">HV Testing to be done by giving 2.5 KVAC supply for one minute between terminal and body. Record the leakage current</td>
+                    <td class="reference-cell">as per RDSO SMI/0304 rev '0'</td>
+                    <td class="standard-cell">10 Milli Amp (Max.)</td>
+                    <td><input type="text" name="test10_sl1" id="test10_sl1"></td>
+                    <td><input type="text" name="test10_sl2" id="test10_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">11</td>
+                    <td class="test-description">Tap all thread holes and ensure good condition of threads</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Done</td>
+                    <td><input type="text" name="test11_sl1" id="test11_sl1"></td>
+                    <td><input type="text" name="test11_sl2" id="test11_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">12</td>
+                    <td class="test-description">Check the SL cover for any crack and damage</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">No crack. No damage.</td>
+                    <td><input type="text" name="test12_sl1" id="test12_sl1"></td>
+                    <td><input type="text" name="test12_sl2" id="test12_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">13</td>
+                    <td class="test-description">Check the frame, holes should not oval</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">No oval hole</td>
+                    <td><input type="text" name="test13_sl1" id="test13_sl1"></td>
+                    <td><input type="text" name="test13_sl2" id="test13_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">14</td>
+                    <td class="test-description">Clean the iron particles available in the air gaps coil and core and in between coils at final stage by magnetic rod</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Cleaned</td>
+                    <td><input type="text" name="test14_sl1" id="test14_sl1"></td>
+                    <td><input type="text" name="test14_sl2" id="test14_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">15</td>
+                    <td class="test-description">Cross bar & stud</td>
+                    <td class="reference-cell">as per RDSO SMI/240 rev '0'</td>
+                    <td class="standard-cell">Stainless Steel</td>
+                    <td><input type="text" name="test15_sl1" id="test15_sl1"></td>
+                    <td><input type="text" name="test15_sl2" id="test15_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">16</td>
+                    <td class="test-description">Check the gap at all four corners in between inner coil and core(as per MS/228)</td>
+                    <td class="reference-cell">as per MS/228</td>
+                    <td class="standard-cell">2.5 mm (Min.)</td>
+                    <td><input type="text" name="test16_sl1" id="test16_sl1"></td>
+                    <td><input type="text" name="test16_sl2" id="test16_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">17</td>
+                    <td class="test-description">Check the gap between flat portion of core and coil(as per MS/228)</td>
+                    <td class="reference-cell">as per MS/228</td>
+                    <td class="standard-cell">4.0 mm (Min.)</td>
+                    <td><input type="text" name="test17_sl1" id="test17_sl1"></td>
+                    <td><input type="text" name="test17_sl2" id="test17_sl2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">18</td>
+                    <td class="test-description">Any other remarks</td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2"><input type="text" name="remarks_sl" id="remarks_sl"></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- SJ INDUCTIVE SHUNT Section -->
+        <section class="equipment-section">
+            <table>
+                <tr>
+                    <td colspan="3" class="section-header">SHOP/SECTION</td>
+                    <td colspan="4" class="section-header">S-9/MISC</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="section-header">LOCO NO./TYPE/SHED</td>
+                    <td colspan="4"><input type="text" name="loco_info_2" id="loco_info_2"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="section-header">MONTH OF POH</td>
+                    <td colspan="4"><input type="text" name="month_poh_2" id="month_poh_2"></td>
+                </tr>
+                <tr class="header-cell">
+                    <td colspan="3" class="header-cell">EQUIPMENT</td>
+                    <td colspan="4" class="header-cell">SJ (INDUCTIVE SHUNT)</td>
+                </tr>
+                <tr>
+                    <th class="serial-number">SN</th>
+                    <th style="width: 164px;">Test</th>
+                    <th style="width: 117px;">Reference</th>
+                    <th style="width: 87px;">Standard</th>
+                    <th class="actual-column">1</th>
+                    <th class="actual-column">2</th>
+                    <th class="actual-column">3</th>
+                </tr>
+                <tr class="make-serial-row">
+                    <td colspan="2" class="section-header">Sr. No./Make</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" name="make_sj1" id="make_sj1"></td>
+                    <td><input type="text" name="make_sj2" id="make_sj2"></td>
+                    <td><input type="text" name="make_sj3" id="make_sj3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">1</td>
+                    <td class="test-description">Check visually for any damage of insulation</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">No damage</td>
+                    <td><input type="text" name="sj_test1_1" id="sj_test1_1"></td>
+                    <td><input type="text" name="sj_test1_2" id="sj_test1_2"></td>
+                    <td><input type="text" name="sj_test1_3" id="sj_test1_3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">2</td>
+                    <td class="test-description">Varnishing and baking to be done</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Done</td>
+                    <td><input type="text" name="sj_test2_1" id="sj_test2_1"></td>
+                    <td><input type="text" name="sj_test2_2" id="sj_test2_2"></td>
+                    <td><input type="text" name="sj_test2_3" id="sj_test2_3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">3</td>
+                    <td class="test-description">Tinning of Electric contact surface to be done</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Done/good condition</td>
+                    <td><input type="text" name="sj_test3_1" id="sj_test3_1"></td>
+                    <td><input type="text" name="sj_test3_2" id="sj_test3_2"></td>
+                    <td><input type="text" name="sj_test3_3" id="sj_test3_3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">4</td>
+                    <td class="test-description">Check the coil resistance at Temp 20°C.</td>
+                    <td class="reference-cell">as per spec no. 4TES.133.001 dt.30.12.2006</td>
+                    <td></td>
+                    <td colspan="3"><input type="text" name="sj_test4_all" id="sj_test4_all"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-description">Coil - 1</td>
+                    <td class="reference-cell">as per spec no. 4TES.133.001 dt.30.12.2006</td>
+                    <td class="standard-cell">1.6 - 1.8 mΩ at 27°C</td>
+                    <td><input type="text" name="sj_coil1_1" id="sj_coil1_1"></td>
+                    <td><input type="text" name="sj_coil1_2" id="sj_coil1_2"></td>
+                    <td><input type="text" name="sj_coil1_3" id="sj_coil1_3"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-description">Coil - 2</td>
+                    <td></td>
+                    <td class="standard-cell">1.6 - 1.8 mΩ at 27°C</td>
+                    <td><input type="text" name="sj_coil2_1" id="sj_coil2_1"></td>
+                    <td><input type="text" name="sj_coil2_2" id="sj_coil2_2"></td>
+                    <td><input type="text" name="sj_coil2_3" id="sj_coil2_3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">6</td>
+                    <td class="test-description">Check insulation resistance with 1 KV megger between terminal and earth</td>
+                    <td class="reference-cell">as per spec no. 4TES.133.001 dt.30.12.2006</td>
+                    <td class="standard-cell">50 MΩ</td>
+                    <td><input type="text" name="sj_test6_1" id="sj_test6_1"></td>
+                    <td><input type="text" name="sj_test6_2" id="sj_test6_2"></td>
+                    <td><input type="text" name="sj_test6_3" id="sj_test6_3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">7</td>
+                    <td class="test-description">HV Testing to be done by giving 2.5 KVAC supply for one minute between terminal and body. Record the leakage current</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">10 Milli Amp (Max.)/OK</td>
+                    <td><input type="text" name="sj_test7_1" id="sj_test7_1"></td>
+                    <td><input type="text" name="sj_test7_2" id="sj_test7_2"></td>
+                    <td><input type="text" name="sj_test7_3" id="sj_test7_3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">8</td>
+                    <td class="test-description">Any other remarks</td>
+                    <td></td>
+                    <td colspan="4"><input type="text" name="remarks_sj" id="remarks_sj"></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- ATFEX Section -->
+        <section class="equipment-section">
+            <table>
+                <tr class="header-cell">
+                    <td colspan="3" class="header-cell">EQUIPMENT</td>
+                    <td colspan="4" class="header-cell">ATFEX</td>
+                </tr>
+                <tr>
+                    <th class="serial-number">SN</th>
+                    <th style="width: 164px;">Test</th>
+                    <th style="width: 117px;">Reference</th>
+                    <th style="width: 87px;">Standard</th>
+                    <th class="actual-column" colspan="3">Actual</th>
+                </tr>
+                <tr class="make-serial-row">
+                    <td colspan="2" class="section-header">Sr. No./Make</td>
+                    <td></td>
+                    <td colspan="4"><input type="text" name="make_atfex" id="make_atfex"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">1</td>
+                    <td class="test-description">Check the complete winding insulation visually for any damage</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">No damage</td>
+                    <td colspan="3"><input type="text" name="atfex_test1" id="atfex_test1"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">2</td>
+                    <td class="test-description">Check insulation resistance with 1 KV megger between terminal and earth</td>
+                    <td class="reference-cell">as per spec no. CLW/ES/T-26/H dt. 24.7.1997</td>
+                    <td class="standard-cell">20 MΩ</td>
+                    <td colspan="3"><input type="text" name="atfex_test2" id="atfex_test2"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">3</td>
+                    <td class="test-description">Varnishing and baking to be done</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">Done</td>
+                    <td colspan="3"><input type="text" name="atfex_test3" id="atfex_test3"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">4</td>
+                    <td class="test-description">For WAG5/WAG7</td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="3"><input type="text" name="atfex_test4" id="atfex_test4"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="test-description">Apply input voltage for all type of ATFEX 220 V AC on terminal 'V' & 'B' common or 'A' common as indicated on name plate and check the output voltage U-V terminal</td>
+                    <td class="reference-cell">as per spec no. CLW/ES/T-26/H dt. 24.7.1997</td>
+                    <td></td>
+                    <td colspan="3"><input type="text" name="atfex_voltage" id="atfex_voltage"></td>
+                </tr>
+                <tr>
+                    <td class="serial-number">5</td>
+                    <td class="test-description">HV Testing to be done by giving 2.5 KVAC supply for one minute between terminal and body. Record the leakage current</td>
+                    <td class="reference-cell">works instruction</td>
+                    <td class="standard-cell">10 Milli Amp (Max.)</td>
+                    <td colspan="3"><input type="text" name="atfex_test5" id="atfex_test5"></td>
+                </tr>
+               <tr>
+                    <td class="serial-number">6</td>
+                    <td class="test-description">Any other remarks</td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="3"><input type="text" name="remarks_atfex" id="remarks_atfex"></td>
+                </tr>
+            </table>
+        </section>
+
+
+
+
+         
+        <!-- Second Equipment Section -->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="header-gray">EQUIPMENT</th>
+                        <th class="header-gray standard-column"><input type="text" class="input-field" name="equipment_std" id="equipment_std"></th>
+                        <th class="header-gray">RCAPTFP 1</th>
+                        <th class="header-gray">RCAPTFP 2</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3" class="make-serial">MAKE/SR.NO.</td>
+                        <td><input type="text" class="input-field" name="rcaptfp1_make" id="rcaptfp1_make"></td>
+                        <td><input type="text" class="input-field" name="rcaptfp2_make" id="rcaptfp2_make"></td>
+                    </tr>
+                    <tr>
+                        <th class="serial-number section-header">SN</th>
+                        <th class="test-description section-header">Test</th>
+                        <th class="reference-column section-header">Reference</th>
+                        <th class="standard-column section-header">Standard</th>
+                        <th colspan="2" class="actual-column section-header">Actual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="serial-number">1</td>
+                        <td class="test-description text-left">Check the complete winding insulation visually for any damage</td>
+                        <td class="text-center">works instruction</td>
+                        <td class="text-center">No damage</td>
+                        <td><input type="text" class="input-field" name="winding_1" id="winding_1"></td>
+                        <td><input type="text" class="input-field" name="winding_2" id="winding_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">2</td>
+                        <td class="test-description text-left">Check insulation resistance with 1 KV megger between terminal and earth</td>
+                        <td class="text-center small-text">as per spec no.<br>CLW/ES/T-26/H dt.<br>24.7.1997</td>
+                        <td class="text-center">20 MΩ</td>
+                        <td><input type="text" class="input-field" name="insulation_1" id="insulation_1"></td>
+                        <td><input type="text" class="input-field" name="insulation_2" id="insulation_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">3</td>
+                        <td class="test-description text-center">Varnishing and baking to be done</td>
+                        <td class="text-center">works instruction</td>
+                        <td class="text-center">Done</td>
+                        <td><input type="text" class="input-field" name="varnishing_1" id="varnishing_1"></td>
+                        <td><input type="text" class="input-field" name="varnishing_2" id="varnishing_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">4</td>
+                        <td class="test-description text-center">For WAG5/WAG7</td>
+                        <td><input type="text" class="input-field" name="wag_ref" id="wag_ref"></td>
+                        <td><input type="text" class="input-field" name="wag_std" id="wag_std"></td>
+                        <td><input type="text" class="input-field" name="wag_1" id="wag_1"></td>
+                        <td><input type="text" class="input-field" name="wag_2" id="wag_2"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="test-description text-center">Apply input voltage for all type of ATFEX 220 V AC on terminal 'V' & 'B' common or 'A' common as indicated on name plate and check the<br>out put voltage U-V terminal</td>
+                        <td class="text-center small-text">as per spec no.<br>CLW/ES/T-26/H dt.<br>24.7.1997</td>
+                        <td><input type="text" class="input-field" name="voltage_std" id="voltage_std"></td>
+                        <td><input type="text" class="input-field" name="voltage_1" id="voltage_1"></td>
+                        <td><input type="text" class="input-field" name="voltage_2" id="voltage_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">5</td>
+                        <td class="test-description text-center">HV Testing to be done by giving 2.5 KVAC supply for one minute between terminal and body. Record the leakage<br>current</td>
+                        <td class="text-center">works instruction</td>
+                        <td class="text-center">10 Milli Amp (Max.)</td>
+                        <td><input type="text" class="input-field" name="hv_test_1" id="hv_test_1"></td>
+                        <td><input type="text" class="input-field" name="hv_test_2" id="hv_test_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">6</td>
+                        <td class="test-description text-center">Any other remarks</td>
+                        <td><input type="text" class="input-field" name="other_remarks_ref" id="other_remarks_ref"></td>
+                        <td><input type="text" class="input-field" name="other_remarks_std" id="other_remarks_std"></td>
+                        <td><input type="text" class="input-field" name="other_remarks_1" id="other_remarks_1"></td>
+                        <td><input type="text" class="input-field" name="other_remarks_2" id="other_remarks_2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Third Equipment Section -->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="header-gray">EQUIPMENT</th>
+                        <th class="header-gray standard-column"><input type="text" class="input-field" name="equipment2_std" id="equipment2_std"></th>
+                        <th class="header-gray">RCAPTFP 1</th>
+                        <th class="header-gray">RCAPTFP 2</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3" class="make-serial">MAKE/SR.NO.</td>
+                        <td><input type="text" class="input-field" name="rcaptfp1_make2" id="rcaptfp1_make2"></td>
+                        <td><input type="text" class="input-field" name="rcaptfp2_make2" id="rcaptfp2_make2"></td>
+                    </tr>
+                    <tr>
+                        <th class="serial-number section-header">SN</th>
+                        <th class="test-description section-header">Test</th>
+                        <th class="reference-column section-header">Reference</th>
+                        <th class="standard-column section-header">Standard</th>
+                        <th colspan="2" class="actual-column section-header">Actual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="serial-number">1</td>
+                        <td class="test-description text-left">Check the frame and insulated plate for any crack and damage</td>
+                        <td class="text-center">works instruction</td>
+                        <td class="text-center">No crack. No damage.</td>
+                        <td><input type="text" class="input-field" name="frame_check_1" id="frame_check_1"></td>
+                        <td><input type="text" class="input-field" name="frame_check_2" id="frame_check_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">2</td>
+                        <td class="test-description text-center">Replace all insulation damaged<br>cables</td>
+                        <td class="text-center">works instruction</td>
+                        <td class="text-center">Replaced</td>
+                        <td><input type="text" class="input-field" name="cable_replace_1" id="cable_replace_1"></td>
+                        <td><input type="text" class="input-field" name="cable_replace_2" id="cable_replace_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">3</td>
+                        <td class="test-description text-center">Check the resistance for over<br>heating</td>
+                        <td class="text-center">works instruction</td>
+                        <td class="text-center">No over heating</td>
+                        <td><input type="text" class="input-field" name="heating_check_1" id="heating_check_1"></td>
+                        <td><input type="text" class="input-field" name="heating_check_2" id="heating_check_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">4</td>
+                        <td class="test-description text-center">Check the total resistance value</td>
+                        <td><input type="text" class="input-field" name="total_resistance_ref" id="total_resistance_ref"></td>
+                        <td class="text-center">1.4 - 1.6 Ω</td>
+                        <td><input type="text" class="input-field" name="total_resistance_1" id="total_resistance_1"></td>
+                        <td><input type="text" class="input-field" name="total_resistance_2" id="total_resistance_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number" rowspan="4">5</td>
+                        <td class="test-description text-center">Value of 4 resistance in parallel</td>
+                        <td rowspan="4"><input type="text" class="input-field" name="parallel_ref" id="parallel_ref"></td>
+                        <td class="text-left">1) 5.7 - 6.3 Ω</td>
+                        <td><input type="text" class="input-field" name="parallel_1_1" id="parallel_1_1"></td>
+                        <td><input type="text" class="input-field" name="parallel_1_2" id="parallel_1_2"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><input type="text" class="input-field" name="parallel_test" id="parallel_test"></td>
+                        <td class="text-left">2) 5.7 - 6.3 Ω</td>
+                        <td><input type="text" class="input-field" name="parallel_2_1" id="parallel_2_1"></td>
+                        <td><input type="text" class="input-field" name="parallel_2_2" id="parallel_2_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">3) 5.7 - 6.3 Ω</td>
+                        <td><input type="text" class="input-field" name="parallel_3_1" id="parallel_3_1"></td>
+                        <td><input type="text" class="input-field" name="parallel_3_2" id="parallel_3_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">4) 5.7 - 6.3 Ω</td>
+                        <td><input type="text" class="input-field" name="parallel_4_1" id="parallel_4_1"></td>
+                        <td><input type="text" class="input-field" name="parallel_4_2" id="parallel_4_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">6</td>
+                        <td class="test-description text-left">Check the total Capacitance value (3S-6P)</td>
+                        <td><input type="text" class="input-field" name="capacitance_ref" id="capacitance_ref"></td>
+                        <td class="text-center small-text">47.5-52.5µf (MLR)/ 41.8-<br>46.2µf(MSR)</td>
+                        <td><input type="text" class="input-field" name="capacitance_1" id="capacitance_1"></td>
+                        <td><input type="text" class="input-field" name="capacitance_2" id="capacitance_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">7</td>
+                        <td class="test-description text-center">Value of 18 Capacitor</td>
+                        <td><input type="text" class="input-field" name="capacitor_ref" id="capacitor_ref"></td>
+                        <td class="text-center small-text">23.75-26.25µf (MLR)/20.9-23.1 µf (MSR)</td>
+                        <td><input type="text" class="input-field" name="capacitor_1" id="capacitor_1"></td>
+                        <td><input type="text" class="input-field" name="capacitor_2" id="capacitor_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">8</td>
+                        <td class="test-description text-center">Check the insulation resistance with 1 KV Megger between terminal and earth</td>
+                        <td><input type="text" class="input-field" name="insulation2_ref" id="insulation2_ref"></td>
+                        <td class="text-center">100 MΩ (Min)</td>
+                        <td><input type="text" class="input-field" name="insulation2_1" id="insulation2_1"></td>
+                        <td><input type="text" class="input-field" name="insulation2_2" id="insulation2_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="serial-number">9</td>
+                        <td class="test-description text-center">Any other remarks</td>
+                        <td colspan="4"><input type="text" class="input-field" name="final_remarks" id="final_remarks"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr class="header-row">
+                        <th colspan="4">EQUIPMENT</th>
+                        <th colspan="2">CFL ASSLY</th>
+                    </tr>
+                    <tr>
+                        <th class="number-cell"></th>
+                        <th>Check-point</th>
+                        <th class="reference-cell">Reference</th>
+                        <th class="standard-cell">Standard</th>
+                        <th colspan="2">Actual</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Tube</th>
+                        <th>CFL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="number-cell">1</td>
+                        <td class="checkpoint-cell">Check the condition of tube light/ Fluorescent lamp assembly</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No Bend No Deforming</td>
+                        <td class="actual-cell"><input type="text" name="tube_1" id="tube_1"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_1" id="cfl_1"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">2</td>
+                        <td class="checkpoint-cell">Check the condition of holders</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good/ Replace</td>
+                        <td class="actual-cell"><input type="text" name="tube_2" id="tube_2"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_2" id="cfl_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">3</td>
+                        <td class="checkpoint-cell">Check the choke 11W/20W for proper working</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good/ Replace</td>
+                        <td class="actual-cell"><input type="text" name="tube_3" id="tube_3"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_3" id="cfl_3"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">4</td>
+                        <td class="checkpoint-cell">Check glass of tube light & CFL Assly</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good/ Replace</td>
+                        <td class="actual-cell"><input type="text" name="tube_4" id="tube_4"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_4" id="cfl_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">5</td>
+                        <td class="checkpoint-cell">Replace the CFL Tube 100%</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Replace</td>
+                        <td class="actual-cell"><input type="text" name="tube_5" id="tube_5"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_5" id="cfl_5"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">6</td>
+                        <td class="checkpoint-cell">Check the condition of connection wires of tube/ CFL Assly</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good/ Replace</td>
+                        <td class="actual-cell"><input type="text" name="tube_6" id="tube_6"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_6" id="cfl_6"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">7</td>
+                        <td class="checkpoint-cell">Take IR Value with 500 V Megger</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">10 M Ω</td>
+                        <td class="actual-cell"><input type="text" name="tube_7" id="tube_7"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_7" id="cfl_7"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">8</td>
+                        <td class="checkpoint-cell">Check working of tube light/ CFL Assly by giving 110 V DC</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Glowing</td>
+                        <td class="actual-cell"><input type="text" name="tube_8" id="tube_8"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_8" id="cfl_8"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">9</td>
+                        <td class="checkpoint-cell">Any remarks</td>
+                        <td class="reference-cell"></td>
+                        <td class="standard-cell"></td>
+                        <td class="actual-cell"><input type="text" name="tube_9" id="tube_9"></td>
+                        <td class="actual-cell"><input type="text" name="cfl_9" id="cfl_9"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr class="header-row">
+                        <th colspan="4">EQUIPMENT</th>
+                        <th colspan="2">SPOT LIGHT</th>
+                    </tr>
+                    <tr>
+                        <th class="number-cell"></th>
+                        <th>Check-point</th>
+                        <th class="reference-cell">Reference</th>
+                        <th class="standard-cell">Standard</th>
+                        <th colspan="2">Actual</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th colspan="3">make/sr. no.</th>
+                        <th colspan="2"><input type="text" name="spotlight_make" id="spotlight_make"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="number-cell">1</td>
+                        <td class="checkpoint-cell">Check the condition of spot light body</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good/ No crack</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="spotlight_1" id="spotlight_1"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">2</td>
+                        <td class="checkpoint-cell">Check the condition of connection wire</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good/ Replace</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="spotlight_2" id="spotlight_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">3</td>
+                        <td class="checkpoint-cell">Test the LED spot light by giving 110 V DC</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Glowing</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="spotlight_3" id="spotlight_3"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">4</td>
+                        <td class="checkpoint-cell">Check the IR with 500 V Megger</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">10 M Ω</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="spotlight_4" id="spotlight_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">5</td>
+                        <td class="checkpoint-cell">Any remarks</td>
+                        <td class="reference-cell"></td>
+                        <td class="standard-cell"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="spotlight_5" id="spotlight_5"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr class="header-row">
+                        <th colspan="4">EQUIPMENT</th>
+                        <th colspan="4">TWIN BEAM HEAD LIGHT</th>
+                    </tr>
+                    <tr>
+                        <th class="number-cell"></th>
+                        <th>Check-point</th>
+                        <th class="reference-cell">Reference</th>
+                        <th class="standard-cell">Standard</th>
+                        <th colspan="4">Actual</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th colspan="2">HL 1</th>
+                        <th colspan="2">HL 2</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th colspan="3">make/sr. no.</th>
+                        <th colspan="2"><input type="text" name="hl1_make" id="hl1_make"></th>
+                        <th colspan="2"><input type="text" name="hl2_make" id="hl2_make"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="number-cell">1</td>
+                        <td class="checkpoint-cell">Check the body for any damage.</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No damage</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_1" id="hl1_1"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_1" id="hl2_1"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">2</td>
+                        <td class="checkpoint-cell">Check the glasses for any crack and damage</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No crack No damage</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_2" id="hl1_2"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_2" id="hl2_2"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">3</td>
+                        <td class="checkpoint-cell" colspan="3">Check the insulation resistance with 500 V Megger</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_3" id="hl1_3"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_3" id="hl2_3"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">4</td>
+                        <td class="checkpoint-cell">a) Pin to pin</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">10 MΩ</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_4" id="hl1_4"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_4" id="hl2_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">5</td>
+                        <td class="checkpoint-cell">b) Terminal to body</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">10 MΩ</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_5" id="hl1_5"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_5" id="hl2_5"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">6</td>
+                        <td class="checkpoint-cell">Check the lamps glowing at rated voltage 24 V DC</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Glowing</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_6" id="hl1_6"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_6" id="hl2_6"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">7</td>
+                        <td class="checkpoint-cell">Check the focus of Head light</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">To be Focused</td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_7" id="hl1_7"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_7" id="hl2_7"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">8</td>
+                        <td class="checkpoint-cell">Any remarks</td>
+                        <td class="reference-cell"></td>
+                        <td class="standard-cell"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl1_8" id="hl1_8"></td>
+                        <td class="actual-cell" colspan="2"><input type="text" name="hl2_8" id="hl2_8"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr class="header-row">
+                        <th colspan="4">EQUIPMENT</th>
+                        <th colspan="4">CAB HEATER</th>
+                    </tr>
+                    <tr>
+                        <th class="number-cell"></th>
+                        <th>Check-point</th>
+                        <th class="reference-cell">Reference</th>
+                        <th class="standard-cell">Standard</th>
+                        <th colspan="4">Actual</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>RA 1</th>
+                        <th>RA 2</th>
+                        <th>RA 3</th>
+                        <th>RA 4</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th colspan="3">make/sr. no.</th>
+                        <th><input type="text" name="ra1_make" id="ra1_make"></th>
+                        <th><input type="text" name="ra2_make" id="ra2_make"></th>
+                        <th><input type="text" name="ra3_make" id="ra3_make"></th>
+                        <th><input type="text" name="ra4_make" id="ra4_make"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="number-cell">1</td>
+                        <td class="checkpoint-cell">Check the heater cover and frame for any damage.</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">No damage</td>
+                        <td class="actual-cell"><input type="text" name="ra1_1" id="ra1_1"></td>
+                        <td class="actual-cell"><input type="text" name="ra2_1" id="ra2_1"></td>
+                        <td class="actual-cell"><input type="text" name="ra3_1" id="ra3_1"></td>
+                        <td class="actual-cell"><input type="text" name="ra4_1" id="ra4_1"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-cell">2</td>
+                        <td class="checkpoint-cell">Check the condition of heater element</td>
+                        <td class="reference-cell">Shop Practice</td>
+                        <td class="standard-cell">Good</td>
+                        <td class="actual-cell"><input type="text" name="ra1_2" id="ra1_2"></td>
+                        <td class="actual-cell"><input type="text" name="ra2_2" id="ra2_2"></td>
+                        <td class="actual-cell"><input type="text" name="ra3_2" id="ra3_2"></td>
+                        <td class="actual-cell"><input type="text" name="ra4_2" id="ra4_2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+        <div class="container">
+        <!-- First Equipment Section -->
+        <table>
+            <tr>
+                <td class="serial-col section-header">3</td>
+                <td class="checkpoint-col text-left">Check the current and proper heating of heater element after giving 380 V supply</td>
+                <td class="reference-col">Shop Practice</td>
+                <td class="standard-col">Properly heated</td>
+                <td class="actual-col"><input type="text" name="heating_actual" id="heating_actual"></td>
+                <td class="actual-col"><input type="text" name="heating_actual2" id="heating_actual2"></td>
+                <td class="actual-col"><input type="text" name="heating_actual3" id="heating_actual3"></td>
+                <td class="actual-col"><input type="text" name="heating_actual4" id="heating_actual4"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">4</td>
+                <td class="checkpoint-col text-center">Check the insulation resistance with 500 V Megger between terminals & frame</td>
+                <td class="reference-col">Shop Practice</td>
+                <td class="standard-col">5 MΩ</td>
+                <td class="actual-col"><input type="text" name="insulation_actual" id="insulation_actual"></td>
+                <td class="actual-col"><input type="text" name="insulation_actual2" id="insulation_actual2"></td>
+                <td class="actual-col"><input type="text" name="insulation_actual3" id="insulation_actual3"></td>
+                <td class="actual-col"><input type="text" name="insulation_actual4" id="insulation_actual4"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">5</td>
+                <td class="checkpoint-col text-center">Check the condition of element support insulator & terminal support insulator</td>
+                <td class="reference-col">Shop Practice</td>
+                <td class="standard-col">Good</td>
+                <td class="actual-col"><input type="text" name="support_actual" id="support_actual"></td>
+                <td class="actual-col"><input type="text" name="support_actual2" id="support_actual2"></td>
+                <td class="actual-col"><input type="text" name="support_actual3" id="support_actual3"></td>
+                <td class="actual-col"><input type="text" name="support_actual4" id="support_actual4"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">6</td>
+                <td class="checkpoint-col text-center">Any remarks</td>
+                <td class="reference-col"><input type="text" name="remarks_ref" id="remarks_ref"></td>
+                <td class="standard-col"><input type="text" name="remarks_std" id="remarks_std"></td>
+                <td class="actual-col" colspan="2"><input type="text" name="remarks_actual" id="remarks_actual"></td>
+                <td class="actual-col" colspan="2"><input type="text" name="remarks_actual2" id="remarks_actual2"></td>
+            </tr>
+        </table>
+
+        <!-- Marker Light Section -->
+        <table>
+            <tr class="header-row">
+                <td colspan="4">EQUIPMENT</td>
+                <td colspan="4">MARKER LIGHT</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td class="checkpoint-col section-header">Check-point</td>
+                <td class="reference-col section-header">Reference</td>
+                <td class="standard-col section-header">Standard</td>
+                <td colspan="4" class="section-header">Actual</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td class="checkpoint-col"></td>
+                <td class="reference-col"></td>
+                <td class="standard-col"></td>
+                <td class="ml-col section-header">ML 1</td>
+                <td class="ml-col section-header">ML 2</td>
+                <td class="ml-col section-header">ML 3</td>
+                <td class="ml-col section-header">ML 4</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td class="checkpoint-col section-header">make/sr. no.</td>
+                <td class="reference-col"></td>
+                <td class="standard-col"></td>
+                <td class="ml-col"><input type="text" name="ml1_make" id="ml1_make"></td>
+                <td class="ml-col"><input type="text" name="ml2_make" id="ml2_make"></td>
+                <td class="ml-col"><input type="text" name="ml3_make" id="ml3_make"></td>
+                <td class="ml-col"><input type="text" name="ml4_make" id="ml4_make"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">1</td>
+                <td class="checkpoint-col text-center">Check the condition of frame.</td>
+                <td class="reference-col text-center">Shop Practice</td>
+                <td class="standard-col">Good</td>
+                <td class="ml-col"><input type="text" name="ml1_frame" id="ml1_frame"></td>
+                <td class="ml-col"><input type="text" name="ml2_frame" id="ml2_frame"></td>
+                <td class="ml-col"><input type="text" name="ml3_frame" id="ml3_frame"></td>
+                <td class="ml-col"><input type="text" name="ml4_frame" id="ml4_frame"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">2</td>
+                <td class="checkpoint-col text-center">Check the condition of glass</td>
+                <td class="reference-col">Shop Practice</td>
+                <td class="standard-col">Good</td>
+                <td class="ml-col"><input type="text" name="ml1_glass" id="ml1_glass"></td>
+                <td class="ml-col"><input type="text" name="ml2_glass" id="ml2_glass"></td>
+                <td class="ml-col"><input type="text" name="ml3_glass" id="ml3_glass"></td>
+                <td class="ml-col"><input type="text" name="ml4_glass" id="ml4_glass"></td>
+            </tr>
+            <tr>
+                <td rowspan="3" class="serial-col section-header">3</td>
+                <td class="checkpoint-col text-left">Check insulation resistance with 500 V Megger between</td>
+                <td class="reference-col"></td>
+                <td class="standard-col"></td>
+                <td class="ml-col"><input type="text" name="ml1_insul" id="ml1_insul"></td>
+                <td class="ml-col"><input type="text" name="ml2_insul" id="ml2_insul"></td>
+                <td class="ml-col"><input type="text" name="ml3_insul" id="ml3_insul"></td>
+                <td class="ml-col"><input type="text" name="ml4_insul" id="ml4_insul"></td>
+            </tr>
+            <tr>
+                <td class="checkpoint-col text-left">a) Pin to pin</td>
+                <td class="reference-col text-center">Shop Practice</td>
+                <td class="standard-col">10 MΩ</td>
+                <td class="ml-col"><input type="text" name="ml1_pin_pin" id="ml1_pin_pin"></td>
+                <td class="ml-col"><input type="text" name="ml2_pin_pin" id="ml2_pin_pin"></td>
+                <td class="ml-col"><input type="text" name="ml3_pin_pin" id="ml3_pin_pin"></td>
+                <td class="ml-col"><input type="text" name="ml4_pin_pin" id="ml4_pin_pin"></td>
+            </tr>
+            <tr>
+                <td class="checkpoint-col text-left">b) Pin to body</td>
+                <td class="reference-col">Shop Practice</td>
+                <td class="standard-col">10 MΩ</td>
+                <td class="ml-col"><input type="text" name="ml1_pin_body" id="ml1_pin_body"></td>
+                <td class="ml-col"><input type="text" name="ml2_pin_body" id="ml2_pin_body"></td>
+                <td class="ml-col"><input type="text" name="ml3_pin_body" id="ml3_pin_body"></td>
+                <td class="ml-col"><input type="text" name="ml4_pin_body" id="ml4_pin_body"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">4</td>
+                <td class="checkpoint-col text-left">Check the LED glowing at rated voltage.</td>
+                <td class="reference-col">Shop Practice</td>
+                <td class="standard-col">Glowing</td>
+                <td colspan="2"><input type="text" name="led_glow1" id="led_glow1"></td>
+                <td colspan="2"><input type="text" name="led_glow2" id="led_glow2"></td>
+            </tr>
+        </table>
+
+        <!-- TFVT Section -->
+        <table>
+            <tr>
+                <td colspan="3" class="header-row">SECTION</td>
+                <td colspan="3" class="header-row">S-9/MISC</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="section-header">LOCO NO./TYPE/SHED</td>
+                <td colspan="3"><input type="text" name="loco_details" id="loco_details"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="section-header">MONTH OF POH</td>
+                <td colspan="3"><input type="text" name="poh_month" id="poh_month"></td>
+            </tr>
+            <tr class="subheader-row">
+                <td colspan="3">EQUIPMENT</td>
+                <td colspan="3">TFVT</td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">SN</td>
+                <td class="checkpoint-col section-header">Check Point</td>
+                <td class="reference-col section-header">Reference</td>
+                <td class="standard-col section-header">Standard</td>
+                <td colspan="2" class="section-header">Actual</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td colspan="2" class="section-header">make/sr. no.</td>
+                <td colspan="3"><input type="text" name="tfvt_make" id="tfvt_make"></td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td class="checkpoint-col section-header">REF.</td>
+                <td class="reference-col"></td>
+                <td colspan="3" class="section-header">SHOP PRACTICE</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td class="checkpoint-col section-header">Serial No. of Equipment</td>
+                <td class="reference-col"></td>
+                <td colspan="3"><input type="text" name="tfvt_serial" id="tfvt_serial"></td>
+            </tr>
+            <tr>
+                <td rowspan="4" class="serial-col section-header">1</td>
+                <td class="checkpoint-col text-left">Insulation Resistance value with 500 Volts Megger</td>
+                <td class="reference-col"></td>
+                <td class="standard-col"></td>
+                <td colspan="2"><input type="text" name="tfvt_insul_main" id="tfvt_insul_main"></td>
+            </tr>
+            <tr>
+                <td class="checkpoint-col text-left">a) Primary winding to body</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">10 MΩ</td>
+                <td colspan="2"><input type="text" name="tfvt_primary_body" id="tfvt_primary_body"></td>
+            </tr>
+            <tr>
+                <td class="checkpoint-col text-left">b) Secondary winding to body</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">10 MΩ</td>
+                <td colspan="2"><input type="text" name="tfvt_secondary_body" id="tfvt_secondary_body"></td>
+            </tr>
+            <tr>
+                <td class="checkpoint-col text-left">c) Primary winding to secondary winding</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">10 MΩ</td>
+                <td colspan="2"><input type="text" name="tfvt_primary_secondary" id="tfvt_primary_secondary"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">2</td>
+                <td class="checkpoint-col text-left">Apply 415V ± 10% Single Phase A.C. supply to primary winding and check the output voltage of secondary winding</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">110 V ± 5%</td>
+                <td colspan="2"><input type="text" name="tfvt_voltage_test" id="tfvt_voltage_test"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">3</td>
+                <td class="checkpoint-col section-header">Any other remarks</td>
+                <td class="reference-col"></td>
+                <td class="standard-col"></td>
+                <td colspan="2"><input type="text" name="tfvt_remarks" id="tfvt_remarks"></td>
+            </tr>
+        </table>
+
+        <!-- Flasher Light Section -->
+        <table>
+            <tr class="subheader-row">
+                <td colspan="4">EQUIPMENT</td>
+                <td colspan="2">FLASHER LIGHT</td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">SN</td>
+                <td class="checkpoint-col section-header">Check Point</td>
+                <td class="reference-col"></td>
+                <td class="standard-col section-header">Standard</td>
+                <td colspan="2" class="section-header">Actual</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td class="checkpoint-col section-header">REF.</td>
+                <td class="reference-col"></td>
+                <td colspan="3" class="section-header">1) SHOP PRACTICE</td>
+            </tr>
+            <tr>
+                <td class="serial-col"></td>
+                <td colspan="3" class="section-header">Serial No. of Equipment</td>
+                <td class="actual-col"><input type="text" name="flasher_serial1" id="flasher_serial1"></td>
+                <td class="actual-col"><input type="text" name="flasher_serial2" id="flasher_serial2"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">1</td>
+                <td class="checkpoint-col text-center">Check the body for any damage</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">No damage</td>
+                <td class="actual-col"><input type="text" name="flasher_body1" id="flasher_body1"></td>
+                <td class="actual-col"><input type="text" name="flasher_body2" id="flasher_body2"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">2</td>
+                <td class="checkpoint-col text-left">Check the glasses for any crack and damage</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">No crack No damage</td>
+                <td class="actual-col"><input type="text" name="flasher_glass1" id="flasher_glass1"></td>
+                <td class="actual-col"><input type="text" name="flasher_glass2" id="flasher_glass2"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">3</td>
+                <td class="checkpoint-col text-center">Check the IR with 500 V Megger. Terminal to body.</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">10 M Ω</td>
+                <td class="actual-col"><input type="text" name="flasher_ir1" id="flasher_ir1"></td>
+                <td class="actual-col"><input type="text" name="flasher_ir2" id="flasher_ir2"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">4</td>
+                <td class="checkpoint-col text-left">Check the LED lamps glowing at rated voltage.</td>
+                <td class="reference-col"></td>
+                <td class="standard-col">Glowing</td>
+                <td class="actual-col"><input type="text" name="flasher_led1" id="flasher_led1"></td>
+                <td class="actual-col"><input type="text" name="flasher_led2" id="flasher_led2"></td>
+            </tr>
+            <tr>
+                <td class="serial-col section-header">5</td>
+                <td class="checkpoint-col text-center">Any other remarks</td>
+                <td class="reference-col"></td>
+                <td colspan="3"><input type="text" name="flasher_remarks" id="flasher_remarks"></td>
+            </tr>
+        </table>
+     
+          <table>
+            <thead>
+                <tr>
+                    <th style="width: 6%;" class="header-cell">SN</th>
+                    <th style="width: 25%;" class="header-cell">Check Point</th>
+                    <th style="width: 15%;" class="header-cell"><input type="text" class="input-field" placeholder="Serial No."></th>
+                    <th style="width: 12%;" class="header-cell standard-column">Standard</th>
+                    <th style="width: 42%;" class="header-cell">Actual</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="header-cell">Serial No. of Equipment</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td colspan="2"><input type="text" class="input-field"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" class="header-cell">1</td>
+                    <td class="header-cell">Check the IR value with 500 V megger</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-left">a) Between terminal to body</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">10 MΩ</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">2</td>
+                    <td class="text-center">Check the SB for any crack, screw slack damage, dent mark</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">No crack/damage/slack/dent mark</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">3</td>
+                    <td class="text-center">Check the indicator working</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">Working</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">4</td>
+                    <td class="text-center">Check the flasher working with proper load (Filament one & two)</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">Working properly</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">5</td>
+                    <td class="text-center">Measure out put voltage</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">110 Volts</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">6</td>
+                    <td class="text-center">AFL circuit to be checked</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">Working</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Equipment Header -->
+        <table>
+            <tr>
+                <td class="header-gray equipment-title" style="width: 58%;">EQUIPMENT</td>
+                <td class="header-gray equipment-title" style="width: 42%;">DC-DC CONVERTOR</td>
+            </tr>
+        </table>
+
+        <!-- Second Equipment Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 6%;" class="header-cell">SN</th>
+                    <th style="width: 25%;" class="header-cell">Check Point</th>
+                    <th style="width: 15%;" class="header-cell"><input type="text" class="input-field" placeholder="Serial No."></th>
+                    <th style="width: 12%;" class="header-cell standard-column">Standard</th>
+                    <th style="width: 42%;" class="header-cell">Actual</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="header-cell">Serial No. of Equipment</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td colspan="2"><input type="text" class="input-field"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="header-cell">1</td>
+                    <td class="text-center">Check the IR value with 500 V megger</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="text-left">a) Between terminal to body (Frame)</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">5 MΩ (min.)</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td rowspan="5" class="header-cell">2</td>
+                    <td class="text-center">Check the performance by measuring out put voltage but keeping constant out put current at 15.8 Amp should be done as below</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">OK (DRG.NO- ELW/BSL/4/F72-205)</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Input voltage</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="small-text">Input Current (Amp)</td>
+                    <td class="small-text">Out put current set at single headlight</td>
+                </tr>
+                <tr>
+                    <td class="text-center">70 V</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">110 V</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">140 V</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">3</td>
+                    <td class="text-center">Check the function of dimmer working</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">Working</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">4</td>
+                    <td class="text-center">Any other Remarks</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Shop/Section Information -->
+        <table>
+            <tr>
+                <td class="shop-section" style="width: 46%;">SHOP/SECTION</td>
+                <td class="shop-section" style="width: 54%;">S-9/MISC</td>
+            </tr>
+            <tr>
+                <td class="shop-section">LOCO NO./TYPE/SHED</td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="shop-section">MONTH OF POH</td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+        </table>
+
+        <!-- Field Divertor Resistance Table -->
+        <table>
+            <tr>
+                <td class="header-gray equipment-title" style="width: 46%;">EQUIPMENT</td>
+                <td class="header-gray equipment-title" style="width: 54%;">FIELD DIVERTOR RESISTANCE (RPS)</td>
+            </tr>
+            <tr>
+                <td class="shop-section">MAKE/SR.NO.</td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+        </table>
+
+        <!-- Field Divertor Resistance Details -->
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 7%;" class="header-cell">SN</th>
+                    <th style="width: 28%;" class="header-cell">Check point</th>
+                    <th style="width: 14%;" class="header-cell">Reference</th>
+                    <th style="width: 15%;" class="header-cell standard-column">Standard</th>
+                    <th style="width: 36%;" class="header-cell">Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="header-cell">1</td>
+                    <td class="text-center">Check frame and body for deformation and damage</td>
+                    <td class="text-center">works instruction</td>
+                    <td class="standard-column">No deformation/No damage/Rectified</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">2</td>
+                    <td class="text-center">Check the condition of grid and insulator</td>
+                    <td class="text-center">works instruction</td>
+                    <td class="standard-column">Good/Replaced</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">3</td>
+                    <td class="text-center">Check the condition of grid foundation insulator</td>
+                    <td class="text-center">works instruction</td>
+                    <td class="standard-column">Good/Replaced</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">4</td>
+                    <td class="text-center">Replace all rusty nuts and bolts</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">Replaced</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">5</td>
+                    <td class="text-center">Tinning of all short link plates to be done</td>
+                    <td class="text-center">works instruction</td>
+                    <td class="standard-column">Done</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">6</td>
+                    <td class="text-center">Varnishing of all bus bars to be done</td>
+                    <td class="text-center">works instruction</td>
+                    <td class="standard-column">Done</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">7</td>
+                    <td class="text-center">At the end of bus-bar tinning and number punching to be done</td>
+                    <td class="text-center">works instruction</td>
+                    <td class="standard-column">Done</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">8</td>
+                    <td class="text-center">Check the resistance between (as per std value)</td>
+                    <td class="text-center small-text">as per spec. CLW/ES/R-39 CD dt. 09.02.2011</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td rowspan="6"></td>
+                    <td class="text-center">EF 21 & FE 21</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td rowspan="2" class="standard-column">0.220 - 0.330 Ω</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">EF 22 & FE 22</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">EF 23 & FE 23</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td rowspan="2" class="standard-column">0.220 - 0.330 Ω</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">EF 24 & FE 24</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">EF 25 & FE 25</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td rowspan="2" class="standard-column">0.220 - 0.330 Ω</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="text-center">EF 26 & FE 26</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">9</td>
+                    <td class="text-center">Check IR with 1.0 KV megger between terminal and body</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td class="standard-column">50 MΩ(Min,)</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">10</td>
+                    <td class="text-center">provision of 100 amps, 660 volts HRC fuse to be done</td>
+                    <td class="text-center small-text">as per RDSO MS no. WAM 4/201 dt. 31.03.1998</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="header-cell">11</td>
+                    <td class="text-center">Any other remarks</td>
+                    <td><input type="text" class="input-field"></td>
+                    <td colspan="2"><input type="text" class="input-field"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="header-cell" colspan="3">EQUIPMENT</th>
+                    <th class="header-cell" colspan="4">R-118</th>
+                </tr>
+                <tr>
+                    <th colspan="3">MAKE/SR.NO.</th>
+                    <td colspan="4">
+                        <input type="text" class="input-field" name="make_sr_no_1" id="make_sr_no_1">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="sn-cell">SN</th>
+                    <th class="checkpoint-cell">Check point</th>
+                    <th>Standard</th>
+                    <th>Standard</th>
+                    <th class="actual-cell" colspan="3">Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-cell">1</td>
+                    <td class="checkpoint-cell">Check the grids and frame for any damage</td>
+                    <td>
+                        <input type="text" class="input-field" name="check1_col3" id="check1_col3">
+                    </td>
+                    <td>No damage</td>
+                    <td class="actual-cell" colspan="3">
+                        <input type="text" class="input-field" name="check1_actual" id="check1_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell multi-row">2</td>
+                    <td class="checkpoint-cell multi-row">Check all grids for any flash mark and overheating</td>
+                    <td class="multi-row">
+                        <input type="text" class="input-field" name="check2_col3" id="check2_col3">
+                    </td>
+                    <td class="multi-row">No flash mark/No overheating</td>
+                    <td class="multi-row">
+                        <input type="text" class="input-field" name="check2_col5" id="check2_col5">
+                    </td>
+                    <td class="actual-cell" colspan="2">
+                        <input type="text" class="input-field" name="check2_actual" id="check2_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">3</td>
+                    <td class="checkpoint-cell">Check the resistance value (as per std value)</td>
+                    <td>
+                        <input type="text" class="input-field" name="check3_col3" id="check3_col3">
+                    </td>
+                    <td>0.4 ± 5% Ω</td>
+                    <td class="actual-cell" colspan="3">
+                        <input type="text" class="input-field" name="check3_actual" id="check3_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">4</td>
+                    <td class="checkpoint-cell">Check the condition of mica washer and insulation of supporting rod</td>
+                    <td>
+                        <input type="text" class="input-field" name="check4_col3" id="check4_col3">
+                    </td>
+                    <td>Good/Replaced</td>
+                    <td class="actual-cell" colspan="3">
+                        <input type="text" class="input-field" name="check4_actual" id="check4_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">5</td>
+                    <td class="checkpoint-cell">Tinning of earthing point to be done</td>
+                    <td>
+                        <input type="text" class="input-field" name="check5_col3" id="check5_col3">
+                    </td>
+                    <td>done</td>
+                    <td class="actual-cell" colspan="3">
+                        <input type="text" class="input-field" name="check5_actual" id="check5_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">6</td>
+                    <td class="checkpoint-cell">Check insulation resistance with 500 V Megger between terminal and frame</td>
+                    <td>
+                        <input type="text" class="input-field" name="check6_col3" id="check6_col3">
+                    </td>
+                    <td>10 MΩ (Min.)</td>
+                    <td class="actual-cell" colspan="3">
+                        <input type="text" class="input-field" name="check6_actual" id="check6_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">7</td>
+                    <td class="checkpoint-cell">Any other remarks</td>
+                    <td class="actual-cell" colspan="5">
+                        <input type="text" class="input-field" name="check7_remarks" id="check7_remarks">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="header-cell-light" colspan="2">EQUIPMENT</th>
+                    <th class="header-cell-light" colspan="2">DBR</th>
+                </tr>
+                <tr>
+                    <th colspan="2">make/sr.no.</th>
+                    <td colspan="2">
+                        <input type="text" class="input-field" name="make_sr_no_2" id="make_sr_no_2">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="sn-cell">SN</th>
+                    <th class="checkpoint-cell">Check point</th>
+                    <th class="standard-cell">Standard</th>
+                    <th class="actual-cell">Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sn-cell">1</td>
+                    <td class="checkpoint-cell">Check the complete frame and cover for deformation and damage</td>
+                    <td class="standard-cell">No deformation/No damage/Rectified</td>
+                    <td class="actual-cell">
+                        <input type="text" class="input-field" name="dbr_check1_actual" id="dbr_check1_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">2</td>
+                    <td class="checkpoint-cell">Check the condition of support insulator</td>
+                    <td class="standard-cell">Good/Replaced</td>
+                    <td class="actual-cell">
+                        <input type="text" class="input-field" name="dbr_check2_actual" id="dbr_check2_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">3</td>
+                    <td class="checkpoint-cell">Check resistance grid for any flash mark and over heating</td>
+                    <td class="standard-cell">No flash mark / No over heating</td>
+                    <td class="actual-cell">
+                        <input type="text" class="input-field" name="dbr_check3_actual" id="dbr_check3_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">4</td>
+                    <td class="checkpoint-cell">Tinning of electrical contact surfaces to be done</td>
+                    <td class="standard-cell">Done</td>
+                    <td class="actual-cell">
+                        <input type="text" class="input-field" name="dbr_check4_actual" id="dbr_check4_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">5</td>
+                    <td class="checkpoint-cell">Replace all rusty nuts and bolts</td>
+                    <td class="standard-cell">Replaced</td>
+                    <td class="actual-cell">
+                        <input type="text" class="input-field" name="dbr_check5_actual" id="dbr_check5_actual">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="sn-cell">6</td>
+                    <td class="checkpoint-cell">Check the tightness of all connections</td>
+                    <td class="standard-cell">checked</td>
+                    <td class="actual-cell">
+                        <input type="text" class="input-field" name="dbr_check6_actual" id="dbr_check6_actual">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table>
+            <tr>
+                <td class="serial-num center">7</td>
+                <td class="check-point">Earthing points tinning to be done</td>
+                <td class="center">Done</td>
+                <td class="remarks"><input type="text" name="earthing_remarks" id="earthing_remarks"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">8</td>
+                <td class="check-point">Check the resistance value (as per std value)</td>
+                <td class="standard"><input type="text" name="resistance_status" id="resistance_status"></td>
+                <td class="remarks"><input type="text" name="resistance_remarks" id="resistance_remarks"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center" rowspan="6"></td>
+                <td class="check-point center">1R1-1R2</td>
+                <td class="standard center resistance-values" rowspan="6">0.475 to 0.525 Ω each</td>
+                <td class="remarks"><input type="text" name="1r1_1r2_value" id="1r1_1r2_value"></td>
+            </tr>
+            <tr>
+                <td class="check-point center indent-3">2) 2R1-2R2</td>
+                <td class="remarks"><input type="text" name="2r1_2r2_value" id="2r1_2r2_value"></td>
+            </tr>
+            <tr>
+                <td class="check-point center indent-3">3) 3R1-3R2</td>
+                <td class="remarks"><input type="text" name="3r1_3r2_value" id="3r1_3r2_value"></td>
+            </tr>
+            <tr>
+                <td class="check-point center indent-3">4) 4R1-4R2</td>
+                <td class="remarks"><input type="text" name="4r1_4r2_value" id="4r1_4r2_value"></td>
+            </tr>
+            <tr>
+                <td class="check-point center">5R1-5R2</td>
+                <td class="remarks"><input type="text" name="5r1_5r2_value" id="5r1_5r2_value"></td>
+            </tr>
+            <tr>
+                <td class="check-point center">6R1-6R2R</td>
+                <td class="remarks"><input type="text" name="6r1_6r2r_value" id="6r1_6r2r_value"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">9</td>
+                <td class="check-point">Check insulation resistance with 1 KV Megger between terminal and earth</td>
+                <td class="standard center">10 MΩ (Min)</td>
+                <td class="remarks"><input type="text" name="insulation_resistance" id="insulation_resistance"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">10</td>
+                <td class="check-point">HV testing to be done by giving 2 KV A.C. supply for one minute and record leakage current</td>
+                <td class="standard center">10 Milli Amps (Max)</td>
+                <td class="remarks"><input type="text" name="hv_testing" id="hv_testing"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">11</td>
+                <td class="check-point center">Any other remarks:</td>
+                <td class="standard"><input type="text" name="other_remarks_status" id="other_remarks_status"></td>
+                <td class="remarks"><input type="text" name="other_remarks" id="other_remarks"></td>
+            </tr>
+        </table>
+
+        <!-- Header Information Table -->
+        <table>
+            <tr>
+                <td class="header-cell" colspan="3">SHOP/SECTION</td>
+                <td class="center" colspan="2">SHOP-9/MISC.</td>
+            </tr>
+            <tr>
+                <td class="header-cell center" colspan="3">LOCO NO./TYPE/SHED</td>
+                <td colspan="2"><input type="text" name="loco_details" id="loco_details"></td>
+            </tr>
+            <tr>
+                <td class="header-cell center" colspan="3">MONTH OF POH</td>
+                <td colspan="2"><input type="text" name="month_poh" id="month_poh"></td>
+            </tr>
+            <tr>
+                <td class="header-cell" colspan="3">EQUIPMENT</td>
+                <td class="header-cell" colspan="2">BATTERY CHARGER (CHBA)</td>
+            </tr>
+            <tr>
+                <td class="header-cell" style="width: 5%;">SN</td>
+                <td class="header-cell" style="width: 35%;">Check Point</td>
+                <td class="header-cell" style="width: 15%;">Reference</td>
+                <td class="header-cell" style="width: 20%;">Standard</td>
+                <td class="header-cell" style="width: 25%;">Remarks</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="center">Serial No. of Equipment</td>
+                <td></td>
+                <td></td>
+                <td><input type="text" name="equipment_serial" id="equipment_serial"></td>
+            </tr>
+        </table>
+
+        <!-- Main Battery Charger Testing Table -->
+        <table>
+            <tr>
+                <td class="serial-num center">1</td>
+                <td class="check-point">Insulation resistance with 500 V Megger.</td>
+                <td class="reference" rowspan="5">As per spec. CLW/ES/B11 dt. 09.02.0998</td>
+                <td class="standard"><input type="text" name="insulation_500v_standard" id="insulation_500v_standard"></td>
+                <td class="remarks"><input type="text" name="insulation_500v_remarks" id="insulation_500v_remarks"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point indent-2">A) Transformer</td>
+                <td class="standard"><input type="text" name="transformer_standard" id="transformer_standard"></td>
+                <td class="remarks"><input type="text" name="transformer_remarks" id="transformer_remarks"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point indent-1">a) Between primary winding and earth</td>
+                <td class="standard center">10 M Ω (Min)</td>
+                <td class="remarks"><input type="text" name="primary_earth" id="primary_earth"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point indent-1">b) Between secondary winding and earth</td>
+                <td class="standard center">10 M Ω (Min)</td>
+                <td class="remarks"><input type="text" name="secondary_earth" id="secondary_earth"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point indent-1">c) Between condenser winding and earth</td>
+                <td class="standard center">10 M Ω (Min)</td>
+                <td class="remarks"><input type="text" name="condenser_earth" id="condenser_earth"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point indent-1">d) Between primary and secondary winding</td>
+                <td rowspan="3"></td>
+                <td class="standard center">10 M Ω (Min)</td>
+                <td class="remarks"><input type="text" name="primary_secondary" id="primary_secondary"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point indent-1">e) Between primary and condenser winding</td>
+                <td class="standard center">10 M Ω (Min)</td>
+                <td class="remarks"><input type="text" name="primary_condenser" id="primary_condenser"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point center">(B) All Connecting Cables</td>
+                <td class="standard center">10 M Ohm (Min)</td>
+                <td class="remarks"><input type="text" name="connecting_cables" id="connecting_cables"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">2</td>
+                <td class="check-point center">Check crimping of terminal lugs</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard center">Properly crimped</td>
+                <td class="remarks"><input type="text" name="terminal_lugs" id="terminal_lugs"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">3</td>
+                <td class="check-point">Baking before and after varnishing with anti-tract varnish of TFP.</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard center">Done</td>
+                <td class="remarks"><input type="text" name="baking_varnishing" id="baking_varnishing"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">4</td>
+                <td class="check-point">Testing of condensers with charging and discharging method</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard center">Healthy condition</td>
+                <td class="remarks"><input type="text" name="condenser_testing" id="condenser_testing"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">5</td>
+                <td class="check-point">Check the all diodes, resistance valves, fuses with multimeter</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard center">All components are healthy</td>
+                <td class="remarks"><input type="text" name="diodes_check" id="diodes_check"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">6</td>
+                <td class="check-point">Check the tightness of all terminals, diodes and fuses</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard center">Properly tightened</td>
+                <td class="remarks"><input type="text" name="tightness_check" id="tightness_check"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">7</td>
+                <td class="check-point">Check D.C. output voltage of the battery charger at following loads and with A.C. input to battery charger varying between 360 to 400 Volts rms.</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard"><input type="text" name="dc_output_standard" id="dc_output_standard"></td>
+                <td class="remarks"><input type="text" name="dc_output_remarks" id="dc_output_remarks"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point center">i) At no load</td>
+                <td></td>
+                <td class="standard center">98 to 105 Volts. (As per SMI-108)</td>
+                <td class="remarks"><input type="text" name="no_load" id="no_load"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point center">ii) At 5 Amp load</td>
+                <td></td>
+                <td class="standard center">102 ± 3 Volts D.C.</td>
+                <td class="remarks"><input type="text" name="5amp_load" id="5amp_load"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point center">iii) At 10 Amps load</td>
+                <td></td>
+                <td class="standard center">99 ± 3 Volts D.C.</td>
+                <td class="remarks"><input type="text" name="10amp_load" id="10amp_load"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="check-point center">iv) At 15 Amps load</td>
+                <td></td>
+                <td class="standard center">96 ± 3 Volts D.C.</td>
+                <td class="remarks"><input type="text" name="15amp_load" id="15amp_load"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">8</td>
+                <td class="check-point center">RDSO Mod. 200 for 110 V AC tap</td>
+                <td></td>
+                <td class="standard center">Done</td>
+                <td class="remarks"><input type="text" name="rdso_mod" id="rdso_mod"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">9</td>
+                <td class="check-point center">MCB to be replaced</td>
+                <td class="reference center">works instruction</td>
+                <td class="standard center">Replaced</td>
+                <td class="remarks"><input type="text" name="mcb_replaced" id="mcb_replaced"></td>
+            </tr>
+            <tr>
+                <td class="serial-num center">10</td>
+                <td class="check-point center">Any other Remarks</td>
+                <td colspan="3"><input type="text" name="final_remarks" id="final_remarks"></td>
+            </tr>
+        </table>
+
+
+        <section style="margin-bottom: 30px;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 50%;">SHOP/SECTION</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">S-9/MISC</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">LOCO NO./TYPE/SHED</td>
+                    <td style="border: 1px solid #000; padding: 8px;">
+                        <input type="text" name="loco_details" id="loco_details" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">MONTH OF POH</td>
+                    <td style="border: 1px solid #000; padding: 8px;">
+                        <input type="text" name="month_poh" id="month_poh" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Must Change Items Section -->
+        <section style="margin-bottom: 30px;">
+            <div style="background-color: #A5A5A5; padding: 10px; text-align: center; font-weight: bold; border: 1px solid #000;">
+                LIST OF MUST CHANGE ITEMS DURING POH OF LOCOMOTIVES AS PER TC NO. RDSO/2014/EL/TC/0123 REV'0' DT. 16.05.2013
+            </div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #f0f0f0;">
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 8%;">SL. NO.</th>
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 45%;">DESCRIPTION</th>
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 15%;">PL NO.</th>
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 32%;">STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">1</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">RC NET FOR AC DAMPING</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2579-8080</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_1" id="status_1" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">SETS OF COVER FOR SL-30</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2392-4068</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_2" id="status_2" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">3</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">SETS OF SPARES FOR HEADLIGHT</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2561-8519</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_3" id="status_3" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">4</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">HALOGEN LAMP 24 V, 90/100 W</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2561-8167</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_4" id="status_4" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">5</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">LED TYPE FLASHER LIGHT</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2561-7059</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_5" id="status_5" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">6</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">LED MARKER LIGHT</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2561-1604</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_6" id="status_6" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">7</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">LED ADJUSTABLE SPOT LIGHT</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2561-8581</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_7" id="status_7" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">8</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">CFL ASSLY COMPLETE</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2561-6109</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_8" id="status_8" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">9</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">DC-DC CONVERTOR</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2574-0507</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_9" id="status_9" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">10</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">AIR CONVECTOR/CAB HEATER</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2365-2020</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_10" id="status_10" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">11</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">SETS OF GASKET FOR TWIN BEAM HEADLIGHT</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2525-6993</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_11" id="status_11" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">12</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">RESISTANCE GRID ELEMENT FOR VERTICAL DBR</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2581-8119</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="status_12" id="status_12" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Modification Status Section -->
+        <section style="margin-bottom: 30px;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 50%;">SHOP/SECTION</td>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">S-9/MISC</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">LOCO NO./TYPE/SHED</td>
+                    <td style="border: 1px solid #000; padding: 8px;">
+                        <input type="text" name="loco_details_2" id="loco_details_2" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">MONTH OF POH</td>
+                    <td style="border: 1px solid #000; padding: 8px;">
+                        <input type="text" name="month_poh_2" id="month_poh_2" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                    </td>
+                </tr>
+            </table>
+
+            <div style="border: 1px solid #000; padding: 10px; text-align: center; font-weight: bold; margin-bottom: 0;">
+                STATUS OF MODIFICATION IN POH LOCO (Pertain to shop-9/Misc. Section)
+            </div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #A5A5A5;">
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 13%;">SL NO.</th>
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 27%;">Modification No.</th>
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 39%;">Subject</th>
+                        <th style="border: 1px solid #000; padding: 8px; text-align: center; width: 21%;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">1</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">WAG5/15</td>
+                        <td style="border: 1px solid #000; padding: 8px;">IMPROVEMENT MEASURE FOR SL TYPE-30 & SL-42</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_1" id="mod_status_1" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">2</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">WAM4/201</td>
+                        <td style="border: 1px solid #000; padding: 8px;">MOD TO PROVIDE HRC FUSES FOR PROTECTION OF RPS IN AC. ELECT. LOCOS</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_2" id="mod_status_2" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">3</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">ELRS/MS/0315</td>
+                        <td style="border: 1px solid #000; padding: 8px;">PROVISION OF VERTICAL DBR ON WAP1/WAP4 (NON-MODULAR LOCOS)</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_3" id="mod_status_3" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">4</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">RDSO/WAG5/13</td>
+                        <td style="border: 1px solid #000; padding: 8px;">PROVISION O R-C SUPPRESSION CIRCUIT ACROSS C118 CONTACTOR COIL</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_4" id="mod_status_4" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">5</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">RDSO'S SMI/139 DT. 29.05.91</td>
+                        <td style="border: 1px solid #000; padding: 8px;">CHECKING THE CAPACITANCE OF THE CAPACITORS</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_5" id="mod_status_5" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">6</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">ELRS/SMI/230 (REV-0)</td>
+                        <td style="border: 1px solid #000; padding: 8px;">GUIDELINES OF MAINTENANCE OF CAPACITOR IN SINGLE PHASE AC ELECTRIC LOCOMOTIVES</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_6" id="mod_status_6" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">7</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">SMI 240, REV-0</td>
+                        <td style="border: 1px solid #000; padding: 8px;">MEASURES TO IMPROVE THE QUALITY OF SL-30 & SL-42 DURING MFG/MAINTENANCE</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_7" id="mod_status_7" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">8</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">RDSO/2008/EL/SMI/0253 REV 0 DT. 19.05.2008</td>
+                        <td style="border: 1px solid #000; padding: 8px;">SPECIAL MAINTENANCE INSTRUCTION FOR TWIN BEAM HEADLIGHT AND DC-DC CONVERTOR FOR ELECTRIC LOCOMOTIVES</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_8" id="mod_status_8" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">9</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">CEE/KKK/E.RLY'S EL/90/7/G/38/VOL- III A.K.C DT. 27.06.2003</td>
+                        <td style="border: 1px solid #000; padding: 8px;">MODIFICATION OF TWIN BEAM HEADLIGHT WITH DC-DC CONVERTOR</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_9" id="mod_status_9" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">10</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">RDSO L.NO. EL/3.2.29/6</td>
+                        <td style="border: 1px solid #000; padding: 8px;">ROOF MOUNTED DBR</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_10" id="mod_status_10" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">11</td>
+                        <td style="border: 1px solid #000; padding: 8px; text-align: center;">SMI 0304 REV '0'</td>
+                        <td style="border: 1px solid #000; padding: 8px;">MAINTENANCE OF SMOOTHING REACTOR IN TAPCHANGER ELECTRIC LOCOMOTIVES ESPECIALLY TESTING OF SL.</td>
+                        <td style="border: 1px solid #000; padding: 8px;">
+                            <input type="text" name="mod_status_11" id="mod_status_11" style="width: 100%; border: none; padding: 4px; font-size: 14px; background-color: #f9f9f9; box-sizing: border-box;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <header>
+            <div class="title">FIRE PREVENTION MEASURE</div>
+            <h1 class="subtitle">Smoothing Reactor</h1>
+        </header>
+        
+        <main>
+            <table class="form-table">
+                <tr class="header-row">
+                    <td class="row-number"></td>
+                    <td class="operation-system" colspan="2">Operational system</td>
+                    <td class="status-remarks">Present status/Remarks</td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">1</td>
+                    <td class="operation-system" colspan="2">
+                        Gap between core & inner coil and between inner coil & outer coil should be maintained as per RDSO's Mod. No.WAG5/15, besides other routine maintenance practices.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_1" id="status_1">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">2</td>
+                    <td class="operation-system" colspan="2">
+                        Terminals of SL should be checked as per RDSO's mod. Sheet No. WAM4/147.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_2" id="status_2">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">3</td>
+                    <td class="operation-system" colspan="2">
+                        SRBGF wedges, sheets, stainless steel cross channels and pressing bolts should be used as per TC No.42 issued by RDSO.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_3" id="status_3">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">4</td>
+                    <td class="operation-system" colspan="2">
+                        To remove dust & dirt the SL cover should be opened during every IOH.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_4" id="status_4">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">5</td>
+                    <td class="operation-system" colspan="2">
+                        SL should be taken out during IOH/ POH for cleaning, baking and varnishing & check insulation specially at corners.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_5" id="status_5">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">6</td>
+                    <td class="operation-system" colspan="2">
+                        The gaps between core & inner coil and between inner coil & outer coil should be maintained & if the gaps are not within the permissible limit specially between core and inner coil, the SL should be taken out for repair.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_6" id="status_6">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">7</td>
+                    <td class="operation-system" colspan="2">
+                        All the cable connection should be thoroughly checked.
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_7" id="status_7">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="row-number">8</td>
+                    <td class="operation-system" colspan="2">
+                        <div class="special-remarks">Any special remarks or details of materials provided new -</div>
+                    </td>
+                    <td class="status-remarks">
+                        <input type="text" class="input-field" name="status_8" id="status_8">
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+
+
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="button" id="submitBtn" class="btn btn-primary">
+            Save Check Sheet
+        </button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(window.location.href);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Function to get ID from URL path for edit route
+            function getIdFromPath() {
+                const pathParts = window.location.pathname.split('/');
+
+                console.log(pathParts)
+                if (pathParts[2] === 'edit' && pathParts[3]) {
+                    return pathParts[3];
+                }
+                return '';
+            }
+
+             
+            
+            // Function to load check sheet data by ID
+            function loadCheckSheetData(id) {
+                if (!id) return;
+                
+                $.ajax({
+                    url: '/misc/' + id,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.success) {
+                            // Set the ID in the hidden field
+                            $('#id').val(id);
+                            
+                            // Populate form fields with data
+                            const data = response.data;
+                            for (const key in data) {
+                                if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                    const element = $('#' + key);
+                                    if (element.length) {
+                                        element.val(data[key]);
+                                    }
+                                }
+                            }
+                        } else {
+                            alert('Error loading check sheet data: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error loading check sheet data: ' + error);
+                    }
+                });
+            }
+            
+            // Get ID from URL (either as parameter or from path)
+            const checkSheetId = getIdFromPath() || getUrlParameter('id');
+            if (checkSheetId) {
+                loadCheckSheetData(checkSheetId);
+            }
+            
+            // Handle form submission
+            $('#submitBtn').on('click', function() {
+                // Collect all form data
+                var formData = {};
+                $('input[type="text"]').each(function() {
+                    formData[$(this).attr('name')] = $(this).val();
+                });
+
+                console.log(formData)
+                
+                // Get the ID value to determine if we're adding or editing
+                var id = $('#id').val();
+                
+                var url = '/misc/add';
+                var method = 'POST';
+                
+                if (id && id !== '') {
+                    url = '/misc/edit/' + id;
+                }
+                
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // If this is a new record, save the ID for future edits
+                            if (response.id && !id) {
+                                $('#id').val(response.id);
+                            }
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error submitting form: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+</body>
+</html>

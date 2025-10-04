@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectifier Panel Inspection Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 11.5pt;
+            line-height: 1.2;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        td, th {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: top;
+            text-align: left;
+        }
+        
+        .header-row {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .equipment-cell {
+            background-color: #C0C0C0;
+            font-weight: bold;
+            text-align: center;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+        }
+        
+        .serial-number {
+            text-align: center;
+            width: 40px;
+        }
+        
+        .check-point {
+            text-align: center;
+            width: 330px;
+        }
+        
+        .standard {
+            text-align: center;
+            width: 118px;
+        }
+        
+        .actual-rsi {
+            text-align: center;
+            width: 95px;
+        }
+        
+        .section-header {
+            font-weight: bold;
+            font-size: 10.5pt;
+            padding: 18px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 9.5pt;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .modification-header {
+            font-weight: bold;
+            font-size: 9.5pt;
+            text-align: center;
+            padding: 6px;
+        }
+        
+        .fire-prevention-header {
+            font-weight: bold;
+            font-size: 8.5pt;
+            text-align: center;
+            padding: 4px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            text-align: center;
+            padding: 2px;
+        }
+        
+        input[type="text"]:focus {
+            outline: 1px solid #007acc;
+            background-color: #f0f8ff;
+        }
+        
+        .form-header {
+            border: 1px solid #000;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .small-text {
+            font-size: 10.5pt;
+        }
+        
+        .smaller-text {
+            font-size: 9.5pt;
+        }
+        
+        .smallest-text {
+            font-size: 8.5pt;
+        }
+
+        input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;  /* Changed from border: none */
+    background: white;        /* Changed from transparent */
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    padding: 4px;            /* Increased from 2px for better visibility */
+    min-height: 24px;        /* Added minimum height */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #007acc;
+    background-color: #f0f8ff;
+}
+
+input[type="text"]:hover {
+    border-color: #999;      /* Added hover effect */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hidden ID field for edit functionality -->
+        <input type="hidden" id="id" name="id" value="">
+        
+        <!-- Form Header -->
+        <div class="form-header">
+            <div>Section <span class="bold">Rectifier Section/Shop -9/ KPA/ ER</span> Equipment <span class="bold">Rectifier Panel</span></div>
+            <div style="margin-top: 5px; margin-left: 172px;">Type/Make - Loco from which removed</div>
+            <div style="margin-top: 5px; margin-left: 16px;">SL. No - <span class="small-text">Testing Date -</span></div>
+        </div>
+        
+        <!-- Main Inspection Table -->
+        <table>
+            <!-- Header Row -->
+            <tr>
+                <td class="header-row" style="width: 40px;">EQPT</td>
+                <td class="header-row" style="width: 32px;">SN</td>
+                <td class="header-row" style="width: 330px;">Check point</td>
+                <td class="header-row" style="width: 118px;">Standard</td>
+                <td class="header-row" style="width: 95px;">RSI-I</td>
+                <td class="header-row" style="width: 96px;">RSI-2</td>
+            </tr>
+            
+            <!-- Rectifier Block Section -->
+            <tr>
+                <td rowspan="17" class="equipment-cell">Rectifier Block (RSI)</td>
+                <td class="serial-number"></td>
+                <td class="check-point"></td>
+                <td class="standard"></td>
+                <td class="center bold">RSI-I</td>
+                <td class="center bold">RSI-2</td>
+            </tr>
+            
+            <tr>
+                <td class="center">1</td>
+                <td class="center">Check visually all components and frame for any damage and deformation</td>
+                <td class="center">No damage/No deformation / Rectified</td>
+                <td><input type="text" name="rsi1_visual_check" id="rsi1_visual_check"></td>
+                <td><input type="text" name="rsi2_visual_check" id="rsi2_visual_check"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td colspan="4" class="center bold">High voltage reverse current test of each diode (As per SMI-67)</td>
+            </tr>
+            
+            <tr>
+                <td class="center">2</td>
+                <td>a) 650 Volts (for Hind Make RSI) & 700 Volts (for NGEF, AGE, CLW make and Ruttansha Make RSI)</td>
+                <td class="center">15 Milli Amp (Max.)</td>
+                <td><input type="text" name="rsi1_hv_test" id="rsi1_hv_test"></td>
+                <td><input type="text" name="rsi2_hv_test" id="rsi2_hv_test"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">3</td>
+                <td class="center">Tightening of all diodes with torque wrench at 1.5 Kgms</td>
+                <td class="center">Done</td>
+                <td><input type="text" name="rsi1_torque" id="rsi1_torque"></td>
+                <td><input type="text" name="rsi2_torque" id="rsi2_torque"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">4</td>
+                <td colspan="4" class="center bold">Apply AC 400 ± 5 Volt to input and measure equality of distribution voltage across each diode</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2"></td>
+                <td class="center">Measure voltage in each arm at no load</td>
+                <td class="center">280 Volts</td>
+                <td><input type="text" name="rsi1_voltage_arm" id="rsi1_voltage_arm"></td>
+                <td><input type="text" name="rsi2_voltage_arm" id="rsi2_voltage_arm"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">O/P</td>
+                <td class="center">560 V DC</td>
+                <td><input type="text" name="rsi1_output" id="rsi1_output"></td>
+                <td><input type="text" name="rsi2_output" id="rsi2_output"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">5</td>
+                <td colspan="4" class="center bold">Check the resistance of power fuses by Milli Ohm meter</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2"></td>
+                <td>a) 800 V - 500 A fuse (NGEF Make)</td>
+                <td class="center">0.1 to 0.3 m Ω</td>
+                <td><input type="text" name="rsi1_fuse_ngef" id="rsi1_fuse_ngef"></td>
+                <td><input type="text" name="rsi2_fuse_ngef" id="rsi2_fuse_ngef"></td>
+            </tr>
+            
+            <tr>
+                <td>b) 1000 V - 1000 A fuse (Other Than NGEF)</td>
+                <td class="center">0.0952 m Ω</td>
+                <td><input type="text" name="rsi1_fuse_other" id="rsi1_fuse_other"></td>
+                <td><input type="text" name="rsi2_fuse_other" id="rsi2_fuse_other"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">6</td>
+                <td class="center">Check the operation of signal fuse and micro switch</td>
+                <td class="center">Operating properly</td>
+                <td><input type="text" name="rsi1_micro_switch" id="rsi1_micro_switch"></td>
+                <td><input type="text" name="rsi2_micro_switch" id="rsi2_micro_switch"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">7</td>
+                <td class="center">Check the working of MVSI and QVSI by keeping HVSI in all positions</td>
+                <td class="center">Proper</td>
+                <td><input type="text" name="rsi1_mvsi_qvsi" id="rsi1_mvsi_qvsi"></td>
+                <td><input type="text" name="rsi2_mvsi_qvsi" id="rsi2_mvsi_qvsi"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">8</td>
+                <td class="center">Fit the HVSI 1+2 switch in reverse position (Terminal downward)</td>
+                <td class="center">Fitted</td>
+                <td><input type="text" name="rsi1_hvsi_switch" id="rsi1_hvsi_switch"></td>
+                <td><input type="text" name="rsi2_hvsi_switch" id="rsi2_hvsi_switch"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">9</td>
+                <td colspan="4" class="center bold">Measure and record insulation resistance</td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>a) DC surge circuits to each (frame) by 2.5 kV megger</td>
+                <td class="center">10 M Ω (Min.)</td>
+                <td><input type="text" name="rsi1_insulation_dc" id="rsi1_insulation_dc"></td>
+                <td><input type="text" name="rsi2_insulation_dc" id="rsi2_insulation_dc"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>b) 380 V AC circuit terminals meter breaker terminals to frame by 1 kV megger</td>
+                <td class="center">10 M Ω (Min.)</td>
+                <td><input type="text" name="rsi1_insulation_ac" id="rsi1_insulation_ac"></td>
+                <td><input type="text" name="rsi2_insulation_ac" id="rsi2_insulation_ac"></td>
+            </tr>
+        </table>
+        
+        <!-- HV Test Section -->
+        <table>
+            <tr>
+                <td rowspan="10" class="equipment-cell" style="width: 40px;"></td>
+                <td class="center" style="width: 32px;">10</td>
+                <td colspan="4" class="center bold">HV Test to be done</td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>a) DC bus bars to frame</td>
+                <td class="center">1 KV for 1 Min. (withstand)</td>
+                <td><input type="text" name="rsi1_hv_dc_bus" id="rsi1_hv_dc_bus"></td>
+                <td><input type="text" name="rsi2_hv_dc_bus" id="rsi2_hv_dc_bus"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>b) 380 V AC circuit terminals Pacco switch terminal to earth (frame)</td>
+                <td class="center">1 KV for 1 Min. (withstand)</td>
+                <td><input type="text" name="rsi1_hv_ac_circuit" id="rsi1_hv_ac_circuit"></td>
+                <td><input type="text" name="rsi2_hv_ac_circuit" id="rsi2_hv_ac_circuit"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>c) Control 110 V DC Ckt. terminal of Air pressure relay Pacco switch micro switch to frame.</td>
+                <td class="center">1 KV for 1 Min. (withstand)</td>
+                <td><input type="text" name="rsi1_hv_control" id="rsi1_hv_control"></td>
+                <td><input type="text" name="rsi2_hv_control" id="rsi2_hv_control"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">11</td>
+                <td colspan="4" class="center bold">Apply single phase AC supply at input terminal and output Current to be checked</td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td class="center">I/P Current</td>
+                <td class="center">600 -950 Amp</td>
+                <td><input type="text" name="rsi1_input_current" id="rsi1_input_current"></td>
+                <td><input type="text" name="rsi2_input_current" id="rsi2_input_current"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td class="center">Current carried in each diode (4 Bridge)</td>
+                <td class="center">75 - 120 Amp</td>
+                <td><input type="text" name="rsi1_current_4bridge" id="rsi1_current_4bridge"></td>
+                <td><input type="text" name="rsi2_current_4bridge" id="rsi2_current_4bridge"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td class="center">Current carried in each diode (6 Bridge)</td>
+                <td class="center">50 - 65 Amp</td>
+                <td><input type="text" name="rsi1_current_6bridge" id="rsi1_current_6bridge"></td>
+                <td><input type="text" name="rsi2_current_6bridge" id="rsi2_current_6bridge"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td class="center">Current carried in each diode (7 Bridge)</td>
+                <td class="center">40 - 60 Amp</td>
+                <td><input type="text" name="rsi1_current_7bridge" id="rsi1_current_7bridge"></td>
+                <td><input type="text" name="rsi2_current_7bridge" id="rsi2_current_7bridge"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td colspan="4" class="center">Any other remarks - <input type="text" name="rectifier_remarks" id="rectifier_remarks" style="width: 80%;"></td>
+            </tr>
+        </table>
+        
+        <!-- DC Damping Panel Section -->
+        <table>
+            <tr>
+                <td class="header-row" style="width: 40px;">EQPT</td>
+                <td class="header-row" style="width: 32px;">SN</td>
+                <td class="header-row" style="width: 330px;">Check point</td>
+                <td class="header-row" style="width: 118px;">Standard</td>
+                <td class="header-row" style="width: 95px;">RSI-I</td>
+                <td class="header-row" style="width: 96px;">RSI-2</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="9" class="equipment-cell">DC Damping panel</td>
+                <td colspan="3"></td>
+                <td class="center bold">RSI-I</td>
+                <td class="center bold">RSI-2</td>
+            </tr>
+            
+            <tr>
+                <td class="center">12</td>
+                <td class="center">Check the frame and insulated plate for any crack and damage</td>
+                <td class="center">No damage/ Rectified</td>
+                <td><input type="text" name="dc_rsi1_frame_check" id="dc_rsi1_frame_check"></td>
+                <td><input type="text" name="dc_rsi2_frame_check" id="dc_rsi2_frame_check"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">13</td>
+                <td class="center">Replace all insulation damaged cable for perishing or pealing of insulation</td>
+                <td class="center">Replaced</td>
+                <td><input type="text" name="dc_rsi1_cable_replace" id="dc_rsi1_cable_replace"></td>
+                <td><input type="text" name="dc_rsi2_cable_replace" id="dc_rsi2_cable_replace"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">14</td>
+                <td class="center">Check crimping of all lugs by pulling cable moderately</td>
+                <td class="center">Crimped properly</td>
+                <td><input type="text" name="dc_rsi1_crimp_check" id="dc_rsi1_crimp_check"></td>
+                <td><input type="text" name="dc_rsi2_crimp_check" id="dc_rsi2_crimp_check"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">15</td>
+                <td class="center">Check resistance for over discolouration</td>
+                <td class="center">Good</td>
+                <td><input type="text" name="dc_rsi1_resistance_color" id="dc_rsi1_resistance_color"></td>
+                <td><input type="text" name="dc_rsi2_resistance_color" id="dc_rsi2_resistance_color"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">16</td>
+                <td>Check the resistance value of each resistance (50 KΩ, 50W) ( as per std value)</td>
+                <td class="center">47.5 - 52.5 K Ω</td>
+                <td><input type="text" name="dc_rsi1_resistance_50k" id="dc_rsi1_resistance_50k"></td>
+                <td><input type="text" name="dc_rsi2_resistance_50k" id="dc_rsi2_resistance_50k"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">17</td>
+                <td class="center">Check the resistance value of 1 Ω 100 W each ( as per std value)</td>
+                <td class="center">0.095 - 1.05 Ω</td>
+                <td><input type="text" name="dc_rsi1_resistance_1ohm" id="dc_rsi1_resistance_1ohm"></td>
+                <td><input type="text" name="dc_rsi2_resistance_1ohm" id="dc_rsi2_resistance_1ohm"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">18</td>
+                <td class="center">Check the total resistance of 1 Ω resis. (Parallel) ( as per std value)</td>
+                <td class="center">0.47 - 0.53 Ω</td>
+                <td><input type="text" name="dc_rsi1_total_resistance" id="dc_rsi1_total_resistance"></td>
+                <td><input type="text" name="dc_rsi2_total_resistance" id="dc_rsi2_total_resistance"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">19</td>
+                <td class="center">Check the capacitance ( as per SMI-139)</td>
+                <td class="center">25 µf ± 5 %</td>
+                <td><input type="text" name="dc_rsi1_capacitance" id="dc_rsi1_capacitance"></td>
+                <td><input type="text" name="dc_rsi2_capacitance" id="dc_rsi2_capacitance"></td>
+            </tr>
+        </table>
+        
+        <!-- Final DC Damping Panel Checks -->
+        <table>
+            <tr>
+                <td rowspan="3" class="equipment-cell" style="width: 40px;"></td>
+                <td class="center" style="width: 32px;">20</td>
+                <td>Check the tightness of all connection</td>
+                <td class="center">No looseness</td>
+                <td><input type="text" name="dc_rsi1_connection_tight" id="dc_rsi1_connection_tight"></td>
+                <td><input type="text" name="dc_rsi2_connection_tight" id="dc_rsi2_connection_tight"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">21</td>
+                <td>Check the insulation resistance between terminal and frame by 1 KV megger</td>
+                <td class="center">10 MΩ (Min.)</td>
+                <td><input type="text" name="dc_rsi1_insulation_resist" id="dc_rsi1_insulation_resist"></td>
+                <td><input type="text" name="dc_rsi2_insulation_resist" id="dc_rsi2_insulation_resist"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">22</td>
+                <td colspan="4" class="center bold">Any other remarks - <input type="text" name="dc_damping_remarks" id="dc_damping_remarks" style="width: 80%;"></td>
+            </tr>
+        </table>
+        
+        <!-- Modifications Section -->
+        <table>
+            <tr>
+                <td colspan="6" class="section-title">STATUS OF MODIFICATIONS IN POH LOCO (Pertain to Shop-9 /Rectifier Section) -</td>
+            </tr>
+            
+            <tr>
+                <td class="modification-header" style="width: 40px;">SL NO</td>
+                <td colspan="2" class="modification-header">SUBJECTS</td>
+                <td colspan="2" class="modification-header">MODIFICATION NO</td>
+                <td class="modification-header">STATUS (Y/N)</td>
+            </tr>
+            
+            <tr>
+                <td class="center">1</td>
+                <td colspan="2">SILICON RECTIFIER MAINTENANCE CARE OF DIODE 'C' HEAT SINK (RECTIFIER)</td>
+                <td colspan="2">SMI/71 RDSO NO- EL/3.2.2/31/JEC-2 DT.- 20.8.80</td>
+                <td><input type="text" name="mod1_status" id="mod1_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">2</td>
+                <td colspan="2">SILICON RECTIFIER MAINTENCE MOUNTING OF DIODE ON HEATSINK (RECTIFIER )</td>
+                <td colspan="2">SMI / 70 RDSO. NO. EL/3.2.2/31 EC-2 DT.- 20.08.82</td>
+                <td><input type="text" name="mod2_status" id="mod2_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">3</td>
+                <td colspan="2">SILICON RECTIFIER MAINTENANCE DIODE FORWARD VOLTAGE FOR DROP CLASSIFICATION (RECTIFIER)</td>
+                <td colspan="2">SMI / 68 RDSO. NO. EL /3.2.2/51/ EC-2 DT.- 20.8.80</td>
+                <td><input type="text" name="mod3_status" id="mod3_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">4</td>
+                <td colspan="2">SPECIAL MAINTENANCE INSTRUCTION NO. FOR SILICON DIODE TESTING</td>
+                <td colspan="2" class="center">SMI / 67 RDSO NO. EL/3.2.2/51 EC-2 DT.- 16.9.80</td>
+                <td><input type="text" name="mod4_status" id="mod4_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">5</td>
+                <td colspan="2">FAILURE OF CAPACITOR TERMINAL IN SURGE VOLTAGE DAMPING PANELS OF SILICON RECTIFIER CUBICLES ON AC ELECTRIC LOCOMOTIVES</td>
+                <td colspan="2">RDSO'S SMI/142 CIRCULATED VIDE LETTER NO.-EL.3.2.135/ J12 DT.- 13/20.8.92</td>
+                <td><input type="text" name="mod5_status" id="mod5_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">6</td>
+                <td colspan="2" class="center">CHECKING OF CAPACITANCE OF THE CAPACITORS IN AC DAMPING, DC DAMPING AND SNUBBER CIRCUIT OF SILICON RECTIFIERS OF ELECTRIC LOCOMOTIVES</td>
+                <td colspan="2" class="center">SMI/139</td>
+                <td><input type="text" name="mod6_status" id="mod6_status"></td>
+            </tr>
+        </table>
+        
+        <!-- Fire Prevention Measures -->
+        <table>
+            <tr>
+                <td class="modification-header" style="width: 40px;">SL NO</td>
+                <td colspan="4" class="modification-header">FIRE PREVENTIVE MEASURES</td>
+                <td class="modification-header">STATUS</td>
+            </tr>
+            
+            <tr>
+                <td class="center">1</td>
+                <td colspan="4" class="center">Checking and testing of AC/Dc network should be done as per RDSO's SMI no. 230</td>
+                <td><input type="text" name="fire1_status" id="fire1_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">2</td>
+                <td colspan="4" class="center">Condition of capacitors, specially at the terminals should be closely checked to avoid loose connection. Capacitors should be repaced immediately if it develops sign of bulging, flashing etc.</td>
+                <td><input type="text" name="fire2_status" id="fire2_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">3</td>
+                <td colspan="4" class="center">Proper indication fuse should be provided. Shorting by wires should not be allowed.</td>
+                <td><input type="text" name="fire3_status" id="fire3_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">4</td>
+                <td colspan="4" class="center">Faild device of rectifire must be replaced immediately.</td>
+                <td><input type="text" name="fire4_status" id="fire4_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">5</td>
+                <td colspan="4" class="center">Bypassing of QVSI must be prohibited.</td>
+                <td><input type="text" name="fire5_status" id="fire5_status"></td>
+            </tr>
+        </table>
+        
+        <!-- Must Change Items -->
+        <table>
+            <tr>
+                <td colspan="6" class="fire-prevention-header">LIST OF MUST CHANGE ITEMS DURING POH OF RSI AS PER RDSO/2013/EL/TC/0123 REV"0"</td>
+            </tr>
+            
+            <tr>
+                <td class="modification-header" style="width: 40px;">SL NO</td>
+                <td colspan="2" class="modification-header">DESCRIPTION</td>
+                <td colspan="2" class="modification-header">PL NO</td>
+                <td class="modification-header">STATUS (Y/N)</td>
+            </tr>
+            
+            <tr>
+                <td class="center">1</td>
+                <td colspan="2">Micro switch 5A,240 V for rectifiers of Loco</td>
+                <td colspan="2" class="center">2598-8890</td>
+                <td><input type="text" name="item1_status" id="item1_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">2</td>
+                <td colspan="2" class="center">DC damping Panel</td>
+                <td colspan="2" class="center">2579-8078</td>
+                <td><input type="text" name="item2_status" id="item2_status"></td>
+            </tr>
+            
+            <tr>
+                <td class="center">3</td>
+                <td colspan="2" class="center">Capacitor 0.47 mfd 2000V</td>
+                <td colspan="2" class="center">2577-1206</td>
+                <td><input type="text" name="item3_status" id="item3_status"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="button" id="submitBtn" class="btn btn-primary">
+            Save Check Sheet
+        </button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(window.location.href);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Function to get ID from URL path for edit route
+            function getIdFromPath() {
+                const pathParts = window.location.pathname.split('/');
+
+                console.log(pathParts)
+                if (pathParts[2] === 'edit' && pathParts[3]) {
+                    return pathParts[3];
+                }
+                return '';
+            }
+
+             
+            
+            // Function to load check sheet data by ID
+            function loadCheckSheetData(id) {
+                if (!id) return;
+                
+                $.ajax({
+                    url: '/rsi/' + id,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.success) {
+                            // Set the ID in the hidden field
+                            $('#id').val(id);
+                            
+                            // Populate form fields with data
+                            const data = response.data;
+                            for (const key in data) {
+                                if (data.hasOwnProperty(key) && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') {
+                                    const element = $('#' + key);
+                                    if (element.length) {
+                                        element.val(data[key]);
+                                    }
+                                }
+                            }
+                        } else {
+                            alert('Error loading check sheet data: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error loading check sheet data: ' + error);
+                    }
+                });
+            }
+            
+            // Get ID from URL (either as parameter or from path)
+            const checkSheetId = getIdFromPath() || getUrlParameter('id');
+            if (checkSheetId) {
+                loadCheckSheetData(checkSheetId);
+            }
+            
+            // Handle form submission
+            $('#submitBtn').on('click', function() {
+                // Collect all form data
+                var formData = {};
+                $('input[type="text"]').each(function() {
+                    formData[$(this).attr('name')] = $(this).val();
+                });
+
+                console.log(formData)
+                
+                // Get the ID value to determine if we're adding or editing
+                var id = $('#id').val();
+                
+                var url = '/rsi/add';
+                var method = 'POST';
+                
+                if (id && id !== '') {
+                    url = '/rsi/edit/' + id;
+                }
+                
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // If this is a new record, save the ID for future edits
+                            if (response.id && !id) {
+                                $('#id').val(response.id);
+                            }
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error submitting form: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Custom App Script -->
+    <script src="/app.js"></script>
+</body>
+</html>
